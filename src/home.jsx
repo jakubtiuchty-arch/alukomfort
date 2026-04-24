@@ -19,10 +19,10 @@ function Home({ onNavigate, onQuote }) {
         />
         <div className="hero__scrim" />
         <div className="container hero__inner">
-          <div className="hero__content" style={{maxWidth: 640}}>
+          <div className="hero__content hero__content--wide">
             <div className="hero__eyebrow">ALUKOMFORT · ZADASZENIA ALUMINIOWE</div>
-            <h1 className="hero__title" style={{fontSize: 84}}>Zadaszenia, które<br/>zmieniają dom.</h1>
-            <p className="hero__sub" style={{fontSize: 17, maxWidth: 520}}>
+            <h1 className="hero__title hero__title--xl">Zadaszenia, które<br/>zmieniają dom.</h1>
+            <p className="hero__sub">
               Projektujemy i produkujemy aluminiowe pergole, zadaszenia tarasów i carporty.
               Trzy systemy — LINEA, HORIZON i ROMA — dopasowane do architektury Twojego domu.
             </p>
