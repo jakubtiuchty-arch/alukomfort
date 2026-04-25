@@ -32,6 +32,8 @@ function App() {
   let page;
   if (route.startsWith('/kontakt')) {
     page = <PageContact onQuote={openQuote} />;
+  } else if (route.startsWith('/dane-od-klienta')) {
+    page = <ClientDataPage onNavigate={navigate} />;
   } else if (route === '/' || route === '' || route.startsWith('/inspiracje') || route.startsWith('/o-nas') || route.startsWith('/realizacje') || route.startsWith('/dlaczego')) {
     page = <Home onNavigate={navigate} onQuote={openQuote} />;
   } else if (route.startsWith('/produkty/linea')) {

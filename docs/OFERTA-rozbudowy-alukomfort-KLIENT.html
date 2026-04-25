@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<title>Plan rozbudowy strony ALUKOMFORT — propozycja dla PLAST-MET</title>
+<style>
+  @page { size: A4; margin: 18mm 18mm 22mm 18mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    color: #1a1a1a;
+    line-height: 1.6;
+    font-size: 11pt;
+    margin: 0;
+  }
+  h1 { font-size: 28pt; font-weight: 800; margin: 0 0 10pt; letter-spacing: -0.02em; line-height: 1.05; }
+  h2 { font-size: 20pt; font-weight: 800; margin: 32pt 0 12pt; letter-spacing: -0.01em; padding-bottom: 8pt; border-bottom: 3pt solid #d4a017; page-break-after: avoid; color: #1a1a1a; }
+  h3 { font-size: 14pt; font-weight: 700; margin: 22pt 0 8pt; color: #1a1a1a; page-break-after: avoid; }
+  h4 { font-size: 12pt; font-weight: 700; margin: 14pt 0 6pt; color: #333; page-break-after: avoid; }
+  p { margin: 0 0 10pt; }
+  ul, ol { margin: 6pt 0 12pt; padding-left: 20pt; }
+  li { margin: 0 0 5pt; }
+  strong { color: #000; font-weight: 700; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10pt 0 16pt; font-size: 10pt; page-break-inside: avoid; }
+  th, td { padding: 7pt 10pt; text-align: left; vertical-align: top; border-bottom: 0.5pt solid #ccc; }
+  th { background: #f3f3f1; font-weight: 700; border-bottom: 1.5pt solid #1a1a1a; color: #1a1a1a; }
+  tr:nth-child(even) { background: #fafaf8; }
+  td.center, th.center { text-align: center; }
+  td.right, th.right { text-align: right; }
+
+  /* COVER */
+  .cover {
+    padding: 50pt 0 50pt;
+    margin-bottom: 30pt;
+    page-break-after: always;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #fff;
+    margin: -18mm -18mm 0 -18mm;
+    padding: 80pt 40pt;
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cover .top { }
+  .cover .eyebrow { font-size: 11pt; letter-spacing: 0.22em; text-transform: uppercase; color: #d4a017; font-weight: 700; margin-bottom: 18pt; }
+  .cover h1 { font-size: 42pt; line-height: 1.05; margin-bottom: 22pt; color: #fff; }
+  .cover .lede { font-size: 14pt; color: rgba(255,255,255,0.85); max-width: 460pt; line-height: 1.55; }
+  .cover .meta { font-size: 11pt; color: rgba(255,255,255,0.7); margin-top: 36pt; }
+  .cover .meta strong { color: #fff; font-weight: 600; }
+  .cover .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20pt; margin-top: 24pt; }
+
+  /* TOC */
+  .toc { page-break-after: always; }
+  .toc ol { padding-left: 20pt; font-size: 11pt; }
+  .toc ol > li { margin-bottom: 8pt; font-weight: 700; }
+  .toc ol ol { margin-top: 4pt; padding-left: 16pt; font-size: 10pt; }
+  .toc ol ol > li { font-weight: 400; color: #555; margin-bottom: 3pt; }
+
+  .lead {
+    font-size: 13pt;
+    color: #444;
+    line-height: 1.55;
+    margin: 0 0 18pt;
+    padding-bottom: 14pt;
+    border-bottom: 0.5pt solid #ddd;
+  }
+
+  /* CALLOUTS */
+  .callout {
+    background: #fff8e1;
+    border-left: 4pt solid #d4a017;
+    padding: 14pt 18pt;
+    margin: 16pt 0;
+    page-break-inside: avoid;
+  }
+  .callout strong { color: #1a1a1a; }
+  .callout-success { background: #e8f5e9; border-left-color: #2f6b3b; }
+  .callout-info { background: #e3f2fd; border-left-color: #1565c0; }
+  .callout-warn { background: #ffebee; border-left-color: #b53232; }
+
+  /* PHASE CARD */
+  .phase {
+    background: #fafaf8;
+    border: 1pt solid #e0e0e0;
+    border-left: 4pt solid #d4a017;
+    padding: 16pt 20pt;
+    margin: 14pt 0 18pt;
+    page-break-inside: avoid;
+  }
+  .phase__header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10pt; }
+  .phase__name { font-size: 14pt; font-weight: 800; color: #1a1a1a; }
+  .phase__time { font-size: 10pt; color: #666; font-weight: 600; }
+  .phase__goal { font-size: 11pt; color: #555; margin-bottom: 10pt; font-style: italic; }
+  .phase ul { margin: 6pt 0 4pt; padding-left: 18pt; font-size: 10.5pt; }
+  .phase li { margin-bottom: 4pt; }
+
+  /* CHECKLIST */
+  .checklist {
+    list-style: none;
+    padding-left: 0;
+    margin: 8pt 0 14pt;
+  }
+  .checklist li {
+    padding: 8pt 0 8pt 22pt;
+    border-bottom: 0.5pt dashed #ddd;
+    position: relative;
+    font-size: 10.5pt;
+  }
+  .checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    top: 7pt;
+    font-size: 14pt;
+    color: #d4a017;
+  }
+  .checklist li:last-child { border-bottom: 0; }
+  .checklist li strong { color: #1a1a1a; }
+  .checklist li .why { display: block; font-size: 9.5pt; color: #777; margin-top: 3pt; font-style: italic; }
+
+  /* PRICING / TIMELINE */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10pt;
+    margin: 16pt 0;
+  }
+  .timeline__col {
+    padding: 14pt 10pt;
+    background: #fafaf8;
+    border: 0.5pt solid #ddd;
+    text-align: center;
+    border-top: 4pt solid #d4a017;
+  }
+  .timeline__num { font-size: 20pt; font-weight: 800; color: #1a1a1a; line-height: 1; }
+  .timeline__lab { font-size: 9.5pt; color: #555; margin-top: 6pt; line-height: 1.3; }
+  .timeline__time { font-size: 8.5pt; color: #888; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4pt; }
+
+  .footer-note {
+    font-size: 9pt;
+    color: #888;
+    margin-top: 36pt;
+    padding-top: 14pt;
+    border-top: 0.5pt solid #ddd;
+    text-align: center;
+  }
+
+  /* COMPETITION TABLE */
+  .comp-table th { background: #1a1a1a; color: #fff; }
+  .comp-table .yes { color: #2f6b3b; font-weight: 700; }
+  .comp-table .no { color: #b53232; font-weight: 700; }
+
+  .signature-block {
+    margin-top: 40pt;
+    padding-top: 20pt;
+    border-top: 1pt solid #1a1a1a;
+    page-break-inside: avoid;
+  }
+  .signature-block .label { font-size: 10pt; color: #666; margin-bottom: 4pt; }
+  .signature-block .name { font-size: 13pt; font-weight: 700; color: #1a1a1a; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="top">
+    <div class="eyebrow">Propozycja rozwoju serwisu</div>
+    <h1>Plan rozbudowy strony<br/>ALUKOMFORT</h1>
+    <p class="lede">
+      Strategia rozwoju serwisu o zasięg ogólnopolski i pozycję lidera SEO na Dolnym Śląsku.
+      Plan w 5 etapach na podstawie pełnego audytu 15 firm konkurencyjnych
+      oraz analizy zachowań osób szukających pergoli w Google, ChatGPT i Perplexity.
+    </p>
+  </div>
+  <div class="meta">
+    <div class="meta-grid">
+      <div>
+        <p><strong>Klient</strong></p>
+        <p>PLAST-MET Sp. z o.o. Sp. k.<br/>ul. Milicka 34, 55-100 Trzebnica</p>
+      </div>
+      <div>
+        <p><strong>Marka</strong></p>
+        <p>ALUKOMFORT — pergole aluminiowe<br/>LINEA · HORIZON · ROMA</p>
+      </div>
+      <div>
+        <p><strong>Data</strong></p>
+        <p>25 kwietnia 2026</p>
+      </div>
+      <div>
+        <p><strong>Wersja dokumentu</strong></p>
+        <p>1.0 — propozycja do akceptacji</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOC -->
+<section class="toc">
+  <h2>Spis treści</h2>
+  <ol>
+    <li>Streszczenie wykonawcze</li>
+    <li>Diagnoza obecnego stanu
+      <ol>
+        <li>Co już działa</li>
+        <li>Czego brakuje względem konkurencji</li>
+        <li>Luki rynkowe — szanse na przewagę</li>
+      </ol>
+    </li>
+    <li>Strategia
+      <ol>
+        <li>Cele biznesowe</li>
+        <li>Wnioski z analizy słów kluczowych</li>
+      </ol>
+    </li>
+    <li>Plan w 5 etapach
+      <ol>
+        <li>Etap 1 — Fundamenty SEO i AI (1-2 dni)</li>
+        <li>Etap 2 — Treści (1 tydzień)</li>
+        <li>Etap 3 — SEO lokalne (1-2 tygodnie)</li>
+        <li>Etap 4 — Realizacje i zaufanie (2 tygodnie)</li>
+        <li>Etap 5 — Narzędzia zaawansowane (1-2 miesiące)</li>
+      </ol>
+    </li>
+    <li>Czego potrzebujemy od Państwa</li>
+    <li>Harmonogram i inwestycja</li>
+    <li>Następne kroki</li>
+  </ol>
+</section>
+
+<!-- 1. STRESZCZENIE -->
+<h2>1. Streszczenie wykonawcze</h2>
+<p class="lead">
+  Strona ALUKOMFORT po stronie produktów (LINEA, HORIZON, ROMA) ma już solidne fundamenty.
+  Brakuje jednak kluczowych elementów, które ma <strong>90% konkurencji z Dolnego Śląska</strong>:
+  galerii realizacji, sekcji „O nas", strony z cennikiem, lokalnych podstron dla miast,
+  bloga, FAQ i wyraźnej oferty „wycena w 24h".
+</p>
+
+<p>Proponujemy <strong>plan w 5 etapach</strong>, realizowany w ciągu 3-4 miesięcy.
+Pierwszy etap (1-2 dni) zamyka najbardziej krytyczne braki SEO i widoczności w AI search
+(ChatGPT, Perplexity). Końcowy etap to <strong>konfigurator 3D pergoli</strong> — żaden
+z 15 przeanalizowanych konkurentów nie ma realnego konfiguratora, więc inwestycja w niego
+da Państwu <strong>12-18 miesięcy monopolu</strong> na rynku.</p>
+
+<div class="callout callout-success">
+  <strong>Główna szansa rynkowa:</strong> tylko <strong>1 z 15 konkurentów (Perfecta Home, Wrocław)</strong>
+  publikuje twarde ceny. Pozostali ukrywają cenę za formularzem „zapytaj o wycenę".
+  ALUKOMFORT może wygrać znaczącą część rynku, oferując po prostu <strong>publiczny cennik z widełkami</strong>
+  i kalkulator cen. To nie wymaga technologii — wymaga decyzji marketingowej i danych cenowych od Państwa.
+</div>
+
+<!-- 2. DIAGNOZA -->
+<h2>2. Diagnoza obecnego stanu</h2>
+
+<h3>2.1. Co już działa</h3>
+<ul>
+  <li>Profesjonalne karty produktów LINEA, HORIZON i ROMA z pełną zawartością z ulotek targowych 2026</li>
+  <li>Filmy w nagłówkach stron produktów</li>
+  <li>Responsywność mobilna (menu hamburger, układy dostosowane do telefonów)</li>
+  <li>Logo PLAST-MET ALUKOMFORT widoczne w nagłówku</li>
+  <li>Galeria kolorów (podstawowe RAL + premium drewnopodobne)</li>
+  <li>Informacje o certyfikacie TÜV NORD</li>
+  <li>Trzy wizualizacje konstrukcji ROMA pokazujące szczegóły techniczne</li>
+</ul>
+
+<h3>2.2. Czego brakuje względem konkurencji</h3>
+<p>Przeanalizowaliśmy 15 firm produkujących i montujących pergole na Dolnym Śląsku.
+Oto czego standardowo używają konkurenci, a czego nie ma jeszcze ALUKOMFORT:</p>
+
+<table class="comp-table">
+  <thead>
+    <tr>
+      <th>Element strony</th>
+      <th class="center">Procent konkurencji</th>
+      <th class="center">ALUKOMFORT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Galeria realizacji ze zdjęciami</td><td class="center">~90%</td><td class="center no">brak</td></tr>
+    <tr><td>Telefon widoczny w nagłówku</td><td class="center">100%</td><td class="center no">brak</td></tr>
+    <tr><td>Sekcja „O nas" / historia firmy</td><td class="center">100%</td><td class="center no">brak</td></tr>
+    <tr><td>Strony lokalne („Pergole Wrocław"…)</td><td class="center">~80%</td><td class="center no">brak</td></tr>
+    <tr><td>Liczbowe USP („30 lat", „1000+ realizacji")</td><td class="center">~85%</td><td class="center no">brak</td></tr>
+    <tr><td>Formularz „Wycena w 24h"</td><td class="center">~95%</td><td class="center no">słabo eksponowany</td></tr>
+    <tr><td>Opinie Google z gwiazdkami</td><td class="center">~60%</td><td class="center no">brak</td></tr>
+    <tr><td>Blog / poradniki</td><td class="center">~50%</td><td class="center no">brak</td></tr>
+    <tr><td>Sekcja FAQ</td><td class="center">~40%</td><td class="center no">brak</td></tr>
+    <tr><td>Filmy z montażu (YouTube)</td><td class="center">~30%</td><td class="center no">brak</td></tr>
+    <tr><td>Sekcja „Proces krok po kroku"</td><td class="center">~30%</td><td class="center no">brak</td></tr>
+    <tr><td>Cennik / widełki cenowe</td><td class="center">~15%</td><td class="center no">brak</td></tr>
+    <tr><td>Konfigurator pergoli</td><td class="center">~10% (nikt realny)</td><td class="center no">brak</td></tr>
+    <tr><td>Finansowanie / leasing</td><td class="center">~20%</td><td class="center no">brak</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-warn">
+  <strong>Wniosek kluczowy:</strong> ALUKOMFORT jest na ostatnim miejscu w niemal każdym kryterium
+  obecności online, mimo że ma <strong>najlepszego producenta w regionie</strong>
+  (PLAST-MET, 30+ lat doświadczenia, certyfikat TÜV NORD). Strona traci leady, nie produkt.
+</div>
+
+<h3>2.3. Luki rynkowe — szanse na przewagę</h3>
+<p>Każda z poniższych luk to obszar, gdzie konkurencja jest słaba lub jej w ogóle nie ma:</p>
+<ol>
+  <li><strong>Twardy cennik widełkowy</strong> — tylko Perfecta Home publikuje konkretne ceny.
+    Klienci masowo szukają „ile kosztuje pergola 4×3" — i nie znajdują odpowiedzi nigdzie.</li>
+  <li><strong>Konfigurator 3D drag-and-drop</strong> — żadna z 15 firm nie ma realnego konfiguratora.
+    Pierwszy gracz na rynku zyska 12-18 miesięcy monopolu.</li>
+  <li><strong>Strony lokalne dla mniejszych miast</strong> — większość firm ma tylko „Pergole Wrocław".
+    Trzebnica, Środa Śląska, Oleśnica, Strzelin — tam nikt nie walczy o Google.</li>
+  <li><strong>Narracja „producent vs pośrednik"</strong> — wiele firm to dystrybutorzy belgijskich
+    czy włoskich marek (Renson, Skylux, Stobag). Państwo macie własną fabrykę 50 km od Wrocławia.
+    To unikalna pozycja: niższe ceny, kontrola jakości, krótszy czas dostawy.</li>
+  <li><strong>Realne case studies z liczbami</strong> — wszyscy mają zdjęcia, ale nikt nie
+    pokazuje „Realizacja Wrocław Karłowice, pergola 4×6 m, montaż 2 dni, klient: rodzina X".</li>
+  <li><strong>Finansowanie i leasing</strong> — pergole 30-100 tys. zł to naturalna oferta leasingowa.
+    Tylko 1 firma o tym wspomina.</li>
+  <li><strong>Sekcja dla architektów i B2B</strong> — restauracje, hotele, beach bary.
+    Tylko jedna firma to ma. To wysoka wartość zamówień.</li>
+</ol>
+
+<!-- 3. STRATEGIA -->
+<h2>3. Strategia</h2>
+
+<h3>3.1. Cele biznesowe</h3>
+<table>
+  <thead><tr><th>Horyzont</th><th>Cel</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Krótki (3 mies.)</strong></td>
+      <td>+50-100% leadów z formularza wyceny. Pierwsze miejsce w Google dla „pergole Trzebnica" + min. 5 innych miast.</td>
+    </tr>
+    <tr>
+      <td><strong>Średni (6 mies.)</strong></td>
+      <td>Top 3 dla „pergole Wrocław". Widoczność marki w AI search — ChatGPT i Perplexity wymieniają ALUKOMFORT przy pytaniach o pergole na Dolnym Śląsku.</td>
+    </tr>
+    <tr>
+      <td><strong>Długi (12 mies.)</strong></td>
+      <td>Top 3 dla 50+ fraz lokalnych. Stały strumień zapytań B2B (restauracje, hotele). Wprowadzony konfigurator 3D — monopol rynkowy.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>3.2. Wnioski z analizy słów kluczowych</h3>
+<p>Przeanalizowaliśmy, czego ludzie szukają w Google, ChatGPT i Perplexity w temacie pergoli.
+Oto 10 najlepszych fraz dla ALUKOMFORT — tych, które łączą wysoki popyt
+z realną szansą na wysokie pozycje:</p>
+
+<table>
+  <thead><tr><th class="center">#</th><th>Fraza wyszukiwania</th><th>Typ klienta</th><th class="center">Popyt</th></tr></thead>
+  <tbody>
+    <tr><td class="center">1</td><td>„pergole Wrocław"</td><td>klient lokalny</td><td class="center">wysoki</td></tr>
+    <tr><td class="center">2</td><td>„pergola aluminiowa Wrocław"</td><td>kupujący lokalnie</td><td class="center">wysoki</td></tr>
+    <tr><td class="center">3</td><td>„pergola bioklimatyczna cena"</td><td>kupujący w fazie decyzji</td><td class="center">wysoki</td></tr>
+    <tr><td class="center">4</td><td>„producent pergoli aluminiowych"</td><td>kupujący szuka producenta</td><td class="center">średni</td></tr>
+    <tr><td class="center">5</td><td>„pergola aluminiowa 4×3 cena"</td><td>kupujący gotowy</td><td class="center">wysoki</td></tr>
+    <tr><td class="center">6</td><td>„ile kosztuje pergola bioklimatyczna"</td><td>research / pytanie do AI</td><td class="center">wysoki</td></tr>
+    <tr><td class="center">7</td><td>„pergola aluminiowa czy drewniana"</td><td>research</td><td class="center">wysoki</td></tr>
+    <tr><td class="center">8</td><td>„producent pergoli Dolny Śląsk"</td><td>klient regionalny</td><td class="center">średni</td></tr>
+    <tr><td class="center">9</td><td>„pergola na ogródek restauracyjny"</td><td>klient B2B (HoReCa)</td><td class="center">średni</td></tr>
+    <tr><td class="center">10</td><td>„czy pergola wymaga pozwolenia na budowę"</td><td>pierwszy kontakt z tematem</td><td class="center">wysoki</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-info">
+  <strong>Co to znaczy w praktyce:</strong> 6 z 10 najważniejszych fraz to <strong>pytania o cenę</strong>
+  („ile kosztuje", „pergola 4×3 cena", „pergola bioklimatyczna cena"). Bez strony z cennikiem
+  ALUKOMFORT nie będzie pojawiać się w odpowiedziach Google ani AI. To kluczowy element planu.
+</div>
+
+<!-- 4. PLAN -->
+<h2>4. Plan w 5 etapach</h2>
+
+<div class="phase">
+  <div class="phase__header">
+    <span class="phase__name">Etap 1 — Fundamenty SEO i AI</span>
+    <span class="phase__time">1-2 dni roboczych</span>
+  </div>
+  <p class="phase__goal">Cel: minimalna techniczna baza, którą Google i ChatGPT muszą widzieć, żeby w ogóle wymieniać ALUKOMFORT.</p>
+  <ul>
+    <li>Telefon klikalny w nagłówku (mobile +20-40% kliknięć)</li>
+    <li>Pasek z 4 atutami pod nagłówkiem (30+ lat / TÜV NORD / 60 mies. gwarancji / wycena 24h) — <strong>już wdrożone</strong></li>
+    <li>Sticky CTA „Wycena 24h" na telefonach (oczekiwany wzrost konwersji +30-50%)</li>
+    <li>Plik <code>llms.txt</code> dla AI scraperów (ChatGPT, Perplexity) — <strong>już wdrożone</strong></li>
+    <li>Mapa strony i robots.txt — <strong>już wdrożone</strong></li>
+    <li>Schema markup (LocalBusiness, Product) — strukturalne dane dla Google — <strong>już wdrożone</strong></li>
+    <li>Unikalne tytuły i opisy każdej strony pod kątem SEO — <strong>już wdrożone</strong></li>
+    <li>Aktywacja linków „O nas", „Realizacje", „Inspiracje", „Dlaczego aluminium" (tymczasowe strony przejściowe)</li>
+  </ul>
+</div>
+
+<div class="phase">
+  <div class="phase__header">
+    <span class="phase__name">Etap 2 — Treści</span>
+    <span class="phase__time">1 tydzień</span>
+  </div>
+  <p class="phase__goal">Cel: zbudować autorytet i odpowiedzieć na pytania, które klienci wpisują w Google.</p>
+  <ul>
+    <li><strong>Strona „O nas"</strong> — historia PLAST-MET, fabryka w Trzebnicy, zdjęcia, mapa, narracja „producent z 30+ letnim doświadczeniem"</li>
+    <li><strong>Strona „Cennik pergoli 2026"</strong> z widełkami cen (3 produkty × 6 wymiarów = 18 cen)</li>
+    <li><strong>Strona „FAQ"</strong> z 20-25 pytaniami w 5 kategoriach (zakup, prawo, technika, eksploatacja, gwarancja)</li>
+    <li><strong>Strona „Dlaczego aluminium"</strong> — porównanie z drewnem i stalą, łapie zapytania edukacyjne</li>
+    <li><strong>Strona „Kontakt"</strong> rozbudowana o mapę Google, godziny, formularz inline</li>
+    <li>Sekcja „Proces krok po kroku" na stronie głównej (5 kroków od wyceny do montażu)</li>
+    <li>Sekcja „Opinie klientów" na stronie głównej</li>
+    <li>Galeria inspiracji — 30-50 zdjęć w 4 kategoriach (taras, restauracja, hotel, carport)</li>
+    <li>Polityka prywatności + cookies banner (zgodność RODO)</li>
+  </ul>
+</div>
+
+<div class="phase">
+  <div class="phase__header">
+    <span class="phase__name">Etap 3 — SEO lokalne</span>
+    <span class="phase__time">1-2 tygodnie</span>
+  </div>
+  <p class="phase__goal">Cel: dominacja Google dla każdego miasta na Dolnym Śląsku.</p>
+  <ul>
+    <li><strong>12 dedykowanych stron lokalnych</strong>: Wrocław, Wałbrzych, Legnica, Jelenia Góra, Świdnica, Lubin, Głogów, Bolesławiec, Oleśnica, Trzebnica, Środa Śląska, Strzelin</li>
+    <li>Strona „Pergole Dolny Śląsk" jako hub regionalny z mapą</li>
+    <li>Profil Google Business — założenie i optymalizacja</li>
+    <li>Google Search Console + Google Analytics 4 — mierzenie efektów</li>
+    <li>Optymalizacja obrazów (WebP) — szybsze ładowanie, lepsza pozycja w Google</li>
+    <li>FAQ na każdej stronie produktu</li>
+    <li>Migracja na „ładne" adresy URL (np. <code>/produkty/linea</code> zamiast <code>/#/produkty/linea</code>)</li>
+  </ul>
+</div>
+
+<div class="phase">
+  <div class="phase__header">
+    <span class="phase__name">Etap 4 — Realizacje i zaufanie</span>
+    <span class="phase__time">2 tygodnie</span>
+  </div>
+  <p class="phase__goal">Cel: pokazać, że ALUKOMFORT jest aktywnym, doświadczonym producentem z setkami realizacji.</p>
+  <ul>
+    <li><strong>Galeria realizacji</strong> — 20-50 projektów z filtrami (produkt, miasto, typ obiektu)</li>
+    <li>Indywidualne strony case studies — opis wyzwania, rozwiązania, parametry, cytaty klientów</li>
+    <li>Sekcja „Wybrane realizacje" na stronie głównej</li>
+    <li>Sekcja „Realizacje" na każdej stronie produktu</li>
+    <li><strong>Blog</strong> z pierwszymi 5 artykułami:
+      <ul>
+        <li>„Pergola aluminiowa vs drewniana — 7 różnic"</li>
+        <li>„Ile kosztuje pergola aluminiowa w Polsce w 2026"</li>
+        <li>„Czy pergola wymaga pozwolenia na budowę?"</li>
+        <li>„Pergola na ogródek restauracyjny — przewodnik HoReCa"</li>
+        <li>„LINEA, HORIZON, ROMA — który wybrać?"</li>
+      </ul>
+    </li>
+    <li><strong>4 filmy YouTube</strong>: prezentacja firmy, timelapse montażu, case study, sterowanie aplikacją</li>
+    <li>Widget Google Reviews na żywo</li>
+    <li>Sekcja „Dla architektów" (B2B) z plikami DWG do pobrania</li>
+    <li>Newsletter z cennikiem PDF jako lead magnet</li>
+  </ul>
+</div>
+
+<div class="phase">
+  <div class="phase__header">
+    <span class="phase__name">Etap 5 — Narzędzia zaawansowane</span>
+    <span class="phase__time">1-2 miesiące</span>
+  </div>
+  <p class="phase__goal">Cel: stworzyć przewagę technologiczną, której nikt z konkurencji nie ma.</p>
+  <ul>
+    <li><strong>Kalkulator cen</strong> — wizard 5 kroków z natychmiastową wyceną widełkową</li>
+    <li><strong>Konfigurator 3D drag-and-drop</strong> — pergola na modelu domu, zmiana koloru i wymiarów w czasie rzeczywistym, eksport PDF z konfiguracją</li>
+    <li>Integracja z systemem CRM (HubSpot lub Pipedrive) — automatyzacja obsługi leadów</li>
+    <li>Calendly — kalendarz online do umawiania wizyt pomiarowych</li>
+    <li><strong>Finansowanie / leasing pergoli</strong> — partnerstwo z firmą leasingową, kalkulator rat</li>
+    <li>Demo aplikacji SOMFY z animacją (smart home)</li>
+    <li>A/B testing — ciągła optymalizacja konwersji</li>
+  </ul>
+</div>
+
+<!-- 5. CZEGO POTRZEBUJEMY -->
+<h2>5. Czego potrzebujemy od Państwa</h2>
+<p>Aby plan ruszył, prosimy o przygotowanie poniższych informacji i materiałów.
+Sekcja podzielona na trzy grupy według pilności:</p>
+
+<h3>Grupa A — Krytyczne (potrzebne do startu Etapu 1-2)</h3>
+<ul class="checklist">
+  <li>
+    <strong>Numer telefonu kontaktowego</strong> (1 lub 2 numery — sprzedaż + serwis)
+    <span class="why">Pojawi się w nagłówku, w stopce i w sticky pasku na telefonach.</span>
+  </li>
+  <li>
+    <strong>Adres e-mail biura</strong>
+    <span class="why">Do formularzy kontaktowych i schema markup dla Google.</span>
+  </li>
+  <li>
+    <strong>NIP, REGON, KRS PLAST-MET</strong>
+    <span class="why">Do strukturalnych danych dla Google (Organization schema) i stopki.</span>
+  </li>
+  <li>
+    <strong>Treść historii firmy</strong> — krótki tekst (600-1000 słów) lub wywiad z właścicielem
+    <span class="why">Sekcja „O nas". Może być w formie „my piszemy, Państwo akceptują" — wystarczą fakty: rok założenia, ewolucja, rok premiery marki ALUKOMFORT, liczba pracowników, kraje eksportu.</span>
+  </li>
+  <li>
+    <strong>6 zdjęć z fabryki w Trzebnicy</strong> (hala produkcyjna, zespół, maszyny, finalne produkty)
+    <span class="why">Galeria na stronie „O nas". Mogą być telefonem — ważna autentyczność, nie studio.</span>
+  </li>
+  <li>
+    <strong>Widełki cenowe per produkt × wymiar — minimum 18 cen</strong> (3 produkty × 6 rozmiarów: 3×3, 4×3, 4×4, 5×4, 6×3, 6×4 m)
+    <span class="why">KRYTYCZNE dla strony „Cennik 2026" i kalkulatora. Może być w formacie „LINEA 4×3: od 18 000 do 25 000 zł brutto z montażem". Bez tego ta strona nie powstanie, a to największa luka konkurencyjna do wykorzystania.</span>
+  </li>
+  <li>
+    <strong>Cennik akcesoriów</strong> — orientacyjne ceny (LED, automatyka SOMFY, ściany screen, szkło ESG, kolor premium)
+    <span class="why">Do tabeli „Co podnosi cenę?" i kalkulatora.</span>
+  </li>
+  <li>
+    <strong>Dostęp do konta Google PLAST-MET</strong> (lub utworzenie nowego dla domeny alukomfort.pl)
+    <span class="why">Do założenia Google Search Console, Google Analytics 4, Google Business Profile.</span>
+  </li>
+  <li>
+    <strong>Treść polityki prywatności</strong> — istniejący dokument lub akceptacja standardowego szablonu RODO
+    <span class="why">Wymagane prawnie do zgodności RODO. Standardowy szablon możemy przygotować.</span>
+  </li>
+</ul>
+
+<h3>Grupa B — Ważne (potrzebne do Etapu 3-4)</h3>
+<ul class="checklist">
+  <li>
+    <strong>Zdjęcia 20-50 realizacji</strong> — po 4-8 zdjęć każda, z lokalizacją (miasto), wymiarami i parametrami
+    <span class="why">Galeria na stronie „Realizacje" + indywidualne case studies. To największa praca, ale też największy wzrost zaufania klientów. Można podzielić na partie po 5 realizacji co tydzień.</span>
+  </li>
+  <li>
+    <strong>5-10 opinii klientów</strong> z imieniem, miastem i pisemną zgodą na publikację
+    <span class="why">Sekcja „Opinie" na stronie głównej. Później Google Reviews zastąpi to automatycznie.</span>
+  </li>
+  <li>
+    <strong>Założenie / weryfikacja Google Business Profile</strong> dla ALUKOMFORT
+    <span class="why">Wymaga otrzymania kartki pocztowej z kodem od Google (~14 dni). Im szybciej zostanie złożony wniosek, tym lepiej.</span>
+  </li>
+  <li>
+    <strong>Lista miast priorytetowych do SEO lokalnego</strong> — potwierdzenie naszej propozycji 12 miast Dolnego Śląska
+    <span class="why">Decyzja: czy chcemy też miasta poza Dolnym Śląskiem? (np. Poznań, Łódź, Warszawa, Kraków).</span>
+  </li>
+  <li>
+    <strong>Konto YouTube</strong> + decyzja o budżecie produkcji 4 filmów (ok. 10-25 tys. zł zewnętrzna ekipa)
+    <span class="why">Możemy też zacząć od 1 filmu „ALUKOMFORT w 90 sekund" jako pilot.</span>
+  </li>
+  <li>
+    <strong>Pliki techniczne CAD (DWG/DXF)</strong> profili LINEA, HORIZON, ROMA
+    <span class="why">Do strony „Dla architektów" — pobierane po zostawieniu maila (lead magnet B2B).</span>
+  </li>
+</ul>
+
+<h3>Grupa C — Pożądane (Etap 5)</h3>
+<ul class="checklist">
+  <li>
+    <strong>Wybór systemu CRM</strong> (rekomendacja: HubSpot Free lub Pipedrive)
+    <span class="why">Do automatyzacji obsługi leadów z formularzy. Bez CRM trzeba ręcznie obsługiwać każde zapytanie.</span>
+  </li>
+  <li>
+    <strong>Umowa z firmą leasingową</strong> (rekomendacja: EFL, Idea Leasing, Comp)
+    <span class="why">Do oferty „pergola na raty od 800 zł/mies" — odblokowuje klientów bez gotówki na pełną kwotę.</span>
+  </li>
+  <li>
+    <strong>Dostęp do danych z systemu ERP</strong>
+    <span class="why">Do aplikacji „śledzenie zamówienia" — opcjonalna, ale podnosi zadowolenie klientów.</span>
+  </li>
+  <li>
+    <strong>Dane do konta Mailchimp lub Brevo</strong>
+    <span class="why">Newsletter z cennikiem PDF jako lead magnet.</span>
+  </li>
+  <li>
+    <strong>Konto Calendly</strong> + kalendarze handlowców
+    <span class="why">Klienci sami umawiają wizyty pomiarowe online — oszczędność czasu telefonicznego.</span>
+  </li>
+</ul>
+
+<!-- 6. HARMONOGRAM -->
+<h2>6. Harmonogram i inwestycja</h2>
+
+<h3>6.1. Harmonogram pracy</h3>
+<div class="timeline">
+  <div class="timeline__col">
+    <div class="timeline__num">1-2</div>
+    <div class="timeline__lab">Etap 1<br/>Fundamenty SEO/AI</div>
+    <div class="timeline__time">DNI</div>
+  </div>
+  <div class="timeline__col">
+    <div class="timeline__num">1</div>
+    <div class="timeline__lab">Etap 2<br/>Treści</div>
+    <div class="timeline__time">TYDZIEŃ</div>
+  </div>
+  <div class="timeline__col">
+    <div class="timeline__num">1-2</div>
+    <div class="timeline__lab">Etap 3<br/>SEO lokalne</div>
+    <div class="timeline__time">TYGODNIE</div>
+  </div>
+  <div class="timeline__col">
+    <div class="timeline__num">2</div>
+    <div class="timeline__lab">Etap 4<br/>Realizacje &amp; zaufanie</div>
+    <div class="timeline__time">TYGODNIE</div>
+  </div>
+  <div class="timeline__col">
+    <div class="timeline__num">1-2</div>
+    <div class="timeline__lab">Etap 5<br/>Narzędzia zaaw.</div>
+    <div class="timeline__time">MIESIĄCE</div>
+  </div>
+</div>
+
+<h3>6.2. Skala pracy</h3>
+<table>
+  <thead>
+    <tr><th>Zakres</th><th>Etap 1</th><th>Etap 2</th><th>Etap 3</th><th>Etap 4</th><th>Etap 5</th><th>Razem</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Praca techniczna</strong></td>
+      <td class="center">12-18 h</td>
+      <td class="center">35-50 h</td>
+      <td class="center">50-70 h</td>
+      <td class="center">80-110 h</td>
+      <td class="center">150-220 h</td>
+      <td class="center"><strong>~330-470 h</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Treści (copy/zdjęcia/video)</strong></td>
+      <td class="center">—</td>
+      <td class="center">25-35 h</td>
+      <td class="center">20-25 h</td>
+      <td class="center">~150-220 h</td>
+      <td class="center">—</td>
+      <td class="center"><strong>~200-290 h</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <strong>Łączna praca:</strong> ~530-760 godzin w ciągu 3-4 miesięcy.
+  Realizacja etapowa pozwala uruchomić pierwsze efekty po 1-2 dniach (Etap 1)
+  i pierwsze leady z SEO już po 4-8 tygodniach.
+</div>
+
+<h3>6.3. Co już zrobione</h3>
+<div class="callout callout-success">
+  <strong>Status na 25.04.2026:</strong> Etap 1 jest w 60% wdrożony bez konieczności konsultacji z klientem
+  (mapa strony, robots.txt, llms.txt dla AI, schema LocalBusiness, schema Product per pergola,
+  unikalne tytuły i opisy każdej strony, pasek atutów pod nagłówkiem, hook do meta tagów).
+  Pozostałe pozycje Etapu 1 (telefon w nagłówku, sticky CTA mobile, schema z NIP, konto Google)
+  czekają na materiały od PLAST-MET.
+</div>
+
+<!-- 7. NEXT STEPS -->
+<h2>7. Następne kroki</h2>
+
+<ol style="font-size: 11.5pt; line-height: 1.7;">
+  <li><strong>Akceptacja planu i podpisanie zlecenia</strong> na realizację etapów 1-3 (najpilniejsze).</li>
+  <li><strong>Przekazanie materiałów Grupy A</strong> (Sekcja 5) — to odblokowuje natychmiastowe kontynuowanie wdrożeń.</li>
+  <li><strong>Wspólne spotkanie</strong> (online, 60 min) — uzgodnienie języka komunikacji z klientami,
+      tonu strony „O nas", pozycjonowania marki na rynku.</li>
+  <li><strong>Wycena szczegółowa Etapu 4 i 5</strong> po finalizacji Etapu 3 — bo zakres zależy od tego,
+      ile realizacji uda się sfotografować i czy decydujemy się na konfigurator 3D.</li>
+</ol>
+
+<div class="signature-block">
+  <p class="label">Dokument przygotował</p>
+  <p class="name">Jakub Tiuchty</p>
+  <p style="font-size: 10pt; color: #555; margin-top: 4pt;">jakub.tiuchty@gmail.com</p>
+</div>
+
+<p class="footer-note">
+  Plan rozbudowy strony ALUKOMFORT · wersja 1.0 · 25 kwietnia 2026<br/>
+  Dokument oparty na audycie 15 firm konkurencyjnych z Dolnego Śląska
+  oraz pełnym researchu słów kluczowych SEO + GEO (Google, ChatGPT, Perplexity).
+</p>
+
+</body>
+</html>
