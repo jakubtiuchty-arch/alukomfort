@@ -3,6 +3,19 @@
 function ProductRoma({ onQuote }) {
   const p = PRODUCTS.ROMA;
   const [module, setModule] = React.useState(2); // 4x4
+  usePageMeta({
+    title: 'ROMA — pergola tkaninowa z roletą rzymską z akrylu | ALUKOMFORT',
+    description: 'ALUKOMFORT ROMA — pergola tkaninowa z poszyciem 100% akryl. Modułowość 3×3, 4×4, 6×4 m, łączliwa. Idealna dla beach barów, restauracji i tarasów domowych.',
+    canonical: 'https://alukomfort.pl/#/produkty/roma',
+  });
+  useProductSchema({
+    id: 'roma',
+    name: 'ROMA',
+    description: p.intro,
+    image: p.heroImg,
+    url: 'https://alukomfort.pl/#/produkty/roma',
+    category: 'Pergola tkaninowa',
+  });
 
   return (
     <>
@@ -115,8 +128,10 @@ function ProductRoma({ onQuote }) {
                 </div>
               </div>
               <ul className="iconlist" style={{marginTop: 20}}>
-                <li><span className="ic"><Icon.Terrace size={26}/></span>Zadaszenie tarasu i balkonu</li>
-                <li><span className="ic"><Icon.Commercial size={26}/></span>Strefy gastronomiczne, takie jak restauracje, kawiarnie i hotele</li>
+                {p.uses.map((u, i) => {
+                  const Ic = Icon[u.icon] || Icon.Check;
+                  return <li key={i}><span className="ic"><Ic size={26}/></span>{u.label}</li>;
+                })}
               </ul>
             </div>
             <div>

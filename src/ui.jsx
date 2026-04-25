@@ -61,8 +61,8 @@ function CertBar() {
       <div className="cert">
         <div className="cert__mark"><span>TÜV<br/>NORD</span></div>
         <div className="cert__body">
-          <h4>Certyfikat TÜV NORD</h4>
-          <p>Profile systemu ALUKOMFORT posiadają certyfikat TÜV NORD dotyczący zachowania wysokich norm konstrukcji zadaszenia i konstrukcji trwałości w klasie EXC 2 według europejskiej normy EN 1090.</p>
+          <h4>Certyfikat TÜV NORD · 2274-CPR-0046-2025</h4>
+          <p>Profile systemu ALUKOMFORT posiadają certyfikat Zakładowej Kontroli Produkcji TÜV NORD wg <strong>PN-EN 1090-1</strong> w klasie wykonania <strong>EXC 2</strong>. Proces spawalniczy potwierdzony normą <strong>PN-EN ISO 3834</strong>.</p>
         </div>
       </div>
       <div className="guarantee">

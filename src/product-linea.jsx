@@ -4,6 +4,19 @@ function ProductLinea({ onQuote }) {
   const p = PRODUCTS.LINEA;
   const [roof, setRoof] = React.useState('poli');
   const [roofColor, setRoofColor] = React.useState(0);
+  usePageMeta({
+    title: 'LINEA — aluminiowe zadaszenie tarasu, wejścia i carportu | ALUKOMFORT',
+    description: 'ALUKOMFORT LINEA — aluminiowy system zadaszeń przyściennych i samonośnych. Max długość 10 060 mm, dach poliwęglan lub szkło ESG/VSG. Producent PLAST-MET Trzebnica.',
+    canonical: 'https://alukomfort.pl/#/produkty/linea',
+  });
+  useProductSchema({
+    id: 'linea',
+    name: 'LINEA',
+    description: p.intro,
+    image: p.heroImg,
+    url: 'https://alukomfort.pl/#/produkty/linea',
+    category: 'Aluminiowe zadaszenie tarasu',
+  });
   const activeRoof = p.roofs.find(r => r.id === roof) || p.roofs[0];
   const activeOptions = activeRoof.options || [];
   React.useEffect(() => { setRoofColor(0); }, [roof]);
@@ -19,7 +32,7 @@ function ProductLinea({ onQuote }) {
       <section className="hero">
         <video
           className="hero__img"
-          src="uploads/linea_hero.mp4"
+          src="uploads/linea_hero_3.mp4"
           poster={p.heroImg}
           autoPlay
           muted

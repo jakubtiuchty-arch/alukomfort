@@ -487,6 +487,38 @@ img { display: block; max-width: 100%; }
 .mod-card--wide { aspect-ratio: 2 / 1.2; }
 .mod-card--big { aspect-ratio: 1 / 1; font-size: 30px; }
 
+/* USP Bar (under hero) */
+.usp-bar {
+  background: var(--ink);
+  color: #fff;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.usp-bar__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.usp-bar__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #fff;
+}
+.usp-bar__item svg { color: var(--accent); flex-shrink: 0; }
+.usp-bar__num {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+.usp-bar__lab {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
 /* Home specific */
 .hero-home {
   position: relative;
@@ -698,6 +730,7 @@ img { display: block; max-width: 100%; }
   .cert-bar { grid-template-columns: 1fr; gap: 24px; }
   .hero-strip__inner, .cta-strip { flex-direction: column; align-items: flex-start; gap: 16px; }
   .ak-footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .usp-bar__grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
 }
 
 /* === Phone (≤ 640px) === */
@@ -752,6 +785,10 @@ img { display: block; max-width: 100%; }
 
   .cert { flex-direction: column; gap: 14px; }
   .hero-strip h3, .cta-strip h3 { font-size: 18px; }
+  .usp-bar { padding: 16px 0; }
+  .usp-bar__grid { grid-template-columns: 1fr; gap: 12px; }
+  .usp-bar__num { font-size: 14px; }
+  .usp-bar__lab { font-size: 11px; }
 
   /* CTA banners (inline-styled, override for stack) */
   .section--ink .container[style*="flex"],

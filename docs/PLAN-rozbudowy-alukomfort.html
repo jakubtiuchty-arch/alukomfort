@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<title>Plan rozbudowy strony ALUKOMFORT</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    color: #111;
+    line-height: 1.55;
+    font-size: 10.5pt;
+    margin: 0;
+  }
+  h1 { font-size: 26pt; font-weight: 800; margin: 0 0 8pt; letter-spacing: -0.02em; }
+  h2 { font-size: 18pt; font-weight: 800; margin: 28pt 0 10pt; letter-spacing: -0.01em; padding-bottom: 6pt; border-bottom: 2pt solid #111; page-break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 700; margin: 18pt 0 6pt; color: #111; page-break-after: avoid; }
+  h4 { font-size: 11pt; font-weight: 700; margin: 10pt 0 4pt; color: #333; page-break-after: avoid; }
+  p { margin: 0 0 8pt; }
+  ul, ol { margin: 4pt 0 8pt; padding-left: 20pt; }
+  li { margin: 0 0 3pt; }
+  strong { color: #000; font-weight: 700; }
+  em { color: #555; font-style: normal; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0 14pt; font-size: 9.5pt; page-break-inside: avoid; }
+  th, td { padding: 5pt 8pt; text-align: left; vertical-align: top; border-bottom: 0.5pt solid #ccc; }
+  th { background: #f3f3f1; font-weight: 700; border-bottom: 1pt solid #111; }
+  tr:nth-child(even) { background: #fafaf8; }
+  code { font-family: "SF Mono", Menlo, monospace; font-size: 9pt; background: #f3f3f1; padding: 1pt 4pt; border-radius: 2pt; }
+  .cover { padding: 60pt 0 40pt; border-bottom: 4pt solid #111; margin-bottom: 24pt; page-break-after: always; }
+  .cover .eyebrow { font-size: 11pt; letter-spacing: 0.18em; text-transform: uppercase; color: #d4a017; font-weight: 700; margin-bottom: 14pt; }
+  .cover h1 { font-size: 36pt; line-height: 1.05; margin-bottom: 18pt; }
+  .cover .meta { font-size: 11pt; color: #555; margin-top: 30pt; }
+  .cover .meta strong { color: #111; }
+  .cover .summary { background: #f3f3f1; padding: 18pt 22pt; margin-top: 30pt; border-left: 4pt solid #d4a017; }
+  .cover .summary h3 { margin-top: 0; }
+
+  .toc { page-break-after: always; }
+  .toc ol { padding-left: 18pt; font-size: 11pt; }
+  .toc ol > li { margin-bottom: 6pt; font-weight: 700; }
+  .toc ol ol { margin-top: 4pt; padding-left: 16pt; font-size: 10pt; }
+  .toc ol ol > li { font-weight: 400; color: #555; margin-bottom: 2pt; }
+
+  .task { background: #fafaf8; border: 0.5pt solid #ddd; padding: 10pt 14pt; margin: 8pt 0; page-break-inside: avoid; border-radius: 3pt; }
+  .task .tname { font-weight: 700; font-size: 11pt; margin-bottom: 4pt; }
+  .task .tmeta { font-size: 9pt; color: #555; margin-top: 6pt; padding-top: 6pt; border-top: 0.5pt dashed #ccc; }
+  .task .tmeta span { display: inline-block; margin-right: 14pt; }
+  .task .tmeta strong { color: #111; }
+
+  .badge { display: inline-block; padding: 1pt 6pt; border-radius: 2pt; font-size: 8.5pt; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+  .badge-p0 { background: #b53232; color: #fff; }
+  .badge-p1 { background: #d4a017; color: #1a1200; }
+  .badge-p2 { background: #2f6b3b; color: #fff; }
+  .badge-p3 { background: #6b6b6b; color: #fff; }
+  .badge-xs, .badge-s { background: #e8eaf6; color: #303f9f; }
+  .badge-m { background: #fff3e0; color: #e65100; }
+  .badge-l, .badge-xl { background: #ffebee; color: #c62828; }
+
+  .callout { background: #fff8e1; border-left: 4pt solid #d4a017; padding: 12pt 16pt; margin: 14pt 0; page-break-inside: avoid; }
+  .callout strong { color: #111; }
+
+  .footer-note { font-size: 9pt; color: #888; margin-top: 30pt; padding-top: 12pt; border-top: 0.5pt solid #ddd; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="eyebrow">DOKUMENT PROJEKTOWY</div>
+  <h1>Plan rozbudowy strony<br/>ALUKOMFORT</h1>
+  <p style="font-size: 13pt; color: #555; max-width: 460pt;">
+    Strategia rozwoju serwisu producenta pergoli aluminiowych w 5 etapach,
+    oparta na audycie 15 firm konkurencyjnych z Dolnego Śląska
+    oraz pełnym researchu słów kluczowych SEO + GEO.
+  </p>
+  <div class="meta">
+    <p><strong>Klient:</strong> ALUKOMFORT (PLAST-MET Sp. z o.o. Sp. k., Trzebnica)</p>
+    <p><strong>Domena:</strong> alukomfort.pl</p>
+    <p><strong>Data:</strong> 25 kwietnia 2026</p>
+    <p><strong>Wersja:</strong> 1.0</p>
+  </div>
+  <div class="summary">
+    <h3>Streszczenie wykonawcze</h3>
+    <p>Plan obejmuje <strong>~55 zadań w 5 etapach</strong>: od quick winów (1-2 dni) po zaawansowane projekty (1-2 mies.).
+    Łączna estymacja: <strong>~330-470 h pracy programistycznej + ~200-290 h treści</strong> (~3-4 mies. realizacji etapowej).</p>
+    <p style="margin-bottom: 0;">Kluczowa luka rynkowa: <strong>tylko 1 z 15 konkurentów (Perfecta Home) publikuje twarde ceny</strong> —
+    ALUKOMFORT może wygrać rynek przez stronę cennika i kalkulator. Druga przewaga: <strong>nikt z konkurencji nie ma realnego konfiguratora 3D</strong> —
+    inwestycja w niego daje 12-18 mies. monopolu.</p>
+  </div>
+</section>
+
+<!-- TOC -->
+<section class="toc">
+  <h2>Spis treści</h2>
+  <ol>
+    <li>Diagnoza
+      <ol>
+        <li>Stan obecny strony</li>
+        <li>Wnioski z audytu konkurencji (15 firm DŚ)</li>
+        <li>Wnioski z researchu słów kluczowych</li>
+      </ol>
+    </li>
+    <li>Strategia
+      <ol>
+        <li>Cele biznesowe</li>
+        <li>Quick win matrix — top 10 zadań ROI</li>
+      </ol>
+    </li>
+    <li>Plan w 5 etapach
+      <ol>
+        <li>ETAP 1 — Quick wins (1-2 dni)</li>
+        <li>ETAP 2 — Content foundation (1 tydzień)</li>
+        <li>ETAP 3 — Local & SEO (1-2 tygodnie)</li>
+        <li>ETAP 4 — Realizacje & Trust (2 tygodnie)</li>
+        <li>ETAP 5 — Zaawansowane (1-2 miesiące)</li>
+      </ol>
+    </li>
+    <li>Estymacja i zasoby
+      <ol>
+        <li>Roboczogodziny dev + content</li>
+        <li>Zależności od klienta (P0, P1, P2)</li>
+        <li>Co zostawić na ETAP 6 (przyszłość)</li>
+      </ol>
+    </li>
+  </ol>
+</section>
+
+<!-- 1. DIAGNOZA -->
+<h2>1. Diagnoza</h2>
+
+<h3>1.1. Stan obecny strony</h3>
+<ul>
+  <li><strong>Tech stack:</strong> statyczna React + Babel via CDN (bez build), 1 strona <code>index.html</code>, JSX serwowany przez prosty HTTP server.</li>
+  <li><strong>Repo:</strong> <code>github.com/jakubtiuchty-arch/alukomfort</code></li>
+  <li><strong>Routing:</strong> hash-based (<code>#/produkty/linea</code>...), brak SSR.</li>
+  <li><strong>Strony aktywne:</strong> <code>/</code> (Home), <code>/produkty/linea</code>, <code>/produkty/horizon</code>, <code>/produkty/roma</code>.</li>
+  <li><strong>Czego nie ma:</strong> <code>/o-nas</code>, blog, FAQ, realizacje (galeria), strony lokalne, cennik, <code>llms.txt</code>, schema markup, video YouTube, opinie, konfigurator.</li>
+  <li><strong>Producent:</strong> PLAST-MET Sp. z o.o. Sp. k., ul. Milicka 34, 55-100 Trzebnica (40 km od Wrocławia).</li>
+  <li><strong>Certyfikat:</strong> TÜV NORD nr 2274-CPR-0046-2025 (PN-EN 1090-1, klasa EXC 2).</li>
+</ul>
+
+<h3>1.2. Wnioski z audytu konkurencji</h3>
+<p>Przeanalizowano 15 firm z Dolnego Śląska. Główni gracze:</p>
+<table>
+  <thead><tr><th>Firma</th><th>USP</th><th>Co robi unikalnie</th></tr></thead>
+  <tbody>
+    <tr><td><strong>TWIGO</strong> (Wrocław)</td><td>ISO 9001, „od 11 000 zł"</td><td>40+ realizacji, blog, podstrony per miasto</td></tr>
+    <tr><td><strong>GETE.pl</strong> (k. Wrocławia)</td><td>3 modele, gwarancja 10 lat</td><td>Google reviews 5.0/50, partnerstwo Skylux</td></tr>
+    <tr><td><strong>Perfecta Home</strong> (Wrocław)</td><td>Twarde ceny</td><td><strong>JEDYNI</strong> publikują cenę: PERGOLA SB 400 od 46 100 zł brutto</td></tr>
+    <tr><td><strong>MAXGARDEN</strong></td><td>Showroom</td><td>Showroom Maxfliz Wrocław, video, „100% pozytywnych opinii"</td></tr>
+    <tr><td><strong>IWANICZEK</strong></td><td>Premium brandy</td><td>RENSON + STOBAG + SELT + LEWENS, hotele jako referencje</td></tr>
+    <tr><td><strong>Firma Wodecki</strong></td><td>„137 zrealizowanych pergoli"</td><td>Wycena 24h, eksport CZ</td></tr>
+    <tr><td><strong>WST Group</strong></td><td>4 typy pergoli</td><td>300 km radius z Lubawki, podstrony per miasto</td></tr>
+  </tbody>
+</table>
+
+<h4>Wzorce branżowe — czego ALUKOMFORT NIE MA</h4>
+<table>
+  <thead><tr><th>Element</th><th>% konkurencji ma</th><th>ALUKOMFORT</th></tr></thead>
+  <tbody>
+    <tr><td>Galeria realizacji</td><td>~90%</td><td>NIE</td></tr>
+    <tr><td>Strony lokalne SEO</td><td>~80%</td><td>NIE</td></tr>
+    <tr><td>Sekcja „O nas" / historia</td><td>100%</td><td>NIE</td></tr>
+    <tr><td>Liczbowe USP</td><td>~85%</td><td>NIE</td></tr>
+    <tr><td>Telefon w nagłówku</td><td>100%</td><td>NIE</td></tr>
+    <tr><td>Formularz „Wycena 24h"</td><td>~95%</td><td>słabo eksponowany</td></tr>
+    <tr><td>Blog / strefa wiedzy</td><td>~50%</td><td>NIE</td></tr>
+    <tr><td>FAQ</td><td>~40%</td><td>NIE</td></tr>
+    <tr><td>Opinie Google</td><td>~60%</td><td>NIE</td></tr>
+    <tr><td>Video</td><td>~30%</td><td>NIE</td></tr>
+    <tr><td>Konfigurator</td><td>~10% (nikt realny)</td><td>NIE</td></tr>
+    <tr><td><strong>Cennik / widełki</strong></td><td><strong>~15% (tylko Perfecta)</strong></td><td><strong>NIE — LUKA RYNKOWA</strong></td></tr>
+    <tr><td>Finansowanie/leasing</td><td>~20% (tylko Marbud)</td><td>NIE</td></tr>
+    <tr><td>Sekcja „proces krok po kroku"</td><td>~30%</td><td>NIE</td></tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <strong>Kluczowy wniosek:</strong> ALUKOMFORT jest na 15. miejscu w niemal każdym kryterium UX/SEO,
+  mimo że ma najlepszego producenta (PLAST-MET, 30+ lat). To strona traci leady, nie produkt.
+</div>
+
+<h4>Luki rynkowe — przewagi do wykorzystania</h4>
+<ol>
+  <li><strong>Twarde ceny / kalkulator</strong> — tylko Perfecta to ma. 85% rynku chowa cenę.</li>
+  <li><strong>Konfigurator 3D drag-and-drop</strong> — nikt realny, 12-18 mies. monopolu.</li>
+  <li><strong>Strony lokalne pełne</strong> — siedziba PLAST-MET w Trzebnicy = naturalna domena.</li>
+  <li><strong>Producent z 30+ letnią historią</strong> — narracja „fabryka 50 km od Wrocławia, nie pośrednictwo".</li>
+  <li><strong>Realne case studies z liczbami</strong> i lokalizacją (zamiast samych zdjęć).</li>
+  <li><strong>Finansowanie / leasing</strong> — tylko Marbud o tym wspomina.</li>
+  <li><strong>Sekcja dla architektów / B2B</strong> — tylko Perfecta to ma.</li>
+  <li><strong>Blog SEO + FAQ schema</strong> — TWIGO i Wodecki mają, ale powierzchowny.</li>
+  <li><strong>Video YouTube z montażu</strong> — tylko IWANICZEK ma.</li>
+</ol>
+
+<h3>1.3. Wnioski z researchu słów kluczowych</h3>
+
+<h4>TOP 10 fraz priorytetowych (najlepszy ROI)</h4>
+<table>
+  <thead><tr><th>#</th><th>Fraza</th><th>Typ</th><th>Popyt</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>„pergole Wrocław"</td><td>lokalna</td><td>wysoki</td></tr>
+    <tr><td>2</td><td>„pergola aluminiowa Wrocław"</td><td>lokalna + transakcyjna</td><td>wysoki</td></tr>
+    <tr><td>3</td><td>„pergola bioklimatyczna cena"</td><td>transakcyjna</td><td>wysoki</td></tr>
+    <tr><td>4</td><td>„producent pergoli aluminiowych"</td><td>brand+intent</td><td>średni</td></tr>
+    <tr><td>5</td><td>„pergola aluminiowa 4x3 cena"</td><td>long-tail decyzja</td><td>wysoki</td></tr>
+    <tr><td>6</td><td>„ile kosztuje pergola bioklimatyczna"</td><td>Q&amp;A / GEO</td><td>wysoki</td></tr>
+    <tr><td>7</td><td>„pergola aluminiowa czy drewniana"</td><td>info / AI</td><td>wysoki</td></tr>
+    <tr><td>8</td><td>„producent pergoli Dolny Śląsk"</td><td>lokalna</td><td>średni</td></tr>
+    <tr><td>9</td><td>„pergola na ogródek restauracyjny"</td><td>B2B HoReCa</td><td>średni</td></tr>
+    <tr><td>10</td><td>„czy pergola wymaga pozwolenia"</td><td>gateway content</td><td>wysoki</td></tr>
+  </tbody>
+</table>
+
+<h4>6 zaleceń GEO / AI search (ChatGPT, Perplexity, AI Overviews)</h4>
+<ol>
+  <li><code>/llms.txt</code> w root domeny — krótki opis firmy dla AI scraperów.</li>
+  <li><strong>Tabele danych technicznych</strong> dla każdego modelu (AI uwielbia tabele, łatwo wyciąga liczby).</li>
+  <li><strong>FAQ schema</strong> (JSON-LD <code>Question</code>/<code>Answer</code>) na każdej stronie produktu i blogu.</li>
+  <li><strong>Product + Offer + LocalBusiness schema</strong>.</li>
+  <li><strong>Strona „Cennik 2026" z konkretnymi widełkami</strong> — większość konkurencji ukrywa ceny, AI zacytuje was jako źródło konkretu.</li>
+  <li><strong>Strony lokalne</strong> dla każdego miasta DŚ.</li>
+</ol>
+
+<!-- 2. STRATEGIA -->
+<h2>2. Strategia</h2>
+
+<h3>2.1. Cele biznesowe</h3>
+<ul>
+  <li><strong>Krótkoterminowy (3 mies.):</strong> +50-100% leadów z formularza wyceny, 1. miejsce w SERP dla „pergole Trzebnica" + min. 5 innych miast DŚ.</li>
+  <li><strong>Średnioterminowy (6 mies.):</strong> top 3 dla „pergole Wrocław", widoczność marki w AI search (ChatGPT/Perplexity wymieniają ALUKOMFORT przy pytaniach o pergole DŚ).</li>
+  <li><strong>Długoterminowy (12 mies.):</strong> top 3 dla 50+ fraz lokalnych, generowanie leadów B2B HoReCa (restauracje, hotele), monopol konfiguratora 3D.</li>
+</ul>
+
+<h3>2.2. Quick win matrix — TOP 10 zadań ROI</h3>
+<p>Pierwszy tydzień powinien zamknąć pozycje 1-7.</p>
+<table>
+  <thead><tr><th>#</th><th>Zadanie</th><th>Złoż.</th><th>Prio</th><th>ROI</th><th>Etap</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Telefon w nagłówku</td><td><span class="badge badge-xs">XS</span></td><td><span class="badge badge-p0">P0</span></td><td>Konwersja +20-40% mobile</td><td>1</td></tr>
+    <tr><td>2</td><td><code>/llms.txt</code></td><td><span class="badge badge-xs">XS</span></td><td><span class="badge badge-p0">P0</span></td><td>AI search visibility</td><td>1</td></tr>
+    <tr><td>3</td><td><code>robots.txt</code> + <code>sitemap.xml</code></td><td><span class="badge badge-xs">XS</span></td><td><span class="badge badge-p0">P0</span></td><td>Indeksacja Google</td><td>1</td></tr>
+    <tr><td>4</td><td>Schema Organization / LocalBusiness</td><td><span class="badge badge-s">S</span></td><td><span class="badge badge-p0">P0</span></td><td>Knowledge panel</td><td>1</td></tr>
+    <tr><td>5</td><td>Sticky CTA mobile</td><td><span class="badge badge-s">S</span></td><td><span class="badge badge-p0">P0</span></td><td>Konwersja +30-50% mobile</td><td>1</td></tr>
+    <tr><td>6</td><td>Liczbowe USP w hero</td><td><span class="badge badge-s">S</span></td><td><span class="badge badge-p0">P0</span></td><td>Trust + AI cytowalność</td><td>1</td></tr>
+    <tr><td>7</td><td>Meta tagi unikalne per strona</td><td><span class="badge badge-s">S</span></td><td><span class="badge badge-p0">P0</span></td><td>CTR z SERP</td><td>1</td></tr>
+    <tr><td>8</td><td>GSC + GA4</td><td><span class="badge badge-s">S</span></td><td><span class="badge badge-p0">P0</span></td><td>Mierzenie wszystkiego</td><td>3</td></tr>
+    <tr><td>9</td><td>Strona <code>/cennik-2026</code></td><td><span class="badge badge-l">L</span></td><td><span class="badge badge-p0">P0</span></td><td>Luka rynkowa, leady</td><td>2</td></tr>
+    <tr><td>10</td><td>Strona <code>/pergole/wroclaw</code></td><td><span class="badge badge-l">L</span></td><td><span class="badge badge-p0">P0</span></td><td>TOP fraza keyword research</td><td>3</td></tr>
+  </tbody>
+</table>
+
+<!-- 3. PLAN W 5 ETAPACH -->
+<h2>3. Plan w 5 etapach</h2>
+
+<!-- ETAP 1 -->
+<h3>3.1. ETAP 1 — Quick wins (1-2 dni)</h3>
+<p>Wszystko, co kosztuje minuty/godziny i daje natychmiastową przewagę konkurencyjną oraz fundamenty SEO/AI.</p>
+
+<div class="task">
+  <div class="tname">1.1. Telefon i e-mail w nagłówku (sticky)</div>
+  <p><strong>Cel:</strong> +20-40% kliknięć „zadzwoń" (mobile), match konkurencji.<br/>
+  <strong>Treść:</strong> Po prawej stronie nagłówka pasek <code>+48 71 387 35 35 · biuro@alukomfort.pl · pn-pt 8-17</code>. Telefon klikalny <code>tel:</code>, mailto. Na mobile telefon zawsze widoczny (ikona słuchawki).</p>
+  <div class="tmeta"><span><strong>Pliki:</strong> <code>src/header.jsx</code>, <code>styles.css</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-xs">XS</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span> <span><strong>Zależność:</strong> prawdziwy numer od klienta</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">1.2. Liczbowe USP w hero homepage</div>
+  <p><strong>Cel:</strong> social proof, AI cytowalność.<br/>
+  <strong>Treść:</strong> Pasek pod hero z 4 liczbami: <code>30+ lat doświadczenia PLAST-MET</code> · <code>Certyfikat TÜV NORD 2274-CPR-0046-2025</code> · <code>60 mies. gwarancji</code> · <code>Wycena w 24 h</code>.</p>
+  <div class="tmeta"><span><strong>Pliki:</strong> <code>src/home.jsx</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-s">S</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">1.3. Sticky CTA „Wycena 24h" bottom (mobile)</div>
+  <p><strong>Cel:</strong> +30-50% konwersja mobile.<br/>
+  <strong>Treść:</strong> Pasek <code>position:fixed bottom:0</code> na mobile &lt;768px: dwa przyciski 50/50 — „Zadzwoń" (tel:) i „Wycena 24h" (otwiera modal). Pojawia się po przewinięciu 400px.</p>
+  <div class="tmeta"><span><strong>Pliki:</strong> nowy <code>src/sticky-cta.jsx</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-s">S</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span> <span><strong>Zależność:</strong> 1.1</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">1.4. Aktywacja linków w nawigacji + breadcrumby</div>
+  <p><strong>Cel:</strong> UX, SEO (struktura), eliminacja martwych linków (Inspiracje/Realizacje/O nas/Dlaczego).<br/>
+  <strong>Treść:</strong> W <code>app.jsx</code> dodać routing dla wszystkich nowych stron. Tymczasowo placeholder z hero i CTA. Breadcrumby na każdej podstronie.</p>
+  <div class="tmeta"><span><strong>Pliki:</strong> <code>src/app.jsx</code>, każdy nowy <code>src/page-*.jsx</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">1.5. Meta tagi unikalne per strona</div>
+  <p><strong>Cel:</strong> SEO (CTR z SERP), social sharing.<br/>
+  <strong>Treść:</strong> Hook <code>usePageMeta(title, desc, ogImage)</code> ustawiający <code>document.title</code>, <code>meta[description]</code>, <code>og:*</code>. Przykłady:</p>
+  <ul>
+    <li>Home: <em>„Pergole aluminiowe i zadaszenia ALUKOMFORT — producent PLAST-MET, Trzebnica"</em></li>
+    <li>LINEA: <em>„LINEA — aluminiowe zadaszenie tarasu i carportu | ALUKOMFORT"</em></li>
+    <li>HORIZON: <em>„HORIZON — pergola bioklimatyczna lamelowa, szklana, hybrydowa | ALUKOMFORT"</em></li>
+    <li>ROMA: <em>„ROMA — pergola tkaninowa rzymska aluminiowa | ALUKOMFORT"</em></li>
+  </ul>
+  <div class="tmeta"><span><strong>Pliki:</strong> nowy <code>src/use-meta.jsx</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-s">S</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">1.6. Plik <code>/llms.txt</code> w root</div>
+  <p><strong>Cel:</strong> GEO (cytowalność w ChatGPT/Perplexity/AI Overviews).<br/>
+  <strong>Treść:</strong> Markdown w <code>/llms.txt</code> z opisem firmy, produktów, danymi kontaktowymi i certyfikatem.</p>
+  <div class="tmeta"><span><strong>Pliki:</strong> nowy <code>llms.txt</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-xs">XS</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">1.7. <code>robots.txt</code> + <code>sitemap.xml</code></div>
+  <p><strong>Cel:</strong> podstawowa indeksowalność.<br/>
+  <strong>Treść:</strong> <code>robots.txt</code> z <code>Allow: /</code> i wskazaniem sitemap. <code>sitemap.xml</code> ze wszystkimi planowanymi URL.</p>
+  <div class="tmeta"><span><strong>Pliki:</strong> nowe <code>robots.txt</code>, <code>sitemap.xml</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-xs">XS</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">1.8. Schema JSON-LD: Organization + LocalBusiness</div>
+  <p><strong>Cel:</strong> rich snippets, knowledge panel, AI search.<br/>
+  <strong>Treść:</strong> W <code>&lt;head&gt;</code> <code>index.html</code> JSON-LD z encją <code>Organization</code>/<code>LocalBusiness</code> (nazwa, adres, telefon, email, geo, godziny, sameAs do FB/IG/Google Maps).</p>
+  <div class="tmeta"><span><strong>Pliki:</strong> <code>index.html</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-s">S</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span> <span><strong>Zależność:</strong> NIP/REGON od klienta</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">1.9. Schema JSON-LD: Product per produkt</div>
+  <p><strong>Cel:</strong> rich results dla LINEA/HORIZON/ROMA, AI cytuje warianty.<br/>
+  <strong>Treść:</strong> Helper <code>injectProductSchema(product)</code> w każdym <code>product-*.jsx</code>.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-s">S</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">1.10. Tabele danych technicznych — uwidocznienie</div>
+  <p><strong>Cel:</strong> GEO — AI uwielbia tabele.<br/>
+  <strong>Treść:</strong> Każda strona produktu renderuje <code>specs</code> jako prawdziwą <code>&lt;table&gt;</code> (nie div grid). Z <code>&lt;caption&gt;</code> i nagłówkami.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-s">S</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">1.11. Open Graph image + favicon</div>
+  <p><strong>Cel:</strong> branding share, podstawy.<br/>
+  <strong>Treść:</strong> <code>og-default.jpg</code> 1200×630 + <code>favicon.ico</code>/<code>favicon-32.png</code>.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-xs">XS</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">1.12. H1 + alt text audit</div>
+  <p><strong>Cel:</strong> podstawy SEO on-page.<br/>
+  <strong>Treść:</strong> Każda strona ma jeden <code>&lt;h1&gt;</code> z frazą kluczową. Wszystkie <code>&lt;img&gt;</code> z opisowym <code>alt</code>.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-s">S</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">1.13. Kafelek „Cennik" w nawigacji + placeholder</div>
+  <p><strong>Cel:</strong> sygnał na przyszłość, link wewnętrzny gotowy zanim cennik powstanie.<br/>
+  <strong>Treść:</strong> Dodać „Cennik" do nav. Strona <code>/cennik</code> placeholder z hero „Cennik 2026 — w przygotowaniu" + CTA „Wycena 24h".</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-xs">XS</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<!-- ETAP 2 -->
+<h3>3.2. ETAP 2 — Content foundation (1 tydzień)</h3>
+<p>Strony tekstowe, na których buduje się autorytet i SEO.</p>
+
+<div class="task">
+  <div class="tname">2.1. Strona <code>/o-nas</code> — historia PLAST-MET</div>
+  <p><strong>Cel:</strong> trust (100% konkurencji ma „O nas"), lokalność, AI cytowalność marki.<br/>
+  <strong>Treść (sekcje w kolejności):</strong> hero „30+ lat tradycji PLAST-MET", storytelling 400-600 słów, liczby (rok założenia, m² produkcji, sztuki rocznie, eksport, zatrudnienie), mapa Google, galeria 6 zdjęć z fabryki, sekcja „Producent vs pośrednik" (3 punkty), CertBar.</p>
+  <div class="tmeta"><span><strong>Pliki:</strong> nowy <code>src/page-about.jsx</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span> <span><strong>Zależność:</strong> treść historii + 6 zdjęć</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">2.2. Strona <code>/dlaczego-aluminium</code> — content hub</div>
+  <p><strong>Cel:</strong> SEO long-tail „pergola aluminiowa czy drewniana".<br/>
+  <strong>Treść:</strong> ~1500 słów. Tabela porównawcza Aluminium vs Drewno vs Stal (waga, korozja, konserwacja, żywotność, cena, recykling, ognioodporność). 6 sekcji po 150 słów. Sekcja stop 6063 vs 6063 T66. FAQ 5 pytań. CTA do produktów.</p>
+  <div class="tmeta"><span><strong>Pliki:</strong> nowy <code>src/page-why-aluminum.jsx</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">2.3. Strona <code>/faq</code> — globalne FAQ z FAQPage schema</div>
+  <p><strong>Cel:</strong> złapać Q&amp;A frazy, AI Overviews.<br/>
+  <strong>Treść:</strong> 20-25 pytań w 5 kategoriach:</p>
+  <ul>
+    <li><strong>Zakup i wycena:</strong> „Ile kosztuje pergola?", „Czy wycena jest płatna?", „Czas oczekiwania?", „Czy montujecie w całej Polsce?"</li>
+    <li><strong>Prawo:</strong> „Czy pergola wymaga pozwolenia?", „Zgłoszenie?", „35 m² zwolnione?", „MPZP?"</li>
+    <li><strong>Techniczne:</strong> „Różnice LINEA/HORIZON/ROMA?", „Obciążenie śniegiem?", „Działa zimą?", „Jak ogrzać?"</li>
+    <li><strong>Eksploatacja:</strong> „Konserwacja?", „Czyszczenie?", „SOMFY?", „Burza/grad?"</li>
+    <li><strong>Gwarancja:</strong> „Jaka gwarancja?", „Co obejmuje?", „Części zamienne?"</li>
+  </ul>
+  <div class="tmeta"><span><strong>Pliki:</strong> <code>src/page-faq.jsx</code>, <code>src/data-faq.jsx</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">2.4. Strona <code>/cennik-pergoli-2026</code> — luka rynkowa</div>
+  <p><strong>Cel:</strong> złapać „ile kosztuje pergola", „pergola 4x3 cena", „cennik pergoli". Tylko Perfecta to ma — przewaga 12+ mies.<br/>
+  <strong>Treść:</strong> H1 „Cennik pergoli aluminiowych ALUKOMFORT 2026". Tabele cenowe per produkt × rozmiar. LINEA: 3×3, 4×3, 5×3, 6×4 + carport. HORIZON L: 4×3, 4×4, 6×3, 6×4, 8×3, 8×4. HORIZON S: 4×3, 4×4, 6×3. ROMA: 3×3, 4×3, 4×4, 5×4, 6×4. Tabela „Co podnosi cenę" (akcesoria), „Co obniża cenę". CTA wycena. FAQPage schema.</p>
+  <div class="tmeta"><span><strong>Pliki:</strong> <code>src/page-pricing.jsx</code>, <code>src/data-pricing.jsx</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span> <span><strong>Zależność:</strong> widełki cenowe od PLAST-MET</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">2.5. Strona <code>/kontakt</code> — pełna wersja</div>
+  <p><strong>Treść:</strong> hero z „Wycena 24h" + 3 sposoby kontaktu, telefon WhatsApp, mapa Google embed, godziny, formularz inline, sekcja „Showroom", sekcja „Obsługujemy" (regiony).</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">2.6. Sekcja „Proces krok po kroku" na home</div>
+  <p><strong>Treść:</strong> 5 kroków na timeline poziomym: 1. Kontakt — wycena 24h, 2. Wizja lokalna lub pomiar online, 3. Projekt + wycena finalna w 5 dni, 4. Produkcja w Trzebnicy 4-8 tygodni, 5. Montaż 1-3 dni.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">2.7. Sekcja „Opinie klientów" na home</div>
+  <p><strong>Treść:</strong> Karuzela 4-6 opinii: avatar/inicjały · imię + 1. litera nazwiska · miasto · gwiazdki 5/5 · 80-150 słów · nazwa produktu. Pod karuzelą logo Google + link do GBP.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span> <span><strong>Zależność:</strong> opinie od klienta + GBP</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">2.8. Strona <code>/inspiracje</code> — moodboard</div>
+  <p><strong>Treść:</strong> Galeria masonry 30-50 zdjęć w 4 kategoriach: Tarasy domowe, HoReCa, Hotele/SPA, Carport.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p2">P2</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">2.9. RODO + Regulamin + cookies banner</div>
+  <p><strong>Treść:</strong> Standardowa treść RODO. Cookies banner z 3 opcjami (niezbędne / analityczne / marketingowe).</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<!-- ETAP 3 -->
+<h3>3.3. ETAP 3 — Local &amp; SEO (1-2 tygodnie)</h3>
+
+<div class="task">
+  <div class="tname">3.1. Szablon strony lokalnej <code>/pergole/[miasto]</code></div>
+  <p><strong>Cel:</strong> złapać „pergole [miasto]" dla 10-15 miast DŚ.<br/>
+  <strong>Treść (szablon):</strong> H1 „Pergole aluminiowe [Miasto] — producent ALUKOMFORT z [X] km od Was". Wstęp 150 słów. Sekcja „Dlaczego klienci z [Miasta] wybierają nas?". Tabela czas dojazdu z Trzebnicy. Sekcja „Realizacje w [Mieście]". Lokalne CTA. FAQ specyficzne. Schema <code>LocalBusiness</code>.</p>
+  <div class="tmeta"><span><strong>Pliki:</strong> <code>src/page-local.jsx</code>, <code>src/data-cities.jsx</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">3.2. Generowanie 12 stron lokalnych</div>
+  <p><strong>Miasta:</strong> Wrocław (#1), Wałbrzych, Legnica, Jelenia Góra, Świdnica, Lubin, Głogów, Bolesławiec, Oleśnica, Trzebnica (najbliżej), Środa Śląska, Strzelin.</p>
+  <div class="tmeta"><span><strong>Pliki:</strong> <code>src/data-cities.jsx</code></span> <span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">3.3. Strona <code>/pergole-dolny-slask</code> — hub regionalny</div>
+  <p><strong>Cel:</strong> złapać „pergole dolnośląskie", „producent pergoli Dolny Śląsk".<br/>
+  <strong>Treść:</strong> Mapa DŚ z pinezkami 12 miast (linki). Lista miast jako kafelki.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">3.4. Schema <code>Service</code> per produkt</div>
+  <p><strong>Treść:</strong> JSON-LD z <code>serviceType: „Montaż pergoli aluminiowej"</code>, <code>provider: ALUKOMFORT</code>, <code>areaServed</code>.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-s">S</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">3.5. Schema <code>BreadcrumbList</code></div>
+  <p><strong>Treść:</strong> JSON-LD obok widocznych breadcrumbów na każdej podstronie.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-s">S</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">3.6. Schema <code>FAQPage</code> per produkt</div>
+  <p><strong>Treść:</strong> Sekcja FAQ na końcu każdej strony produktu (5 pytań specyficznych) + JSON-LD. Przykłady LINEA: „Czy LINEA wolnostojąca?", „Maksymalna długość?", „Poliwęglan żółknie?", „Cena LINEA 4×3?", „Czas realizacji?".</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">3.7. Migracja na pretty URL (history API)</div>
+  <p><strong>Treść:</strong> Hash routing → <code>pushState</code>. Wymaga konfiguracji serwera HTTP do fallback na <code>index.html</code>.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span> <span><strong>Zależność:</strong> wybór serwera (Vercel/Netlify/VPS)</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">3.8. Optymalizacja obrazów (WebP + srcset)</div>
+  <p><strong>Treść:</strong> Konwersja <code>assets/*.jpg</code> i <code>uploads/*.png</code> do WebP. Hero video — kompresja H.265 lub HLS (obecnie 3-7 MB każde).</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">3.9. Lazy loading + preload hero</div>
+  <p><strong>Treść:</strong> Wszystkie <code>&lt;img&gt;</code> poza first-fold dostają <code>loading="lazy"</code>. Hero video <code>preload="metadata"</code>.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-s">S</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">3.10. Google Search Console + GA4</div>
+  <p><strong>Treść:</strong> GSC z weryfikacją <code>&lt;meta&gt;</code>. Wgrać sitemap. GA4 z eventami: <code>quote_open</code>, <code>quote_submit</code>, <code>phone_click</code>, <code>cennik_view</code>.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-s">S</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span> <span><strong>Zależność:</strong> Google Account klienta</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">3.11. Google Business Profile</div>
+  <p><strong>Treść:</strong> Założyć/zweryfikować GBP „ALUKOMFORT — pergole aluminiowe". 10-20 zdjęć, kategorie, godziny, posty. Widget Google Reviews na home i kontakt.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span> <span><strong>Zależność:</strong> weryfikacja adresu</span></div>
+</div>
+
+<!-- ETAP 4 -->
+<h3>3.4. ETAP 4 — Realizacje &amp; Trust (2 tygodnie)</h3>
+<p>Galeria, case studies, video, blog. Tu buduje się social proof, którego ALUKOMFORT nie ma w ogóle.</p>
+
+<div class="task">
+  <div class="tname">4.1. Strona <code>/realizacje</code> — galeria z filtrami</div>
+  <p><strong>Treść:</strong> Hero „Ponad X realizacji w Polsce". Filtry: produkt, miasto, typ obiektu. Grid 12-30 kafelków masonry. Modal z lightbox (4-8 zdjęć), opis 200 słów, parametry, cytat, CTA.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-xl">XL</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span> <span><strong>Zależność:</strong> 20-50 realizacji ze zdjęciami (KRYTYCZNE)</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">4.2. Indywidualne strony case study <code>/realizacje/[slug]</code></div>
+  <p><strong>Treść (szablon):</strong> Hero z głównym zdjęciem, „Wyzwanie klienta" 200 słów, „Rozwiązanie ALUKOMFORT" 300 słów, tabela parametrów, galeria 6-12 zdjęć przed/w trakcie/po, cytat klienta, CTA. Schema <code>Article</code> + <code>Place</code> + <code>LocalBusiness</code>.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">4.3. Sekcja „Wybrane realizacje" na home</div>
+  <p><strong>Treść:</strong> Karuzela 6-9 realizacji + link „Zobacz wszystkie".</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-s">S</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">4.4. Sekcja „Realizacje" na każdej stronie produktu</div>
+  <p><strong>Treść:</strong> Filtrowane realizacje per produkt, 3-6 kafelków, link do <code>/realizacje?produkt=linea</code>.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-s">S</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">4.5. Blog <code>/blog</code> + szablon <code>/blog/[slug]</code></div>
+  <p><strong>Treść:</strong> Lista artykułów z filtrem kategorii. Szablon: hero z kategorią/datą, autor, max 2500 słów z H2/H3, table of contents (sticky desktop), CTA mid + koniec, „Powiązane artykuły", schema <code>Article</code>.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">4.6. Artykuł #1 „Pergola aluminiowa vs drewniana — 7 różnic"</div>
+  <p><strong>Cel:</strong> złapać „pergola aluminiowa czy drewniana", AI cytowalność.<br/>
+  <strong>Treść:</strong> ~1800 słów. Tabela porównawcza 7 cech. 7 sekcji po 200 słów. Werdykt. 5 FAQ. CTA.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">4.7. Artykuł #2 „Ile kosztuje pergola aluminiowa 2026"</div>
+  <p><strong>Treść:</strong> ~2500 słów. 4 tabele cen per rozmiar. „Co wpływa na cenę?". Porównanie cen producentów Polska. „Dlaczego ALUKOMFORT opłacalny". 8 FAQ.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span> <span><strong>Zależność:</strong> 2.4 (dane cenowe)</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">4.8. Artykuł #3 „Czy pergola wymaga pozwolenia?"</div>
+  <p><strong>Treść:</strong> ~1500 słów. Aktualne prawo budowlane 2026, art. 29, zwolnienia 35 m², procedura zgłoszenia, MPZP. Tabela „kiedy pozwolenie/zgłoszenie/nic". 6 FAQ.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">4.9. Artykuł #4 „Pergola na ogródek restauracyjny — HoReCa"</div>
+  <p><strong>Treść:</strong> ~1800 słów. Wymogi sanepidu, kalendarz sezonowy, kalkulacja ROI (extra stoły × przychód × dni), 3 case studies HoReCa, checklista 12 punktów.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">4.10. Artykuł #5 „LINEA, HORIZON, ROMA — który wybrać?"</div>
+  <p><strong>Treść:</strong> ~1500 słów. Tabela porównawcza 15 cech. Kiedy który. 3 persony. CTA per produkt.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">4.11. Video YouTube — 4 filmy</div>
+  <p><strong>Treść:</strong> 1) „ALUKOMFORT w 90 sekund" (home), 2) „Montaż HORIZON L 6×4 — timelapse", 3) „LINEA jako carport — case study", 4) „ROMA — sterowanie aplikacją". Schema <code>VideoObject</code>.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span> <span><strong>Zależność:</strong> ekipa filmowa, ~2-3 dni produkcji</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">4.12. Widget Google Reviews live</div>
+  <p><strong>Treść:</strong> Po zebraniu min. 10 opinii — embed widgetu (ElfSight lub Places API). Sekcja na home + <code>/o-nas</code>.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p2">P2</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">4.13. Sekcja „Dla architektów" / B2B</div>
+  <p><strong>Treść:</strong> Strona <code>/dla-architektow</code> z plikami DWG/DXF do pobrania (po mailu), katalog PDF, dedykowany doradca B2B, rabaty branżowe.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p2">P2</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">4.14. Newsletter signup</div>
+  <p><strong>Treść:</strong> Pasek w stopce + popup w blogu „Zapisz się — dostań cennik PDF + 5% rabat". Mailchimp/Brevo.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p2">P2</span></span></div>
+</div>
+
+<!-- ETAP 5 -->
+<h3>3.5. ETAP 5 — Zaawansowane (1-2 miesiące)</h3>
+<p>Konfigurator, kalkulator, leasing, integracje. Tu buduje się 12-18 miesięcy monopolu.</p>
+
+<div class="task">
+  <div class="tname">5.1. Kalkulator cen pergoli (wizard)</div>
+  <p><strong>Treść:</strong> Wizard 5 kroków: 1. Produkt, 2. Wymiary (suwaki), 3. Kolor (radio), 4. Akcesoria (checkboxy), 5. Dane kontaktowe → cena widełkowa „28 000 — 34 000 zł brutto" + mail.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-xl">XL</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p0">P0</span></span> <span><strong>Zależność:</strong> dokładne cenniki bazowe</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">5.2. Konfigurator 3D drag-and-drop (Three.js)</div>
+  <p><strong>Cel:</strong> monopol rynkowy 12-18 mies., wow effect.<br/>
+  <strong>Treść:</strong> Three.js scena 3D z domem (4 typy). Drag pergoli na taras, skalowanie, zmiana koloru w real-time, akcesoria. Eksport PNG, share link, „Zamów dokładnie tę konfigurację". Wymaga build step (Vite) — odejście od Babel CDN.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-xl">XL (3-6 tyg.)</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p2">P2</span></span> <span><strong>Zależność:</strong> designer 3D, modele PLAST-MET CAD</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">5.3. Integracja z CRM (HubSpot / Pipedrive)</div>
+  <p><strong>Treść:</strong> Wszystkie formularze → CRM przez webhook. Auto-tagowanie źródła. Auto-przypisanie per region. Mail sekwencja powitalna 5 maili.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">5.4. Calendly — kalendarz wizyt online</div>
+  <p><strong>Treść:</strong> Embed Calendly z dostępnością ekipy pomiarowej per region. Mail + SMS przypomnienie.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p1">P1</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">5.5. Finansowanie / leasing pergoli</div>
+  <p><strong>Treść:</strong> Strona <code>/finansowanie</code> z kalkulatorem rat. Partnerstwo z EFL/Idea Leasing. Sekcja per produkt „Już od X zł/mies".</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-l">L</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p2">P2</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">5.6. Aplikacja klienta — śledzenie zamówienia</div>
+  <p><strong>Treść:</strong> Magic link (mail bez hasła) → <code>/zamowienie/[token]</code> ze statusem (zamówienie/produkcja/transport/montaż), zdjęcia z fabryki, dokumenty, formularz serwisu.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-xl">XL</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p3">P3</span></span> <span><strong>Zależność:</strong> integracja z ERP PLAST-MET</span></div>
+</div>
+
+<div class="task">
+  <div class="tname">5.7. Smart home / SOMFY integration showcase</div>
+  <p><strong>Treść:</strong> Sekcja na HORIZON z animacją sterowania: aplikacja TaHoma, scenariusze („dzień", „wieczór", „deszcz"), integracja Alexa/Google Home/HomeKit. Demo video.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p2">P2</span></span></div>
+</div>
+
+<div class="task">
+  <div class="tname">5.8. A/B testing infrastruktura</div>
+  <p><strong>Treść:</strong> VWO / Optimizely free tier / własne przez GA4. Pierwsze testy: kolor CTA, treść headline, pozycja modala.</p>
+  <div class="tmeta"><span><strong>Złożoność:</strong> <span class="badge badge-m">M</span></span> <span><strong>Priorytet:</strong> <span class="badge badge-p3">P3</span></span> <span><strong>Zależność:</strong> ruch &gt;1000 sesji/mies</span></div>
+</div>
+
+<!-- 4. ESTYMACJA -->
+<h2>4. Estymacja i zasoby</h2>
+
+<h3>4.1. Roboczogodziny dev + content</h3>
+<table>
+  <thead><tr><th>Etap</th><th>Zakres</th><th>Roboczogodziny dev</th></tr></thead>
+  <tbody>
+    <tr><td>Etap 1</td><td>13 zadań, głównie XS/S</td><td>12-18 h</td></tr>
+    <tr><td>Etap 2</td><td>9 zadań, mix S/M/L</td><td>35-50 h</td></tr>
+    <tr><td>Etap 3</td><td>11 zadań, mix S/M/L</td><td>50-70 h</td></tr>
+    <tr><td>Etap 4</td><td>14 zadań, dużo M/L/XL</td><td>80-110 h</td></tr>
+    <tr><td>Etap 5</td><td>8 zadań, głównie L/XL</td><td>150-220 h</td></tr>
+    <tr><td><strong>RAZEM dev</strong></td><td></td><td><strong>~330-470 h</strong> (8-12 tyg. full-time jednego dewa)</strong></td></tr>
+  </tbody>
+</table>
+
+<table>
+  <thead><tr><th>Element</th><th>Zakres</th><th>Godziny content</th></tr></thead>
+  <tbody>
+    <tr><td>Copy (about, FAQ, cennik, why-aluminum)</td><td>~6000 słów</td><td>25-35 h</td></tr>
+    <tr><td>Copy 5 artykułów blog</td><td>~10000 słów</td><td>40-50 h</td></tr>
+    <tr><td>Copy 12 stron lokalnych</td><td>~5000 słów</td><td>20-25 h</td></tr>
+    <tr><td>Copy 20 case studies</td><td>~8000 słów</td><td>30-40 h</td></tr>
+    <tr><td>Sesja zdjęciowa fabryki + zespołu</td><td>1 dzień</td><td>8 h + post</td></tr>
+    <tr><td>Sesja zdjęciowa 20 realizacji</td><td>5-10 dni</td><td>50-80 h + post</td></tr>
+    <tr><td>Produkcja 4 video YouTube</td><td>2-3 dni</td><td>30-50 h</td></tr>
+    <tr><td><strong>RAZEM content</strong></td><td></td><td><strong>~200-290 h</strong></td></tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <strong>Łącznie:</strong> ~530-760 roboczogodzin w okresie ~3-4 mies. realizacji etapowej.
+</div>
+
+<h3>4.2. Zależności od klienta (ALUKOMFORT / PLAST-MET)</h3>
+
+<h4>P0 — Krytyczne (potrzebne do ETAP 1-2)</h4>
+<ul>
+  <li>Numer telefonu kontaktowy (1 lub 2 — sprzedaż + serwis)</li>
+  <li>E-mail biura (potwierdzenie <code>biuro@alukomfort.pl</code> lub inny)</li>
+  <li>NIP/REGON PLAST-MET (do schema <code>LocalBusiness</code>)</li>
+  <li>Treść historii firmy (600-1000 słów lub wywiad z właścicielem)</li>
+  <li>6 zdjęć fabryki + zespołu w Trzebnicy</li>
+  <li><strong>Widełki cenowe per produkt × wymiar</strong> — co najmniej 18 cen (3 produkty × 6 rozmiarów). KRYTYCZNE.</li>
+  <li>Cennik akcesoriów (LED, automatyka, ściany screen, szkło, kolor premium)</li>
+  <li>Dostęp do Google Account (GSC, GBP, GA4)</li>
+  <li>Treść polityki prywatności lub zatwierdzenie szablonu</li>
+</ul>
+
+<h4>P1 — Ważne (potrzebne do ETAP 3-4)</h4>
+<ul>
+  <li>Zdjęcia 20-50 realizacji (po 4-8 fotek każda) z lokalizacjami i danymi technicznymi</li>
+  <li>5-10 opinii klientów (z imionami, miastami, zgodą)</li>
+  <li>Profil Google Business (założenie + weryfikacja kartką)</li>
+  <li>Konto YouTube + budżet na 4 filmy (~10-25 tys. zł produkcja zewnętrzna)</li>
+  <li>Lista miast priorytetowych do SEO lokalnego (potwierdzenie listy 12)</li>
+  <li>Pliki DWG/DXF profili LINEA/HORIZON/ROMA (dla <code>/dla-architektow</code>)</li>
+</ul>
+
+<h4>P2 — Pożądane (ETAP 5)</h4>
+<ul>
+  <li>Wybór CRM (HubSpot Free / Pipedrive)</li>
+  <li>Umowa z firmą leasingową (EFL, Idea Leasing)</li>
+  <li>Dane techniczne ERP (do śledzenia zamówień)</li>
+  <li>Konto Mailchimp/Brevo (newsletter)</li>
+  <li>Konto Calendly (kalendarz wizyt)</li>
+</ul>
+
+<h3>4.3. Co zostawić na ETAP 6 (przyszłość — 6+ mies.)</h3>
+<ul>
+  <li><strong>PWA</strong> (offline, install) — pergole to high-consideration purchase, nikt nie kupuje z PWA</li>
+  <li><strong>Dark mode</strong> — niski wpływ na konwersję B2C w branży premium</li>
+  <li><strong>Multi-język (EN/DE/CZ)</strong> — tylko jeśli wejście na Niemcy/Czechy</li>
+  <li><strong>E-commerce (zakup online)</strong> — cena 30-150 tys. wymaga konsultacji</li>
+  <li><strong>AI chatbot doradczy</strong> — przed wdrożeniem czekać na bazę 100+ FAQ + 50+ case studies</li>
+  <li><strong>AR view „zobacz pergolę u siebie w ogrodzie"</strong> — sexy, ale WebXR wciąż słabe</li>
+  <li><strong>Forum / community</strong> — branża nie ma masy krytycznej userów</li>
+  <li><strong>Karta podarunkowa / referral program</strong> — high-ticket B2C nie monetyzuje referrals jak SaaS</li>
+  <li><strong>Mobile app (iOS/Android)</strong> — strona mobilna wystarczy</li>
+</ul>
+
+<p class="footer-note">
+  Dokument wygenerowany 25 kwietnia 2026 · ALUKOMFORT (PLAST-MET Sp. z o.o. Sp. k., Trzebnica) ·
+  Plan oparty na audycie 15 firm konkurencyjnych z Dolnego Śląska oraz researchu słów kluczowych SEO + GEO ·
+  Wersja 1.0
+</p>
+
+</body>
+</html>

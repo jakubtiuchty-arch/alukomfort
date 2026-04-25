@@ -4,6 +4,19 @@ function ProductHorizon({ onQuote }) {
   const p = PRODUCTS.HORIZON;
   const [variant, setVariant] = React.useState('L');
   const active = p.variants.find(v => v.id === variant);
+  usePageMeta({
+    title: 'HORIZON — pergola bioklimatyczna lamelowa, szklana i hybrydowa | ALUKOMFORT',
+    description: 'ALUKOMFORT HORIZON — pergola bioklimatyczna z wieńcem 280 mm. Warianty L (lamele), S (szkło), L-S (hybryda). Sterowanie SOMFY, ściany i LED ukryte w konstrukcji.',
+    canonical: 'https://alukomfort.pl/#/produkty/horizon',
+  });
+  useProductSchema({
+    id: 'horizon',
+    name: 'HORIZON',
+    description: p.intro,
+    image: p.heroImg,
+    url: 'https://alukomfort.pl/#/produkty/horizon',
+    category: 'Pergola bioklimatyczna',
+  });
 
   return (
     <>
@@ -14,13 +27,23 @@ function ProductHorizon({ onQuote }) {
       ]} />
 
       <section className="hero">
-        <div className="hero__img" style={{ backgroundImage: `url(${p.heroImg})` }} />
+        <video
+          className="hero__img"
+          src="uploads/linea_hero_2.mp4"
+          poster={p.heroImg}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.15) translateX(8%)', transformOrigin: 'center' }}
+        />
         <div className="hero__scrim" />
         <div className="container hero__inner">
-          <div className="hero__content">
+          <div className="hero__content" style={{maxWidth: 420}}>
             <div className="hero__eyebrow">ALUKOMFORT</div>
             <h1 className="hero__title">{p.name}</h1>
-            <p className="hero__sub">{p.tagline} {p.description}</p>
+            <p className="hero__sub">{p.tagline}</p>
             <div className="hero__cta">
               <Button variant="primary" size="lg" onClick={onQuote}>Zamów bezpłatną wycenę</Button>
               <Button variant="ghost-light" size="lg">Porównaj wersje systemu</Button>
@@ -49,10 +72,11 @@ function ProductHorizon({ onQuote }) {
           <div className="split-2">
             <div>
               <h3 className="block-title">Najważniejsze cechy systemu {p.name}</h3>
-              <ul className="checklist">
-                {p.features.map((f, i) => (
-                  <li key={i}><span className="dot" />{f}</li>
-                ))}
+              <ul className="iconlist">
+                {p.features.map((f, i) => {
+                  const Ic = Icon[f.icon] || Icon.Check;
+                  return <li key={i}><span className="ic"><Ic size={26} /></span>{f.label}</li>;
+                })}
               </ul>
             </div>
             <div>
@@ -123,6 +147,25 @@ function ProductHorizon({ onQuote }) {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <SectionHead title="Personalizacja i dodatki"
+            sub="Rozbuduj swoją pergolę HORIZON o sterowanie, oświetlenie i ściany. Wszystkie elementy ukryte są w wieńcu 280 mm — żadnych zewnętrznych kabli ani rur." />
+          <div className="features" style={{gridTemplateColumns:'repeat(5, 1fr)'}}>
+            {p.addons.map((a, i) => {
+              const Ic = Icon[a.icon] || Icon.Profile;
+              return (
+                <div key={i} className="feature" style={{textAlign:'left', padding:'22px 18px'}}>
+                  <div className="feature__icon" style={{margin:'0 0 12px'}}><Ic size={32}/></div>
+                  <div style={{fontSize: 13.5, fontWeight: 700, color:'var(--ink)', marginBottom: 6}}>{a.title}</div>
+                  <div className="feature__label" style={{fontSize: 12, textAlign:'left', lineHeight: 1.45}}>{a.desc}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
