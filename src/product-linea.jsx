@@ -33,7 +33,6 @@ function ProductLinea({ onQuote }) {
         <video
           className="hero__img"
           src="uploads/linea_hero_3.mp4"
-          poster={p.heroImg}
           autoPlay
           muted
           loop

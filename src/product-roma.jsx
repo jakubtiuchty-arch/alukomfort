@@ -29,7 +29,6 @@ function ProductRoma({ onQuote }) {
         <video
           className="hero__img"
           src="uploads/roma_hero_2.mp4"
-          poster={p.heroImg}
           autoPlay
           muted
           loop

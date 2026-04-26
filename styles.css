@@ -108,6 +108,7 @@ img { display: block; max-width: 100%; }
 }
 .hero__img {
   position: absolute; inset: 0;
+  background: #111;
   background-size: cover;
   background-position: center;
   z-index: 0;

@@ -14,7 +14,6 @@ function Home({ onNavigate, onQuote }) {
         <video
           className="hero__img"
           src="uploads/hero_homepage_1.mp4"
-          poster="assets/wiz-d.png"
           autoPlay
           muted
           loop

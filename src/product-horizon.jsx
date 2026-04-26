@@ -30,7 +30,6 @@ function ProductHorizon({ onQuote }) {
         <video
           className="hero__img"
           src="uploads/linea_hero_2.mp4"
-          poster={p.heroImg}
           autoPlay
           muted
           loop
