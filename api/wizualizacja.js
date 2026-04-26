@@ -88,7 +88,18 @@ export default async function handler(req, res) {
   }
 
   const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) return res.status(500).json({ error: 'Brak konfiguracji serwera (OPENAI_API_KEY).' });
+  if (!apiKey) {
+    const envKeysSeen = Object.keys(process.env).filter(k => /OPENAI|API|KEY|RESEND|LEAD/i.test(k));
+    return res.status(500).json({
+      error: 'Brak konfiguracji serwera (OPENAI_API_KEY).',
+      debug: {
+        envKeysSeen,
+        nodeVersion: process.version,
+        runtime: process.env.VERCEL_REGION || 'unknown',
+        deployId: process.env.VERCEL_DEPLOYMENT_ID || 'unknown',
+      },
+    });
+  }
 
   const { product, color, imageBase64, mimeType, email, phone, address, notes, rodo } = req.body || {};
 
