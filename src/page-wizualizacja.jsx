@@ -1,6 +1,6 @@
 // Strona /wizualizacja — konfigurator AI: zdjęcie tarasu + produkt → wygenerowana wizualizacja
 
-const PRODUCTS = [
+const WIZ_PRODUCTS = [
   { id: 'linea',   name: 'LINEA',   sub: 'Aluminiowe zadaszenie samonośne',   img: 'uploads/linea_kafelek_3.png' },
   { id: 'horizon', name: 'HORIZON', sub: 'Pergola bioklimatyczna lamelowa',   img: 'uploads/kafelek_horizon.png' },
   { id: 'roma',    name: 'ROMA',    sub: 'Pergola tkaninowa',                 img: 'uploads/roma_hp.png' },
@@ -132,7 +132,7 @@ function PageWizualizacja({ onQuote }) {
               <div className="wiz-step__body">
                 <h2 className="wiz-step__title">Wybierz produkt</h2>
                 <div className="wiz-products">
-                  {PRODUCTS.map(p => (
+                  {WIZ_PRODUCTS.map(p => (
                     <button
                       type="button"
                       key={p.id}
