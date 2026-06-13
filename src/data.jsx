@@ -23,11 +23,11 @@ const LINEA = {
   heroImg: 'assets/wiz-13.jpg',
   intro: 'System ALUKOMFORT LINEA daje pełną elastyczność montażu — jako konstrukcja przyścienna zintegrowana z budynkiem lub wolnostojąca samonośna. Sprawdza się zarówno jako zadaszenie przydomowego tarasu i carportu, jak i w ogródkach letnich restauracji i kawiarni — gdzie chroni meble i gości przed kaprysami pogody.',
   usecases: [
-    { icon: 'Terrace', label: 'Zadaszenie tarasu i balkonu' },
-    { icon: 'Entrance', label: 'Zadaszenie wejścia do domu' },
-    { icon: 'Carport', label: 'Wiata samochodowa' },
-    { icon: 'Commercial', label: 'Przestrzeń gospodarcza' },
-    { icon: 'Pool', label: 'Strefa komercyjna – plaże przy restauracji, hotelu lub kawiarni' },
+    { img: 'uploads/icons/uc-taras.png',       label: 'Zadaszenie tarasu i balkonu' },
+    { img: 'uploads/icons/uc-wejscie.png',     label: 'Zadaszenie wejścia do domu' },
+    { img: 'uploads/icons/uc-carport.png',     label: 'Wiata samochodowa' },
+    { img: 'uploads/icons/uc-gospodarcza.png', label: 'Przestrzeń gospodarcza' },
+    { img: 'uploads/icons/uc-komercyjna.png',  label: 'Strefa komercyjna – plaże przy restauracji, hotelu lub kawiarni' },
   ],
   features: [
     { icon: 'Shield',     label: 'Przede wszystkim bezpieczne i komfortowe' },

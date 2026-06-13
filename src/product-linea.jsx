@@ -59,10 +59,12 @@ function ProductLinea({ onQuote }) {
           <SectionHead title="Jedna konstrukcja, wiele zastosowań" sub={p.intro} />
           <div className="usecases">
             {p.usecases.map((u, i) => {
-              const Ic = Icon[u.icon];
+              const Ic = u.icon ? Icon[u.icon] : null;
               return (
                 <div key={i} className="usecase">
-                  <div className="usecase__icon"><Ic size={40} /></div>
+                  <div className="usecase__icon">
+                    {u.img ? <img src={u.img} alt="" width="48" height="48" loading="lazy" /> : <Ic size={40} />}
+                  </div>
                   <div className="usecase__label">{u.label}</div>
                 </div>
               );
