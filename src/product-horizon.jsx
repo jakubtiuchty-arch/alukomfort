@@ -89,20 +89,22 @@ function ProductHorizon({ onQuote }) {
           <div className="split-2">
             <div>
               <h3 className="block-title">Najważniejsze cechy systemu {p.name}</h3>
-              <ul className="iconlist">
-                {p.features.map((f, i) => {
-                  const Ic = f.icon ? (Icon[f.icon] || Icon.Check) : null;
-                  return <li key={i}><span className="ic">{f.img ? <img className="ic-img" src={f.img} alt="" loading="lazy" /> : <Ic size={26} />}</span>{f.label}</li>;
-                })}
+              <ul className="iconlist iconlist--check">
+                {p.features.map((f, i) => (
+                  <li key={i}><span className="ic-check" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>{f.label}</li>
+                ))}
               </ul>
             </div>
             <div>
               <h3 className="block-title">Zastosowania</h3>
-              <ul className="iconlist">
-                {p.uses.map((u, i) => {
-                  const Ic = u.icon ? Icon[u.icon] : null;
-                  return <li key={i}><span className="ic">{u.img ? <img className="ic-img" src={u.img} alt="" loading="lazy" /> : <Ic size={26} />}</span>{u.label}</li>;
-                })}
+              <ul className="iconlist iconlist--check">
+                {p.uses.map((u, i) => (
+                  <li key={i}><span className="ic-check" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>{u.label}</li>
+                ))}
               </ul>
             </div>
           </div>

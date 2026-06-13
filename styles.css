@@ -433,6 +433,15 @@ img { display: block; max-width: 100%; }
 .iconlist li { display: flex; gap: 14px; align-items: center; font-size: 13.5px; }
 .iconlist li .ic { width: 32px; height: 32px; color: var(--ink); flex: 0 0 32px; display:flex; align-items:center; justify-content:center; }
 .iconlist li .ic-img { width: 30px; height: 30px; flex: 0 0 30px; display: block; }
+.iconlist--check li { align-items: flex-start; gap: 12px; }
+.iconlist--check .ic-check {
+  width: 22px; height: 22px; flex: 0 0 22px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(184, 133, 26, 0.12);
+  color: var(--accent);
+  margin-top: 1px;
+}
 
 /* Modules grid */
 .modules {
