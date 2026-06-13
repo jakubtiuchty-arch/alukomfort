@@ -1,5 +1,16 @@
 // Podstrona produktu HORIZON
 
+const HORIZON_COLOR_PREVIEWS = {
+  'RAL 7016':      'uploads/colors-preview/horizon/ral-7016.jpg',
+  'RAL 9005':      'uploads/colors-preview/horizon/ral-9005.jpg',
+  'RAL 9010':      'uploads/colors-preview/horizon/ral-9010.jpg',
+  'RAL 7039':      'uploads/colors-preview/horizon/ral-7039.jpg',
+  'Czarna wiśnia': 'uploads/colors-preview/horizon/wisnia.jpg',
+  'Sosna':         'uploads/colors-preview/horizon/sosna.jpg',
+  'Srebrny dąb':   'uploads/colors-preview/horizon/srebrny.jpg',
+  'Złoty dąb':     'uploads/colors-preview/horizon/zloty.jpg',
+};
+
 function ProductHorizon({ onQuote }) {
   const p = PRODUCTS.HORIZON;
   const [variant, setVariant] = React.useState('L');
@@ -175,7 +186,7 @@ function ProductHorizon({ onQuote }) {
         </div>
       </section>
 
-      <ColorsSection />
+      <ColorsSection previews={HORIZON_COLOR_PREVIEWS} />
 
       <section className="section">
         <div className="container">
