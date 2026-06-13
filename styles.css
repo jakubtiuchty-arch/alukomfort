@@ -758,8 +758,15 @@ img { display: block; max-width: 100%; }
   border: 1px solid var(--line);
   padding: 28px 28px 22px;
 }
-.pergview { width: 100%; }
-.pergview svg { display: block; width: 100%; height: auto; }
+.pergview { position: relative; width: 100%; aspect-ratio: 4 / 3; }
+.pergview img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.pergview img.is-active { opacity: 1; }
 .colors-preview__tag {
   margin-top: 16px;
   padding-top: 18px;

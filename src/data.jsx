@@ -1,17 +1,17 @@
 // Dane produktów — dokładnie wg referencji (polski tekst, tabelki, kolory RAL, warianty)
 
 const COLORS_BASE = [
-  { name: 'RAL 7016', sub: 'Struktura', hex: '#2c3033' },
-  { name: 'RAL 9005', sub: 'Struktura', hex: '#0c0c0c' },
-  { name: 'RAL 9010', sub: 'Mat',       hex: '#f2f0ea' },
-  { name: 'RAL 7039', sub: 'Mat',       hex: '#6d6a63' },
+  { name: 'RAL 7016', sub: 'Struktura', hex: '#2c3033', preview: 'uploads/colors-preview/ral-7016.jpg' },
+  { name: 'RAL 9005', sub: 'Struktura', hex: '#0c0c0c', preview: 'uploads/colors-preview/ral-9005.jpg' },
+  { name: 'RAL 9010', sub: 'Mat',       hex: '#f2f0ea', preview: 'uploads/colors-preview/ral-9010.jpg' },
+  { name: 'RAL 7039', sub: 'Mat',       hex: '#6d6a63', preview: 'uploads/colors-preview/ral-7039.jpg' },
 ];
 
 const COLORS_PREMIUM = [
-  { name: 'Czarna wiśnia', sub: 'Drewnopodobny', img: 'uploads/czarna_wiśnia.png', hex: '#3a201c' },
-  { name: 'Sosna',         sub: 'Drewnopodobny', img: 'uploads/sosna.png',         hex: '#b6783a' },
-  { name: 'Srebrny dąb',   sub: 'Drewnopodobny', img: 'uploads/srebrny_dąb.png',   hex: '#9b948a' },
-  { name: 'Złoty dąb',     sub: 'Drewnopodobny', img: 'uploads/złoty_dąb.png',     hex: '#a8631f' },
+  { name: 'Czarna wiśnia', sub: 'Drewnopodobny', img: 'uploads/czarna_wiśnia.png', hex: '#3a201c', preview: 'uploads/colors-preview/wisnia.jpg' },
+  { name: 'Sosna',         sub: 'Drewnopodobny', img: 'uploads/sosna.png',         hex: '#b6783a', preview: 'uploads/colors-preview/sosna.jpg' },
+  { name: 'Srebrny dąb',   sub: 'Drewnopodobny', img: 'uploads/srebrny_dąb.png',   hex: '#9b948a', preview: 'uploads/colors-preview/srebrny.jpg' },
+  { name: 'Złoty dąb',     sub: 'Drewnopodobny', img: 'uploads/złoty_dąb.png',     hex: '#a8631f', preview: 'uploads/colors-preview/zloty.jpg' },
 ];
 
 // Linea

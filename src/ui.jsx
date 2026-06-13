@@ -79,57 +79,6 @@ function CertBar() {
   );
 }
 
-function shadeColor(hex, amt) {
-  // amt < 0 darkens, > 0 lightens (zakres ok. -1..1)
-  const h = hex.replace('#', '');
-  const full = h.length === 3 ? h.split('').map(c => c + c).join('') : h;
-  let r = parseInt(full.slice(0, 2), 16);
-  let g = parseInt(full.slice(2, 4), 16);
-  let b = parseInt(full.slice(4, 6), 16);
-  const t = amt < 0 ? 0 : 255;
-  const p = Math.abs(amt);
-  r = Math.round((t - r) * p + r);
-  g = Math.round((t - g) * p + g);
-  b = Math.round((t - b) * p + b);
-  return `rgb(${r}, ${g}, ${b})`;
-}
-
-function PergolaPreview({ color }) {
-  const top = color;
-  const fascia = shadeColor(color, -0.16);
-  const side = shadeColor(color, -0.34);
-  const post = shadeColor(color, -0.10);
-  const slat = shadeColor(color, -0.28);
-  // krokwie na górnej płaszczyźnie dachu
-  const slats = [0.18, 0.34, 0.5, 0.66, 0.82].map((t) => {
-    const sx = 96 + t * 32, sy = 86 + t * 26;
-    return { x1: sx, y1: sy, x2: sx + 256, y2: sy - 32 };
-  });
-  return (
-    <div className="pergview">
-      <svg viewBox="0 0 480 320" width="100%" role="img" aria-label="Podgląd koloru pergoli">
-        <ellipse cx="250" cy="298" rx="190" ry="15" fill="rgba(0,0,0,0.10)" />
-        {/* słupy tylne */}
-        <rect x="300" y="92" width="9" height="188" fill={side} />
-        <rect x="118" y="112" width="9" height="174" fill={side} />
-        {/* słupy przednie */}
-        <rect x="372" y="92" width="13" height="192" rx="1" fill={post} />
-        <rect x="150" y="118" width="13" height="172" rx="1" fill={post} />
-        {/* dach — bok lewy */}
-        <polygon points="96,86 128,112 128,126 96,100" fill={side} />
-        {/* dach — listwa czołowa */}
-        <polygon points="128,112 384,80 384,94 128,126" fill={fascia} />
-        {/* dach — płaszczyzna górna */}
-        <polygon points="96,86 352,54 384,80 128,112" fill={top} />
-        {/* krokwie */}
-        <g stroke={slat} strokeWidth="1.6" strokeLinecap="round">
-          {slats.map((s, i) => <line key={i} x1={s.x1} y1={s.y1} x2={s.x2} y2={s.y2} />)}
-        </g>
-      </svg>
-    </div>
-  );
-}
-
 function ColorsSection() {
   const [active, setActive] = React.useState({ type: 'base', idx: 0 });
   const activeColor = active.type === 'base' ? COLORS_BASE[active.idx] : COLORS_PREMIUM[active.idx];
@@ -140,7 +89,13 @@ function ColorsSection() {
           sub="Wybierz kolor konstrukcji, a podgląd na żywo pokaże, jak będzie wyglądać Twoja pergola." />
         <div className="colors-layout">
           <div className="colors-preview">
-            <PergolaPreview color={activeColor.hex} />
+            <div className="pergview">
+              {COLORS_BASE.concat(COLORS_PREMIUM).map((c, i) => (
+                <img key={i} src={c.preview} alt={`Pergola ALUKOMFORT w kolorze ${c.name}`}
+                  className={c.preview === activeColor.preview ? 'is-active' : ''}
+                  loading="lazy" />
+              ))}
+            </div>
             <div className="colors-preview__tag">
               <span className="colors-preview__lbl">Wybrany kolor</span>
               <strong className="colors-preview__name">{activeColor.name}</strong>
