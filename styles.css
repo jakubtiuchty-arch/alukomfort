@@ -474,7 +474,7 @@ img { display: block; max-width: 100%; }
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 /* Brand */
-.ak-footer__logo { width: 220px; max-width: 100%; height: auto; display: block; }
+.ak-footer__logo { width: 220px; max-width: 100%; height: auto; display: block; margin: 0 auto; }
 .ft-brand__desc { margin: 22px 0 0; font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.55); max-width: 340px; }
 .ft-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .ft-badge {
