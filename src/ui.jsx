@@ -124,7 +124,7 @@ function ColorsSection({ previews, roofs }) {
         </div>
         {hasRoofs && (
           <div className="colors-roof">
-            <h4 className="block-title">Wybierz rodzaj dachu</h4>
+            <h4 className="block-title">Dostępne rodzaje dachu</h4>
             <div className="roof-grid">
               {allRoofOptions.map((o, i) => (
                 <div key={i}
