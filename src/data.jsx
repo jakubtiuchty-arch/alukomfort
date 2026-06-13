@@ -19,18 +19,18 @@ const LINEA = {
   id: 'linea',
   name: 'LINEA',
   tagline: 'Praktyczna wszechstronność i niezawodność — aluminiowy system zadaszeń przyściennych i samonośnych.',
-  description: 'Solidne i ekonomiczne rozwiązanie o uniwersalnym designie — dla domu, carportu, restauracji lub kawiarni.',
+  description: 'Solidne i ekonomiczne zadaszenie o uniwersalnej formie — pergola tarasowa sprawdzi się przy domu, jako carport oraz w restauracji czy kawiarni.',
   heroImg: 'assets/wiz-13.jpg',
-  intro: 'System ALUKOMFORT LINEA daje pełną elastyczność montażu — jako konstrukcja przyścienna zintegrowana z budynkiem lub wolnostojąca samonośna. Sprawdza się zarówno jako zadaszenie przydomowego tarasu i carportu, jak i w ogródkach letnich restauracji i kawiarni — gdzie chroni meble i gości przed kaprysami pogody.',
+  intro: 'System ALUKOMFORT LINEA to wszechstronna pergola tarasowa, która daje pełną elastyczność montażu — jako konstrukcja przyścienna zintegrowana z budynkiem lub wolnostojąca samonośna. Sprawdza się zarówno jako zadaszenie przydomowego tarasu i carportu, jak i w ogródkach letnich restauracji i kawiarni — gdzie chroni meble i gości przed kaprysami pogody.',
   usecases: [
     { img: 'uploads/icons/uc-taras.png',       label: 'Zadaszenie tarasu i balkonu' },
     { img: 'uploads/icons/uc-wejscie.png',     label: 'Zadaszenie wejścia do domu' },
     { img: 'uploads/icons/uc-carport.png',     label: 'Wiata samochodowa' },
     { img: 'uploads/icons/uc-gospodarcza.png', label: 'Przestrzeń gospodarcza' },
-    { img: 'uploads/icons/uc-komercyjna.png',  label: 'Strefa komercyjna – plaże przy restauracji, hotelu lub kawiarni' },
+    { img: 'uploads/icons/uc-komercyjna.png',  label: 'Ogródek gastronomiczny przy restauracji, hotelu lub kawiarni' },
   ],
   features: [
-    { label: 'Aluminium ekstrudowane z własnych doświadczeń projektowych' },
+    { label: 'Profile z aluminium ekstrudowanego według własnych projektów' },
     { label: 'Wysoka odporność na wiatr i obciążenia śniegiem' },
     { label: 'Przepuszczalność światła dobierana indywidualnie' },
     { label: 'Zabudowa ścian bocznych — pełna prywatność' },
@@ -45,7 +45,7 @@ const LINEA = {
     { label: 'Słup nośny — przekrój',                   value: '150 × 100 × 4 mm' },
     { label: 'Wysokość słupów przednich (zalecana)',    value: '2 300 mm' },
     { label: 'Kąt nachylenia dachu (standard)',         value: '8°' },
-    { label: 'Grubość szkła bezpiecznego',              value: '44.2 – 55.4 mm' },
+    { label: 'Grubość szkła bezpiecznego',              value: '44,2 – 55,4 mm' },
     { label: 'Grubość poliwęglanu komorowego',          value: '16 mm' },
   ],
   roofs: [
@@ -63,7 +63,7 @@ const LINEA = {
     {
       id: 'szklo',
       name: 'Szkło bezpieczne ESG / VSG',
-      desc: 'Grubość 44.2–55.4. Szkło hartowane (ESG) odporne na uderzenia lub laminowane (VSG) z folią PVB — utrzymuje kształt nawet przy pęknięciu.',
+      desc: 'Grubość 44,2–55,4 mm. Szkło hartowane (ESG) odporne na uderzenia lub laminowane (VSG) z folią PVB — utrzymuje kształt nawet przy pęknięciu.',
       options: [
         { name: 'ESG',      sub: 'Szkło hartowane',    hex: '#eaf3f6' },
         { name: 'VSG',      sub: 'Szkło laminowane',   hex: '#dfe7ea' },
