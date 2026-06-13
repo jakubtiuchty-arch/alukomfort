@@ -124,33 +124,16 @@ function ProductRoma({ onQuote }) {
 
       <section className="section">
         <div className="container">
-          <div className="split-2">
-            <div>
-              <div style={{display:'flex', gap: 16, alignItems:'flex-start'}}>
-                <div style={{width:40, flex:'0 0 40px'}}><Icon.Leaf size={36} /></div>
-                <div>
-                  <h3 className="block-title" style={{marginBottom: 6}}>Idealna do przydomowej strefy relaksu</h3>
-                  <p className="small" style={{margin: 0, color: 'var(--muted)'}}>Pergola ROMA sprawdza się doskonale jako:</p>
-                </div>
+          <h3 className="block-title">Parametry techniczne ROMA</h3>
+          <div className="specs-2col">
+            {p.techSpecs.map((s, i) => (
+              <div key={i} className="spec-row">
+                <span className="spec-row__label">{s.label}</span>
+                <span className="spec-row__value">{s.value}</span>
               </div>
-              <ul className="iconlist" style={{marginTop: 20}}>
-                {p.uses.map((u, i) => {
-                  const Ic = Icon[u.icon] || Icon.Check;
-                  return <li key={i}><span className="ic"><Ic size={26}/></span>{u.label}</li>;
-                })}
-              </ul>
-            </div>
-            <div>
-              <h3 className="block-title">Parametry techniczne ROMA</h3>
-              {p.techSpecs.map((s, i) => (
-                <div key={i} className="spec-row">
-                  <span className="spec-row__label">{s.label}</span>
-                  <span className="spec-row__value">{s.value}</span>
-                </div>
-              ))}
-              <p className="small" style={{marginTop: 16, color:'var(--muted)'}}>{p.rainNote}</p>
-            </div>
+            ))}
           </div>
+          <p className="small" style={{marginTop: 18, color:'var(--muted)', maxWidth: 760}}>{p.rainNote}</p>
         </div>
       </section>
 
