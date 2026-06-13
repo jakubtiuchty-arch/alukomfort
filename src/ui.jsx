@@ -79,9 +79,11 @@ function CertBar() {
   );
 }
 
-function ColorsSection() {
+function ColorsSection({ previews }) {
   const [active, setActive] = React.useState({ type: 'base', idx: 0 });
   const activeColor = active.type === 'base' ? COLORS_BASE[active.idx] : COLORS_PREMIUM[active.idx];
+  const srcFor = (c) => (previews && previews[c.name]) || c.preview;
+  const activeSrc = srcFor(activeColor);
   return (
     <section className="section section--soft">
       <div className="container">
@@ -91,8 +93,8 @@ function ColorsSection() {
           <div className="colors-preview">
             <div className="pergview">
               {COLORS_BASE.concat(COLORS_PREMIUM).map((c, i) => (
-                <img key={i} src={c.preview} alt={`Pergola ALUKOMFORT w kolorze ${c.name}`}
-                  className={c.preview === activeColor.preview ? 'is-active' : ''}
+                <img key={i} src={srcFor(c)} alt={`Pergola ALUKOMFORT w kolorze ${c.name}`}
+                  className={srcFor(c) === activeSrc ? 'is-active' : ''}
                   loading="lazy" />
               ))}
             </div>
