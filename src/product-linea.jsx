@@ -76,7 +76,7 @@ function ProductLinea({ onQuote }) {
       <section className="section section--soft">
         <div className="container">
           <SectionHead title={`Najważniejsze cechy systemu ${p.name}`}
-            sub="Dwanaście atutów, które składają się na trwałość, estetykę i komfort codziennego użytkowania." />
+            sub="Sześć atutów, które składają się na trwałość, estetykę i komfort codziennego użytkowania." />
           <FeatureList items={p.features} />
         </div>
       </section>
