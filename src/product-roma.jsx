@@ -1,5 +1,16 @@
 // Podstrona produktu ROMA
 
+const ROMA_COLOR_PREVIEWS = {
+  'RAL 7016':      'uploads/colors-preview/roma/ral-7016.jpg',
+  'RAL 9005':      'uploads/colors-preview/roma/ral-9005.jpg',
+  'RAL 9010':      'uploads/colors-preview/roma/ral-9010.jpg',
+  'RAL 7039':      'uploads/colors-preview/roma/ral-7039.jpg',
+  'Czarna wiśnia': 'uploads/colors-preview/roma/wisnia.jpg',
+  'Sosna':         'uploads/colors-preview/roma/sosna.jpg',
+  'Srebrny dąb':   'uploads/colors-preview/roma/srebrny.jpg',
+  'Złoty dąb':     'uploads/colors-preview/roma/zloty.jpg',
+};
+
 function ProductRoma({ onQuote }) {
   const p = PRODUCTS.ROMA;
   const [module, setModule] = React.useState(2); // 4x4
@@ -205,7 +216,7 @@ function ProductRoma({ onQuote }) {
         </div>
       </section>
 
-      <ColorsSection />
+      <ColorsSection previews={ROMA_COLOR_PREVIEWS} />
 
       <section className="section">
         <div className="container">
