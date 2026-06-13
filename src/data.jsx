@@ -278,7 +278,7 @@ const ROMA = {
   ],
   components: [
     { img: 'uploads/icons/rc-slupy.png',      label: 'Słupy aluminiowe' },
-    { img: 'uploads/icons/hz-wieniec.png',    label: 'Belka kalenicowa' },
+    { img: 'uploads/icons/rc-belka.png',      label: 'Belka kalenicowa' },
     { img: 'uploads/icons/rm-platno.png',     label: 'Płótno akrylowe 100%' },
     { img: 'uploads/icons/rc-rolka.png',      label: 'Rolka prosta i kątowa z mocowaniem linki' },
     { img: 'uploads/icons/rc-rama.png',       label: 'Rama nośna' },

@@ -145,7 +145,7 @@ function ProductRoma({ onQuote }) {
               const Ic = c.icon ? Icon[c.icon] : null;
               return (
                 <div key={i} className="feature">
-                  <div className="feature__icon" style={{width: 60, height: 60, margin: '4px 0 14px'}}>{c.img ? <img src={c.img} alt="" width="60" height="60" loading="lazy" /> : <Ic size={32} />}</div>
+                  <div className="feature__icon" style={{width: 60, height: 60, margin: '4px auto 14px'}}>{c.img ? <img src={c.img} alt="" width="60" height="60" loading="lazy" /> : <Ic size={32} />}</div>
                   <div className="feature__label" style={{fontSize:12}}>{c.label}</div>
                 </div>
               );
