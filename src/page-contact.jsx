@@ -54,18 +54,17 @@ function PageContact({ onQuote }) {
               <div style={{display: 'flex', flexDirection: 'column', gap: 0, borderTop: '1px solid var(--line)'}}>
                 <ContactRow icon={<Icon.Entrance size={22} />} label="Adres" lines={['ul. Milicka 34', '55-100 Trzebnica']} />
                 <ContactRow icon={<Icon.Auto size={22} />} label="Telefon" lines={[
-                  <a key="p1" href="tel:+48713120793" style={{fontWeight:600}}>+48 (71) 312 07 93</a>,
-                  <a key="p2" href="tel:+48713870830" style={{fontWeight:600}}>+48 (71) 387 08 30</a>,
+                  <a key="p1" href="tel:+48512622666" style={{fontWeight:600}}>512 622 666</a>,
                 ]} />
                 <ContactRow icon={<Icon.Arrow size={22} />} label="E-mail" lines={[
                   <a key="e" href="mailto:trzebnica@plast-met.pl" style={{fontWeight:600}}>trzebnica@plast-met.pl</a>
                 ]} />
-                <ContactRow icon={<Icon.Led size={22} />} label="Godziny otwarcia" lines={['pn–pt: 8:00 – 17:00', 'sob: po wcześniejszym umówieniu']} />
+                <ContactRow icon={<Icon.Led size={22} />} label="Godziny otwarcia" lines={['pn–pt: 7:30 – 15:30', 'sob: po wcześniejszym umówieniu']} />
               </div>
 
               <div style={{marginTop: 28, display: 'flex', gap: 12}}>
                 <Button variant="primary" size="lg" onClick={onQuote}>Zamów bezpłatną wycenę</Button>
-                <a href="tel:+48713120793" className="btn btn--ghost-dark btn--lg">Zadzwoń teraz</a>
+                <a href="tel:+48512622666" className="btn btn--ghost-dark btn--lg">Zadzwoń teraz</a>
               </div>
             </div>
 

@@ -200,7 +200,7 @@ function ClientDataPage({ onNavigate }) {
           </CDField>
 
           <CDField label="E-mail biura" why="Do formularzy kontaktowych i schema markup dla Google.">
-            <input type="email" value={data.email} onChange={e => update('email', e.target.value)} placeholder="biuro@plast-met.pl" />
+            <input type="email" value={data.email} onChange={e => update('email', e.target.value)} placeholder="trzebnica@plast-met.pl" />
           </CDField>
 
           <CDField label="NIP / REGON / KRS PLAST-MET" why="Do strukturalnych danych dla Google (Organization schema) oraz w stopce strony.">
