@@ -259,12 +259,12 @@ const ROMA = {
   heroImg: 'assets/wiz-c.png',
   intro: 'ALUKOMFORT ROMA to zadaszenie wykorzystujące roletę rzymską z akrylowego płótna jako dynamiczne poszycie dachu. System pozwala regulować ilość światła, dając komfortowy cień w upale i tworzy lekką, nowoczesną przestrzeń wypoczynkową.',
   features: [
-    { icon: 'Fabric',  label: 'Poszycie z płótna 100% akryl — ochrona UV i miękki cień' },
-    { icon: 'Profile', label: 'Konstrukcja z ekstrudowanego stopu aluminium 6063' },
-    { icon: 'Frame',   label: 'Modułowość — gotowe moduły łączliwe dla dużych przestrzeni' },
-    { icon: 'Auto',    label: 'Opcjonalna automatyka pogodowa' },
-    { icon: 'Led',     label: 'Opcjonalne liniowe oświetlenie LED' },
-    { icon: 'Wall',    label: 'System ścian bocznych — szkło, rolety screen, panele' },
+    { img: 'uploads/icons/rm-platno.png',    label: 'Poszycie z płótna 100% akryl — ochrona UV i miękki cień' },
+    { img: 'uploads/icons/usp-material.png', label: 'Konstrukcja z ekstrudowanego stopu aluminium 6063' },
+    { img: 'uploads/icons/rm-moduly.png',    label: 'Modułowość — gotowe moduły łączliwe dla dużych przestrzeni' },
+    { img: 'uploads/icons/hz-pogoda.png',    label: 'Opcjonalna automatyka pogodowa' },
+    { img: 'uploads/icons/add-led.png',      label: 'Opcjonalne liniowe oświetlenie LED' },
+    { img: 'uploads/icons/hz-sciany.png',    label: 'System ścian bocznych — szkło, rolety screen, panele' },
   ],
   modules: [
     { w: 3, h: 3 }, { w: 4, h: 3 }, { w: 4, h: 4 },

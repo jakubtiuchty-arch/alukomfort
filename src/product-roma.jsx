@@ -92,10 +92,10 @@ function ProductRoma({ onQuote }) {
               <h3 className="block-title">Co wyróżnia pergolę ROMA</h3>
               <div className="features" style={{gridTemplateColumns: 'repeat(3, 1fr)'}}>
                 {p.features.map((f, i) => {
-                  const Ic = Icon[f.icon];
+                  const Ic = f.icon ? Icon[f.icon] : null;
                   return (
                     <div key={i} className="feature">
-                      <div className="feature__icon"><Ic size={34} /></div>
+                      <div className="feature__icon" style={{width: 46, height: 46}}>{f.img ? <img src={f.img} alt="" width="46" height="46" loading="lazy" /> : <Ic size={34} />}</div>
                       <div className="feature__label">{f.label}</div>
                     </div>
                   );
