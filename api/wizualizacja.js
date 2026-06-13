@@ -145,7 +145,6 @@ export default async function handler(req, res) {
     fd.append('prompt', prompt);
     fd.append('size', 'auto');            // dopasuj proporcje wyjścia do zdjęcia klienta (poziome/pionowe)
     fd.append('quality', 'high');         // fotorealistyczna jakość
-    fd.append('input_fidelity', 'high');  // zachowaj dom/taras/otoczenie ze zdjęcia bez zmian
     fd.append('n', '1');
     const ext = /jpe?g/i.test(mimeType) ? 'jpg' : /webp/i.test(mimeType) ? 'webp' : 'png';
     fd.append('image', new Blob([buffer], { type: mimeType }), `photo.${ext}`);
