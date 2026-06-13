@@ -59,7 +59,7 @@ function PageContact({ onQuote }) {
                 <ContactRow icon={<Icon.Arrow size={22} />} label="E-mail" lines={[
                   <a key="e" href="mailto:trzebnica@plast-met.pl" style={{fontWeight:600}}>trzebnica@plast-met.pl</a>
                 ]} />
-                <ContactRow icon={<Icon.Led size={22} />} label="Godziny otwarcia" lines={['pn–pt: 7:30 – 15:30', 'sob: po wcześniejszym umówieniu']} />
+                <ContactRow icon={<Icon.Led size={22} />} label="Godziny otwarcia" lines={['pn–pt: 7:30 – 15:30']} />
               </div>
 
               <div style={{marginTop: 28, display: 'flex', gap: 12}}>
@@ -121,9 +121,9 @@ function PageContact({ onQuote }) {
       </section>
 
       {/* Mapa — stylizowana w tonacji strony */}
-      <section className="section section--soft" style={{paddingTop: 0, paddingBottom: 72}}>
+      <section className="section section--soft">
         <div className="container">
-          <SectionHead title="Jak do nas trafić" sub="ul. Milicka 34, 55-100 Trzebnica — przy wjeździe do miasta od strony trasy S5." />
+          <SectionHead title="Jak do nas trafić" sub="ul. Milicka 34, 55-100 Trzebnica — przy wjeździe do miasta od strony DK15." />
         </div>
         <StylizedMap />
         <div className="container" style={{marginTop: 24, display: 'flex', justifyContent:'space-between', gap: 24, flexWrap: 'wrap'}}>
