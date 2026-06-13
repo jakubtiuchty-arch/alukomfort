@@ -690,46 +690,60 @@ img { display: block; max-width: 100%; }
 .faq__item[open] .faq__q::after { content: "–"; }
 .faq__a { margin: 0; padding: 0 22px 20px; font-size: 13.5px; color: var(--muted); line-height: 1.65; }
 
-/* Lista cech (LINEA) — bez ikon, z animacją wejścia */
-.featlist {
+/* Siatka cech (LINEA) — karty z numerem, bez ikon, animacja wejścia */
+.featgrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0 64px;
-  max-width: 980px;
-  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
-.featrow {
-  display: flex;
-  align-items: baseline;
-  gap: 22px;
-  padding: 22px 6px;
-  border-bottom: 1px solid var(--line);
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity .55s ease, transform .55s ease, background .15s, padding-left .15s;
-}
-.featlist.is-on .featrow { opacity: 1; transform: translateY(0); }
-.featrow__num {
-  flex: 0 0 auto;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--accent);
-  min-width: 30px;
+.featcard {
   position: relative;
-  padding-bottom: 2px;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 26px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .55s ease, transform .55s ease, border-color .2s ease, box-shadow .2s ease;
 }
-.featrow__num::after {
+.featgrid.is-on .featcard { opacity: 1; transform: translateY(0); }
+.featcard::before {
   content: "";
-  position: absolute; left: 0; bottom: 0;
-  width: 0; height: 2px; background: var(--accent);
-  transition: width .25s ease;
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .28s ease;
 }
-.featrow:hover { background: #fff; padding-left: 16px; }
-.featrow:hover .featrow__num::after { width: 22px; }
-.featrow__label { font-size: 14.5px; line-height: 1.5; color: var(--ink); font-weight: 500; }
+.featcard:hover {
+  border-color: var(--ink);
+  box-shadow: 0 14px 30px -18px rgba(0,0,0,0.35);
+  transform: translateY(-4px);
+}
+.featcard:hover::before { transform: scaleX(1); }
+.featcard__num {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--line-2);
+  transition: color .2s ease;
+}
+.featcard:hover .featcard__num { color: var(--accent); }
+.featcard__label {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink);
+  font-weight: 600;
+}
 @media (prefers-reduced-motion: reduce) {
-  .featrow { opacity: 1; transform: none; transition: background .15s, padding-left .15s; }
+  .featcard { opacity: 1; transform: none; transition: border-color .2s, box-shadow .2s; }
+  .featcard:hover { transform: none; }
 }
 
 /* Ikony USP (generowane) */
@@ -1232,6 +1246,7 @@ img { display: block; max-width: 100%; }
   .home-tiles { grid-template-columns: 1fr; }
   .usecases { grid-template-columns: repeat(2, 1fr); }
   .features { grid-template-columns: repeat(3, 1fr); }
+  .featgrid { grid-template-columns: repeat(2, 1fr); }
   .modules, .models { grid-template-columns: repeat(2, 1fr); }
   .examples { grid-template-columns: repeat(2, 1fr); }
   .variants { grid-template-columns: 1fr; }
@@ -1280,7 +1295,10 @@ img { display: block; max-width: 100%; }
   .features { grid-template-columns: 1fr 1fr !important; gap: 8px; }
   .feature { padding: 20px 14px; }
   .feature__label { font-size: 12px; }
-  .featlist { grid-template-columns: 1fr; gap: 0; }
+  .featgrid { grid-template-columns: 1fr 1fr !important; gap: 10px; }
+  .featcard { padding: 20px 16px; }
+  .featcard__num { font-size: 24px; }
+  .featcard__label { font-size: 13px; }
   .modules, .models { grid-template-columns: 1fr 1fr !important; }
   .examples { grid-template-columns: 1fr !important; }
   .vselect { grid-template-columns: 1fr !important; }

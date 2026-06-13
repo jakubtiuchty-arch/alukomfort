@@ -200,11 +200,11 @@ function FeatureList({ items }) {
     return () => obs.disconnect();
   }, []);
   return (
-    <div ref={ref} className={`featlist ${on ? 'is-on' : ''}`}>
+    <div ref={ref} className={`featgrid ${on ? 'is-on' : ''}`}>
       {items.map((f, i) => (
-        <div key={i} className="featrow" style={{ transitionDelay: `${i * 0.06}s` }}>
-          <span className="featrow__num">{String(i + 1).padStart(2, '0')}</span>
-          <span className="featrow__label">{f.label}</span>
+        <div key={i} className="featcard" style={{ transitionDelay: `${(i % 3) * 0.08 + Math.floor(i / 3) * 0.05}s` }}>
+          <span className="featcard__num">{String(i + 1).padStart(2, '0')}</span>
+          <p className="featcard__label">{f.label}</p>
         </div>
       ))}
     </div>
