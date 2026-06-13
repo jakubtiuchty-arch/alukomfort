@@ -604,6 +604,7 @@ img { display: block; max-width: 100%; }
 /* Rodzaje zadaszeń — tabela porównawcza (bez grafik) */
 .model-table {
   width: 100%;
+  max-width: 780px;
   border-collapse: collapse;
   font-size: 14px;
 }
