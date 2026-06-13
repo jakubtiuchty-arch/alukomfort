@@ -107,25 +107,31 @@ export default async function handler(req, res) {
     });
   }
 
-  const { product, color, imageBase64, mimeType, email, phone, address, notes, rodo } = req.body || {};
+  const { product, color, imageBase64, mimeType, email, phone, address, notes, rodo, testMode } = req.body || {};
+
+  // TEST MODE — pomija walidację danych kontaktowych, limit dzienny i wysyłkę leada.
+  // Sterowane flagą WIZ_TEST_MODE we froncie (src/page-wizualizacja.jsx). Usunąć po testach.
+  const isTest = testMode === true;
 
   // Walidacja
   if (!product || !PRODUCT_PROMPTS[product]) return res.status(400).json({ error: 'Wybierz produkt (LINEA / HORIZON / ROMA).' });
   if (!imageBase64 || !mimeType) return res.status(400).json({ error: 'Wgraj zdjęcie tarasu lub domu.' });
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Podaj poprawny adres e-mail.' });
-  if (!phone || phone.replace(/\D/g, '').length < 9) return res.status(400).json({ error: 'Podaj numer telefonu (min. 9 cyfr).' });
-  if (!rodo) return res.status(400).json({ error: 'Wymagana zgoda na przetwarzanie danych (RODO).' });
+  if (!isTest) {
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Podaj poprawny adres e-mail.' });
+    if (!phone || phone.replace(/\D/g, '').length < 9) return res.status(400).json({ error: 'Podaj numer telefonu (min. 9 cyfr).' });
+    if (!rodo) return res.status(400).json({ error: 'Wymagana zgoda na przetwarzanie danych (RODO).' });
+  }
 
   // Walidacja rozmiaru obrazka — base64 ≈ 4/3 oryginału
   const approxBytes = (imageBase64.length * 3) / 4;
   if (approxBytes > 8 * 1024 * 1024) return res.status(413).json({ error: 'Zdjęcie jest za duże (max 8 MB).' });
 
-  // Rate limit przez cookie (MVP — 2/dzień)
+  // Rate limit przez cookie (MVP — 2/dzień). W trybie testowym pomijany.
   const cookies = parseCookies(req.headers.cookie);
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
   let count = 0;
   if (cookies.wiz_date === today) count = parseInt(cookies.wiz_count || '0', 10) || 0;
-  if (count >= 2) return res.status(429).json({ error: 'Wykorzystałeś dzisiejszy limit (2 wizualizacje). Wróć jutro lub napisz na biuro@plast-met.pl.' });
+  if (!isTest && count >= 2) return res.status(429).json({ error: 'Wykorzystałeś dzisiejszy limit (2 wizualizacje). Wróć jutro lub napisz na biuro@plast-met.pl.' });
 
   const ip = getClientIp(req);
   const ua = req.headers['user-agent'] || '';
@@ -160,6 +166,10 @@ export default async function handler(req, res) {
       ? `data:image/png;base64,${item.b64_json}`
       : (item?.url || null);
     if (!dataUrl) return res.status(502).json({ error: 'Nie udało się odebrać obrazu z generatora.' });
+
+    if (isTest) {
+      return res.status(200).json({ image: dataUrl, remaining: 99, testMode: true });
+    }
 
     // Lead email (best-effort)
     sendLeadEmail({ product, color, email, phone, address, notes, ip, ua }, dataUrl.startsWith('data:') ? '(załącznik base64 w odpowiedzi)' : dataUrl).catch(() => {});

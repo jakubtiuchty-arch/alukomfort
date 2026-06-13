@@ -1,5 +1,9 @@
 // Strona /wizualizacja — konfigurator AI: zdjęcie tarasu + produkt → wygenerowana wizualizacja
 
+// TRYB TESTOWY — pomija formularz "Twoje dane", walidację kontaktu i limit dzienny.
+// Ustaw na false, aby przywrócić pełny formularz leadowy. (Backend reaguje na flagę testMode.)
+const WIZ_TEST_MODE = true;
+
 const WIZ_PRODUCTS = [
   { id: 'linea',   name: 'LINEA',   sub: 'Aluminiowe zadaszenie samonośne',   img: 'uploads/linea_kafelek_3.png' },
   { id: 'horizon', name: 'HORIZON', sub: 'Pergola bioklimatyczna lamelowa',   img: 'uploads/kafelek_horizon.png' },
@@ -87,13 +91,15 @@ function PageWizualizacja({ onQuote }) {
   const onDragOver = (e) => e.preventDefault();
 
   const submit = async (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     const err = {};
     if (!file) err.file = 'Wgraj zdjęcie tarasu / domu.';
-    if (!form.email.trim()) err.email = 'Podaj e-mail.';
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) err.email = 'Niepoprawny e-mail.';
-    if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 9) err.phone = 'Podaj telefon (min. 9 cyfr).';
-    if (!form.rodo) err.rodo = 'Wymagana zgoda na przetwarzanie danych.';
+    if (!WIZ_TEST_MODE) {
+      if (!form.email.trim()) err.email = 'Podaj e-mail.';
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) err.email = 'Niepoprawny e-mail.';
+      if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 9) err.phone = 'Podaj telefon (min. 9 cyfr).';
+      if (!form.rodo) err.rodo = 'Wymagana zgoda na przetwarzanie danych.';
+    }
     setErrors(err);
     if (Object.keys(err).length > 0) return;
 
@@ -114,6 +120,7 @@ function PageWizualizacja({ onQuote }) {
           address: form.address.trim(),
           notes: form.notes.trim(),
           rodo: form.rodo,
+          testMode: WIZ_TEST_MODE,
         }),
       });
       const j = await r.json();
@@ -238,7 +245,8 @@ function PageWizualizacja({ onQuote }) {
               </div>
             </div>
 
-            {/* KROK 4: dane kontaktowe */}
+            {/* KROK 4: dane kontaktowe (ukryte w trybie testowym) */}
+            {!WIZ_TEST_MODE && (
             <div className="wiz-step">
               <div className="wiz-step__num">4</div>
               <div className="wiz-step__body">
@@ -288,6 +296,24 @@ function PageWizualizacja({ onQuote }) {
                 </form>
               </div>
             </div>
+            )}
+
+            {/* TRYB TESTOWY — generowanie bez formularza kontaktowego */}
+            {WIZ_TEST_MODE && (
+            <div className="wiz-step">
+              <div className="wiz-step__num">4</div>
+              <div className="wiz-step__body">
+                <h2 className="wiz-step__title">Wygeneruj wizualizację</h2>
+                <p className="wiz-help">Tryb testowy — formularz danych kontaktowych jest tymczasowo wyłączony.</p>
+                {serverError && (<div className="wiz-server-err">⚠ {serverError}</div>)}
+                <div className="wiz-cta">
+                  <Button type="button" variant="primary" size="lg" disabled={loading} onClick={() => submit()}>
+                    {loading ? 'Generuję wizualizację (~30 s)...' : '✨ Wygeneruj wizualizację AI'}
+                  </Button>
+                </div>
+              </div>
+            </div>
+            )}
           </div>
         </section>
       )}
@@ -298,7 +324,9 @@ function PageWizualizacja({ onQuote }) {
             <div className="wiz-result">
               <h2 className="wiz-result__title">Twoja wizualizacja jest gotowa ✨</h2>
               <p className="wiz-result__sub">
-                Kopia poszła też na <b>{form.email}</b>, a nasz handlowiec skontaktuje się w 24h z indywidualną wyceną.
+                {WIZ_TEST_MODE
+                  ? 'Tryb testowy — wizualizacja wygenerowana lokalnie, bez wysyłki e-mail i bez leada.'
+                  : <>Kopia poszła też na <b>{form.email}</b>, a nasz handlowiec skontaktuje się w 24h z indywidualną wyceną.</>}
               </p>
               <div className="wiz-result__img-wrap">
                 <img src={result.image} alt="Wygenerowana wizualizacja" />
