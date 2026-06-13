@@ -782,6 +782,32 @@ img { display: block; max-width: 100%; }
 .colors-controls .block-title { margin-bottom: 16px; }
 .colors-mat { margin: 0; color: var(--muted); }
 
+/* Wybór rodzaju dachu w konfiguratorze */
+.colors-roof {
+  margin-top: 44px;
+  padding-top: 36px;
+  border-top: 1px solid var(--line);
+}
+.roof-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  max-width: 760px;
+}
+.roof-options {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 200px));
+  gap: 12px;
+}
+
+/* Parametry techniczne w dwóch kolumnach */
+.specs-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 56px;
+}
+
 /* Ikony USP (generowane) */
 .usp-ico {
   display: block;
@@ -1279,6 +1305,9 @@ img { display: block; max-width: 100%; }
   .hero__title--xl { font-size: 60px; }
 
   .split-2, .split-3, .two-col { grid-template-columns: 1fr; gap: 32px; }
+  .specs-2col { grid-template-columns: 1fr; }
+  .roof-types { grid-template-columns: 1fr; max-width: none; }
+  .roof-options { grid-template-columns: repeat(3, 1fr); }
   .home-tiles { grid-template-columns: 1fr; }
   .usecases { grid-template-columns: repeat(2, 1fr); }
   .features { grid-template-columns: repeat(3, 1fr); }

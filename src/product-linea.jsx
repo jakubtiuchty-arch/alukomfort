@@ -13,8 +13,6 @@ const LINEA_COLOR_PREVIEWS = {
 
 function ProductLinea({ onQuote }) {
   const p = PRODUCTS.LINEA;
-  const [roof, setRoof] = React.useState('poli');
-  const [roofColor, setRoofColor] = React.useState(0);
   usePageMeta({
     title: 'LINEA — aluminiowe zadaszenie tarasu, wejścia i carportu | ALUKOMFORT',
     description: 'ALUKOMFORT LINEA — aluminiowy system zadaszeń przyściennych i samonośnych. Max długość 10 060 mm, dach poliwęglan lub szkło ESG/VSG. Producent PLAST-MET Trzebnica.',
@@ -28,9 +26,6 @@ function ProductLinea({ onQuote }) {
     url: 'https://alukomfort.pl/#/produkty/linea',
     category: 'Aluminiowe zadaszenie tarasu',
   });
-  const activeRoof = p.roofs.find(r => r.id === roof) || p.roofs[0];
-  const activeOptions = activeRoof.options || [];
-  React.useEffect(() => { setRoofColor(0); }, [roof]);
 
   return (
     <>
@@ -94,40 +89,14 @@ function ProductLinea({ onQuote }) {
 
       <section className="section">
         <div className="container">
-          <div className="split-2">
-            <div>
-              <h3 className="block-title">Parametry techniczne</h3>
-              {p.specs.map((s, i) => (
-                <div key={i} className="spec-row">
-                  <span className="spec-row__label">{s.label}</span>
-                  <span className="spec-row__value">{s.value}</span>
-                </div>
-              ))}
-            </div>
-            <div>
-              <h3 className="block-title">Wybierz rodzaj dachu</h3>
-              <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:16}}>
-                {p.roofs.map(r => (
-                  <button key={r.id} onClick={()=>setRoof(r.id)}
-                    className={`variant ${roof === r.id ? 'is-selected' : ''}`}>
-                    <div className="variant__name">{r.name}</div>
-                    <div className="variant__desc">{r.desc}</div>
-                  </button>
-                ))}
+          <h3 className="block-title">Parametry techniczne</h3>
+          <div className="specs-2col">
+            {p.specs.map((s, i) => (
+              <div key={i} className="spec-row">
+                <span className="spec-row__label">{s.label}</span>
+                <span className="spec-row__value">{s.value}</span>
               </div>
-              <div style={{marginTop: 20, display:'grid', gridTemplateColumns:`repeat(${Math.max(activeOptions.length, 3)}, 1fr)`, gap:10}}>
-                {activeOptions.map((o, i) => (
-                  <div key={i} className={`swatch ${roofColor === i ? 'is-selected' : ''}`} onClick={()=>setRoofColor(i)}>
-                    <div className="swatch__chip" style={{background: o.hex}} />
-                    <span className="swatch__name" style={{fontSize: 11}}>{o.name}</span>
-                    <span className="swatch__code">{o.sub}</span>
-                  </div>
-                ))}
-              </div>
-              {activeRoof.note && (
-                <p className="small" style={{marginTop: 16, color:'var(--muted)'}}>{activeRoof.note}</p>
-              )}
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -182,7 +151,7 @@ function ProductLinea({ onQuote }) {
         </div>
       </section>
 
-      <ColorsSection previews={LINEA_COLOR_PREVIEWS} />
+      <ColorsSection previews={LINEA_COLOR_PREVIEWS} roofs={p.roofs} />
 
       <section className="section">
         <div className="container">
