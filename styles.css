@@ -601,6 +601,29 @@ img { display: block; max-width: 100%; }
 .model__name { font-size: 13px; font-weight: 700; margin: 0 0 6px; }
 .model__desc { font-size: 11.5px; color: var(--muted); line-height: 1.5; margin: 0; }
 
+/* Rodzaje zadaszeń — karty tekstowe (bez grafik) */
+.modelcards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.modelcard {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+}
+.modelcard__name { font-size: 16px; font-weight: 700; color: var(--ink); margin: 0 0 10px; letter-spacing: 0.01em; }
+.modelcard__meta {
+  align-self: flex-start;
+  font-size: 12px; font-weight: 600; color: var(--accent);
+  background: rgba(184, 133, 26, 0.10);
+  padding: 4px 10px; border-radius: 999px; margin-bottom: 12px;
+}
+.modelcard__desc { font-size: 13px; color: var(--muted); line-height: 1.55; margin: 0; }
+
 /* Przykłady zadaszeń (galeria produktowa) */
 .examples {
   display: grid;
@@ -1358,6 +1381,7 @@ img { display: block; max-width: 100%; }
   .features { grid-template-columns: repeat(3, 1fr); }
   .featgrid { grid-template-columns: repeat(2, 1fr); }
   .modules, .models { grid-template-columns: repeat(2, 1fr); }
+  .modelcards { grid-template-columns: repeat(2, 1fr); }
   .examples { grid-template-columns: repeat(2, 1fr); }
   .variants { grid-template-columns: 1fr; }
   .vselect { grid-template-columns: repeat(3, 1fr); gap: 12px; }

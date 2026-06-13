@@ -126,16 +126,19 @@ function ProductHorizon({ onQuote }) {
         <div className="container">
           <SectionHead title={`Rodzaje zadaszeń ${p.name}`}
             sub="Gotowe konfiguracje wymiarowe — od kompaktowej pergoli lamelowej 4×3 m po hybrydę 8×4 m łączącą lamele ze szkłem." />
-          <div className="models models--lg">
-            {p.models.map(m => (
-              <div key={m.id} className="model">
-                <div className="model__img" style={{backgroundImage: `url(${m.img})`}} />
-                <div className="model__body">
-                  <h4 className="model__name">{m.name}</h4>
-                  <p className="model__desc">{m.desc}</p>
+          <div className="modelcards">
+            {p.models.map(m => {
+              const dash = m.desc.indexOf('—');
+              const meta = dash > -1 ? m.desc.slice(0, dash).trim() : '';
+              const desc = dash > -1 ? m.desc.slice(dash + 1).trim() : m.desc;
+              return (
+                <div key={m.id} className="modelcard">
+                  <h4 className="modelcard__name">{m.name}</h4>
+                  {meta && <span className="modelcard__meta">{meta}</span>}
+                  <p className="modelcard__desc">{desc}</p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
           <p className="small" style={{marginTop: 18, color:'var(--muted)', maxWidth: 860}}>{p.coreNote}</p>
           <div className="dlux dlux--wide">
