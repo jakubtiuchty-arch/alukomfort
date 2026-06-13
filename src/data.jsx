@@ -205,7 +205,7 @@ const HORIZON = {
   coreNote: 'Zamknięte moduły zabudowy oferujemy jako gotowe systemy CORE — dla dachu szklanego: CORE S 44, CORE S 64 i CORE S 84, a dla dachu lamelowego i hybrydowego: CORE L 44, CORE L-S 64 i CORE L-S 84. Zabudowa ścian nie wpływa na statykę konstrukcji.',
   addons: [
     { img: 'uploads/icons/add-led.png',       title: 'Liniowe oświetlenie LED',     desc: 'Ukryte w wieńcu 280 mm — światło nastrojowe ręcznie lub zdalnie.' },
-    { img: 'uploads/icons/hz-automatyka.png', title: 'Automatyka pogodowa',         desc: 'Czujniki deszczu, wiatru i nasłonecznienia. Lamele reagują same.' },
+    { img: 'uploads/icons/hz-pogoda.png',     title: 'Automatyka pogodowa',         desc: 'Czujniki deszczu, wiatru i nasłonecznienia. Lamele reagują same.' },
     { img: 'uploads/icons/add-drzwi.png',     title: 'Szklane ściany przesuwne',    desc: 'Przesuwne lub stałe — do 5 tafli szkła na torach do 500 cm.' },
     { img: 'uploads/icons/add-zaluzje.png',   title: 'Aluminiowe shuttersy',        desc: 'Żaluzje poziome i pionowe — cień, prywatność, ochrona od wiatru.' },
     { img: 'uploads/icons/add-screen.png',    title: 'Rolety zewnętrzne screen',    desc: 'Filtracja światła i widoku z zachowaniem przewiewu.' },
