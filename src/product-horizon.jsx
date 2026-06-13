@@ -91,8 +91,8 @@ function ProductHorizon({ onQuote }) {
               <h3 className="block-title">Najważniejsze cechy systemu {p.name}</h3>
               <ul className="iconlist">
                 {p.features.map((f, i) => {
-                  const Ic = Icon[f.icon] || Icon.Check;
-                  return <li key={i}><span className="ic"><Ic size={26} /></span>{f.label}</li>;
+                  const Ic = f.icon ? (Icon[f.icon] || Icon.Check) : null;
+                  return <li key={i}><span className="ic">{f.img ? <img className="ic-img" src={f.img} alt="" loading="lazy" /> : <Ic size={26} />}</span>{f.label}</li>;
                 })}
               </ul>
             </div>
@@ -100,8 +100,8 @@ function ProductHorizon({ onQuote }) {
               <h3 className="block-title">Zastosowania</h3>
               <ul className="iconlist">
                 {p.uses.map((u, i) => {
-                  const Ic = Icon[u.icon];
-                  return <li key={i}><span className="ic"><Ic size={26} /></span>{u.label}</li>;
+                  const Ic = u.icon ? Icon[u.icon] : null;
+                  return <li key={i}><span className="ic">{u.img ? <img className="ic-img" src={u.img} alt="" loading="lazy" /> : <Ic size={26} />}</span>{u.label}</li>;
                 })}
               </ul>
             </div>
