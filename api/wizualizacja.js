@@ -22,7 +22,12 @@ function buildPrompt(product, color, notes) {
   const base = PRODUCT_PROMPTS[product] || PRODUCT_PROMPTS.linea;
   const colorPart = color && COLOR_OVERRIDES[color] ? `, ${COLOR_OVERRIDES[color]}` : '';
   const notePart = notes ? `. Additional context from the customer: ${notes}` : '';
-  return `${base}${colorPart}, into the existing terrace/garden space shown in the uploaded photo. Preserve the original perspective, lighting, shadows, building architecture and surroundings. The pergola must be sized realistically for the space and look professionally installed${notePart}. Output a single high-quality photorealistic image.`;
+  return `${base}${colorPart}, placed into the existing terrace/garden space shown in the uploaded photo. ` +
+    `CRITICAL: keep the original photo completely unchanged — the same house, walls, windows, paving, plants, sky, ` +
+    `furniture, camera angle, perspective, daylight direction and shadows must stay identical. Only add the pergola ` +
+    `as if it were physically installed at the scene, casting correct shadows consistent with the existing light. ` +
+    `Size it realistically for the space and make it look professionally installed${notePart}. ` +
+    `Output a single photorealistic image, do not add text, watermarks, people or extra objects.`;
 }
 
 function getClientIp(req) {
@@ -79,6 +84,7 @@ async function sendLeadEmail(payload, imageUrl) {
 
 export const config = {
   api: { bodyParser: { sizeLimit: '12mb' } },
+  maxDuration: 60, // generacja gpt-image-2 trwa 20-50 s — bez tego Vercel ubija funkcję po 10 s
 };
 
 export default async function handler(req, res) {
@@ -131,9 +137,12 @@ export default async function handler(req, res) {
     const fd = new FormData();
     fd.append('model', 'gpt-image-2');
     fd.append('prompt', prompt);
-    fd.append('size', '1024x1024');
+    fd.append('size', 'auto');            // dopasuj proporcje wyjścia do zdjęcia klienta (poziome/pionowe)
+    fd.append('quality', 'high');         // fotorealistyczna jakość
+    fd.append('input_fidelity', 'high');  // zachowaj dom/taras/otoczenie ze zdjęcia bez zmian
     fd.append('n', '1');
-    fd.append('image', new Blob([buffer], { type: mimeType }), 'photo.png');
+    const ext = /jpe?g/i.test(mimeType) ? 'jpg' : /webp/i.test(mimeType) ? 'webp' : 'png';
+    fd.append('image', new Blob([buffer], { type: mimeType }), `photo.${ext}`);
 
     const oaRes = await fetch('https://api.openai.com/v1/images/edits', {
       method: 'POST',

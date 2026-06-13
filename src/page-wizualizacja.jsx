@@ -34,22 +34,50 @@ function PageWizualizacja({ onQuote }) {
 
   const set = (k, v) => setForm(p => ({ ...p, [k]: v }));
 
-  const handleFile = (f) => {
+  // Skaluje zdjęcie do max 1536 px i kompresuje do JPEG — payload < limitu Vercela (4.5 MB)
+  // oraz szybsza generacja. Zwraca { mime, base64, previewUrl }.
+  const downscaleImage = (f) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error('Nie udało się odczytać pliku.'));
+    reader.onload = (ev) => {
+      const img = new Image();
+      img.onerror = () => reject(new Error('Nie udało się wczytać obrazu.'));
+      img.onload = () => {
+        const MAX = 1536;
+        let { width, height } = img;
+        if (width > MAX || height > MAX) {
+          const r = Math.min(MAX / width, MAX / height);
+          width = Math.round(width * r);
+          height = Math.round(height * r);
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+        resolve({ mime: 'image/jpeg', base64: dataUrl.split(',')[1], previewUrl: dataUrl });
+      };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(f);
+  };
+
+  const handleFile = async (f) => {
     if (!f) return;
     if (!/^image\/(png|jpeg|jpg|webp)$/i.test(f.type)) {
       setErrors(e => ({ ...e, file: 'Dozwolone formaty: JPG, PNG, WEBP.' })); return;
     }
-    if (f.size > 8 * 1024 * 1024) {
-      setErrors(e => ({ ...e, file: 'Plik większy niż 8 MB. Skompresuj zdjęcie.' })); return;
+    if (f.size > 20 * 1024 * 1024) {
+      setErrors(e => ({ ...e, file: 'Plik większy niż 20 MB. Wybierz mniejsze zdjęcie.' })); return;
     }
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      const dataUrl = ev.target.result;
-      const base64 = String(dataUrl).split(',')[1];
-      setFile({ name: f.name, mime: f.type, base64, previewUrl: dataUrl });
+    try {
+      const out = await downscaleImage(f);
+      setFile({ name: f.name, mime: out.mime, base64: out.base64, previewUrl: out.previewUrl });
       setErrors(e => { const { file, ...rest } = e; return rest; });
-    };
-    reader.readAsDataURL(f);
+    } catch (err) {
+      setErrors(e => ({ ...e, file: err.message || 'Błąd przetwarzania zdjęcia.' }));
+    }
   };
 
   const onDrop = (e) => {
