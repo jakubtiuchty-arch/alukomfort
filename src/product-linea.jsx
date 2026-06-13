@@ -127,10 +127,12 @@ function ProductLinea({ onQuote }) {
             sub="Sześć opcjonalnych modułów, które pozwalają zamknąć przestrzeń pergoli, kontrolować światło i podnieść komfort użytkowania." />
           <div className="features" style={{gridTemplateColumns:'repeat(3, 1fr)'}}>
             {p.addons.map((a, i) => {
-              const Ic = Icon[a.icon] || Icon.Profile;
+              const Ic = a.icon ? (Icon[a.icon] || Icon.Profile) : null;
               return (
                 <div key={i} className="feature" style={{textAlign:'left', padding:'24px 22px'}}>
-                  <div className="feature__icon" style={{margin:'0 0 14px'}}><Ic size={34}/></div>
+                  <div className="feature__icon" style={{margin:'0 0 14px'}}>
+                    {a.img ? <img src={a.img} alt="" width="40" height="40" loading="lazy" /> : <Ic size={34}/>}
+                  </div>
                   <div style={{fontSize: 14, fontWeight: 700, color:'var(--ink)', marginBottom: 6}}>{a.title}</div>
                   <div className="feature__label" style={{fontSize: 12.5, textAlign:'left'}}>{a.desc}</div>
                 </div>

@@ -72,12 +72,12 @@ const LINEA = {
     },
   ],
   addons: [
-    { icon: 'Glass',  title: 'Szklane drzwi przesuwne',         desc: 'Tory o długości do 500 cm, maksymalnie 5 tafli szkła w układzie.' },
-    { icon: 'Fabric', title: 'Rolety zewnętrzne screen',        desc: 'Skuteczna ochrona przeciwsłoneczna i większa prywatność strefy.' },
-    { icon: 'Lamel',  title: 'Żaluzje pionowe i poziome',       desc: 'Precyzyjna kontrola światła dzięki obrotowym lamelom.' },
-    { icon: 'Wall',   title: 'Nieprzezierne panele dekoracyjne', desc: 'Nadają charakter zabudowie i zapewniają dyskrecję.' },
-    { icon: 'Frame',  title: 'System Fix',                      desc: 'Kliny boczne z poliwęglanu w standardowej wersji.' },
-    { icon: 'Led',    title: 'Liniowe oświetlenie LED',         desc: 'Ukryte w profilu, nastrojowe światło ręczne lub zdalne.' },
+    { img: 'uploads/icons/add-drzwi.png',   title: 'Szklane drzwi przesuwne',          desc: 'Tory o długości do 500 cm, maksymalnie 5 tafli szkła w układzie.' },
+    { img: 'uploads/icons/add-screen.png',  title: 'Rolety zewnętrzne screen',         desc: 'Skuteczna ochrona przeciwsłoneczna i większa prywatność strefy.' },
+    { img: 'uploads/icons/add-zaluzje.png', title: 'Żaluzje pionowe i poziome',        desc: 'Precyzyjna kontrola światła dzięki obrotowym lamelom.' },
+    { img: 'uploads/icons/add-panele.png',  title: 'Nieprzezierne panele dekoracyjne', desc: 'Nadają charakter zabudowie i zapewniają dyskrecję.' },
+    { img: 'uploads/icons/add-fix.png',     title: 'System Fix',                       desc: 'Kliny boczne z poliwęglanu w standardowej wersji.' },
+    { img: 'uploads/icons/add-led.png',     title: 'Liniowe oświetlenie LED',          desc: 'Ukryte w profilu, nastrojowe światło ręczne lub zdalne.' },
   ],
   scenarios: [
     { key: 'silownia', title: 'Domowa siłownia',      desc: 'Zamknięty moduł do treningu na świeżym powietrzu — z pełną zabudową ścian, oświetleniem LED i wentylacją.' },
