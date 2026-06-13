@@ -126,33 +126,35 @@ function ProductHorizon({ onQuote }) {
         <div className="container">
           <SectionHead title={`Rodzaje zadaszeń ${p.name}`}
             sub="Gotowe konfiguracje wymiarowe — od kompaktowej pergoli lamelowej 4×3 m po hybrydę 8×4 m łączącą lamele ze szkłem." />
-          <table className="model-table">
-            <thead>
-              <tr>
-                <th>Model</th>
-                <th>Dach</th>
-                <th>Wymiar</th>
-                <th>Charakterystyka</th>
-              </tr>
-            </thead>
-            <tbody>
-              {p.models.map(m => (
-                <tr key={m.id}>
-                  <td className="model-table__name">{m.name}</td>
-                  <td>{m.roof}</td>
-                  <td className="model-table__size">{m.size}</td>
-                  <td className="model-table__note">{m.note}</td>
+          <div className="hz-modules">
+            <table className="model-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Dach</th>
+                  <th>Wymiar</th>
+                  <th>Charakterystyka</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          <p className="small" style={{marginTop: 18, color:'var(--muted)', maxWidth: 860}}>{p.coreNote}</p>
-          <div className="dlux dlux--wide">
-            <h4>Konfiguracja HORIZON D-Lux</h4>
-            <p>HORIZON D-Lux to najbogatsze wyposażenie oferowane przez ALUKOMFORT — łączy wszystkie atuty systemu:</p>
-            <ul>
-              {p.dluxSpecs.map((s,i) => <li key={i}>{s}</li>)}
-            </ul>
+              </thead>
+              <tbody>
+                {p.models.map(m => (
+                  <tr key={m.id}>
+                    <td className="model-table__name">{m.name}</td>
+                    <td>{m.roof}</td>
+                    <td className="model-table__size">{m.size}</td>
+                    <td className="model-table__note">{m.note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="small hz-modules__note">{p.coreNote}</p>
+            <div className="dlux dlux--wide">
+              <h4>Konfiguracja HORIZON D-Lux</h4>
+              <p>HORIZON D-Lux to najbogatsze wyposażenie oferowane przez ALUKOMFORT — łączy wszystkie atuty systemu:</p>
+              <ul>
+                {p.dluxSpecs.map((s,i) => <li key={i}>{s}</li>)}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
