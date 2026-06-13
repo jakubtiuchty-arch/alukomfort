@@ -55,7 +55,13 @@ function ColorSwatches({ colors, selected, onSelect }) {
   );
 }
 
-function CertBar() {
+function CertBar({ guarantee }) {
+  const rows = guarantee || [
+    { label: 'Elementy aluminiowe', value: '60 miesięcy' },
+    { label: 'Elektryka', value: '24 miesięcy' },
+    { label: 'Pokrycie poliwęglanowe', value: '60 miesięcy' },
+    { label: 'Ściany systemu ESG', value: '8/10/12 mm' },
+  ];
   return (
     <div className="cert-bar container">
       <div className="cert">
@@ -69,10 +75,9 @@ function CertBar() {
         <div className="guarantee__ic"><img src="uploads/icons/bar-gwarancja.png" alt="" width="40" height="40" loading="lazy" /></div>
         <div className="guarantee__body">
           <h4>Gwarancja</h4>
-          <div className="guarantee__row"><span>Elementy aluminiowe</span><span>60 miesięcy</span></div>
-          <div className="guarantee__row"><span>Elektryka</span><span>24 miesięcy</span></div>
-          <div className="guarantee__row"><span>Pokrycie poliwęglanowe</span><span>60 miesięcy</span></div>
-          <div className="guarantee__row"><span>Ściany systemu ESG</span><span>8/10/12 mm</span></div>
+          {rows.map((r, i) => (
+            <div key={i} className="guarantee__row"><span>{r.label}</span><span>{r.value}</span></div>
+          ))}
         </div>
       </div>
     </div>

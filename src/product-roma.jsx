@@ -203,18 +203,7 @@ function ProductRoma({ onQuote }) {
 
       <section className="section">
         <div className="container">
-          <CertBar />
-          <div style={{marginTop: 32}}>
-            <div className="guarantee">
-              <div className="guarantee__ic"><Icon.Shield /></div>
-              <div className="guarantee__body" style={{maxWidth: 520}}>
-                <h4>Gwarancja</h4>
-                {p.specs.map((s, i) => (
-                  <div key={i} className="guarantee__row"><span>{s.label}</span><span>{s.value}</span></div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <CertBar guarantee={p.specs} />
         </div>
       </section>
 
