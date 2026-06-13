@@ -228,7 +228,7 @@ const HORIZON = {
       desc: 'HORIZON L na środku ogrodu — szklane ściany przesuwne chronią przed wiatrem, nie odcinając widoku na zieleń.',
     },
     {
-      img: 'uploads/horizon-przyklady/jadalnia-grill-v2.jpg',
+      img: 'uploads/horizon-przyklady/jadalnia-grill-orig.jpg',
       title: 'Podwójny moduł z jadalnią i grillem',
       desc: 'Dwa segmenty HORIZON L w jednej linii — osobna strefa wypoczynku i ogrodowa jadalnia z miejscem na grill.',
     },
