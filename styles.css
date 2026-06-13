@@ -218,7 +218,7 @@ img { display: block; max-width: 100%; }
 }
 .usecase:last-child { border-right: 0; }
 .usecase__icon {
-  width: 52px; height: 52px;
+  width: 58px; height: 58px;
   display: flex; align-items: center; justify-content: center;
   color: var(--ink);
 }
