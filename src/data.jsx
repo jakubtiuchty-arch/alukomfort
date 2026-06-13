@@ -125,7 +125,7 @@ const HORIZON = {
   tagline: 'Ekskluzywna przestrzeń i technologiczna perfekcja — pergola aluminiowa o minimalistycznej, płaskiej linii dachu.',
   description: 'Konstrukcja wolnostojąca lub przyścienna, dostępna w wersji lamelowej, szklanej i hybrydowej.',
   heroImg: 'assets/wiz-d.png',
-  intro: 'ALUKOMFORT HORIZON to propozycja dla najbardziej wymagających klientów — luksusowa forma z pełną kontrolą nad otoczeniem. Znakiem rozpoznawczym jest smukły wieniec konstrukcyjny o wysokości 280 mm, w którym ukryta jest cała technologia — odprowadzanie wody, oświetlenie i automatyka.',
+  intro: 'ALUKOMFORT HORIZON to luksusowa pergola bioklimatyczna dla najbardziej wymagających klientów — zadaszenie z pełną kontrolą nad światłem i otoczeniem. Znakiem rozpoznawczym jest smukły wieniec konstrukcyjny o wysokości 280 mm, w którym ukryta jest cała technologia — odprowadzanie wody, oświetlenie i automatyka.',
   variants: [
     {
       id: 'L',
@@ -148,7 +148,7 @@ const HORIZON = {
       name: 'HORIZON S',
       desc: 'Dach szklany',
       img: 'uploads/horizon-modele/wariant-s.jpg',
-      description: 'Zadaszenie z dachem z wysokiej klasy szkła bezpiecznego ESG + EVG laminowany 44.2 lub 55.2 (grubość 44.2–55.4 mm). Maksymalna szerokość tafli 750 mm. Realizowane pod indywidualny wymiar — nieprzesłonięte niebo przy pełnej ochronie przed deszczem.',
+      description: 'Zadaszenie z dachem z wysokiej klasy szkła bezpiecznego ESG + VSG laminowanego 44.2 lub 55.2 (grubość 44.2–55.4 mm). Maksymalna szerokość tafli 750 mm. Realizowane pod indywidualny wymiar — nieprzesłonięte niebo przy pełnej ochronie przed deszczem.',
       specs: [
         { label: 'Dach',                            value: 'Szkło bezpieczne ESG / VSG, transparentne lub przyciemniane' },
         { label: 'Wysokość wieńca dachu',           value: '280 mm (profil 280 × 60, 3-komorowy)' },
@@ -184,7 +184,7 @@ const HORIZON = {
     { img: 'uploads/icons/hz-odwodnienie.png', label: 'Ukryty system odprowadzania wody w słupach' },
     { img: 'uploads/icons/hz-automatyka.png',  label: 'Automatyka pogodowa z czujnikami i sterowaniem SOMFY' },
     { img: 'uploads/icons/hz-led.png',         label: 'Liniowe oświetlenie LED ukryte w wieńcu' },
-    { img: 'uploads/icons/hz-sciany.png',      label: 'Ściany: szyby przesuwne, aluminiowe shuttersy, screen' },
+    { img: 'uploads/icons/hz-sciany.png',      label: 'Ściany: szyby przesuwne, aluminiowe shuttery, rolety screen' },
     { img: 'uploads/icons/usp-material.png',   label: 'Profile ze stopu aluminium 6063 — odporność na korozję' },
     { img: 'uploads/icons/hz-normy.png',       label: 'Zgodność z EN 1991-1-1/3/4 (obciążenia, śnieg, wiatr)' },
   ],
@@ -207,14 +207,14 @@ const HORIZON = {
     { img: 'uploads/icons/add-led.png',       title: 'Liniowe oświetlenie LED',     desc: 'Ukryte w wieńcu 280 mm — światło nastrojowe ręcznie lub zdalnie.' },
     { img: 'uploads/icons/hz-pogoda.png',     title: 'Automatyka pogodowa',         desc: 'Czujniki deszczu, wiatru i nasłonecznienia. Lamele reagują same.' },
     { img: 'uploads/icons/add-drzwi.png',     title: 'Szklane ściany przesuwne',    desc: 'Przesuwne lub stałe — do 5 tafli szkła na torach do 500 cm.' },
-    { img: 'uploads/icons/add-zaluzje.png',   title: 'Aluminiowe shuttersy',        desc: 'Żaluzje poziome i pionowe — cień, prywatność, ochrona od wiatru.' },
+    { img: 'uploads/icons/add-zaluzje.png',   title: 'Aluminiowe shuttery',         desc: 'Żaluzje poziome i pionowe — cień, prywatność, ochrona przed wiatrem.' },
     { img: 'uploads/icons/add-screen.png',    title: 'Rolety zewnętrzne screen',    desc: 'Filtracja światła i widoku z zachowaniem przewiewu.' },
   ],
   dluxSpecs: [
     'Smukły wieniec konstrukcyjny 280 mm ukrywa technologię',
     'Odwodnienie zintegrowane w słupach — brak zewnętrznych rur',
     'Sterowanie SOMFY zgodne z systemem inteligentnego domu',
-    'Ściany do wyboru: szyby przesuwne, shuttersy, screen',
+    'Ściany do wyboru: szyby przesuwne, shuttery, rolety screen',
   ],
   examples: [
     {
