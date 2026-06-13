@@ -1,5 +1,15 @@
 # PROGRESS — alukomfort (pergomet_2)
 
+## 2026-06-13 — /wizualizacja: podłączenie gpt-image-2 (commit 2bdebe4)
+- Backend `api/wizualizacja.js` był już napisany (gpt-image-2 przez `/v1/images/edits`), ale miał bugi blokujące:
+  - **`maxDuration: 60`** dodane — bez tego Vercel ubijał funkcję po 10 s (generacja trwa 20–50 s) → obraz nigdy nie wracał.
+  - Dodane `quality: 'high'`, `input_fidelity: 'high'`, `size: 'auto'` — kluczowe by zachować dom/taras klienta i dopasować proporcje (było sztywne `1024x1024` zniekształcające poziome zdjęcia).
+  - Prompt przepisany: explicit „keep original photo unchanged, only add pergola, correct shadows, no text/people".
+  - Rozszerzenie pliku przekazywane wg mime (jpg/webp/png).
+- Frontend `page-wizualizacja.jsx`: **downscaling w przeglądarce** (canvas, max 1536 px → JPEG 0.85) przed wysyłką — payload spada do <2 MB, omija twardy limit Vercela 4.5 MB na request body (8 MB zdjęcie → ~10.7 MB base64 = 413 przed dotarciem do funkcji). Limit wejścia podniesiony do 20 MB (i tak skalujemy).
+- **POZOSTAJE (po stronie usera):** dodać `OPENAI_API_KEY` w Vercel → Settings → Environment Variables (Production+Preview+Development) → Redeploy. Bez tego endpoint zwraca 500 z listą widzianych kluczy ENV (diagnostyka). Opcjonalnie `RESEND_API_KEY` + `LEAD_EMAIL` dla maili z leadami.
+- Konto Vercel w MCP nie widzi projektu alukomfort (inne konto) — env trzeba dodać ręcznie w dashboardzie.
+
 ## 2026-06-12 — strony produktowe + /realizacje (NIEZACOMMITOWANE — czeka na OK)
 - **LINEA**: galeria "Przykłady zadaszeń" (6 kafli, `uploads/linea-przyklady/`), notka Solar Control, nowe klasy `.examples/.example` w styles.css.
 - **HORIZON**: parametry per wariant L/S/L-S (`variants[].specs`), duże karty wyboru (`.vselect/.vcard/.vdetail`), modele CORE + notka statyka, wysięg >4m, normy EN; kafelki modeli i wariantów = fotorealistyczne generacje gpt_image_2 (Higgsfield) z renderów 1:1 (`uploads/horizon-modele/`); galeria przykładów = oficjalne wizki po outpaincie do 3:2 (`uploads/horizon-przyklady/`).
