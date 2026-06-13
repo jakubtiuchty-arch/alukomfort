@@ -85,11 +85,11 @@ function ColorsSection({ previews, roofs }) {
   const srcFor = (c) => (previews && previews[c.name]) || c.preview;
   const activeSrc = srcFor(activeColor);
   const hasRoofs = roofs && roofs.length > 0;
-  const [roofId, setRoofId] = React.useState(hasRoofs ? roofs[0].id : null);
-  const [roofColor, setRoofColor] = React.useState(0);
-  const activeRoof = hasRoofs ? (roofs.find(r => r.id === roofId) || roofs[0]) : null;
-  const roofOptions = activeRoof && activeRoof.options ? activeRoof.options : [];
-  React.useEffect(() => { setRoofColor(0); }, [roofId]);
+  const [roofSel, setRoofSel] = React.useState({ id: hasRoofs ? roofs[0].id : null, opt: 0 });
+  const activeRoof = hasRoofs ? (roofs.find(r => r.id === roofSel.id) || roofs[0]) : null;
+  const allRoofOptions = hasRoofs
+    ? roofs.flatMap(r => (r.options || []).map((o, i) => ({ ...o, roofId: r.id, optIdx: i })))
+    : [];
   return (
     <section className="section section--soft">
       <div className="container">
@@ -125,28 +125,23 @@ function ColorsSection({ previews, roofs }) {
         {hasRoofs && (
           <div className="colors-roof">
             <h4 className="block-title">Wybierz rodzaj dachu</h4>
-            <div className="roof-types">
-              {roofs.map(r => (
-                <button key={r.id} onClick={() => setRoofId(r.id)}
-                  className={`variant ${roofId === r.id ? 'is-selected' : ''}`}>
-                  <div className="variant__name">{r.name}</div>
-                  <div className="variant__desc">{r.desc}</div>
-                </button>
+            <div className="roof-grid">
+              {allRoofOptions.map((o, i) => (
+                <div key={i}
+                  className={`swatch ${roofSel.id === o.roofId && roofSel.opt === o.optIdx ? 'is-selected' : ''}`}
+                  onClick={() => setRoofSel({ id: o.roofId, opt: o.optIdx })}>
+                  <div className="swatch__chip" style={{ background: o.hex }} />
+                  <span className="swatch__name" style={{ fontSize: 12 }}>{o.name}</span>
+                  <span className="swatch__code">{o.sub}</span>
+                </div>
               ))}
             </div>
-            {roofOptions.length > 0 && (
-              <div className="roof-options">
-                {roofOptions.map((o, i) => (
-                  <div key={i} className={`swatch ${roofColor === i ? 'is-selected' : ''}`} onClick={() => setRoofColor(i)}>
-                    <div className="swatch__chip" style={{ background: o.hex }} />
-                    <span className="swatch__name" style={{ fontSize: 11 }}>{o.name}</span>
-                    <span className="swatch__code">{o.sub}</span>
-                  </div>
-                ))}
+            {activeRoof && (
+              <div className="roof-desc">
+                <strong className="roof-desc__name">{activeRoof.name}</strong>
+                <p className="roof-desc__text">{activeRoof.desc}</p>
+                {activeRoof.note && <p className="roof-desc__note">{activeRoof.note}</p>}
               </div>
-            )}
-            {activeRoof && activeRoof.note && (
-              <p className="small colors-mat" style={{ marginTop: 16 }}>{activeRoof.note}</p>
             )}
           </div>
         )}

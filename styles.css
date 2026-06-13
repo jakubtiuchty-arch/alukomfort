@@ -788,18 +788,18 @@ img { display: block; max-width: 100%; }
   padding-top: 36px;
   border-top: 1px solid var(--line);
 }
-.roof-types {
+.roof-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+.roof-desc {
+  margin-top: 26px;
   max-width: 760px;
 }
-.roof-options {
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 200px));
-  gap: 12px;
-}
+.roof-desc__name { display: block; font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.roof-desc__text { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.6; }
+.roof-desc__note { margin: 10px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.6; }
 
 /* Parametry techniczne w dwóch kolumnach */
 .specs-2col {
@@ -1306,8 +1306,7 @@ img { display: block; max-width: 100%; }
 
   .split-2, .split-3, .two-col { grid-template-columns: 1fr; gap: 32px; }
   .specs-2col { grid-template-columns: 1fr; }
-  .roof-types { grid-template-columns: 1fr; max-width: none; }
-  .roof-options { grid-template-columns: repeat(3, 1fr); }
+  .roof-grid { grid-template-columns: repeat(3, 1fr); }
   .home-tiles { grid-template-columns: 1fr; }
   .usecases { grid-template-columns: repeat(2, 1fr); }
   .features { grid-template-columns: repeat(3, 1fr); }
