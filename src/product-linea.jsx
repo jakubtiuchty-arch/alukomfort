@@ -75,18 +75,9 @@ function ProductLinea({ onQuote }) {
 
       <section className="section section--soft">
         <div className="container">
-          <SectionHead title={`Najważniejsze cechy systemu ${p.name}`} />
-          <div className="features">
-            {p.features.map((f, i) => {
-              const Ic = Icon[f.icon];
-              return (
-                <div key={i} className="feature">
-                  <div className="feature__icon"><Ic size={36} /></div>
-                  <div className="feature__label">{f.label}</div>
-                </div>
-              );
-            })}
-          </div>
+          <SectionHead title={`Najważniejsze cechy systemu ${p.name}`}
+            sub="Dwanaście atutów, które składają się na trwałość, estetykę i komfort codziennego użytkowania." />
+          <FeatureList items={p.features} />
         </div>
       </section>
 
@@ -193,6 +184,30 @@ function ProductLinea({ onQuote }) {
         </div>
       </section>
     </>
+  );
+}
+
+function FeatureList({ items }) {
+  const ref = React.useRef(null);
+  const [on, setOn] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver((e) => {
+      if (e[0].isIntersecting) { setOn(true); obs.disconnect(); }
+    }, { threshold: 0.15 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <div ref={ref} className={`featlist ${on ? 'is-on' : ''}`}>
+      {items.map((f, i) => (
+        <div key={i} className="featrow" style={{ transitionDelay: `${i * 0.06}s` }}>
+          <span className="featrow__num">{String(i + 1).padStart(2, '0')}</span>
+          <span className="featrow__label">{f.label}</span>
+        </div>
+      ))}
+    </div>
   );
 }
 

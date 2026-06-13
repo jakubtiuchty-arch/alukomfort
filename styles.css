@@ -690,6 +690,48 @@ img { display: block; max-width: 100%; }
 .faq__item[open] .faq__q::after { content: "–"; }
 .faq__a { margin: 0; padding: 0 22px 20px; font-size: 13.5px; color: var(--muted); line-height: 1.65; }
 
+/* Lista cech (LINEA) — bez ikon, z animacją wejścia */
+.featlist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 64px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.featrow {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  padding: 22px 6px;
+  border-bottom: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .55s ease, transform .55s ease, background .15s, padding-left .15s;
+}
+.featlist.is-on .featrow { opacity: 1; transform: translateY(0); }
+.featrow__num {
+  flex: 0 0 auto;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  min-width: 30px;
+  position: relative;
+  padding-bottom: 2px;
+}
+.featrow__num::after {
+  content: "";
+  position: absolute; left: 0; bottom: 0;
+  width: 0; height: 2px; background: var(--accent);
+  transition: width .25s ease;
+}
+.featrow:hover { background: #fff; padding-left: 16px; }
+.featrow:hover .featrow__num::after { width: 22px; }
+.featrow__label { font-size: 14.5px; line-height: 1.5; color: var(--ink); font-weight: 500; }
+@media (prefers-reduced-motion: reduce) {
+  .featrow { opacity: 1; transform: none; transition: background .15s, padding-left .15s; }
+}
+
 /* Ikony USP (generowane) */
 .usp-ico {
   display: block;
@@ -1238,6 +1280,7 @@ img { display: block; max-width: 100%; }
   .features { grid-template-columns: 1fr 1fr !important; gap: 8px; }
   .feature { padding: 20px 14px; }
   .feature__label { font-size: 12px; }
+  .featlist { grid-template-columns: 1fr; gap: 0; }
   .modules, .models { grid-template-columns: 1fr 1fr !important; }
   .examples { grid-template-columns: 1fr !important; }
   .vselect { grid-template-columns: 1fr !important; }
