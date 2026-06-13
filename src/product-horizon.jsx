@@ -126,20 +126,26 @@ function ProductHorizon({ onQuote }) {
         <div className="container">
           <SectionHead title={`Rodzaje zadaszeń ${p.name}`}
             sub="Gotowe konfiguracje wymiarowe — od kompaktowej pergoli lamelowej 4×3 m po hybrydę 8×4 m łączącą lamele ze szkłem." />
-          <div className="modelcards">
-            {p.models.map(m => {
-              const dash = m.desc.indexOf('—');
-              const meta = dash > -1 ? m.desc.slice(0, dash).trim() : '';
-              const desc = dash > -1 ? m.desc.slice(dash + 1).trim() : m.desc;
-              return (
-                <div key={m.id} className="modelcard">
-                  <h4 className="modelcard__name">{m.name}</h4>
-                  {meta && <span className="modelcard__meta">{meta}</span>}
-                  <p className="modelcard__desc">{desc}</p>
-                </div>
-              );
-            })}
-          </div>
+          <table className="model-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Dach</th>
+                <th>Wymiar</th>
+                <th>Charakterystyka</th>
+              </tr>
+            </thead>
+            <tbody>
+              {p.models.map(m => (
+                <tr key={m.id}>
+                  <td className="model-table__name">{m.name}</td>
+                  <td>{m.roof}</td>
+                  <td className="model-table__size">{m.size}</td>
+                  <td className="model-table__note">{m.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
           <p className="small" style={{marginTop: 18, color:'var(--muted)', maxWidth: 860}}>{p.coreNote}</p>
           <div className="dlux dlux--wide">
             <h4>Konfiguracja HORIZON D-Lux</h4>

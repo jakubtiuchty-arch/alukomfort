@@ -601,28 +601,32 @@ img { display: block; max-width: 100%; }
 .model__name { font-size: 13px; font-weight: 700; margin: 0 0 6px; }
 .model__desc { font-size: 11.5px; color: var(--muted); line-height: 1.5; margin: 0; }
 
-/* Rodzaje zadaszeń — karty tekstowe (bez grafik) */
-.modelcards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+/* Rodzaje zadaszeń — tabela porównawcza (bez grafik) */
+.model-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
 }
-.modelcard {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 24px 22px;
-  display: flex;
-  flex-direction: column;
+.model-table thead th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 16px 14px;
+  border-bottom: 1px solid var(--ink);
 }
-.modelcard__name { font-size: 16px; font-weight: 700; color: var(--ink); margin: 0 0 10px; letter-spacing: 0.01em; }
-.modelcard__meta {
-  align-self: flex-start;
-  font-size: 12px; font-weight: 600; color: var(--accent);
-  background: rgba(184, 133, 26, 0.10);
-  padding: 4px 10px; border-radius: 999px; margin-bottom: 12px;
+.model-table tbody td {
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  vertical-align: middle;
 }
-.modelcard__desc { font-size: 13px; color: var(--muted); line-height: 1.55; margin: 0; }
+.model-table tbody tr:last-child td { border-bottom: 0; }
+.model-table__name { font-weight: 700; white-space: nowrap; }
+.model-table__size { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.model-table__note { color: var(--muted); }
 
 /* Przykłady zadaszeń (galeria produktowa) */
 .examples {
@@ -1381,7 +1385,8 @@ img { display: block; max-width: 100%; }
   .features { grid-template-columns: repeat(3, 1fr); }
   .featgrid { grid-template-columns: repeat(2, 1fr); }
   .modules, .models { grid-template-columns: repeat(2, 1fr); }
-  .modelcards { grid-template-columns: repeat(2, 1fr); }
+  .model-table { font-size: 13px; }
+  .model-table thead th, .model-table tbody td { padding-left: 8px; padding-right: 8px; }
   .examples { grid-template-columns: repeat(2, 1fr); }
   .variants { grid-template-columns: 1fr; }
   .vselect { grid-template-columns: repeat(3, 1fr); gap: 12px; }

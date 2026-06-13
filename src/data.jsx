@@ -197,10 +197,10 @@ const HORIZON = {
     { img: 'uploads/icons/hz-carport.png',  label: 'Carport i strefa gospodarcza' },
   ],
   models: [
-    { id: 'stdL', name: 'HORIZON L 43',  desc: 'Lamelowa 4×3 m — najmniejszy moduł standardowy.',   img: 'uploads/horizon-modele/horizon-l-43.jpg' },
-    { id: 'stdS', name: 'HORIZON S 44',  desc: 'Szklana 4×4 m — dach przezroczysty pod indywidualny wymiar.', img: 'uploads/horizon-modele/horizon-s-44.jpg' },
-    { id: 'lux',  name: 'HORIZON L 64',  desc: 'Lamelowa 6×4 m — popularny rozmiar tarasu.',         img: 'uploads/horizon-modele/horizon-l-64.jpg' },
-    { id: 'dlux', name: 'HORIZON L-S 84', desc: 'Hybrydowa 8×4 m — lamele + szkło w jednej bryle.',  img: 'uploads/horizon-modele/horizon-ls-84.jpg' },
+    { id: 'stdL', name: 'HORIZON L 43',  roof: 'Dach lamelowy',          size: '4 × 3 m', note: 'Najmniejszy moduł standardowy.' },
+    { id: 'stdS', name: 'HORIZON S 44',  roof: 'Dach szklany',           size: '4 × 4 m', note: 'Dach przezroczysty, pod indywidualny wymiar.' },
+    { id: 'lux',  name: 'HORIZON L 64',  roof: 'Dach lamelowy',          size: '6 × 4 m', note: 'Popularny rozmiar nad taras.' },
+    { id: 'dlux', name: 'HORIZON L-S 84', roof: 'Dach hybrydowy',         size: '8 × 4 m', note: 'Lamele i szkło w jednej bryle.' },
   ],
   coreNote: 'Zamknięte moduły zabudowy oferujemy jako gotowe systemy CORE — dla dachu szklanego: CORE S 44, CORE S 64 i CORE S 84, a dla dachu lamelowego i hybrydowego: CORE L 44, CORE L-S 64 i CORE L-S 84. Zabudowa ścian nie wpływa na statykę konstrukcji.',
   addons: [
