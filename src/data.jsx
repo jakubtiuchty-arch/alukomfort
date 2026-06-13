@@ -257,7 +257,7 @@ const ROMA = {
   tagline: 'Śródziemnomorski luz i modułowa wygoda — innowacyjne zadaszenie aluminiowe z systemem tkaninowym dla miłośników lekkości i klimatu południowych wakacji.',
   description: '',
   heroImg: 'assets/wiz-c.png',
-  intro: 'ALUKOMFORT ROMA to zadaszenie wykorzystujące roletę rzymską z akrylowego płótna jako dynamiczne poszycie dachu. System pozwala regulować ilość światła, dając komfortowy cień w upale i tworzy lekką, nowoczesną przestrzeń wypoczynkową.',
+  intro: 'ALUKOMFORT ROMA to pergola tkaninowa, w której roleta rzymska z akrylowego płótna pełni rolę dynamicznego poszycia dachu. System pozwala regulować ilość światła, daje przyjemny cień w upale i tworzy lekką, nowoczesną przestrzeń wypoczynkową. To zadaszenie sprawdza się nad tarasem, w ogrodzie i w strefie gastronomicznej.',
   features: [
     { img: 'uploads/icons/rm-platno.png',    label: 'Poszycie z płótna 100% akryl — ochrona UV i miękki cień' },
     { img: 'uploads/icons/usp-material.png', label: 'Konstrukcja z ekstrudowanego stopu aluminium 6063' },
