@@ -475,8 +475,8 @@ img { display: block; max-width: 100%; }
 }
 /* Brand */
 .ak-footer__logo { width: 220px; max-width: 100%; height: auto; display: block; margin: 0 auto; }
-.ft-brand__desc { margin: 22px 0 0; font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.55); max-width: 340px; }
-.ft-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.ft-brand__desc { margin: 22px 0 0; font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.55); max-width: 340px; text-align: justify; }
+.ft-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; justify-content: center; }
 .ft-badge {
   font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
   color: var(--accent);
