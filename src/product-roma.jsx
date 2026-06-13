@@ -54,13 +54,6 @@ function ProductRoma({ onQuote }) {
       <section className="section">
         <div className="container">
           <SectionHead title="Nowoczesna pergola tkaninowa do tarasu i ogrodu" sub={p.intro} />
-        </div>
-      </section>
-
-      <section className="section" style={{paddingTop: 0}}>
-        <div className="container">
-          <SectionHead title="Tak wygląda konstrukcja ROMA"
-            sub="Schematyczne zobrazowanie zadaszeń ALUKOMFORT ROMA. Donice z roślinami oraz siatka aluminiowa są elementami dekoracyjnymi. Ustawienie słupów konstrukcyjnych jest opcjonalne." />
           <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap: 20}}>
             {[
               { src: 'uploads/Roma_3.jpg', alt: 'Pergola ROMA — widok od frontu, roleta zwinięta', caption: 'Widok od frontu — roleta zwinięta' },
@@ -75,6 +68,9 @@ function ProductRoma({ onQuote }) {
               </figure>
             ))}
           </div>
+          <p className="small" style={{marginTop: 18, textAlign:'center', color:'var(--muted)'}}>
+            Schematyczne zobrazowanie zadaszeń ALUKOMFORT ROMA. Donice z roślinami oraz siatka aluminiowa są elementami dekoracyjnymi. Ustawienie słupów konstrukcyjnych jest opcjonalne.
+          </p>
         </div>
       </section>
 
