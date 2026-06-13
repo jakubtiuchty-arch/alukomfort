@@ -143,10 +143,10 @@ function ProductHorizon({ onQuote }) {
             sub="Rozbuduj swoją pergolę HORIZON o sterowanie, oświetlenie i ściany. Wszystkie elementy ukryte są w wieńcu 280 mm — żadnych zewnętrznych kabli ani rur." />
           <div className="features" style={{gridTemplateColumns:'repeat(5, 1fr)'}}>
             {p.addons.map((a, i) => {
-              const Ic = Icon[a.icon] || Icon.Profile;
+              const Ic = a.icon ? (Icon[a.icon] || Icon.Profile) : null;
               return (
                 <div key={i} className="feature" style={{textAlign:'left', padding:'22px 18px'}}>
-                  <div className="feature__icon" style={{margin:'0 0 12px'}}><Ic size={32}/></div>
+                  <div className="feature__icon" style={{margin:'0 0 12px', width: 44, height: 44}}>{a.img ? <img src={a.img} alt="" width="44" height="44" loading="lazy" /> : <Ic size={32}/>}</div>
                   <div style={{fontSize: 13.5, fontWeight: 700, color:'var(--ink)', marginBottom: 6}}>{a.title}</div>
                   <div className="feature__label" style={{fontSize: 12, textAlign:'left', lineHeight: 1.45}}>{a.desc}</div>
                 </div>
