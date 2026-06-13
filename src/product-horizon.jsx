@@ -54,14 +54,32 @@ function ProductHorizon({ onQuote }) {
       <section className="section">
         <div className="container">
           <SectionHead title="Nowoczesne pergole aluminiowe o szerokich możliwościach zabudowy" sub={p.intro} />
-          <div className="variants" style={{maxWidth: 860, margin: '0 auto'}}>
+          <div className="vselect">
             {p.variants.map(v => (
               <button key={v.id} onClick={()=>setVariant(v.id)}
-                className={`variant ${variant === v.id ? 'is-selected' : ''}`}>
-                <div className="variant__name">{v.name}</div>
-                <div className="variant__desc">{v.desc}</div>
+                className={`vcard ${variant === v.id ? 'is-selected' : ''}`}>
+                <div className="vcard__img" style={{backgroundImage: `url(${v.img})`}} />
+                <div className="vcard__body">
+                  <div className="vcard__name">{v.name}</div>
+                  <div className="vcard__desc">{v.desc}</div>
+                </div>
               </button>
             ))}
+          </div>
+          <div className="vdetail">
+            <div>
+              <h3 className="block-title">{active.name}</h3>
+              <p className="small" style={{color:'var(--muted)', lineHeight: 1.65, margin: 0}}>{active.description}</p>
+            </div>
+            <div>
+              <h3 className="block-title">Parametry techniczne — {active.name}</h3>
+              {active.specs.map((s, i) => (
+                <div key={i} className="spec-row">
+                  <span className="spec-row__label">{s.label}</span>
+                  <span className="spec-row__value">{s.value}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -93,64 +111,31 @@ function ProductHorizon({ onQuote }) {
 
       <section className="section">
         <div className="container">
-          <div className="split-2">
-            <div>
-              <h3 className="block-title">Parametry techniczne {p.name}</h3>
-              {p.specs.map((s, i) => (
-                <div key={i} className="spec-row">
-                  <span className="spec-row__label">{s.label}</span>
-                  <span className="spec-row__value">{s.value}</span>
+          <SectionHead title={`Rodzaje zadaszeń ${p.name}`}
+            sub="Gotowe konfiguracje wymiarowe — od kompaktowej pergoli lamelowej 4×3 m po hybrydę 8×4 m łączącą lamele ze szkłem." />
+          <div className="models models--lg">
+            {p.models.map(m => (
+              <div key={m.id} className="model">
+                <div className="model__img" style={{backgroundImage: `url(${m.img})`}} />
+                <div className="model__body">
+                  <h4 className="model__name">{m.name}</h4>
+                  <p className="model__desc">{m.desc}</p>
                 </div>
-              ))}
-            </div>
-            <div>
-              <h3 className="block-title">Wybierz rodzaj zadaszenia</h3>
-              <div className="variants">
-                {p.variants.map(v => (
-                  <button key={v.id} onClick={()=>setVariant(v.id)}
-                    className={`variant ${variant === v.id ? 'is-selected' : ''}`} style={{padding: 14}}>
-                    <div className="variant__img" style={{backgroundImage: `url(${v.img})`}} />
-                    <div className="variant__name">{v.name}</div>
-                    <div className="variant__desc">{v.description}</div>
-                  </button>
-                ))}
               </div>
-            </div>
+            ))}
+          </div>
+          <p className="small" style={{marginTop: 18, color:'var(--muted)', maxWidth: 860}}>{p.coreNote}</p>
+          <div className="dlux dlux--wide">
+            <h4>Konfiguracja HORIZON D-Lux</h4>
+            <p>HORIZON D-Lux to najbogatsze wyposażenie oferowane przez ALUKOMFORT — łączy wszystkie atuty systemu:</p>
+            <ul>
+              {p.dluxSpecs.map((s,i) => <li key={i}>{s}</li>)}
+            </ul>
           </div>
         </div>
       </section>
 
       <section className="section section--soft">
-        <div className="container">
-          <div className="split-2">
-            <div>
-              <h3 className="block-title">Rodzaje zadaszeń {p.name}</h3>
-              <div className="models">
-                {p.models.map(m => (
-                  <div key={m.id} className="model">
-                    <div className="model__img" style={{backgroundImage: `url(${m.img})`}} />
-                    <div className="model__body">
-                      <h4 className="model__name">{m.name}</h4>
-                      <p className="model__desc">{m.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <div className="dlux">
-                <h4>Konfiguracja HORIZON D-Lux</h4>
-                <p>HORIZON D-Lux to najbogatsze wyposażenie oferowane przez ALUKOMFORT — łączy wszystkie atuty systemu:</p>
-                <ul>
-                  {p.dluxSpecs.map((s,i) => <li key={i}>{s}</li>)}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
         <div className="container">
           <SectionHead title="Personalizacja i dodatki"
             sub="Rozbuduj swoją pergolę HORIZON o sterowanie, oświetlenie i ściany. Wszystkie elementy ukryte są w wieńcu 280 mm — żadnych zewnętrznych kabli ani rur." />
@@ -165,6 +150,25 @@ function ProductHorizon({ onQuote }) {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <SectionHead title="Przykłady zadaszeń z użyciem systemu HORIZON"
+            sub="Sześć scenariuszy realizacji — od przyściennej pergoli lamelowej po zamknięty moduł CORE przy basenie. Każdy projekt dopasowujemy do wymiarów i architektury." />
+          <div className="examples">
+            {p.examples.map((ex, i) => (
+              <figure key={i} className="example">
+                <div className="example__img" style={{backgroundImage: `url(${ex.img})`}} role="img" aria-label={ex.title} />
+                <figcaption className="example__body">
+                  <div className="example__eyebrow">ALUKOMFORT HORIZON</div>
+                  <h3 className="example__title">{ex.title}</h3>
+                  <p className="example__desc">{ex.desc}</p>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>

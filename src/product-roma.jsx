@@ -134,9 +134,14 @@ function ProductRoma({ onQuote }) {
               </ul>
             </div>
             <div>
-              <h3 className="block-title">Dostępne moduły</h3>
-              <p className="small">Wybrany moduł: <strong style={{color:'var(--ink)'}}>{p.modules[module].w} × {p.modules[module].h} m</strong></p>
-              <p className="small">Konstrukcja pergoli ROMA projektowana jest indywidualnie pod realizację klienta. Systemy wykonywane są w klasycznej aluminiowej ramie lub z minimalistyczną linią.</p>
+              <h3 className="block-title">Parametry techniczne ROMA</h3>
+              {p.techSpecs.map((s, i) => (
+                <div key={i} className="spec-row">
+                  <span className="spec-row__label">{s.label}</span>
+                  <span className="spec-row__value">{s.value}</span>
+                </div>
+              ))}
+              <p className="small" style={{marginTop: 16, color:'var(--muted)'}}>{p.rainNote}</p>
             </div>
           </div>
         </div>
@@ -159,7 +164,7 @@ function ProductRoma({ onQuote }) {
           <div style={{marginTop: 32, padding: 24, background: '#fff', border:'1px solid var(--line)', display:'flex', gap: 14, alignItems:'flex-start'}}>
             <Icon.Leaf size={32} />
             <p className="small" style={{margin: 0, fontSize: 13}}>
-              Dzięki ramom z aluminium i siatki aluminiowej ze stelażami dekoracyjnymi. Ustawianie słupów konstrukcyjnych jest opcjonalne.
+              Rama wykonana jest w całości z aluminium, a siatki ze stelażami dekoracyjnymi pozwalają prowadzić pnącza i naturalnie dzielić strefy. Ustawienie słupów konstrukcyjnych jest opcjonalne — konstrukcję projektujemy indywidualnie pod realizację klienta.
             </p>
           </div>
         </div>
@@ -182,6 +187,25 @@ function ProductRoma({ onQuote }) {
               Schematyczne zobrazowanie systemów wykończenia ścian w zadaszeniach ALUKOMFORT.
             </figcaption>
           </figure>
+        </div>
+      </section>
+
+      <section className="section section--soft">
+        <div className="container">
+          <SectionHead title="Przykłady zadaszeń z użyciem systemu ROMA"
+            sub="Sześć scenariuszy realizacji — od przydomowej strefy wypoczynku po wielomodułowy taras restauracji. Każdy projekt dopasowujemy do przestrzeni i sposobu użytkowania." />
+          <div className="examples">
+            {p.examples.map((ex, i) => (
+              <figure key={i} className="example">
+                <div className="example__img" style={{backgroundImage: `url(${ex.img})`}} role="img" aria-label={ex.title} />
+                <figcaption className="example__body">
+                  <div className="example__eyebrow">ALUKOMFORT ROMA</div>
+                  <h3 className="example__title">{ex.title}</h3>
+                  <p className="example__desc">{ex.desc}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 

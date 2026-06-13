@@ -36,7 +36,9 @@ function App() {
     page = <ClientDataPage onNavigate={navigate} />;
   } else if (route.startsWith('/wizualizacja')) {
     page = <PageWizualizacja onQuote={openQuote} />;
-  } else if (route === '/' || route === '' || route.startsWith('/inspiracje') || route.startsWith('/o-nas') || route.startsWith('/realizacje') || route.startsWith('/dlaczego')) {
+  } else if (route.startsWith('/realizacje')) {
+    page = <PageRealizacje onQuote={openQuote} />;
+  } else if (route === '/' || route === '' || route.startsWith('/inspiracje') || route.startsWith('/o-nas') || route.startsWith('/dlaczego')) {
     page = <Home onNavigate={navigate} onQuote={openQuote} />;
   } else if (route.startsWith('/produkty/linea')) {
     page = <ProductLinea onQuote={openQuote} />;

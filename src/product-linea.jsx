@@ -120,6 +120,9 @@ function ProductLinea({ onQuote }) {
                   </div>
                 ))}
               </div>
+              {activeRoof.note && (
+                <p className="small" style={{marginTop: 16, color:'var(--muted)'}}>{activeRoof.note}</p>
+              )}
             </div>
           </div>
         </div>
@@ -146,15 +149,18 @@ function ProductLinea({ onQuote }) {
 
       <section className="section">
         <div className="container">
-          <SectionHead title="Trzy gotowe typy zadaszeń LINEA"
-            sub="Najczęstsze scenariusze realizacji — każdy w pełni dopasowany do wymiarów działki i sposobu użytkowania." />
-          <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap: 20}}>
-            {p.scenarios.map((s, i) => (
-              <div key={i} style={{padding: 26, background:'#fff', border:'1px solid var(--line)'}}>
-                <div style={{fontSize: 11, letterSpacing: 2, color:'var(--muted)', marginBottom: 10}}>ALUKOMFORT LINEA</div>
-                <h3 className="block-title" style={{marginBottom: 10}}>{s.title}</h3>
-                <p className="small" style={{margin: 0, color:'var(--muted)'}}>{s.desc}</p>
-              </div>
+          <SectionHead title="Przykłady zadaszeń z użyciem systemu LINEA"
+            sub="Sześć scenariuszy realizacji — od carportu po zamknięty ogród zimowy. Każdy w pełni dopasowany do wymiarów działki i sposobu użytkowania." />
+          <div className="examples">
+            {p.examples.map((ex, i) => (
+              <figure key={i} className="example">
+                <div className="example__img" style={{backgroundImage: `url(${ex.img})`}} role="img" aria-label={ex.title} />
+                <figcaption className="example__body">
+                  <div className="example__eyebrow">ALUKOMFORT LINEA</div>
+                  <h3 className="example__title">{ex.title}</h3>
+                  <p className="example__desc">{ex.desc}</p>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
