@@ -71,7 +71,11 @@ function buildPrompt(product, color, roof, enclosure, notes, extra) {
     `CRITICAL: keep the original photo completely unchanged — the same house, walls, windows, paving, plants, sky, ` +
     `furniture, camera angle, perspective, daylight direction and shadows must stay identical. Only add the pergola ` +
     `as if it were physically installed at the scene, casting correct shadows consistent with the existing light. ` +
-    `Size it realistically and proportionally to the visible terrace/paving — do NOT make it oversized or wider than the patio — and make it look professionally installed.${notePart} ` +
+    `Size it realistically and proportionally to the visible terrace/paving — do NOT make it oversized or wider than the patio. ` +
+    `Every support post must rest firmly on the existing paved terrace, all posts standing on the ground — nothing floating in the air. ` +
+    `Position the structure flush against the house wall and keep the ENTIRE pergola strictly within the footprint of the paved terrace and within the outline of the building — ` +
+    `it must NOT extend, overhang, cantilever or stick out past the corner or the edge of the house onto the open lawn. ` +
+    `If the paved area is small, make the pergola smaller rather than letting any part hang beyond the terrace. Make it look professionally installed.${notePart} ` +
     `Output a single photorealistic image, do not add text, watermarks, people or extra objects.`;
 }
 
