@@ -1752,3 +1752,45 @@ img { display: block; max-width: 100%; }
 @media (max-width: 520px) {
   .insp-grid { grid-template-columns: 1fr; }
 }
+
+/* === O nas (redesign) === */
+.onas-hero { background: #16171a; color: #fff; padding: 64px 0 56px; }
+.onas-hero__eyebrow { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #b8851a; font-weight: 700; margin-bottom: 16px; }
+.onas-hero__title { font-size: 42px; line-height: 1.08; font-weight: 800; margin: 0 0 18px; max-width: 16ch; }
+.onas-hero__lead { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.72); max-width: 60ch; margin: 0; }
+.onas-hero__facts { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.14); }
+.onas-hero__fact .v { font-size: 28px; font-weight: 800; color: #fff; }
+.onas-hero__fact .v b { color: #e8c98a; font-weight: 800; }
+.onas-hero__fact .k { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+
+.onas-lead-p { font-size: 16px; line-height: 1.75; color: var(--ink); max-width: 62ch; }
+.onas-body-p { font-size: 14.5px; line-height: 1.8; color: var(--muted); max-width: 64ch; }
+
+/* oś czasu */
+.onas-ms { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 34px; }
+.onas-ms__item { position: relative; padding-top: 22px; border-top: 2px solid var(--line); }
+.onas-ms__item::before { content: ""; position: absolute; top: -7px; left: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+.onas-ms__yr { font-size: 13px; font-weight: 800; letter-spacing: .04em; color: var(--accent-ink, #8a6212); }
+.onas-ms__t { font-size: 14px; font-weight: 700; color: var(--ink); margin: 6px 0 4px; }
+.onas-ms__d { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+
+/* prawdziwe zdjęcia z targów */
+.onas-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.onas-photo figure { margin: 0; }
+.onas-photo__img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; border-radius: 14px; border: 1px solid var(--line); }
+.onas-photo figcaption { margin-top: 10px; font-size: 12.5px; color: var(--muted); }
+
+/* wartości — numerowana lista edytorska */
+.onas-values { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; counter-reset: val; }
+.onas-val { display: flex; gap: 16px; }
+.onas-val__num { flex: 0 0 auto; font-size: 15px; font-weight: 800; color: var(--accent-ink, #8a6212); background: rgba(184,133,26,0.12); width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+.onas-val__t { font-size: 15px; font-weight: 700; color: var(--ink); margin: 4px 0 6px; }
+.onas-val__d { font-size: 13px; line-height: 1.6; color: var(--muted); margin: 0; }
+
+@media (max-width: 860px) {
+  .onas-hero__title { font-size: 32px; }
+  .onas-hero__facts { gap: 24px; }
+  .onas-ms { grid-template-columns: 1fr 1fr; gap: 22px; }
+  .onas-photos { grid-template-columns: 1fr; }
+  .onas-values { grid-template-columns: 1fr; gap: 22px; }
+}
