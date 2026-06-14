@@ -146,8 +146,7 @@ function Home({ onNavigate, onQuote }) {
 
       <section className="section">
         <div className="container">
-          <SectionHead title="Trzy systemy ALUKOMFORT — różni je dach"
-            sub="Każdy system to inny dach — stały, ruchomy albo tkaninowy. Wspólne mają aluminium 6063 i jakość spod znaku TÜV NORD." />
+          <SectionHead title="Trzy systemy ALUKOMFORT — różni je dach" />
           <div className="home-tiles">
             <a href="#/produkty/linea" className="home-tile" onClick={(e)=>go(e,'/produkty/linea')}>
               <div className="home-tile__img" style={{backgroundImage:'url(uploads/linea_kafelek_4.jpg)'}} />

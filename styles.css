@@ -521,7 +521,7 @@ img { display: block; max-width: 100%; }
 }
 /* Brand */
 .ak-footer__logo { width: 220px; max-width: 100%; height: auto; display: block; margin: 0 auto; }
-.ft-brand__desc { margin: 22px 0 0; font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.55); max-width: 340px; text-align: justify; }
+.ft-brand__desc { margin: 22px 0 0; font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.55); max-width: 340px; }
 .ft-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; justify-content: center; }
 .ft-badge {
   font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
@@ -1415,7 +1415,7 @@ img { display: block; max-width: 100%; }
 
 /* === Phone (≤ 640px) === */
 @media (max-width: 640px) {
-  body { font-size: 14px; }
+  body { font-size: 14px; overflow-x: hidden; }
   .container { padding: 0 16px; }
   .section { padding: 40px 0; }
   .section__head { margin-bottom: 28px; }
@@ -1451,8 +1451,16 @@ img { display: block; max-width: 100%; }
   .vselect { grid-template-columns: 1fr !important; }
   .case__thumbs { grid-template-columns: 1fr 1fr !important; gap: 10px; }
   .case__title { font-size: 20px; }
-  .steps { grid-template-columns: 1fr 1fr !important; }
-  .cmp th, .cmp td { padding: 10px 12px; font-size: 12px; }
+  /* Timeline „Jak przebiega realizacja" — pod mobile: pionowa lista, bez poziomej osi */
+  .steps { grid-template-columns: 1fr !important; gap: 12px; }
+  .steps__bar { display: none !important; }
+  .step { padding: 18px 16px; }
+
+  /* Tabela porównawcza — mieści się w szerokości, bez poziomego scrolla */
+  .cmp-wrap { overflow-x: visible; }
+  .cmp { table-layout: fixed; }
+  .cmp th, .cmp td { padding: 9px 7px; font-size: 11px; }
+  .cmp__label { width: 24%; white-space: normal; }
   .prod-photos { grid-template-columns: 1fr 1fr; }
 
   .swatches { grid-template-columns: repeat(3, 1fr); gap: 10px; }
@@ -1482,13 +1490,20 @@ img { display: block; max-width: 100%; }
   .usp-bar__num { font-size: 14px; }
   .usp-bar__lab { font-size: 11px; }
 
-  /* CTA banners (inline-styled, override for stack) */
+  /* CTA banners (inline-styled, override for stack + center) */
   .section--ink .container[style*="flex"],
   section[style*="background"] .container[style*="flex"] {
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: center !important;
+    text-align: center !important;
     gap: 16px !important;
   }
+
+  /* Stopka — blok marki wyśrodkowany */
+  .ft-brand { text-align: center; }
+  .ft-brand__desc { text-align: center; max-width: none; margin-left: auto; margin-right: auto; }
+  .ak-footer__logo { display: block; margin: 0 auto; }
+  .ft-badges { justify-content: center; }
 
   /* Collapse inline 3/4/5-col grids (addons, scenarios, renders, components) */
   [style*="repeat(3, 1fr)"] { grid-template-columns: 1fr !important; }
