@@ -68,10 +68,14 @@ function buildPrompt(product, color, roof, enclosure, notes, extra) {
   const dimPart = e.dimensions ? ` Approximate size of the structure: ${e.dimensions}.` : '';
   const notePart = notes ? ` Additional context: ${notes}.` : '';
   // Gdy handlowiec narysował linię (magenta łamana z punktami) — to ona wyznacza trasę i rozpiętość
-  // konstrukcji wzdłuż ściany/ścian (także za narożnik na dwie strony); reguła „mieść się w obrysie
-  // domu" ustępuje, a linia musi zniknąć z wyniku.
+  // konstrukcji wzdłuż ściany/ścian; reguła „mieść się w obrysie domu" ustępuje, a linia musi zniknąć
+  // z wyniku. Owijanie za narożnik TYLKO przy 3+ punktach (realne załamanie linii).
+  const multiSide = (e.markerPoints || 0) >= 3;
   const markerLead = e.marker
-    ? ` A bright magenta line with numbered points has been drawn on the photo along the wall(s) to mark EXACTLY the run, length and extent of the canopy — follow this line precisely. Where the line bends around a corner, the canopy must wrap around the corner and continue along BOTH sides of the house, covering the area next to the line.`
+    ? ` A bright magenta line with numbered points has been drawn on the photo along the wall to mark EXACTLY the run, length and extent of the canopy — follow this line precisely and keep the structure along this marked line.` +
+      (multiSide
+        ? ` The line deliberately bends around the building corner: the canopy must wrap around that corner and continue along BOTH walls, exactly following the drawn points.`
+        : ` This is a single straight run along ONE wall only — do NOT wrap the canopy around the building corner and do NOT extend it onto any other side or wall of the house; keep it strictly on this one side, between the two marked points.`)
     : '';
   const markerCleanup = e.marker
     ? ` The magenta line and its points are only a placement guide: do NOT render or keep the line, its dots or color in the final image — replace it entirely with the realistic structure and the normal scene behind it.`
@@ -171,7 +175,7 @@ export default async function handler(req, res) {
   }
 
   const { product, color, roof, enclosure, imageBase64, mimeType, email, phone, address, notes, rodo, testMode,
-          admin, adminPin, led, montaz, dimensions, marker } = req.body || {};
+          admin, adminPin, led, montaz, dimensions, marker, markerPoints } = req.body || {};
 
   // TEST MODE — pomija walidację danych kontaktowych, limit dzienny i wysyłkę leada (front: WIZ_TEST_MODE).
   // ADMIN MODE — panel handlowca (/admin): bez limitu, bez leada, z dodatkowymi parametrami serii.
@@ -205,7 +209,7 @@ export default async function handler(req, res) {
 
   const ip = getClientIp(req);
   const ua = req.headers['user-agent'] || '';
-  const prompt = buildPrompt(product, color, roof, enclosure, notes, { led, montaz, dimensions, marker });
+  const prompt = buildPrompt(product, color, roof, enclosure, notes, { led, montaz, dimensions, marker, markerPoints });
 
   try {
     // OpenAI gpt-image-2 — endpoint /v1/images/edits przyjmuje multipart

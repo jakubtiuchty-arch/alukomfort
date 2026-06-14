@@ -208,6 +208,7 @@ function PageAdmin() {
           imageBase64: img.base64,
           mimeType: img.mime,
           marker: img.marked,
+          markerPoints: img.marked ? points.length : 0,
         }),
       });
       let j;
