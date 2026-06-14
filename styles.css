@@ -1755,6 +1755,8 @@ img { display: block; max-width: 100%; }
 
 /* === O nas (redesign) === */
 .onas-hero { background: #16171a; color: #fff; padding: 64px 0 56px; }
+.onas-hero--photo { position: relative; background-color: #16171a; background-size: cover; background-position: center right; background-repeat: no-repeat; padding: 88px 0 76px; overflow: hidden; }
+.onas-hero--photo::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,19,22,0.94) 0%, rgba(18,19,22,0.84) 44%, rgba(18,19,22,0.42) 100%); }
 .onas-hero__eyebrow { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #b8851a; font-weight: 700; margin-bottom: 16px; }
 .onas-hero__title { font-size: 42px; line-height: 1.08; font-weight: 800; margin: 0 0 18px; max-width: 16ch; }
 .onas-hero__lead { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.72); max-width: 60ch; margin: 0; }
@@ -1788,6 +1790,8 @@ img { display: block; max-width: 100%; }
 .onas-val__d { font-size: 13px; line-height: 1.6; color: var(--muted); margin: 0; }
 
 @media (max-width: 860px) {
+  .onas-hero--photo { padding: 56px 0 48px; background-position: center; }
+  .onas-hero--photo::before { background: linear-gradient(180deg, rgba(18,19,22,0.86) 0%, rgba(18,19,22,0.9) 100%); }
   .onas-hero__title { font-size: 32px; }
   .onas-hero__facts { gap: 24px; }
   .onas-ms { grid-template-columns: 1fr 1fr; gap: 22px; }

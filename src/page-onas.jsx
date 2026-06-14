@@ -45,8 +45,8 @@ function PageOnas({ onQuote }) {
         { label: 'O nas' },
       ]} />
 
-      <section className="onas-hero">
-        <div className="container">
+      <section className="onas-hero onas-hero--photo" style={{backgroundImage: "url('uploads/onas-hero-siedziba.jpg')"}}>
+        <div className="container" style={{position:'relative', zIndex: 1}}>
           <div className="onas-hero__eyebrow">PLAST-MET · Systemy Ogrodzeniowe</div>
           <h1 className="onas-hero__title">Polski producent z 37-letnią historią</h1>
           <p className="onas-hero__lead">
