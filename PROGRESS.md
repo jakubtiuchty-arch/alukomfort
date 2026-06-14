@@ -1,5 +1,16 @@
 # PROGRESS — alukomfort (pergomet_2)
 
+## 2026-06-14 — pakiet treści z Materiałów (ulotki + instrukcja LINEA) — commit a7592ce
+Źródło: `Materiały/ULOTKI NA TARGI 2026/*` + `Materiały/Instrukcja System Zadaszeń Przyściennych LINEA.pdf`. Dodane dane (`data.jsx`) + sekcje (product-linea/horizon.jsx) + CSS:
+- **Anatomia budowy** (`construction`): LINEA 8 elementów (słup 150×100×4, profil wzmacniający, rynna z podwójnym dnem, krokiew std/wzmocniona, murłata, pokrywy, uszczelki, łączniki nierdzewne) + `constructionNote` (rozstaw słupów 500, wys. 230, kąt 8°, rozstaw krokwi 100/60-75). HORIZON 6 elementów (połączenia skręcane, wieniec 280, mechanizmy lameli, krokiew wzmocniona pod szkło).
+- **Pokrycia** (`coverings`): poliwęglan 6W/2W (Strong Opal/Solar Control Opal Cool/BOX Grey, 98cm, 2500/3600 g/m²), szkło ESG (PN-EN 12150, 7×)/VSG (PN-EN 14449, PVB/EVA), oznaczenia 44.2/55.4.
+- **Montaż** (`mounting`): tabela materiał ściany → zintegrowana (pustak/beton komórkowy/silikaty) vs samonośna (keramzytobeton/drewno) + odwodnienie (żygacz/kanalizacja/zbiornik/studnia).
+- **Pielęgnacja** (`care`): czyszczenie, inspekcja 6-12 mies., neutralne pH.
+- **Certyfikaty do pobrania**: `CertDownloads` (ui.jsx) + 4 PDF TÜV w `uploads/certyfikaty/` (folder Materiały jest w .gitignore, więc skopiowane). Raport 1090+3834 = 18 MB.
+- Nowe klasy CSS: `.buildgrid`, `.covergrid/.cover-group`, `.mount-2col/.mount-card/.mount-chip`, `.cert-dl`. UWAGA: usunięty złoty left-border z list pokryć (feedback: AI-slop) → neutralny separator.
+- Zastosowania LINEA poszerzone o miejskie (wiaty rowerowe, przystanki, wiaty na odpady).
+
+
 ## 2026-06-13 — /wizualizacja: podłączenie gpt-image-2 (commit 2bdebe4)
 - Backend `api/wizualizacja.js` był już napisany (gpt-image-2 przez `/v1/images/edits`), ale miał bugi blokujące:
   - **`maxDuration: 60`** dodane — bez tego Vercel ubijał funkcję po 10 s (generacja trwa 20–50 s) → obraz nigdy nie wracał.
