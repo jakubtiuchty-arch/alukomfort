@@ -144,7 +144,7 @@ export default async function handler(req, res) {
     fd.append('model', 'gpt-image-2');
     fd.append('prompt', prompt);
     fd.append('size', 'auto');            // dopasuj proporcje wyjścia do zdjęcia klienta (poziome/pionowe)
-    fd.append('quality', 'high');         // fotorealistyczna jakość
+    fd.append('quality', 'medium');       // 'high' przekracza 60s limit Vercela (504) — medium = ~25-45s
     fd.append('n', '1');
     const ext = /jpe?g/i.test(mimeType) ? 'jpg' : /webp/i.test(mimeType) ? 'webp' : 'png';
     fd.append('image', new Blob([buffer], { type: mimeType }), `photo.${ext}`);
