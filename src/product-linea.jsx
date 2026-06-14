@@ -124,27 +124,6 @@ function ProductLinea({ onQuote }) {
 
       <section className="section">
         <div className="container">
-          <SectionHead title="Pokrycia dachowe — poliwęglan i szkło"
-            sub="Przepuszczalność światła i charakter dachu dobierasz indywidualnie. Każdy wariant to inny balans jasności, ochrony przed słońcem i estetyki." />
-          <div className="covergrid">
-            {p.coverings.map((cv, i) => (
-              <div key={i} className="cover-group">
-                <h3 className="cover-group__title">{cv.group}</h3>
-                <p className="cover-group__desc">{cv.desc}</p>
-                <ul className="cover-group__list">
-                  {cv.items.map((it, j) => (
-                    <li key={j}><span className="cover-group__name">{it.name}</span><span className="cover-group__sub">{it.sub}</span></li>
-                  ))}
-                </ul>
-                <p className="cover-group__params">{cv.params}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--soft">
-        <div className="container">
           <SectionHead title="Montaż i odprowadzanie wody"
             sub={p.mounting.intro} />
           <div className="mount-2col">
@@ -167,7 +146,7 @@ function ProductLinea({ onQuote }) {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--soft">
         <div className="container">
           <SectionHead title="Zadaszenia bez kompromisów"
             sub="Sześć opcjonalnych modułów, które pozwalają zamknąć przestrzeń pergoli, kontrolować światło i podnieść komfort użytkowania." />
@@ -188,7 +167,7 @@ function ProductLinea({ onQuote }) {
         </div>
       </section>
 
-      <section className="section section--soft">
+      <section className="section">
         <div className="container">
           <SectionHead title="Przykłady zadaszeń z użyciem systemu LINEA"
             sub="Sześć scenariuszy realizacji — od carportu po zamknięty ogród zimowy. Każdy w pełni dopasowany do wymiarów działki i sposobu użytkowania." />
@@ -217,7 +196,7 @@ function ProductLinea({ onQuote }) {
         </div>
       </section>
 
-      <ColorsSection previews={LINEA_COLOR_PREVIEWS} />
+      <ColorsSection previews={LINEA_COLOR_PREVIEWS} roofs={p.roofs} />
 
       <section className="section">
         <div className="container">

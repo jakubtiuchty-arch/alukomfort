@@ -115,6 +115,7 @@ function ColorsSection({ previews, roofs }) {
   const hasRoofs = roofs && roofs.length > 0;
   const [roofSel, setRoofSel] = React.useState({ id: hasRoofs ? roofs[0].id : null, opt: 0 });
   const activeRoof = hasRoofs ? (roofs.find(r => r.id === roofSel.id) || roofs[0]) : null;
+  const activeRoofOpt = activeRoof ? (activeRoof.options || [])[roofSel.opt] : null;
   const allRoofOptions = hasRoofs
     ? roofs.flatMap(r => (r.options || []).map((o, i) => ({ ...o, roofId: r.id, optIdx: i })))
     : [];
@@ -166,8 +167,8 @@ function ColorsSection({ previews, roofs }) {
             </div>
             {activeRoof && (
               <div className="roof-desc">
-                <strong className="roof-desc__name">{activeRoof.name}</strong>
-                <p className="roof-desc__text">{activeRoof.desc}</p>
+                <strong className="roof-desc__name">{activeRoof.name}{activeRoofOpt ? ` — ${activeRoofOpt.name}` : ''}</strong>
+                <p className="roof-desc__text">{(activeRoofOpt && activeRoofOpt.desc) || activeRoof.desc}</p>
                 {activeRoof.note && <p className="roof-desc__note">{activeRoof.note}</p>}
               </div>
             )}
