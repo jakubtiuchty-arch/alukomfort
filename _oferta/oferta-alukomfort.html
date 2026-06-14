@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<style>
+  @page { size: A4; margin: 16mm 14mm; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; color: #1c1c1f; font-size: 11px; line-height: 1.5; margin: 0; }
+  h1,h2,h3,h4 { margin: 0; }
+  .wordmark { font-weight: 800; letter-spacing: .14em; }
+  .accent { color: #b8851a; }
+  .muted { color: #6a6a6a; }
+  .header { background: #16171a; color: #fff; padding: 22px 26px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .header .brand { font-size: 22px; font-weight: 800; letter-spacing: .12em; }
+  .header .brand small { display:block; font-size: 10px; font-weight: 600; letter-spacing: .26em; color: #b8b8b8; margin-top: 4px; }
+  .header .doc { text-align: right; }
+  .header .doc .t { font-size: 16px; font-weight: 700; letter-spacing: .18em; }
+  .header .doc .s { font-size: 10px; color: #b8b8b8; margin-top: 4px; }
+  .wrap { padding: 22px 26px; }
+  .meta { display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 20px; }
+  .party { flex: 1; min-width: 230px; border: 1px solid #e4e1d8; border-radius: 10px; padding: 14px 16px; }
+  .party .lbl { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: #9a9a9a; margin-bottom: 6px; }
+  .party .name { font-weight: 700; font-size: 12px; }
+  .party .line { color: #5a5a5a; }
+  .infobar { display:flex; gap: 24px; margin: 0 0 22px; font-size: 10.5px; }
+  .infobar div span { color:#9a9a9a; }
+  .section-title { font-size: 13px; font-weight: 800; letter-spacing: .02em; margin: 22px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #16171a; }
+  table { width: 100%; border-collapse: collapse; }
+  thead th { text-align: left; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: #8a8a8a; padding: 8px 8px; border-bottom: 1px solid #e4e1d8; }
+  tbody td { padding: 11px 8px; border-bottom: 1px solid #efece4; vertical-align: top; }
+  tbody td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  tbody td.idx { color: #b8851a; font-weight: 800; width: 22px; }
+  .item-name { font-weight: 700; font-size: 11.5px; }
+  .item-desc { color: #6a6a6a; font-size: 10px; margin-top: 2px; }
+  .totals { margin-top: 14px; margin-left: auto; width: 280px; }
+  .totals .row { display:flex; justify-content: space-between; padding: 6px 8px; font-variant-numeric: tabular-nums; }
+  .totals .row.grand { background: #16171a; color: #fff; border-radius: 8px; font-weight: 800; font-size: 13px; padding: 12px 12px; margin-top: 4px; }
+  .totals .row.grand .accent { color: #e8c98a; }
+  .box { border: 1px solid #e4e1d8; border-radius: 10px; padding: 14px 16px; margin-top: 8px; }
+  .box.soft { background: #f6f4ef; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .facts .f { text-align: center; }
+  .facts .f .v { font-size: 18px; font-weight: 800; }
+  .facts .f .k { font-size: 9px; color: #8a8a8a; letter-spacing: .04em; }
+  ul { margin: 6px 0 0; padding-left: 16px; }
+  li { margin-bottom: 3px; }
+  .scenarios td { padding: 9px 8px; border-bottom: 1px solid #efece4; font-variant-numeric: tabular-nums; }
+  .scenarios .hl { background: #fbf3e0; }
+  .footer { margin-top: 26px; padding-top: 12px; border-top: 1px solid #e4e1d8; font-size: 9.5px; color: #8a8a8a; display:flex; justify-content: space-between; }
+  .note { font-size: 9.5px; color: #8a8a8a; margin-top: 8px; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand">ALUKOMFORT<small>PLAST-MET · SYSTEMY ZADASZEŃ</small></div>
+    <div class="doc">
+      <div class="t">OFERTA / KOSZTORYS</div>
+      <div class="s">Nr OF/2026/06/01 · 14 czerwca 2026 · ważna 30 dni</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="meta">
+      <div class="party">
+        <div class="lbl">Wykonawca</div>
+        <div class="name">[ Imię i nazwisko / nazwa firmy ]</div>
+        <div class="line">[ adres ]</div>
+        <div class="line">[ NIP ] · [ e-mail ] · [ tel. ]</div>
+      </div>
+      <div class="party">
+        <div class="lbl">Zleceniodawca</div>
+        <div class="name">PLAST-MET Sp. z o.o. Sp. k.</div>
+        <div class="line">ul. Milicka 34, 55-100 Trzebnica</div>
+        <div class="line">marka ALUKOMFORT · trzebnica@plast-met.pl</div>
+      </div>
+    </div>
+
+    <div class="infobar">
+      <div><span>Przedmiot:</span> <b>Strona internetowa ALUKOMFORT z konfiguratorem wizualizacji AI</b></div>
+    </div>
+    <div class="infobar" style="margin-top:-12px">
+      <div><span>Stack:</span> React + Vercel (statyczny front + funkcja serverless)</div>
+      <div><span>Domena docelowa:</span> alukomfort.pl</div>
+    </div>
+
+    <div class="section-title">Zakres prac i kosztorys</div>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Pozycja</th><th style="text-align:right">Cena netto</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="idx">1</td>
+          <td><div class="item-name">Projekt UI/UX i system projektowy</div><div class="item-desc">Autorski layout, komponenty, responsywność (RWD), hero wideo, spójna identyfikacja wizualna strony.</div></td>
+          <td class="num">10 000 zł</td>
+        </tr>
+        <tr>
+          <td class="idx">2</td>
+          <td><div class="item-name">Wdrożenie frontendu — 8 podstron</div><div class="item-desc">Strona główna (FAQ, porównanie systemów, proces realizacji), 3 rozbudowane karty produktów (LINEA, HORIZON, ROMA), /realizacje, /kontakt, nawigacja z rozwijanym menu, routing, animacje.</div></td>
+          <td class="num">17 000 zł</td>
+        </tr>
+        <tr>
+          <td class="idx">3</td>
+          <td><div class="item-name">Konfigurator „Wizualizacja"</div><div class="item-desc">Dedykowany moduł: kreator krok-po-kroku (produkt / kolor / dach / zabudowa / zdjęcie), generowanie podglądu pergoli na zdjęciu klienta, przechwytywanie zapytań (leadów), zabezpieczenia i limity.</div></td>
+          <td class="num">15 000 zł</td>
+        </tr>
+        <tr>
+          <td class="idx">4</td>
+          <td><div class="item-name">Treści i copywriting ekspercki</div><div class="item-desc">Opisy 3 systemów, strona główna, FAQ, sekcje techniczne na bazie dokumentacji producenta (budowa, pokrycia, normy, parametry).</div></td>
+          <td class="num">6 000 zł</td>
+        </tr>
+        <tr>
+          <td class="idx">5</td>
+          <td><div class="item-name">Kreacja wizualna — grafika i wideo</div><div class="item-desc">166 grafik (kafelki produktów, podglądy kolorów, ikony, wizualizacje, przykłady realizacji) + 6 materiałów wideo + obróbka i kadrowanie.</div></td>
+          <td class="num">13 000 zł</td>
+        </tr>
+        <tr>
+          <td class="idx">6</td>
+          <td><div class="item-name">SEO / AEO / GEO</div><div class="item-desc">Dane strukturalne JSON-LD (LocalBusiness, Product, FAQPage), meta-dane per strona, canonical, sitemap, robots, llms.txt, optymalizacja fraz kluczowych.</div></td>
+          <td class="num">4 000 zł</td>
+        </tr>
+        <tr>
+          <td class="idx">7</td>
+          <td><div class="item-name">Wdrożenie i konfiguracja (DevOps)</div><div class="item-desc">Publikacja na Vercel, zmienne środowiskowe, pipeline wdrożeń, przygotowanie pod domenę.</div></td>
+          <td class="num">2 000 zł</td>
+        </tr>
+        <tr>
+          <td class="idx">8</td>
+          <td><div class="item-name">Zarządzanie projektem, iteracje i QA</div><div class="item-desc">Rundy poprawek, testy end-to-end, kontrola jakości i spójności.</div></td>
+          <td class="num">3 000 zł</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totals">
+      <div class="row"><span>Razem netto</span><span>70 000 zł</span></div>
+      <div class="row"><span>VAT 23%</span><span>16 100 zł</span></div>
+      <div class="row grand"><span>Razem brutto</span><span class="accent">86 100 zł</span></div>
+    </div>
+
+    <div class="section-title">Zakres ilościowy projektu</div>
+    <div class="box soft facts">
+      <div class="f"><div class="v">8</div><div class="k">podstron</div></div>
+      <div class="f"><div class="v">~5 170</div><div class="k">linii kodu (JSX + CSS)</div></div>
+      <div class="f"><div class="v">166</div><div class="k">grafik</div></div>
+      <div class="f"><div class="v">6</div><div class="k">materiałów wideo</div></div>
+    </div>
+
+    <div class="section-title">Koszty operacyjne (informacyjnie — poza ofertą)</div>
+    <div class="box">
+      <ul>
+        <li>Generowanie wizualizacji w konfiguratorze: ~0,25 zł za sztukę</li>
+        <li>Hosting: 0 zł (plan podstawowy) lub ~80 zł/mc (plan rozszerzony)</li>
+        <li>Domena: ~60–100 zł/rok · Obsługa maili z zapytaniami: darmowy próg lub ~80 zł/mc</li>
+      </ul>
+    </div>
+
+    <div class="section-title">Warunki</div>
+    <div class="box">
+      <ul>
+        <li>Ceny netto; do kwot doliczany jest podatek VAT 23%.</li>
+        <li>Oferta ważna 30 dni od daty wystawienia.</li>
+        <li>Cena obejmuje przeniesienie majątkowych praw autorskich do dostarczonych materiałów po opłaceniu całości.</li>
+        <li>Sugerowany model płatności: 40% zaliczki, 60% po odbiorze i wdrożeniu.</li>
+        <li>Wsparcie powdrożeniowe i rozwój strony — wyceniane odrębnie (roboczogodzina lub pakiet abonamentowy).</li>
+        <li>Kosztorys ma charakter szacunkowy i nie stanowi oferty handlowej w rozumieniu Kodeksu Cywilnego.</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <div>ALUKOMFORT · PLAST-MET Sp. z o.o. Sp. k. · ul. Milicka 34, 55-100 Trzebnica</div>
+      <div>Dokument wygenerowany 14.06.2026</div>
+    </div>
+  </div>
+</body>
+</html>

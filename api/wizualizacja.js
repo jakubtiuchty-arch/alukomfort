@@ -27,11 +27,22 @@ const ROOF_PROMPTS = {
   },
 };
 
-// Stopień zabudowy ścian
+// Stopień / rodzaj zabudowy ścian (open/sides/winter — publiczny; pozostałe — panel handlowca)
 const ENCLOSURE_PROMPTS = {
   open: 'Keep it as an open pergola — only the supporting posts and the roof, with no side walls.',
   sides: 'Add a partial side enclosure: sliding glass panels or vertical screen blinds on one or two sides, leaving the front open.',
   winter: 'Fully enclose it as a winter garden / conservatory with floor-to-ceiling glass walls and sliding glass doors on all open sides, forming a closed all-year room.',
+  szyby: 'Enclose the open sides with large sliding glass panels (clear glazed sliding doors set in slim aluminum frames).',
+  screen: 'Add vertical fabric screen roller blinds on the sides for shade and privacy, partially lowered.',
+  zaluzje: 'Add adjustable aluminum louvre / shutter side walls (vertical slat panels) on one or two sides.',
+  panele: 'Add solid decorative aluminum panel walls on one or two sides, leaving the front open.',
+};
+
+// Dodatkowe fragmenty (panel handlowca)
+const LED_PROMPT = ' Integrate discreet warm linear LED lighting along the frame.';
+const MONTAZ_PROMPTS = {
+  przyscienna: ' Mount it as a wall-mounted structure attached to the building wall.',
+  samonosna: ' Build it as a freestanding self-supporting structure on its own posts, detached from the building.',
 };
 
 const COLOR_OVERRIDES = {
@@ -45,14 +56,18 @@ const COLOR_OVERRIDES = {
   'zloty-dab': 'wood-textured "Golden Oak" finish on the aluminum frame',
 };
 
-function buildPrompt(product, color, roof, enclosure, notes) {
+function buildPrompt(product, color, roof, enclosure, notes, extra) {
+  const e = extra || {};
   const base = PRODUCT_PROMPTS[product] || PRODUCT_PROMPTS.linea;
   const roofMap = ROOF_PROMPTS[product] || ROOF_PROMPTS.linea;
   const roofPart = roof && roofMap[roof] ? `, ${roofMap[roof]}` : '';
   const colorPart = color && COLOR_OVERRIDES[color] ? `, ${COLOR_OVERRIDES[color]}` : '';
+  const montazPart = e.montaz && MONTAZ_PROMPTS[e.montaz] ? MONTAZ_PROMPTS[e.montaz] : '';
   const enclosurePart = ENCLOSURE_PROMPTS[enclosure] ? ` ${ENCLOSURE_PROMPTS[enclosure]}` : '';
-  const notePart = notes ? ` Additional context from the customer: ${notes}.` : '';
-  return `Photorealistically integrate ${base}${roofPart}${colorPart}, placed into the existing terrace/garden space shown in the uploaded photo.${enclosurePart} ` +
+  const ledPart = e.led ? LED_PROMPT : '';
+  const dimPart = e.dimensions ? ` Approximate size of the structure: ${e.dimensions}.` : '';
+  const notePart = notes ? ` Additional context: ${notes}.` : '';
+  return `Photorealistically integrate ${base}${roofPart}${colorPart}, placed into the existing terrace/garden space shown in the uploaded photo.${montazPart}${enclosurePart}${ledPart}${dimPart} ` +
     `CRITICAL: keep the original photo completely unchanged — the same house, walls, windows, paving, plants, sky, ` +
     `furniture, camera angle, perspective, daylight direction and shadows must stay identical. Only add the pergola ` +
     `as if it were physically installed at the scene, casting correct shadows consistent with the existing light. ` +
@@ -139,16 +154,23 @@ export default async function handler(req, res) {
     });
   }
 
-  const { product, color, roof, enclosure, imageBase64, mimeType, email, phone, address, notes, rodo, testMode } = req.body || {};
+  const { product, color, roof, enclosure, imageBase64, mimeType, email, phone, address, notes, rodo, testMode,
+          admin, adminPin, led, montaz, dimensions } = req.body || {};
 
-  // TEST MODE — pomija walidację danych kontaktowych, limit dzienny i wysyłkę leada.
-  // Sterowane flagą WIZ_TEST_MODE we froncie (src/page-wizualizacja.jsx). Usunąć po testach.
-  const isTest = testMode === true;
+  // TEST MODE — pomija walidację danych kontaktowych, limit dzienny i wysyłkę leada (front: WIZ_TEST_MODE).
+  // ADMIN MODE — panel handlowca (/admin): bez limitu, bez leada, z dodatkowymi parametrami serii.
+  //   Jeśli ustawiona zmienna ADMIN_PIN, wymagany jest zgodny adminPin; bez ADMIN_PIN tryb działa bez hasła.
+  const adminPinEnv = process.env.ADMIN_PIN;
+  const isAdmin = admin === true && (!adminPinEnv || adminPin === adminPinEnv);
+  if (admin === true && adminPinEnv && adminPin !== adminPinEnv) {
+    return res.status(401).json({ error: 'Błędny PIN panelu.' });
+  }
+  const skipGate = testMode === true || isAdmin;
 
   // Walidacja
   if (!product || !PRODUCT_PROMPTS[product]) return res.status(400).json({ error: 'Wybierz produkt (LINEA / HORIZON / ROMA).' });
   if (!imageBase64 || !mimeType) return res.status(400).json({ error: 'Wgraj zdjęcie tarasu lub domu.' });
-  if (!isTest) {
+  if (!skipGate) {
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Podaj poprawny adres e-mail.' });
     if (!phone || phone.replace(/\D/g, '').length < 9) return res.status(400).json({ error: 'Podaj numer telefonu (min. 9 cyfr).' });
     if (!rodo) return res.status(400).json({ error: 'Wymagana zgoda na przetwarzanie danych (RODO).' });
@@ -163,11 +185,11 @@ export default async function handler(req, res) {
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
   let count = 0;
   if (cookies.wiz_date === today) count = parseInt(cookies.wiz_count || '0', 10) || 0;
-  if (!isTest && count >= 2) return res.status(429).json({ error: 'Wykorzystałeś dzisiejszy limit (2 wizualizacje). Wróć jutro lub napisz na biuro@plast-met.pl.' });
+  if (!skipGate && count >= 2) return res.status(429).json({ error: 'Wykorzystałeś dzisiejszy limit (2 wizualizacje). Wróć jutro lub napisz na biuro@plast-met.pl.' });
 
   const ip = getClientIp(req);
   const ua = req.headers['user-agent'] || '';
-  const prompt = buildPrompt(product, color, roof, enclosure, notes);
+  const prompt = buildPrompt(product, color, roof, enclosure, notes, { led, montaz, dimensions });
 
   try {
     // OpenAI gpt-image-2 — endpoint /v1/images/edits przyjmuje multipart
@@ -198,8 +220,8 @@ export default async function handler(req, res) {
       : (item?.url || null);
     if (!dataUrl) return res.status(502).json({ error: 'Nie udało się odebrać obrazu z generatora.' });
 
-    if (isTest) {
-      return res.status(200).json({ image: dataUrl, remaining: 99, testMode: true });
+    if (skipGate) {
+      return res.status(200).json({ image: dataUrl, remaining: 99, mode: isAdmin ? 'admin' : 'test' });
     }
 
     // Lead email (best-effort)

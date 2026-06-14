@@ -29,6 +29,11 @@ function App() {
 
   const openQuote = React.useCallback(() => setQuoteOpen(true), []);
 
+  // Panel handlowca — samodzielny layout, bez nagłówka/stopki publicznej
+  if (route.startsWith('/admin')) {
+    return <PageAdmin />;
+  }
+
   let page;
   if (route.startsWith('/kontakt')) {
     page = <PageContact onQuote={openQuote} />;
