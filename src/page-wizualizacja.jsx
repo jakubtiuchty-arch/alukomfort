@@ -65,7 +65,7 @@ function PageWizualizacja({ onQuote }) {
       img.src = ev.target.result;
     };
     reader.readAsDataURL(f);
-  };
+  });
 
   const handleFile = async (f) => {
     if (!f) return;
