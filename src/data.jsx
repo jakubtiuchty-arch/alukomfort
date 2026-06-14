@@ -71,6 +71,53 @@ const LINEA = {
       ],
     },
   ],
+  construction: [
+    { name: 'Słup nośny 150 × 100 × 4 mm', desc: 'Pionowy element przenoszący obciążenia dachu. W jednym ze słupów ukryta jest rura odprowadzająca wodę.' },
+    { name: 'Profil wzmacniający 150 × 100 mm', desc: 'Zwiększa sztywność konstrukcji przy dużych rozpiętościach i wysięgu.' },
+    { name: 'Rynna z podwójnym dnem', desc: 'Zbiera wodę z całej połaci i kieruje ją do ukrytego odwodnienia w słupie — bez widocznych rur.' },
+    { name: 'Krokiew standardowa / wzmocniona', desc: 'Belki nośne dachu. Standardowa do wysięgu 4 m, wzmocniona powyżej 4 m oraz pod cięższe pokrycie szklane.' },
+    { name: 'Murłata z uszczelką', desc: 'Profil przyścienny, do którego mocowana jest konstrukcja przy montażu zintegrowanym z budynkiem.' },
+    { name: 'Pokrywy krokwi (wewnętrzna i zewnętrzna)', desc: 'Maskują mocowania i krawędzie pokrycia, dając jednolitą, czystą linię dachu.' },
+    { name: 'Komplet uszczelek systemowych', desc: 'Uszczelki murłaty, pokrywy i dolna krokwi zapewniają szczelność i chronią pokrycie dachowe.' },
+    { name: 'Łączniki montażowe ze stali nierdzewnej', desc: 'Profile 100 × 50, 100 × 60 i 150 × 100 mm; kotwy i śruby nierdzewne — odporność na korozję na lata.' },
+  ],
+  constructionNote: 'Geometria systemu: maksymalny rozstaw słupów 500 cm, zalecana wysokość przednich słupów 230 cm, standardowy spadek dachu 8°. Rozstaw osiowy krokwi zależy od pokrycia — 100 cm dla poliwęglanu, 60–75 cm dla szkła.',
+  coverings: [
+    {
+      group: 'Poliwęglan komorowy 16 mm',
+      desc: 'Lekki, wytrzymały i dobrze przepuszczający światło. Krawędzie boczne fabrycznie zamknięte, górna i dolna zabezpieczone folią paraizolacyjną. Montaż ze spadkiem 5–8°.',
+      items: [
+        { name: 'Strong Opal — 6-warstwowy (6W)', sub: 'Mleczna barwa, maksymalne i rozproszone światło. 2500 g/m².' },
+        { name: 'Solar Control Strong Opal — 6W', sub: 'Powłoka Opal Cool redukuje bliską podczerwień — niższa temperatura pod dachem. 2500 g/m².' },
+        { name: 'BOX Grey — 2-warstwowy (2W)', sub: 'Szara, dymiona barwa — stylowe chłodzenie. 3600 g/m².' },
+      ],
+      params: 'Szerokość płyty 98 cm · długość do 500–600 cm · rozstaw osiowy krokwi 100 cm',
+    },
+    {
+      group: 'Szkło bezpieczne ESG / VSG',
+      desc: 'Naturalne światło i pełna bariera przed deszczem oraz śniegiem. Grubość 8–12 mm zależnie od wysięgu, szerokość tafli do 750 mm, długość standardowo do 4000 mm.',
+      items: [
+        { name: 'ESG — szkło hartowane', sub: 'Norma PN-EN 12150. Do 7× odporniejsze na uderzenia i naprężenia termiczne; rozpada się na drobne, bezpieczne kawałki.' },
+        { name: 'VSG — szkło laminowane', sub: 'Norma PN-EN 14449. Tafle sklejone folią PVB/EVA — przy stłuczeniu nie rozpada się i utrzymuje kształt.' },
+        { name: 'ESG/VSG — kombinacja', sub: 'Laminat z wcześniej hartowanych tafli. Oznaczenia: 44.2 = 2×4 mm + 2 folie, 55.4 = 2×5 mm + 4 folie.' },
+      ],
+      params: 'Rozstaw osiowy krokwi 60–75 cm · materiał zamawiany na wymiar',
+    },
+  ],
+  mounting: {
+    intro: 'Sposób montażu dobieramy do materiału, z którego zbudowany jest dom i taras — konstrukcję zintegrowaną mocujemy do ściany, samonośną stawiamy na własnych słupach.',
+    integrated: ['Pustak ceramiczny', 'Beton komórkowy', 'Silikaty'],
+    freestanding: ['Keramzytobeton', 'Drewno'],
+    note: 'Kotwy i śruby ze stali nierdzewnej. Słupy mocujemy na łączniku lub betonujemy — o wyborze decyduje obciążenie konstrukcji i stan podłoża.',
+    drainage: 'Woda spływa rynną z podwójnym dnem do rury ukrytej w słupie. Odpływ wykonujemy wg potrzeb: żygaczem w grunt, do kanalizacji, do zbiornika na deszczówkę lub do studni chłonnej.',
+  },
+  care: [
+    'Podstawowe czyszczenie co kilka miesięcy: letnia woda z łagodnym detergentem o neutralnym pH, miękka ściereczka lub gąbka. Bez alkoholu, rozpuszczalników, octu i acetonu.',
+    'Po umyciu spłukać czystą wodą. Najlepiej czyścić w dni pochmurne lub rano/wieczorem, nie przy mocnym nasłonecznieniu.',
+    'Regularnie usuwać z rynny liście i zanieczyszczenia, by zapewnić swobodny odpływ wody.',
+    'Przy intensywnych opadach w miarę możliwości usuwać nadmiar śniegu z połaci — nie obciążać dachu.',
+    'Inspekcja konstrukcji co 6–12 miesięcy: mocowania, uszczelki, powłoka. Aluminium 6063 jest bezobsługowe i w 100% przetwarzalne.',
+  ],
   addons: [
     { img: 'uploads/icons/add-drzwi.png',   title: 'Szklane drzwi przesuwne',          desc: 'Tory o długości do 500 cm, maksymalnie 5 tafli szkła w układzie.' },
     { img: 'uploads/icons/add-screen.png',  title: 'Rolety zewnętrzne screen',         desc: 'Skuteczna ochrona przeciwsłoneczna i większa prywatność strefy.' },
@@ -203,6 +250,21 @@ const HORIZON = {
     { id: 'dlux', name: 'HORIZON L-S 84', roof: 'Dach hybrydowy',         size: '8 × 4 m', note: 'Lamele i szkło w jednej bryle.' },
   ],
   coreNote: 'Zamknięte moduły zabudowy oferujemy jako gotowe systemy CORE — dla dachu szklanego: CORE S 44, CORE S 64 i CORE S 84, a dla dachu lamelowego i hybrydowego: CORE L 44, CORE L-S 64 i CORE L-S 84. Zabudowa ścian nie wpływa na statykę konstrukcji.',
+  construction: [
+    { name: 'Aluminium konstrukcyjne odporne na korozję', desc: 'Wysokiej klasy stop, odporny na warunki atmosferyczne — optyczna lekkość przy dużej wytrzymałości.' },
+    { name: 'Trwałe połączenia skręcane', desc: 'Skręcane węzły i precyzyjna geometria profili zapewniają stabilność całego systemu przez lata.' },
+    { name: 'Wieniec konstrukcyjny 280 mm', desc: 'Ukrywa odwodnienie, oświetlenie LED i automatykę — minimalistyczna, płaska linia dachu bez widocznych kabli i rur.' },
+    { name: 'Ruchome lamele aluminiowe (wariant L / L-S)', desc: 'Precyzyjne mechanizmy obrotu lameli minimalizujące ryzyko zakleszczeń; pełne zamknięcie, regulacja kąta lub częściowe otwarcie.' },
+    { name: 'Krokiew wzmocniona pod szkło (wariant S / L-S)', desc: 'Przeznaczona do dachów szklanych o wysięgu powyżej 4 m — chroni przed ugięciem i działaniem sił zewnętrznych.' },
+    { name: 'Zintegrowane odprowadzanie wody', desc: 'Systemy eliminujące zaleganie wody na dachu, z odpływem ukrytym w konstrukcji.' },
+  ],
+  constructionNote: 'Konstrukcja przyścienna lub wolnostojąca o maksymalnej wysokości 280 cm. Sterowanie lameli silnikami SOMFY (ręcznie, pilotem lub aplikacją), z opcjonalną automatyką pogodową. Zgodność z normami obciążeń EN 1991-1-3 (śnieg) i EN 1991-1-4 (wiatr).',
+  care: [
+    'Czyszczenie letnią wodą z łagodnym detergentem o neutralnym pH, miękką ściereczką. Bez alkoholu, rozpuszczalników, octu i acetonu.',
+    'Regularnie usuwać liście i zanieczyszczenia z odwodnienia i prowadnic lameli.',
+    'Przy intensywnych opadach śniegu odśnieżać dach zgodnie z przepisami prawa budowlanego — nie obciążać konstrukcji.',
+    'Inspekcja co 6–12 miesięcy: mocowania, mechanizmy obrotu lameli, uszczelki i powłoka. Aluminium jest bezobsługowe i w pełni przetwarzalne.',
+  ],
   addons: [
     { img: 'uploads/icons/add-led.png',       title: 'Liniowe oświetlenie LED',     desc: 'Ukryte w wieńcu 280 mm — światło nastrojowe ręcznie lub zdalnie.' },
     { img: 'uploads/icons/hz-pogoda.png',     title: 'Automatyka pogodowa',         desc: 'Czujniki deszczu, wiatru i nasłonecznienia. Lamele reagują same.' },
@@ -339,6 +401,14 @@ const ROMA = {
   ],
 };
 
+const CERTIFICATES = [
+  { label: 'Certyfikat ZKP — PN-EN 1090-1 (PL)', size: 'PDF · 0,4 MB', file: 'uploads/certyfikaty/tuv-nord-zkp-1090-PL.pdf' },
+  { label: 'Certificate ZKP — PN-EN 1090-1 (EN)', size: 'PDF · 0,4 MB', file: 'uploads/certyfikaty/tuv-nord-zkp-1090-EN.pdf' },
+  { label: 'Zertifikat ZKP — PN-EN 1090-1 (DE)', size: 'PDF · 0,4 MB', file: 'uploads/certyfikaty/tuv-nord-zkp-1090-DE.pdf' },
+  { label: 'Raport badań PN-EN 1090 + ISO 3834 (PL/EN)', size: 'PDF · 18 MB', file: 'uploads/certyfikaty/tuv-nord-raport-1090-3834.pdf' },
+];
+
 window.PRODUCTS = { LINEA, HORIZON, ROMA };
+window.CERTIFICATES = CERTIFICATES;
 window.COLORS_BASE = COLORS_BASE;
 window.COLORS_PREMIUM = COLORS_PREMIUM;

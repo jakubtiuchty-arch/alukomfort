@@ -159,6 +159,24 @@ function ProductHorizon({ onQuote }) {
         </div>
       </section>
 
+      <section className="section">
+        <div className="container">
+          <SectionHead title="Budowa i technologia HORIZON"
+            sub="Konstrukcja z wysokiej klasy aluminium na trwałych połączeniach skręcanych. Cała technologia — odwodnienie, LED i automatyka — ukryta jest w wieńcu 280 mm." />
+          <div className="buildgrid">
+            {p.construction.map((c, i) => (
+              <div key={i} className="buildgrid__item">
+                <div className="buildgrid__name">{c.name}</div>
+                <p className="buildgrid__desc">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+          {p.constructionNote && (
+            <p className="small" style={{marginTop: 20, color:'var(--muted)', maxWidth: 820}}>{p.constructionNote}</p>
+          )}
+        </div>
+      </section>
+
       <section className="section section--soft">
         <div className="container">
           <SectionHead title="Personalizacja i dodatki"
@@ -201,8 +219,23 @@ function ProductHorizon({ onQuote }) {
 
       <section className="section">
         <div className="container">
+          <SectionHead title="Pielęgnacja i trwałość"
+            sub="Aluminium jest bezobsługowe, a mechanizmy lameli zaprojektowano na lata. Kilka prostych zasad utrzyma pergolę w pełnej formie." />
+          <ul className="iconlist iconlist--check" style={{maxWidth: 900, margin: '0 auto'}}>
+            {p.care.map((c, i) => (
+              <li key={i}><span className="ic-check" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </span>{c}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section section--soft">
+        <div className="container">
           <CertBar />
-          <div style={{marginTop: 32, padding: 24, border: '1px solid var(--line)', background: '#fff'}}>
+          <CertDownloads />
+          <div style={{marginTop: 32, padding: 24, border: '1px solid var(--line)', background: '#fff', borderRadius: 12}}>
             <h4 style={{margin: '0 0 8px', fontSize: 14, fontWeight: 700}}>HORIZON — projekty indywidualne</h4>
             <p className="small" style={{margin: 0}}>Realizujemy autorskie projekty na miarę. Wykonujemy projekty indywidualne, które wychodzą poza standard i dopasowujemy konstrukcję do Twojej przestrzeni, otaczającej architektury i funkcji.</p>
           </div>

@@ -84,6 +84,29 @@ function CertBar({ guarantee }) {
   );
 }
 
+function CertDownloads({ items }) {
+  const list = items || (typeof CERTIFICATES !== 'undefined' ? CERTIFICATES : []);
+  if (!list.length) return null;
+  return (
+    <div className="cert-dl">
+      <h4 className="cert-dl__title">Certyfikaty do pobrania</h4>
+      <div className="cert-dl__grid">
+        {list.map((c, i) => (
+          <a key={i} className="cert-dl__item" href={c.file} target="_blank" rel="noopener noreferrer" download>
+            <span className="cert-dl__ic" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </span>
+            <span className="cert-dl__body">
+              <span className="cert-dl__lbl">{c.label}</span>
+              {c.size && <span className="cert-dl__sub">{c.size}</span>}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ColorsSection({ previews, roofs }) {
   const [active, setActive] = React.useState({ type: 'base', idx: 0 });
   const activeColor = active.type === 'base' ? COLORS_BASE[active.idx] : COLORS_PREMIUM[active.idx];
@@ -160,4 +183,5 @@ window.SectionHead = SectionHead;
 window.Breadcrumbs = Breadcrumbs;
 window.ColorSwatches = ColorSwatches;
 window.CertBar = CertBar;
+window.CertDownloads = CertDownloads;
 window.ColorsSection = ColorsSection;
