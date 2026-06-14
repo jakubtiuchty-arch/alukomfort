@@ -69,3 +69,14 @@ Limit 2/dobę jest na cookie → klient czyści ciasteczka / incognito i generuj
 - Fix: rename na `WIZ_PRODUCTS`, commit `d8341ce`, push na main (Vercel auto-deploy).
 - Zweryfikowane lokalnie w przeglądarce (konsola czysta, brak tylko favicon.ico — 404).
 - TODO: dodać favicon.ico; otwarta sprawa z poprzednich commitów — diagnostyka `OPENAI_API_KEY` w ENV Vercela dla `/api/wizualizacja` (commit `e742968` wypisuje dostępne klucze ENV).
+
+## 2026-06-14 — panel handlowca: zaznaczanie linii zadaszenia na zdjęciu — DZIAŁA
+- `/admin` (PIN 4884): po wgraniu zdjęcia handlowiec **stuka/klika punkty łamanej** wzdłuż ściany (mysz + dotyk, pointer/click). Min. 2 pkt = jedna ściana; **3+ pkt z załamaniem = narożnik na 2 strony**. Ponumerowane magenta kropki + łącząca polilinia (SVG live), Cofnij punkt / Wyczyść / Zmień zdjęcie.
+- Linia jest **wypalana w obrazie** (canvas, pełna rozdzielczość, `buildMarkedImage`) i wysyłana do generatora z `marker:true` + `markerPoints` (liczba punktów). Front: `src/page-admin.jsx`; style `.adm-mark*` w styles.css.
+- `api/wizualizacja.js` `buildPrompt` reaguje na marker:
+  - linia wyznacza trasę/rozpiętość, **znika z wyniku** (placement guide), reguła „mieść się w obrysie domu" ustępuje;
+  - **owijanie za narożnik tylko przy `markerPoints >= 3`** — przy 2 pkt jawny zakaz wychodzenia za róg;
+  - zadaszenie obejmuje **całą długość linii** (krawędzie/słupy dokładnie w 1. i ostatnim punkcie, bez skracania);
+  - **prostokąt równoległy do ściany, proste zakończenia** (tylny słup przy ścianie sięga tak samo daleko jak przedni — koniec ze skośnym/ściętym bokiem wyeliminowany).
+- Iteracja promptów potwierdzona wizualnie przez usera: obrys domu → rolety screen po 2 stronach → linia wielopunktowa → brak owijania przy 2 pkt → pełna długość → prosty bok = **OK**.
+- Również tą sesją: redesign /o-nas (hero ze zdjęciem siedziby podrasowanym w Higgsfield), /polityka-prywatnosci + /regulamin (RODO/UŚUDE/PKE, dane: biuro@plast-met.pl, tel. (71) 312 07 93), usunięcie anglicyzmów ze strony głównej, nagłówek „Trzy systemy ALUKOMFORT".
