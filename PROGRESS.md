@@ -1,5 +1,13 @@
 # PROGRESS — alukomfort (pergomet_2)
 
+## 2026-06-14 — nawigacja + Inspiracje + O nas (commit 2f3f458)
+- Nawigacja (`header.jsx`): „Dlaczego aluminium?" → **„Wizualizacja"** (link /wizualizacja). Inspiracje zostają (jest galeria).
+- **/inspiracje** (`page-inspiracje.jsx`): galeria 15 ultrarealistycznych wizualizacji (gpt_image_2, high, 3:2) — po 5 na serię, `uploads/inspiracje/{linea|horizon|roma}-1..5.jpg`. Lightbox (strzałki + Esc + klik tła). CTA do konfiguratora/wyceny.
+- **/o-nas** (`page-onas.jsx`): historia PLAST-MET (zał. 1988, 37+ lat, 100% PL kapitał, „Twój dom jest tego wart", własna fabryka/biuro konstrukcyjne, TÜV NORD) — przeredagowane z plast-met.pl/firma-42. Fakty + wartości + CertBar + CTA.
+- Routing w `app.jsx` (/inspiracje, /o-nas wydzielone z catch-all Home). Skrypty w index.html. CSS `.insp-*`, `.onas-*`.
+- Generator: panele aluminiowe = lity panel (prompt), maxDuration 180s (Pro, koniec 504), admin quality=high. Zapis wizualizacji przez navigator.share (iOS). `/admin` jako czysta ścieżka (vercel.json rewrite + base href). ADMIN_PIN=4884 w env (Prod+Dev).
+
+
 ## 2026-06-14 — panel handlowca /admin (commit f27c687)
 - Nowa trasa `/admin` (samodzielny layout, bez Header/Footer) — `src/page-admin.jsx` (`window.PageAdmin`), routing w `app.jsx` (return early), skrypt w index.html, style `.adm-*` w styles.css.
 - Workflow handlowca u klienta: ekran PIN (sessionStorage) → aparat (`capture="environment"`) lub galeria → wybór serii → PEŁNE opcje per seria → generacja bez limitu.
