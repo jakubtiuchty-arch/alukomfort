@@ -67,15 +67,26 @@ function buildPrompt(product, color, roof, enclosure, notes, extra) {
   const ledPart = e.led ? LED_PROMPT : '';
   const dimPart = e.dimensions ? ` Approximate size of the structure: ${e.dimensions}.` : '';
   const notePart = notes ? ` Additional context: ${notes}.` : '';
-  return `Photorealistically integrate ${base}${roofPart}${colorPart}, placed into the existing terrace/garden space shown in the uploaded photo.${montazPart}${enclosurePart}${ledPart}${dimPart} ` +
+  // Gdy handlowiec zaznaczył obszar (magenta prostokąt) — to on wyznacza położenie i rozpiętość;
+  // reguła „mieść się w obrysie domu" ustępuje, a marker musi zniknąć z wyniku.
+  const markerLead = e.marker
+    ? ` A bright magenta rectangle has been drawn on the photo to mark EXACTLY where the canopy must be placed and how far it should span (its width and depth) — build the structure to fill and match this marked area precisely.`
+    : '';
+  const markerCleanup = e.marker
+    ? ` The magenta marker rectangle is only a placement guide: do NOT render or keep its outline or fill in the final image — replace it entirely with the realistic pergola and the normal scene behind it.`
+    : '';
+  const footprintRule = e.marker
+    ? ''
+    : ` Position the structure flush against the house wall and keep the ENTIRE pergola strictly within the footprint of the paved terrace and within the outline of the building —` +
+      ` it must NOT extend, overhang, cantilever or stick out past the corner or the edge of the house onto the open lawn.` +
+      ` If the paved area is small, make the pergola smaller rather than letting any part hang beyond the terrace.`;
+  return `Photorealistically integrate ${base}${roofPart}${colorPart}, placed into the existing terrace/garden space shown in the uploaded photo.${markerLead}${montazPart}${enclosurePart}${ledPart}${dimPart} ` +
     `CRITICAL: keep the original photo completely unchanged — the same house, walls, windows, paving, plants, sky, ` +
     `furniture, camera angle, perspective, daylight direction and shadows must stay identical. Only add the pergola ` +
-    `as if it were physically installed at the scene, casting correct shadows consistent with the existing light. ` +
+    `as if it were physically installed at the scene, casting correct shadows consistent with the existing light.${markerCleanup} ` +
     `Size it realistically and proportionally to the visible terrace/paving — do NOT make it oversized or wider than the patio. ` +
-    `Every support post must rest firmly on the existing paved terrace, all posts standing on the ground — nothing floating in the air. ` +
-    `Position the structure flush against the house wall and keep the ENTIRE pergola strictly within the footprint of the paved terrace and within the outline of the building — ` +
-    `it must NOT extend, overhang, cantilever or stick out past the corner or the edge of the house onto the open lawn. ` +
-    `If the paved area is small, make the pergola smaller rather than letting any part hang beyond the terrace. Make it look professionally installed.${notePart} ` +
+    `Every support post must rest firmly on the ground/paving, all posts standing on the ground — nothing floating in the air.${footprintRule} ` +
+    `Make it look professionally installed.${notePart} ` +
     `Output a single photorealistic image, do not add text, watermarks, people or extra objects.`;
 }
 
@@ -159,7 +170,7 @@ export default async function handler(req, res) {
   }
 
   const { product, color, roof, enclosure, imageBase64, mimeType, email, phone, address, notes, rodo, testMode,
-          admin, adminPin, led, montaz, dimensions } = req.body || {};
+          admin, adminPin, led, montaz, dimensions, marker } = req.body || {};
 
   // TEST MODE — pomija walidację danych kontaktowych, limit dzienny i wysyłkę leada (front: WIZ_TEST_MODE).
   // ADMIN MODE — panel handlowca (/admin): bez limitu, bez leada, z dodatkowymi parametrami serii.
@@ -193,7 +204,7 @@ export default async function handler(req, res) {
 
   const ip = getClientIp(req);
   const ua = req.headers['user-agent'] || '';
-  const prompt = buildPrompt(product, color, roof, enclosure, notes, { led, montaz, dimensions });
+  const prompt = buildPrompt(product, color, roof, enclosure, notes, { led, montaz, dimensions, marker });
 
   try {
     // OpenAI gpt-image-2 — endpoint /v1/images/edits przyjmuje multipart

@@ -91,6 +91,68 @@ function PageAdmin() {
   const camRef = React.useRef(null);
   const fileRef = React.useRef(null);
 
+  // Zaznaczenie obszaru zadaszenia na zdjęciu (prostokąt, znormalizowany 0..1)
+  const [rect, setRect] = React.useState(null);
+  const [draftRect, setDraftRect] = React.useState(null);
+  const markRef = React.useRef(null);
+  const startRef = React.useRef(null);
+  const draftRef = React.useRef(null);
+
+  const ptNorm = (e) => {
+    const r = markRef.current.getBoundingClientRect();
+    let x = (e.clientX - r.left) / r.width;
+    let y = (e.clientY - r.top) / r.height;
+    return { x: Math.min(1, Math.max(0, x)), y: Math.min(1, Math.max(0, y)) };
+  };
+  const onMarkDown = (e) => {
+    e.preventDefault();
+    try { markRef.current.setPointerCapture(e.pointerId); } catch (_) {}
+    startRef.current = ptNorm(e);
+    draftRef.current = { x: startRef.current.x, y: startRef.current.y, w: 0, h: 0 };
+    setDraftRect(draftRef.current);
+    setRect(null);
+  };
+  const onMarkMove = (e) => {
+    if (!startRef.current) return;
+    const p = ptNorm(e), s = startRef.current;
+    const d = { x: Math.min(s.x, p.x), y: Math.min(s.y, p.y), w: Math.abs(p.x - s.x), h: Math.abs(p.y - s.y) };
+    draftRef.current = d;
+    setDraftRect(d);
+  };
+  const onMarkUp = () => {
+    if (!startRef.current) return;
+    startRef.current = null;
+    const d = draftRef.current; draftRef.current = null;
+    setDraftRect(null);
+    if (d && d.w > 0.03 && d.h > 0.03) setRect(d); else setRect(null);
+  };
+  const clearRect = () => { setRect(null); setDraftRect(null); startRef.current = null; draftRef.current = null; };
+
+  // Wypala prostokąt zaznaczenia w obrazie (w rozdzielczości zdjęcia); bez zaznaczenia zwraca oryginał
+  const buildMarkedImage = () => new Promise((resolve) => {
+    if (!rect || !file) { resolve({ base64: file?.base64, mime: file?.mime, marked: false }); return; }
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const c = document.createElement('canvas');
+        c.width = img.naturalWidth || img.width;
+        c.height = img.naturalHeight || img.height;
+        const ctx = c.getContext('2d');
+        ctx.drawImage(img, 0, 0, c.width, c.height);
+        const x = rect.x * c.width, y = rect.y * c.height, w = rect.w * c.width, h = rect.h * c.height;
+        ctx.fillStyle = 'rgba(255,0,200,0.18)';
+        ctx.fillRect(x, y, w, h);
+        ctx.lineWidth = Math.max(4, Math.round(c.width * 0.006));
+        ctx.strokeStyle = '#ff00c8';
+        ctx.strokeRect(x, y, w, h);
+        const d = c.toDataURL('image/jpeg', 0.9);
+        resolve({ base64: d.split(',')[1], mime: 'image/jpeg', marked: true });
+      } catch (e2) { resolve({ base64: file.base64, mime: file.mime, marked: false }); }
+    };
+    img.onerror = () => resolve({ base64: file.base64, mime: file.mime, marked: false });
+    img.src = file.previewUrl;
+  });
+
   const cfg = ADMIN_CONFIG[product];
 
   const selectProduct = (id) => { setProduct(id); setSel({}); setResult(null); setErr(''); };
@@ -130,7 +192,7 @@ function PageAdmin() {
 
   const handleFile = async (f) => {
     if (!f) return;
-    setErr('');
+    setErr(''); clearRect();
     try { const out = await downscale(f); setFile({ name: f.name, ...out }); }
     catch (e) { console.error('[admin handleFile]', e); setErr(e.message || 'Błąd przetwarzania zdjęcia.'); }
   };
@@ -146,6 +208,7 @@ function PageAdmin() {
     if (modulOpt) dimParts.push(modulOpt.options[idxOf(modulOpt.key)].v);
     if (wymiary.trim()) dimParts.push(wymiary.trim());
     try {
+      const img = await buildMarkedImage();
       const r = await fetch('/api/wizualizacja', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -160,8 +223,9 @@ function PageAdmin() {
           led,
           dimensions: dimParts.join(', ') || undefined,
           notes: notes.trim() || undefined,
-          imageBase64: file.base64,
-          mimeType: file.mime,
+          imageBase64: img.base64,
+          mimeType: img.mime,
+          marker: img.marked,
         }),
       });
       let j;
@@ -248,8 +312,23 @@ function PageAdmin() {
               </div>
             ) : (
               <div className="adm-preview">
-                <img src={file.previewUrl} alt="Zdjęcie" />
-                <button className="adm-link" onClick={() => setFile(null)}>Zmień zdjęcie</button>
+                <div className="adm-mark" ref={markRef}
+                     onPointerDown={onMarkDown} onPointerMove={onMarkMove} onPointerUp={onMarkUp} onPointerCancel={onMarkUp}>
+                  <img src={file.previewUrl} alt="Zdjęcie" draggable={false} />
+                  {(draftRect || rect) && (() => { const m = draftRect || rect; return (
+                    <div className="adm-mark__rect" style={{ left: `${m.x*100}%`, top: `${m.y*100}%`, width: `${m.w*100}%`, height: `${m.h*100}%` }}>
+                      <span className="adm-mark__tag">Tu stanie zadaszenie</span>
+                    </div>
+                  ); })()}
+                  {!draftRect && !rect && <div className="adm-mark__hint">Przeciągnij palcem lub myszą, aby zaznaczyć obszar zadaszenia</div>}
+                </div>
+                <div className="adm-mark__bar">
+                  {rect
+                    ? <span className="adm-mark__ok">✓ Obszar zaznaczony — trafi do generatora</span>
+                    : <span className="adm-muted">Zaznaczenie opcjonalne — wskaż, dokąd ma sięgać zadaszenie</span>}
+                  {rect && <button className="adm-link" onClick={clearRect}>Wyczyść zaznaczenie</button>}
+                  <button className="adm-link" onClick={() => { setFile(null); clearRect(); }}>Zmień zdjęcie</button>
+                </div>
               </div>
             )}
           </div>
@@ -323,7 +402,7 @@ function PageAdmin() {
             <div className="adm-result__actions">
               <button className="adm-btn adm-btn--primary" onClick={saveImage}>⬇ Zapisz / Udostępnij</button>
               <button className="adm-btn" onClick={() => setResult(null)}>← Zmień opcje</button>
-              <button className="adm-btn" onClick={() => { setResult(null); setFile(null); }}>📷 Nowe zdjęcie</button>
+              <button className="adm-btn" onClick={() => { setResult(null); setFile(null); clearRect(); }}>📷 Nowe zdjęcie</button>
             </div>
             <p className="adm-hint">Na telefonie możesz też przytrzymać zdjęcie palcem, aby zapisać je do galerii.</p>
           </div>
