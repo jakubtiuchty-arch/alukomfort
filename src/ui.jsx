@@ -84,12 +84,12 @@ function CertBar({ guarantee }) {
   );
 }
 
-function CertDownloads({ items }) {
+function CertDownloads({ items, title }) {
   const list = items || (typeof CERTIFICATES !== 'undefined' ? CERTIFICATES : []);
   if (!list.length) return null;
   return (
     <div className="cert-dl">
-      <h4 className="cert-dl__title">Certyfikaty do pobrania</h4>
+      <h4 className="cert-dl__title">{title || 'Certyfikaty do pobrania'}</h4>
       <div className="cert-dl__grid">
         {list.map((c, i) => (
           <a key={i} className="cert-dl__item" href={c.file} target="_blank" rel="noopener noreferrer" download>

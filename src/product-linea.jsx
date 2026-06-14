@@ -124,30 +124,6 @@ function ProductLinea({ onQuote }) {
 
       <section className="section">
         <div className="container">
-          <SectionHead title="Montaż i odprowadzanie wody"
-            sub={p.mounting.intro} />
-          <div className="mount-2col">
-            <div className="mount-card">
-              <h4 className="mount-card__head">Konstrukcja zintegrowana z budynkiem</h4>
-              <p className="mount-card__note">Mocowana do ściany — gdy materiał nośny na to pozwala:</p>
-              <div className="mount-chips">{p.mounting.integrated.map((m, i) => <span key={i} className="mount-chip">{m}</span>)}</div>
-            </div>
-            <div className="mount-card">
-              <h4 className="mount-card__head">Konstrukcja samonośna</h4>
-              <p className="mount-card__note">Na własnych słupach, niezależna od ściany:</p>
-              <div className="mount-chips">{p.mounting.freestanding.map((m, i) => <span key={i} className="mount-chip">{m}</span>)}</div>
-            </div>
-          </div>
-          <p className="small" style={{marginTop: 18, color:'var(--muted)', maxWidth: 820}}>{p.mounting.note}</p>
-          <div style={{marginTop: 18, padding: 20, background:'#fff', border:'1px solid var(--line)', borderRadius: 12}}>
-            <h4 style={{margin:'0 0 6px', fontSize: 14, fontWeight: 700}}>Ukryte odprowadzanie wody</h4>
-            <p className="small" style={{margin: 0, color:'var(--muted)'}}>{p.mounting.drainage}</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--soft">
-        <div className="container">
           <SectionHead title="Zadaszenia bez kompromisów"
             sub="Sześć opcjonalnych modułów, które pozwalają zamknąć przestrzeń pergoli, kontrolować światło i podnieść komfort użytkowania." />
           <div className="features" style={{gridTemplateColumns:'repeat(3, 1fr)'}}>
@@ -167,7 +143,7 @@ function ProductLinea({ onQuote }) {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--soft">
         <div className="container">
           <SectionHead title="Przykłady zadaszeń z użyciem systemu LINEA"
             sub="Sześć scenariuszy realizacji — od carportu po zamknięty ogród zimowy. Każdy w pełni dopasowany do wymiarów działki i sposobu użytkowania." />
@@ -200,21 +176,8 @@ function ProductLinea({ onQuote }) {
 
       <section className="section">
         <div className="container">
-          <SectionHead title="Pielęgnacja i trwałość"
-            sub="Aluminium 6063 jest praktycznie bezobsługowe. Kilka prostych zasad utrzyma zadaszenie w pełnej formie przez lata." />
-          <ul className="iconlist iconlist--check" style={{maxWidth: 900, margin: '0 auto'}}>
-            {p.care.map((c, i) => (
-              <li key={i}><span className="ic-check" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </span>{c}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="section section--soft">
-        <div className="container">
           <CertBar />
+          <CertDownloads items={p.downloads} title="Dokumenty do pobrania" />
           <CertDownloads />
         </div>
       </section>

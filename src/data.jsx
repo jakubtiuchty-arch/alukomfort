@@ -119,6 +119,9 @@ const LINEA = {
     'Przy intensywnych opadach w miarę możliwości usuwać nadmiar śniegu z połaci — nie obciążać dachu.',
     'Inspekcja konstrukcji co 6–12 miesięcy: mocowania, uszczelki, powłoka. Aluminium 6063 jest bezobsługowe i w 100% przetwarzalne.',
   ],
+  downloads: [
+    { label: 'Instrukcja montażu i użytkowania LINEA', size: 'PDF · 5,9 MB', file: 'uploads/dokumenty/instrukcja-montazu-linea.pdf' },
+  ],
   addons: [
     { img: 'uploads/icons/add-drzwi.png',   title: 'Szklane drzwi przesuwne',          desc: 'Tory o długości do 500 cm, maksymalnie 5 tafli szkła w układzie.' },
     { img: 'uploads/icons/add-screen.png',  title: 'Rolety zewnętrzne screen',         desc: 'Skuteczna ochrona przeciwsłoneczna i większa prywatność strefy.' },
@@ -265,6 +268,10 @@ const HORIZON = {
     'Regularnie usuwać liście i zanieczyszczenia z odwodnienia i prowadnic lameli.',
     'Przy intensywnych opadach śniegu odśnieżać dach zgodnie z przepisami prawa budowlanego — nie obciążać konstrukcji.',
     'Inspekcja co 6–12 miesięcy: mocowania, mechanizmy obrotu lameli, uszczelki i powłoka. Aluminium jest bezobsługowe i w pełni przetwarzalne.',
+  ],
+  downloads: [
+    { label: 'Karta produktu HORIZON L (dach lamelowy)', size: 'PDF · 2,2 MB', file: 'uploads/dokumenty/karta-horizon-l.pdf' },
+    { label: 'Karta produktu HORIZON S (dach szklany)', size: 'PDF · 3,5 MB', file: 'uploads/dokumenty/karta-horizon-s.pdf' },
   ],
   addons: [
     { img: 'uploads/icons/add-led.png',       title: 'Liniowe oświetlenie LED',     desc: 'Ukryte w wieńcu 280 mm — światło nastrojowe ręcznie lub zdalnie.' },
