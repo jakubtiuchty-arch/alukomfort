@@ -14,6 +14,13 @@
 - ⚠️ **Domena `alukomfort.pl` NIE wskazuje na Vercel** — zwraca obcą stronę-placeholder ("Strona utrzymywana na serwerach"). Działa tylko `alukomfort.vercel.app`. Do przepięcia DNS. Canonical w kodzie używa alukomfort.pl.
 - Opcjonalnie dla maili z leadami: `RESEND_API_KEY` + `LEAD_EMAIL` w env.
 
+## 2026-06-14 — wizualizacja: rodzaj dachu + rodzaj zabudowy (commit 0cbee10) — DZIAŁA
+- Konfigurator rozszerzony o 2 kroki: **rodzaj dachu** (per produkt: LINEA poliwęglan opal/BOX Grey/szkło; HORIZON lamele/szkło/hybryda; ROMA roleta tkaninowa) + **rodzaj zabudowy** (otwarta / ze ścianami bocznymi / ogród zimowy). 6 kroków, numeracja 1-6.
+- **ROMA ograniczona** do dachu tkaninowego i zabudowy "otwarta" (filtr `enclosureList`, reset w `selectProduct`).
+- Prompt gpt-image-2 (`api/wizualizacja.js`): `PRODUCT_PROMPTS` (bryła bez dachu) + `ROOF_PROMPTS[product][roof]` + `COLOR_OVERRIDES` + `ENCLOSURE_PROMPTS[enclosure]`. Lead email rozszerzony o dach/zabudowę.
+- **Potwierdzone end-to-end po doładowaniu OpenAI**: LINEA+szkło+ogród zimowy → HTTP 200, 50 s, wygenerował pełną szklaną zabudowę (antracyt, przesuwne drzwi, dach szklany) doklejoną do domu. ✅
+- Pozostaje przed publikacją: `WIZ_TEST_MODE=false`, przepięcie domeny alukomfort.pl na Vercel.
+
 ## 2026-06-12 — strony produktowe + /realizacje (NIEZACOMMITOWANE — czeka na OK)
 - **LINEA**: galeria "Przykłady zadaszeń" (6 kafli, `uploads/linea-przyklady/`), notka Solar Control, nowe klasy `.examples/.example` w styles.css.
 - **HORIZON**: parametry per wariant L/S/L-S (`variants[].specs`), duże karty wyboru (`.vselect/.vcard/.vdetail`), modele CORE + notka statyka, wysięg >4m, normy EN; kafelki modeli i wariantów = fotorealistyczne generacje gpt_image_2 (Higgsfield) z renderów 1:1 (`uploads/horizon-modele/`); galeria przykładów = oficjalne wizki po outpaincie do 3:2 (`uploads/horizon-przyklady/`).
