@@ -11,12 +11,14 @@ const WIZ_PRODUCTS = [
 ];
 
 const COLORS = [
-  { id: 'antracyt',     name: 'Antracyt RAL 7016',  swatch: '#3a3a3a' },
-  { id: 'bialy',        name: 'Biały RAL 9016',     swatch: '#f4f4f0' },
-  { id: 'czarna-wisnia',name: 'Czarna wiśnia',      swatch: '#3b1a1a' },
-  { id: 'sosna',        name: 'Sosna',              swatch: '#a87245' },
-  { id: 'srebrny-dab',  name: 'Srebrny dąb',        swatch: '#8d8a82' },
-  { id: 'zloty-dab',    name: 'Złoty dąb',          swatch: '#b08856' },
+  { id: 'ral-7016',     name: 'Antracyt RAL 7016',  swatch: '#2c3033' },
+  { id: 'ral-9005',     name: 'Czarny RAL 9005',    swatch: '#0c0c0c' },
+  { id: 'ral-9010',     name: 'Biały RAL 9010',     swatch: '#f2f0ea' },
+  { id: 'ral-7039',     name: 'Szary RAL 7039',     swatch: '#6d6a63' },
+  { id: 'czarna-wisnia',name: 'Czarna wiśnia',      swatch: '#3a201c' },
+  { id: 'sosna',        name: 'Sosna',              swatch: '#b6783a' },
+  { id: 'srebrny-dab',  name: 'Srebrny dąb',        swatch: '#9b948a' },
+  { id: 'zloty-dab',    name: 'Złoty dąb',          swatch: '#a8631f' },
 ];
 
 // Rodzaje dachu zależne od produktu (zgodne z podstronami)
@@ -51,7 +53,7 @@ function PageWizualizacja({ onQuote }) {
   });
 
   const [product, setProduct] = React.useState('horizon');
-  const [color, setColor] = React.useState('antracyt');
+  const [color, setColor] = React.useState('ral-7016');
   const [roof, setRoof] = React.useState('lamele');
   const [enclosure, setEnclosure] = React.useState('open');
   const roofList = WIZ_ROOFS[product] || WIZ_ROOFS.linea;

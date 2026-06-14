@@ -5,7 +5,7 @@
 
 // Bryła konstrukcji — bez opisu pokrycia dachu (to dokłada ROOF_PROMPTS)
 const PRODUCT_PROMPTS = {
-  linea: 'ALUKOMFORT LINEA — a freestanding aluminum terrace canopy with slim aluminum posts (150×100mm) and a clean low-slope flat roof structure',
+  linea: 'ALUKOMFORT LINEA — an aluminum terrace canopy (wall-mounted or freestanding, whichever suits the scene) with slim aluminum posts (150×100mm) and a clean low-slope flat roof structure',
   horizon: 'ALUKOMFORT HORIZON — a modern aluminum bioclimatic pergola with a slim flat roof crown and clean architectural lines',
   roma: 'ALUKOMFORT ROMA — a lightweight aluminum fabric pergola with slim supports, Mediterranean style',
 };
@@ -35,12 +35,14 @@ const ENCLOSURE_PROMPTS = {
 };
 
 const COLOR_OVERRIDES = {
+  'ral-7016': 'anthracite RAL 7016 structured finish on the aluminum frame',
+  'ral-9005': 'deep black RAL 9005 structured finish on the aluminum frame',
+  'ral-9010': 'pure white RAL 9010 matte finish on the aluminum frame',
+  'ral-7039': 'quartz grey RAL 7039 matte finish on the aluminum frame',
   'czarna-wisnia': 'wood-textured "Black Cherry" finish on the aluminum frame',
   'sosna': 'wood-textured "Pine" finish on the aluminum frame',
   'srebrny-dab': 'wood-textured "Silver Oak" finish on the aluminum frame',
   'zloty-dab': 'wood-textured "Golden Oak" finish on the aluminum frame',
-  'antracyt': 'anthracite RAL 7016 finish on the aluminum frame',
-  'bialy': 'pure white RAL 9016 finish on the aluminum frame',
 };
 
 function buildPrompt(product, color, roof, enclosure, notes) {
