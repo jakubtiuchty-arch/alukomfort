@@ -75,7 +75,7 @@ function Footer({ onNavigate }) {
         </div>
 
         <div className="ak-footer__bottom">
-          <span>© 2026 ALUKOMFORT · PLAST-MET Sp. z o.o.</span>
+          <span>© 2026 ALUKOMFORT · Plast-Met Systemy Ogrodzeniowe Sp. z o.o. Sp.k.</span>
           <span className="ft-legal">
             <a href="#/polityka-prywatnosci" onClick={(e)=>go(e,'/polityka-prywatnosci')}>Polityka prywatności</a>
             <a href="#/regulamin" onClick={(e)=>go(e,'/regulamin')}>Regulamin</a>

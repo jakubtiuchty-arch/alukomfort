@@ -49,6 +49,10 @@ function App() {
     page = <PageInspiracje onQuote={openQuote} />;
   } else if (route.startsWith('/o-nas')) {
     page = <PageOnas onQuote={openQuote} />;
+  } else if (route.startsWith('/polityka-prywatnosci')) {
+    page = <PagePrivacy />;
+  } else if (route.startsWith('/regulamin')) {
+    page = <PageRegulamin />;
   } else if (route === '/' || route === '' || route.startsWith('/dlaczego')) {
     page = <Home onNavigate={navigate} onQuote={openQuote} />;
   } else if (route.startsWith('/produkty/linea')) {
