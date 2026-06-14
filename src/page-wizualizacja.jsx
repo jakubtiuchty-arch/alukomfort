@@ -7,7 +7,7 @@ const WIZ_TEST_MODE = true;
 const WIZ_PRODUCTS = [
   { id: 'linea',   name: 'LINEA',   sub: 'Aluminiowe zadaszenie samonośne',   img: 'uploads/wiz-linea.jpg' },
   { id: 'horizon', name: 'HORIZON', sub: 'Pergola bioklimatyczna lamelowa',   img: 'uploads/wiz-horizon.jpg' },
-  { id: 'roma',    name: 'ROMA',    sub: 'Pergola tkaninowa',                 img: 'uploads/wiz-roma.jpg' },
+  { id: 'roma',    name: 'ROMA',    sub: 'Pergola tkaninowa',                 img: 'uploads/roma_hp.png' },
 ];
 
 const COLORS = [
