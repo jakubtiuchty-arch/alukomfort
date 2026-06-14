@@ -19,6 +19,30 @@ const COLORS = [
   { id: 'zloty-dab',    name: 'Złoty dąb',          swatch: '#b08856' },
 ];
 
+// Rodzaje dachu zależne od produktu (zgodne z podstronami)
+const WIZ_ROOFS = {
+  linea: [
+    { id: 'opal',    name: 'Poliwęglan Strong Opal', sub: 'Mleczny — maksymalna jasność', swatch: '#f0f1eb' },
+    { id: 'boxgrey', name: 'Poliwęglan BOX Grey',    sub: 'Przyciemniany — chłodny efekt', swatch: '#8790a0' },
+    { id: 'glass',   name: 'Szkło bezpieczne',       sub: 'Przezroczyste ESG / VSG',       swatch: '#dfe7ea' },
+  ],
+  horizon: [
+    { id: 'lamele',  name: 'Dach lamelowy',          sub: 'Ruchome lamele aluminiowe',     swatch: '#3a3a3a' },
+    { id: 'glass',   name: 'Dach szklany',           sub: 'Szkło bezpieczne',              swatch: '#dfe7ea' },
+    { id: 'hybryda', name: 'Hybryda lamele + szkło', sub: 'Dwie strefy dachu',             swatch: '#9aa3ad' },
+  ],
+  roma: [
+    { id: 'tkanina', name: 'Roleta tkaninowa',       sub: 'Akryl 100% — roleta rzymska',   swatch: '#e7e0d2' },
+  ],
+};
+
+// Rodzaj zabudowy — stopień zamknięcia konstrukcji
+const WIZ_ENCLOSURES = [
+  { id: 'open',   name: 'Otwarta pergola',      sub: 'Sama konstrukcja z dachem, bez ścian' },
+  { id: 'sides',  name: 'Ze ścianami bocznymi', sub: 'Częściowa zabudowa: szkło, żaluzje lub screen' },
+  { id: 'winter', name: 'Ogród zimowy',         sub: 'Pełna zabudowa szklana — całoroczny pokój' },
+];
+
 function PageWizualizacja({ onQuote }) {
   usePageMeta({
     title: 'Wizualizacja AI — zobacz pergolę u siebie | ALUKOMFORT',
@@ -28,6 +52,16 @@ function PageWizualizacja({ onQuote }) {
 
   const [product, setProduct] = React.useState('horizon');
   const [color, setColor] = React.useState('antracyt');
+  const [roof, setRoof] = React.useState('lamele');
+  const [enclosure, setEnclosure] = React.useState('open');
+  const roofList = WIZ_ROOFS[product] || WIZ_ROOFS.linea;
+
+  // Zmiana produktu resetuje rodzaj dachu do pierwszego dostępnego dla danej serii
+  const selectProduct = (id) => {
+    setProduct(id);
+    const list = WIZ_ROOFS[id] || WIZ_ROOFS.linea;
+    setRoof(list[0].id);
+  };
   const [file, setFile] = React.useState(null); // {name, mime, base64, previewUrl}
   const [form, setForm] = React.useState({ email: '', phone: '', address: '', notes: '', rodo: false });
   const [errors, setErrors] = React.useState({});
@@ -113,6 +147,8 @@ function PageWizualizacja({ onQuote }) {
         body: JSON.stringify({
           product,
           color,
+          roof,
+          enclosure,
           imageBase64: file.base64,
           mimeType: file.mime,
           email: form.email.trim(),
@@ -172,7 +208,7 @@ function PageWizualizacja({ onQuote }) {
                       type="button"
                       key={p.id}
                       className={`wiz-product ${product === p.id ? 'is-active' : ''}`}
-                      onClick={() => setProduct(p.id)}
+                      onClick={() => selectProduct(p.id)}
                     >
                       <div className="wiz-product__img" style={{backgroundImage: `url(${p.img})`}} />
                       <div className="wiz-product__info">
@@ -206,9 +242,58 @@ function PageWizualizacja({ onQuote }) {
               </div>
             </div>
 
-            {/* KROK 3: zdjęcie */}
+            {/* KROK 3: rodzaj dachu */}
             <div className="wiz-step">
               <div className="wiz-step__num">3</div>
+              <div className="wiz-step__body">
+                <h2 className="wiz-step__title">Wybierz rodzaj dachu</h2>
+                <div className="wiz-colors">
+                  {roofList.map(r => (
+                    <button
+                      type="button"
+                      key={r.id}
+                      className={`wiz-color ${roof === r.id ? 'is-active' : ''}`}
+                      onClick={() => setRoof(r.id)}
+                    >
+                      <span className="wiz-color__sw" style={{background: r.swatch, borderRadius: 4}} />
+                      <span className="wiz-color__lbl">{r.name}</span>
+                    </button>
+                  ))}
+                </div>
+                <p className="wiz-help" style={{margin: '10px 0 0'}}>
+                  {(roofList.find(r => r.id === roof) || roofList[0]).sub}
+                </p>
+              </div>
+            </div>
+
+            {/* KROK 4: rodzaj zabudowy */}
+            <div className="wiz-step">
+              <div className="wiz-step__num">4</div>
+              <div className="wiz-step__body">
+                <h2 className="wiz-step__title">Rodzaj zabudowy</h2>
+                <p className="wiz-help" style={{margin: '0 0 14px'}}>
+                  Wybierz, czy chcesz otwartą pergolę, czy zamkniętą przestrzeń (np. ogród zimowy).
+                </p>
+                <div className="wiz-colors">
+                  {WIZ_ENCLOSURES.map(en => (
+                    <button
+                      type="button"
+                      key={en.id}
+                      className={`wiz-color ${enclosure === en.id ? 'is-active' : ''}`}
+                      onClick={() => setEnclosure(en.id)}
+                      style={{flexDirection: 'column', alignItems: 'flex-start', gap: 2, padding: '10px 14px'}}
+                    >
+                      <span className="wiz-color__lbl" style={{fontWeight: 700}}>{en.name}</span>
+                      <span className="wiz-color__lbl" style={{fontSize: 12, color: '#666'}}>{en.sub}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* KROK 5: zdjęcie */}
+            <div className="wiz-step">
+              <div className="wiz-step__num">5</div>
               <div className="wiz-step__body">
                 <h2 className="wiz-step__title">Wgraj zdjęcie tarasu / ogrodu</h2>
                 <p className="wiz-help">
@@ -245,10 +330,10 @@ function PageWizualizacja({ onQuote }) {
               </div>
             </div>
 
-            {/* KROK 4: dane kontaktowe (ukryte w trybie testowym) */}
+            {/* KROK 6: dane kontaktowe (ukryte w trybie testowym) */}
             {!WIZ_TEST_MODE && (
             <div className="wiz-step">
-              <div className="wiz-step__num">4</div>
+              <div className="wiz-step__num">6</div>
               <div className="wiz-step__body">
                 <h2 className="wiz-step__title">Twoje dane (do przesłania wizualizacji)</h2>
                 <p className="wiz-help">
@@ -301,7 +386,7 @@ function PageWizualizacja({ onQuote }) {
             {/* TRYB TESTOWY — generowanie bez formularza kontaktowego */}
             {WIZ_TEST_MODE && (
             <div className="wiz-step">
-              <div className="wiz-step__num">4</div>
+              <div className="wiz-step__num">6</div>
               <div className="wiz-step__body">
                 <h2 className="wiz-step__title">Wygeneruj wizualizację</h2>
                 <p className="wiz-help">Tryb testowy — formularz danych kontaktowych jest tymczasowo wyłączony.</p>

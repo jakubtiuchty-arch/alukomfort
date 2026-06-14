@@ -3,10 +3,35 @@
 // Wymagane env: OPENAI_API_KEY
 // Opcjonalne env: RESEND_API_KEY, LEAD_EMAIL (gdzie iść lead, default: biuro@plast-met.pl)
 
+// Bryła konstrukcji — bez opisu pokrycia dachu (to dokłada ROOF_PROMPTS)
 const PRODUCT_PROMPTS = {
-  linea: 'Photorealistically integrate ALUKOMFORT LINEA — a freestanding aluminum terrace canopy with a flat sloped polycarbonate roof, slim aluminum posts (150×100mm), anthracite color (RAL 7016)',
-  horizon: 'Photorealistically integrate ALUKOMFORT HORIZON L — a modern aluminum bioclimatic pergola with rotating louver roof slats, anthracite aluminum frame (RAL 7016), clean architectural lines',
-  roma: 'Photorealistically integrate ALUKOMFORT ROMA — a fabric pergola with retractable beige acrylic fabric roof, slim anthracite aluminum supports (RAL 7016), Mediterranean style',
+  linea: 'ALUKOMFORT LINEA — a freestanding aluminum terrace canopy with slim aluminum posts (150×100mm) and a clean low-slope flat roof structure',
+  horizon: 'ALUKOMFORT HORIZON — a modern aluminum bioclimatic pergola with a slim flat roof crown and clean architectural lines',
+  roma: 'ALUKOMFORT ROMA — a lightweight aluminum fabric pergola with slim supports, Mediterranean style',
+};
+
+// Pokrycie dachu zależne od produktu i wyboru klienta
+const ROOF_PROMPTS = {
+  linea: {
+    opal: 'with the roof covered in translucent milky-white opal polycarbonate panels that softly diffuse light',
+    boxgrey: 'with the roof covered in tinted smoke-grey semi-transparent polycarbonate panels',
+    glass: 'with the roof glazed in clear transparent safety glass panels',
+  },
+  horizon: {
+    lamele: 'with a flat roof made of adjustable horizontal aluminum louver slats (bioclimatic)',
+    glass: 'with a flat roof glazed in clear transparent safety glass',
+    hybryda: 'with a flat roof combining aluminum louver slats over one part and a clear glass section over the other',
+  },
+  roma: {
+    tkanina: 'with a flat retractable Roman-blind roof made of beige acrylic fabric in soft folds',
+  },
+};
+
+// Stopień zabudowy ścian
+const ENCLOSURE_PROMPTS = {
+  open: 'Keep it as an open pergola — only the supporting posts and the roof, with no side walls.',
+  sides: 'Add a partial side enclosure: sliding glass panels or vertical screen blinds on one or two sides, leaving the front open.',
+  winter: 'Fully enclose it as a winter garden / conservatory with floor-to-ceiling glass walls and sliding glass doors on all open sides, forming a closed all-year room.',
 };
 
 const COLOR_OVERRIDES = {
@@ -18,15 +43,18 @@ const COLOR_OVERRIDES = {
   'bialy': 'pure white RAL 9016 finish on the aluminum frame',
 };
 
-function buildPrompt(product, color, notes) {
+function buildPrompt(product, color, roof, enclosure, notes) {
   const base = PRODUCT_PROMPTS[product] || PRODUCT_PROMPTS.linea;
+  const roofMap = ROOF_PROMPTS[product] || ROOF_PROMPTS.linea;
+  const roofPart = roof && roofMap[roof] ? `, ${roofMap[roof]}` : '';
   const colorPart = color && COLOR_OVERRIDES[color] ? `, ${COLOR_OVERRIDES[color]}` : '';
-  const notePart = notes ? `. Additional context from the customer: ${notes}` : '';
-  return `${base}${colorPart}, placed into the existing terrace/garden space shown in the uploaded photo. ` +
+  const enclosurePart = ENCLOSURE_PROMPTS[enclosure] ? ` ${ENCLOSURE_PROMPTS[enclosure]}` : '';
+  const notePart = notes ? ` Additional context from the customer: ${notes}.` : '';
+  return `Photorealistically integrate ${base}${roofPart}${colorPart}, placed into the existing terrace/garden space shown in the uploaded photo.${enclosurePart} ` +
     `CRITICAL: keep the original photo completely unchanged — the same house, walls, windows, paving, plants, sky, ` +
     `furniture, camera angle, perspective, daylight direction and shadows must stay identical. Only add the pergola ` +
     `as if it were physically installed at the scene, casting correct shadows consistent with the existing light. ` +
-    `Size it realistically for the space and make it look professionally installed${notePart}. ` +
+    `Size it realistically for the space and make it look professionally installed.${notePart} ` +
     `Output a single photorealistic image, do not add text, watermarks, people or extra objects.`;
 }
 
@@ -54,6 +82,8 @@ async function sendLeadEmail(payload, imageUrl) {
     <h2>Nowy lead z konfiguratora wizualizacji ALUKOMFORT</h2>
     <p><b>Produkt:</b> ${payload.product?.toUpperCase() || '—'}<br/>
        <b>Kolor:</b> ${payload.color || '—'}<br/>
+       <b>Dach:</b> ${payload.roof || '—'}<br/>
+       <b>Zabudowa:</b> ${payload.enclosure || '—'}<br/>
        <b>E-mail:</b> ${payload.email}<br/>
        <b>Telefon:</b> ${payload.phone || '—'}<br/>
        <b>Lokalizacja:</b> ${payload.address || '—'}</p>
@@ -107,7 +137,7 @@ export default async function handler(req, res) {
     });
   }
 
-  const { product, color, imageBase64, mimeType, email, phone, address, notes, rodo, testMode } = req.body || {};
+  const { product, color, roof, enclosure, imageBase64, mimeType, email, phone, address, notes, rodo, testMode } = req.body || {};
 
   // TEST MODE — pomija walidację danych kontaktowych, limit dzienny i wysyłkę leada.
   // Sterowane flagą WIZ_TEST_MODE we froncie (src/page-wizualizacja.jsx). Usunąć po testach.
@@ -135,7 +165,7 @@ export default async function handler(req, res) {
 
   const ip = getClientIp(req);
   const ua = req.headers['user-agent'] || '';
-  const prompt = buildPrompt(product, color, notes);
+  const prompt = buildPrompt(product, color, roof, enclosure, notes);
 
   try {
     // OpenAI gpt-image-2 — endpoint /v1/images/edits przyjmuje multipart
@@ -171,7 +201,7 @@ export default async function handler(req, res) {
     }
 
     // Lead email (best-effort)
-    sendLeadEmail({ product, color, email, phone, address, notes, ip, ua }, dataUrl.startsWith('data:') ? '(załącznik base64 w odpowiedzi)' : dataUrl).catch(() => {});
+    sendLeadEmail({ product, color, roof, enclosure, email, phone, address, notes, ip, ua }, dataUrl.startsWith('data:') ? '(załącznik base64 w odpowiedzi)' : dataUrl).catch(() => {});
 
     // Aktualizacja cookie limitu
     res.setHeader('Set-Cookie', [
