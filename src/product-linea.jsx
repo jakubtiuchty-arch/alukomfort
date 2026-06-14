@@ -217,7 +217,7 @@ function ProductLinea({ onQuote }) {
         </div>
       </section>
 
-      <ColorsSection previews={LINEA_COLOR_PREVIEWS} roofs={p.roofs} />
+      <ColorsSection previews={LINEA_COLOR_PREVIEWS} />
 
       <section className="section">
         <div className="container">
