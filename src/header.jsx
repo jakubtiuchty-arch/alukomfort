@@ -6,7 +6,7 @@ function Header({ route, onNavigate }) {
       { label: 'HORIZON', hash: '/produkty/horizon' },
       { label: 'ROMA',    hash: '/produkty/roma' },
     ]},
-    { id: 'inspiracje', label: 'Inspiracje' },
+    // { id: 'inspiracje', label: 'Inspiracje' }, // ukryte do czasu większej liczby realizacji — przebudujemy galerię
     { id: 'wizualizacja', label: 'Wizualizacja' },
     { id: 'realizacje', label: 'Realizacje' },
     { id: 'o-nas', label: 'O nas' },
