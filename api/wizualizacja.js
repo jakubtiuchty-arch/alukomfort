@@ -73,6 +73,7 @@ function buildPrompt(product, color, roof, enclosure, notes, extra) {
   const multiSide = (e.markerPoints || 0) >= 3;
   const markerLead = e.marker
     ? ` A bright magenta line with numbered points has been drawn on the photo along the wall to mark EXACTLY the run, length and extent of the canopy — follow this line precisely and keep the structure along this marked line.` +
+      ` The canopy must span the FULL length of the line, end to end: its starting edge/post must align exactly with the FIRST point and its far edge/post exactly with the LAST point. Do NOT make the structure shorter than the line and do NOT leave any gap between the ends of the canopy and the marked endpoints — reach the very ends of the building as drawn.` +
       (multiSide
         ? ` The line deliberately bends around the building corner: the canopy must wrap around that corner and continue along BOTH walls, exactly following the drawn points.`
         : ` This is a single straight run along ONE wall only — do NOT wrap the canopy around the building corner and do NOT extend it onto any other side or wall of the house; keep it strictly on this one side, between the two marked points.`)
