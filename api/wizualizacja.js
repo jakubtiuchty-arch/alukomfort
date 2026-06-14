@@ -67,13 +67,14 @@ function buildPrompt(product, color, roof, enclosure, notes, extra) {
   const ledPart = e.led ? LED_PROMPT : '';
   const dimPart = e.dimensions ? ` Approximate size of the structure: ${e.dimensions}.` : '';
   const notePart = notes ? ` Additional context: ${notes}.` : '';
-  // Gdy handlowiec zaznaczył obszar (magenta prostokąt) — to on wyznacza położenie i rozpiętość;
-  // reguła „mieść się w obrysie domu" ustępuje, a marker musi zniknąć z wyniku.
+  // Gdy handlowiec narysował linię (magenta łamana z punktami) — to ona wyznacza trasę i rozpiętość
+  // konstrukcji wzdłuż ściany/ścian (także za narożnik na dwie strony); reguła „mieść się w obrysie
+  // domu" ustępuje, a linia musi zniknąć z wyniku.
   const markerLead = e.marker
-    ? ` A bright magenta rectangle has been drawn on the photo to mark EXACTLY where the canopy must be placed and how far it should span (its width and depth) — build the structure to fill and match this marked area precisely.`
+    ? ` A bright magenta line with numbered points has been drawn on the photo along the wall(s) to mark EXACTLY the run, length and extent of the canopy — follow this line precisely. Where the line bends around a corner, the canopy must wrap around the corner and continue along BOTH sides of the house, covering the area next to the line.`
     : '';
   const markerCleanup = e.marker
-    ? ` The magenta marker rectangle is only a placement guide: do NOT render or keep its outline or fill in the final image — replace it entirely with the realistic pergola and the normal scene behind it.`
+    ? ` The magenta line and its points are only a placement guide: do NOT render or keep the line, its dots or color in the final image — replace it entirely with the realistic structure and the normal scene behind it.`
     : '';
   const footprintRule = e.marker
     ? ''

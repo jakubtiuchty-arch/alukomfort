@@ -1699,10 +1699,12 @@ img { display: block; max-width: 100%; }
 .adm-cap { display: flex; flex-direction: column; gap: 10px; }
 .adm-preview img { width: 100%; border-radius: 12px; display: block; }
 .adm-preview { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
-.adm-mark { position: relative; width: 100%; touch-action: none; cursor: crosshair; user-select: none; -webkit-user-select: none; border-radius: 12px; overflow: hidden; }
-.adm-mark img { pointer-events: none; -webkit-user-drag: none; }
-.adm-mark__rect { position: absolute; border: 3px solid #ff00c8; background: rgba(255,0,200,0.16); box-shadow: 0 0 0 9999px rgba(0,0,0,0.18); pointer-events: none; }
-.adm-mark__tag { position: absolute; top: -2px; left: -2px; transform: translateY(-100%); background: #ff00c8; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 7px; border-radius: 6px 6px 6px 0; white-space: nowrap; }
+.adm-mark { position: relative; width: 100%; touch-action: manipulation; cursor: crosshair; user-select: none; -webkit-user-select: none; border-radius: 12px; overflow: hidden; }
+.adm-mark img { pointer-events: none; -webkit-user-drag: none; display: block; width: 100%; }
+.adm-mark__svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.adm-mark__svg polyline { fill: none; stroke: #ff00c8; stroke-width: 4px; stroke-linejoin: round; stroke-linecap: round; }
+.adm-mark__pt { position: absolute; transform: translate(-50%, -50%); width: 22px; height: 22px; border-radius: 50%; background: #ff00c8; color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 2px #fff; pointer-events: none; }
+.adm-mark__tag { position: absolute; transform: translate(-50%, calc(-100% - 14px)); background: #ff00c8; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 7px; border-radius: 6px; white-space: nowrap; pointer-events: none; }
 .adm-mark__hint { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); background: rgba(22,23,26,0.82); color: #fff; font-size: 12px; font-weight: 600; padding: 7px 12px; border-radius: 999px; pointer-events: none; text-align: center; max-width: 92%; }
 .adm-mark__bar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 13px; }
 .adm-mark__ok { color: #1f7a3d; font-weight: 700; }

@@ -91,46 +91,25 @@ function PageAdmin() {
   const camRef = React.useRef(null);
   const fileRef = React.useRef(null);
 
-  // Zaznaczenie obszaru zadaszenia na zdjęciu (prostokąt, znormalizowany 0..1)
-  const [rect, setRect] = React.useState(null);
-  const [draftRect, setDraftRect] = React.useState(null);
+  // Linia zadaszenia na zdjęciu — wielopunktowa łamana (punkty znormalizowane 0..1).
+  // Min. 2 punkty (ściana), 3+ gdy zadaszenie ma iść za narożnik na dwie strony.
+  const [points, setPoints] = React.useState([]);
   const markRef = React.useRef(null);
-  const startRef = React.useRef(null);
-  const draftRef = React.useRef(null);
 
-  const ptNorm = (e) => {
+  const addPoint = (e) => {
     const r = markRef.current.getBoundingClientRect();
     let x = (e.clientX - r.left) / r.width;
     let y = (e.clientY - r.top) / r.height;
-    return { x: Math.min(1, Math.max(0, x)), y: Math.min(1, Math.max(0, y)) };
+    x = Math.min(1, Math.max(0, x)); y = Math.min(1, Math.max(0, y));
+    setPoints(p => [...p, { x, y }]);
   };
-  const onMarkDown = (e) => {
-    e.preventDefault();
-    try { markRef.current.setPointerCapture(e.pointerId); } catch (_) {}
-    startRef.current = ptNorm(e);
-    draftRef.current = { x: startRef.current.x, y: startRef.current.y, w: 0, h: 0 };
-    setDraftRect(draftRef.current);
-    setRect(null);
-  };
-  const onMarkMove = (e) => {
-    if (!startRef.current) return;
-    const p = ptNorm(e), s = startRef.current;
-    const d = { x: Math.min(s.x, p.x), y: Math.min(s.y, p.y), w: Math.abs(p.x - s.x), h: Math.abs(p.y - s.y) };
-    draftRef.current = d;
-    setDraftRect(d);
-  };
-  const onMarkUp = () => {
-    if (!startRef.current) return;
-    startRef.current = null;
-    const d = draftRef.current; draftRef.current = null;
-    setDraftRect(null);
-    if (d && d.w > 0.03 && d.h > 0.03) setRect(d); else setRect(null);
-  };
-  const clearRect = () => { setRect(null); setDraftRect(null); startRef.current = null; draftRef.current = null; };
+  const undoPoint = () => setPoints(p => p.slice(0, -1));
+  const clearLine = () => setPoints([]);
+  const hasLine = points.length >= 2;
 
-  // Wypala prostokąt zaznaczenia w obrazie (w rozdzielczości zdjęcia); bez zaznaczenia zwraca oryginał
+  // Wypala linię zaznaczenia w obrazie (w rozdzielczości zdjęcia); bez linii zwraca oryginał
   const buildMarkedImage = () => new Promise((resolve) => {
-    if (!rect || !file) { resolve({ base64: file?.base64, mime: file?.mime, marked: false }); return; }
+    if (points.length < 2 || !file) { resolve({ base64: file?.base64, mime: file?.mime, marked: false }); return; }
     const img = new Image();
     img.onload = () => {
       try {
@@ -139,12 +118,15 @@ function PageAdmin() {
         c.height = img.naturalHeight || img.height;
         const ctx = c.getContext('2d');
         ctx.drawImage(img, 0, 0, c.width, c.height);
-        const x = rect.x * c.width, y = rect.y * c.height, w = rect.w * c.width, h = rect.h * c.height;
-        ctx.fillStyle = 'rgba(255,0,200,0.18)';
-        ctx.fillRect(x, y, w, h);
-        ctx.lineWidth = Math.max(4, Math.round(c.width * 0.006));
-        ctx.strokeStyle = '#ff00c8';
-        ctx.strokeRect(x, y, w, h);
+        const pts = points.map(p => ({ x: p.x * c.width, y: p.y * c.height }));
+        const lw = Math.max(5, Math.round(c.width * 0.008));
+        ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+        ctx.strokeStyle = '#ff00c8'; ctx.lineWidth = lw;
+        ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+        for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+        ctx.stroke();
+        ctx.fillStyle = '#ff00c8';
+        pts.forEach(p => { ctx.beginPath(); ctx.arc(p.x, p.y, lw * 1.15, 0, Math.PI * 2); ctx.fill(); });
         const d = c.toDataURL('image/jpeg', 0.9);
         resolve({ base64: d.split(',')[1], mime: 'image/jpeg', marked: true });
       } catch (e2) { resolve({ base64: file.base64, mime: file.mime, marked: false }); }
@@ -192,7 +174,7 @@ function PageAdmin() {
 
   const handleFile = async (f) => {
     if (!f) return;
-    setErr(''); clearRect();
+    setErr(''); clearLine();
     try { const out = await downscale(f); setFile({ name: f.name, ...out }); }
     catch (e) { console.error('[admin handleFile]', e); setErr(e.message || 'Błąd przetwarzania zdjęcia.'); }
   };
@@ -312,22 +294,30 @@ function PageAdmin() {
               </div>
             ) : (
               <div className="adm-preview">
-                <div className="adm-mark" ref={markRef}
-                     onPointerDown={onMarkDown} onPointerMove={onMarkMove} onPointerUp={onMarkUp} onPointerCancel={onMarkUp}>
+                <div className="adm-mark" ref={markRef} onClick={addPoint}>
                   <img src={file.previewUrl} alt="Zdjęcie" draggable={false} />
-                  {(draftRect || rect) && (() => { const m = draftRect || rect; return (
-                    <div className="adm-mark__rect" style={{ left: `${m.x*100}%`, top: `${m.y*100}%`, width: `${m.w*100}%`, height: `${m.h*100}%` }}>
-                      <span className="adm-mark__tag">Tu stanie zadaszenie</span>
-                    </div>
-                  ); })()}
-                  {!draftRect && !rect && <div className="adm-mark__hint">Przeciągnij palcem lub myszą, aby zaznaczyć obszar zadaszenia</div>}
+                  {points.length >= 2 && (
+                    <svg className="adm-mark__svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                      <polyline points={points.map(p => `${p.x*100},${p.y*100}`).join(' ')} vectorEffect="non-scaling-stroke" />
+                    </svg>
+                  )}
+                  {points.map((p, i) => (
+                    <span key={i} className="adm-mark__pt" style={{ left: `${p.x*100}%`, top: `${p.y*100}%` }}>{i + 1}</span>
+                  ))}
+                  {points.length > 0 && (
+                    <span className="adm-mark__tag" style={{ left: `${points[0].x*100}%`, top: `${points[0].y*100}%` }}>Linia zadaszenia</span>
+                  )}
+                  {points.length === 0 && <div className="adm-mark__hint">Stukaj / klikaj kolejne punkty wzdłuż ściany — narożnik na 2 strony = min. 3 punkty</div>}
                 </div>
                 <div className="adm-mark__bar">
-                  {rect
-                    ? <span className="adm-mark__ok">✓ Obszar zaznaczony — trafi do generatora</span>
-                    : <span className="adm-muted">Zaznaczenie opcjonalne — wskaż, dokąd ma sięgać zadaszenie</span>}
-                  {rect && <button className="adm-link" onClick={clearRect}>Wyczyść zaznaczenie</button>}
-                  <button className="adm-link" onClick={() => { setFile(null); clearRect(); }}>Zmień zdjęcie</button>
+                  {hasLine
+                    ? <span className="adm-mark__ok">✓ Linia zaznaczona ({points.length} pkt) — trafi do generatora</span>
+                    : points.length === 1
+                      ? <span className="adm-muted">Dodaj kolejny punkt (min. 2; narożnik = 3)</span>
+                      : <span className="adm-muted">Zaznaczenie opcjonalne — stukaj punkty wzdłuż ściany</span>}
+                  {points.length > 0 && <button className="adm-link" onClick={undoPoint}>Cofnij punkt</button>}
+                  {points.length > 0 && <button className="adm-link" onClick={clearLine}>Wyczyść</button>}
+                  <button className="adm-link" onClick={() => { setFile(null); clearLine(); }}>Zmień zdjęcie</button>
                 </div>
               </div>
             )}
@@ -402,7 +392,7 @@ function PageAdmin() {
             <div className="adm-result__actions">
               <button className="adm-btn adm-btn--primary" onClick={saveImage}>⬇ Zapisz / Udostępnij</button>
               <button className="adm-btn" onClick={() => setResult(null)}>← Zmień opcje</button>
-              <button className="adm-btn" onClick={() => { setResult(null); setFile(null); clearRect(); }}>📷 Nowe zdjęcie</button>
+              <button className="adm-btn" onClick={() => { setResult(null); setFile(null); clearLine(); }}>📷 Nowe zdjęcie</button>
             </div>
             <p className="adm-hint">Na telefonie możesz też przytrzymać zdjęcie palcem, aby zapisać je do galerii.</p>
           </div>
