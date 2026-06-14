@@ -29,8 +29,10 @@ function App() {
 
   const openQuote = React.useCallback(() => setQuoteOpen(true), []);
 
-  // Panel handlowca — samodzielny layout, bez nagłówka/stopki publicznej
-  if (route.startsWith('/admin')) {
+  // Panel handlowca — samodzielny layout, bez nagłówka/stopki publicznej.
+  // Działa zarówno przez hash (#/admin) jak i czystą ścieżkę (/admin — rewrite na Vercel).
+  const isAdminPath = /^\/admin\/?$/.test(window.location.pathname);
+  if (route.startsWith('/admin') || isAdminPath) {
     return <PageAdmin />;
   }
 
