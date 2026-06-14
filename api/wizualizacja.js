@@ -32,10 +32,10 @@ const ENCLOSURE_PROMPTS = {
   open: 'Keep it as an open pergola — only the supporting posts and the roof, with no side walls.',
   sides: 'Add a partial side enclosure: sliding glass panels or vertical screen blinds on one or two sides, leaving the front open.',
   winter: 'Fully enclose it as a winter garden / conservatory with floor-to-ceiling glass walls and sliding glass doors on all open sides, forming a closed all-year room.',
-  szyby: 'Enclose the open sides with large sliding glass panels (clear glazed sliding doors set in slim aluminum frames).',
-  screen: 'Add vertical fabric screen roller blinds on the sides for shade and privacy, partially lowered.',
-  zaluzje: 'Add adjustable aluminum louvre / shutter side walls (vertical slat panels) on one or two sides.',
-  panele: 'Add solid decorative aluminum panel walls on one or two sides, leaving the front open.',
+  szyby: 'Close the open sides with large sliding glass panels (clear glazed sliding doors in slim aluminum frames), set strictly within the pergola footprint between the posts. The front stays accessible.',
+  screen: 'Lower a vertical fabric screen roller blind on ONE side opening of the pergola (textile screen in a slim top cassette, frame color), strictly within the footprint between the posts. The front and other sides stay open.',
+  zaluzje: 'Close ONE side opening of the pergola with adjustable aluminum louvre blades (evenly spaced horizontal slats with small gaps, in the frame color), fitted strictly within the side opening between the posts. The front and other sides stay open.',
+  panele: 'Close ONE side opening of the pergola with a SOLID, OPAQUE, FLAT full-height aluminum wall panel in the same color as the frame — a smooth continuous surface with NO horizontal slats, NO gaps, NOT louvers, NOT glass, NOT fabric. The panel sits flush within the side opening between the two corner posts and does NOT extend beyond the pergola footprint. The front and remaining sides stay open.',
 };
 
 // Dodatkowe fragmenty (panel handlowca)
@@ -71,7 +71,7 @@ function buildPrompt(product, color, roof, enclosure, notes, extra) {
     `CRITICAL: keep the original photo completely unchanged — the same house, walls, windows, paving, plants, sky, ` +
     `furniture, camera angle, perspective, daylight direction and shadows must stay identical. Only add the pergola ` +
     `as if it were physically installed at the scene, casting correct shadows consistent with the existing light. ` +
-    `Size it realistically for the space and make it look professionally installed.${notePart} ` +
+    `Size it realistically and proportionally to the visible terrace/paving — do NOT make it oversized or wider than the patio — and make it look professionally installed.${notePart} ` +
     `Output a single photorealistic image, do not add text, watermarks, people or extra objects.`;
 }
 
