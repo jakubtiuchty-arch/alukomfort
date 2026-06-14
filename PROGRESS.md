@@ -7,8 +7,12 @@
   - Prompt przepisany: explicit „keep original photo unchanged, only add pergola, correct shadows, no text/people".
   - Rozszerzenie pliku przekazywane wg mime (jpg/webp/png).
 - Frontend `page-wizualizacja.jsx`: **downscaling w przeglądarce** (canvas, max 1536 px → JPEG 0.85) przed wysyłką — payload spada do <2 MB, omija twardy limit Vercela 4.5 MB na request body (8 MB zdjęcie → ~10.7 MB base64 = 413 przed dotarciem do funkcji). Limit wejścia podniesiony do 20 MB (i tak skalujemy).
-- **POZOSTAJE (po stronie usera):** dodać `OPENAI_API_KEY` w Vercel → Settings → Environment Variables (Production+Preview+Development) → Redeploy. Bez tego endpoint zwraca 500 z listą widzianych kluczy ENV (diagnostyka). Opcjonalnie `RESEND_API_KEY` + `LEAD_EMAIL` dla maili z leadami.
-- Konto Vercel w MCP nie widzi projektu alukomfort (inne konto) — env trzeba dodać ręcznie w dashboardzie.
+- **DZIAŁA END-TO-END (2026-06-14):** klucz `OPENAI_API_KEY` (z repo serwiszebra) dodany przez `vercel env add` do Production+Development na projekcie alukomfort. Potwierdzone: prod `alukomfort.vercel.app` HTTP 200, obraz 2.9 MB, 48 s; lokalnie `vercel dev :3005` HTTP 200, 53 s.
+- Bugi gpt-image-2 naprawione kolejno: (1) brak `maxDuration` → 10s timeout; (2) `input_fidelity` NIE wspierany przez gpt-image-2 (tylko gpt-image-1) → usunięty; (3) `quality:high` przekracza 60s limit Vercela → 504, zszedłem na `quality:medium` (~25-48s).
+- Tryb testowy: `WIZ_TEST_MODE=true` w `src/page-wizualizacja.jsx` chowa formularz "Twoje dane", pomija limit dzienny i leada (backend reaguje na `testMode` w body). Ustawić na `false` przed produkcją.
+- **LOKALNIE testować TYLKO przez `vercel dev` (nie python http.server — nie uruchamia /api).** `cd ~/pergomet_2 && vercel dev --listen 3005`.
+- ⚠️ **Domena `alukomfort.pl` NIE wskazuje na Vercel** — zwraca obcą stronę-placeholder ("Strona utrzymywana na serwerach"). Działa tylko `alukomfort.vercel.app`. Do przepięcia DNS. Canonical w kodzie używa alukomfort.pl.
+- Opcjonalnie dla maili z leadami: `RESEND_API_KEY` + `LEAD_EMAIL` w env.
 
 ## 2026-06-12 — strony produktowe + /realizacje (NIEZACOMMITOWANE — czeka na OK)
 - **LINEA**: galeria "Przykłady zadaszeń" (6 kafli, `uploads/linea-przyklady/`), notka Solar Control, nowe klasy `.examples/.example` w styles.css.
