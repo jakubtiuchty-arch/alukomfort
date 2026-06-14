@@ -39,9 +39,9 @@ const HOME_CMP = [
   { label: 'Jak działa dach', linea: 'Stały — montowany na zawsze',       horizon: 'Ruchomy — regulujesz lamele',          roma: 'Zwijany — roleta tkaninowa' },
   { label: 'Pokrycie',        linea: 'Poliwęglan 16 mm lub szkło ESG/VSG', horizon: 'Lamele, szkło lub hybryda', roma: 'Roleta rzymska z akrylu' },
   { label: 'Konstrukcja',     linea: 'Przyścienna lub samonośna',          horizon: 'Wieniec 280 mm, do 2 800 mm wysokości', roma: 'Samonośna, modułowa (3×3 – 6×4 m)' },
-  { label: 'Ściany',          linea: 'Żaluzje, szyby, panele, screen',     horizon: 'Szyby przesuwne, shuttery, screen', roma: 'Bez zabudowy — konstrukcja otwarta' },
+  { label: 'Ściany',          linea: 'Żaluzje, szyby, panele, rolety',     horizon: 'Szyby przesuwne, żaluzje, rolety', roma: 'Bez zabudowy — konstrukcja otwarta' },
   { label: 'Sterowanie',      linea: 'Konstrukcja stała',                  horizon: 'SOMFY — pilot, aplikacja, automatyka', roma: 'Linka lub automatyka (opcja)' },
-  { label: 'Idealna do',      linea: 'Taras, carport, składzik, balkon',   horizon: 'Taras premium, SPA, gastronomia', roma: 'Strefa relaksu, ogródek kawiarni' },
+  { label: 'Idealna do',      linea: 'Taras, wiata, składzik, balkon',   horizon: 'Taras prestiżowy, strefa SPA, gastronomia', roma: 'Strefa relaksu, ogródek kawiarni' },
 ];
 
 function Home({ onNavigate, onQuote }) {
@@ -153,7 +153,7 @@ function Home({ onNavigate, onQuote }) {
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">LINEA</div>
-                <p className="home-tile__desc"><strong>Dach stały</strong> z poliwęglanu lub szkła. Najbardziej uniwersalna i ekonomiczna — taras, wejście, carport, z opcją zabudowy ścian.</p>
+                <p className="home-tile__desc"><strong>Dach stały</strong> z poliwęglanu lub szkła. Najbardziej uniwersalna i ekonomiczna — taras, wejście, wiata samochodowa, z opcją zabudowy ścian.</p>
                 <span className="home-tile__link">Poznaj LINEA</span>
               </div>
             </a>
@@ -162,7 +162,7 @@ function Home({ onNavigate, onQuote }) {
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">HORIZON</div>
-                <p className="home-tile__desc"><strong>Dach ruchomy</strong> — lamele otwierasz i zamykasz, regulując słońce i przewiew. Wersja premium, sterowana pilotem lub aplikacją.</p>
+                <p className="home-tile__desc"><strong>Dach ruchomy</strong> — lamele otwierasz i zamykasz, regulując słońce i przewiew. Wersja prestiżowa, sterowana pilotem lub aplikacją.</p>
                 <span className="home-tile__link">Poznaj HORIZON</span>
               </div>
             </a>
@@ -220,8 +220,8 @@ function Home({ onNavigate, onQuote }) {
               <h2 className="case__title">Zobacz nasze realizacje</h2>
               <p className="small" style={{color:'var(--muted)', lineHeight: 1.65}}>
                 Zadaszenia tarasów z zabudową lamelową, całoroczne pawilony ogrodowe, zabudowy balkonów —
-                wszystkie wykonane w naszej fabryce i zamontowane u klientów. Bez zdjęć z katalogu,
-                bez stocków: tak wyglądają systemy ALUKOMFORT na prawdziwych posesjach.
+                wszystkie wykonane w naszej fabryce i zamontowane u klientów. Bez zdjęć katalogowych,
+                bez zdjęć z banków zdjęć: tak wyglądają systemy ALUKOMFORT na prawdziwych posesjach.
               </p>
               <div style={{marginTop: 20, display:'flex', gap: 12, flexWrap:'wrap'}}>
                 <Button variant="ghost-dark" size="lg" onClick={(e)=>go(e,'/realizacje')}>Zobacz realizacje</Button>
@@ -265,12 +265,12 @@ function Home({ onNavigate, onQuote }) {
             <div className="feature" style={{textAlign:'left', padding:'26px 22px'}}>
               <img className="usp-ico" src="uploads/icons/usp-estetyka.png" alt="" width="44" height="44" loading="lazy" />
               <div style={{fontSize: 14, fontWeight: 700, color:'var(--ink)', marginBottom: 8}}>Elegancja i estetyka</div>
-              <div className="feature__label" style={{fontSize: 12.5, textAlign:'left'}}>Kolory podstawowe RAL 7016, 9005, 9010 oraz premium w teksturach drewnopodobnych. Ukryte odprowadzanie wody w profilu.</div>
+              <div className="feature__label" style={{fontSize: 12.5, textAlign:'left'}}>Kolory podstawowe RAL 7016, 9005, 9010 oraz odcienie z najwyższej półki w teksturach drewnopodobnych. Ukryte odprowadzanie wody w profilu.</div>
             </div>
             <div className="feature" style={{textAlign:'left', padding:'26px 22px'}}>
               <img className="usp-ico" src="uploads/icons/usp-sezon.png" alt="" width="44" height="44" loading="lazy" />
               <div style={{fontSize: 14, fontWeight: 700, color:'var(--ink)', marginBottom: 8}}>Przedłużenie sezonu</div>
-              <div className="feature__label" style={{fontSize: 12.5, textAlign:'left'}}>Ochrona przed słońcem, deszczem i wiatrem — od porannej kawy na tarasie po tętniący życiem beach bar.</div>
+              <div className="feature__label" style={{fontSize: 12.5, textAlign:'left'}}>Ochrona przed słońcem, deszczem i wiatrem — od porannej kawy na tarasie po tętniący życiem bar plażowy.</div>
             </div>
           </div>
         </div>
@@ -308,7 +308,7 @@ function Home({ onNavigate, onQuote }) {
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">Dla domu</div>
-                <p className="home-tile__desc">Zadaszenie tarasu, ogród zimowy, carport, domowa siłownia czy składzik — przestrzeń, która pracuje przez cały rok.</p>
+                <p className="home-tile__desc">Zadaszenie tarasu, ogród zimowy, wiata samochodowa, domowa siłownia czy składzik — przestrzeń, która pracuje przez cały rok.</p>
                 <span className="home-tile__link">Rozwiązania dla domu</span>
               </div>
             </a>
@@ -317,7 +317,7 @@ function Home({ onNavigate, onQuote }) {
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">Dla biznesu</div>
-                <p className="home-tile__desc">Ogródki restauracji i kawiarni, strefy hotelowe, beach bary — więcej miejsc dla gości niezależnie od pogody.</p>
+                <p className="home-tile__desc">Ogródki restauracji i kawiarni, strefy hotelowe, bary plażowe — więcej miejsc dla gości niezależnie od pogody.</p>
                 <span className="home-tile__link">Rozwiązania dla biznesu</span>
               </div>
             </a>
