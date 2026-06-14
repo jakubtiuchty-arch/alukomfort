@@ -1,5 +1,15 @@
 # PROGRESS — alukomfort (pergomet_2)
 
+## 2026-06-14 — panel handlowca /admin (commit f27c687)
+- Nowa trasa `/admin` (samodzielny layout, bez Header/Footer) — `src/page-admin.jsx` (`window.PageAdmin`), routing w `app.jsx` (return early), skrypt w index.html, style `.adm-*` w styles.css.
+- Workflow handlowca u klienta: ekran PIN (sessionStorage) → aparat (`capture="environment"`) lub galeria → wybór serii → PEŁNE opcje per seria → generacja bez limitu.
+- Opcje (ADMIN_CONFIG): LINEA — pokrycie (Strong Opal/Solar Control/BOX Grey/ESG/VSG/VSG-ESG → mapowane na opal/boxgrey/glass), montaż (przyścienna/samonośna), zabudowa (bez/szyby/screen/żaluzje/panele/ogród zimowy); HORIZON — wariant L/S/L-S, zabudowa; ROMA — tkanina + moduł. Plus 8 kolorów, LED, wymiary/uwagi.
+- Backend `api/wizualizacja.js`: tryb `admin:true` (jak testMode — bez limitu/leada) + opcjonalny PIN przez env **`ADMIN_PIN`** (gdy ustawiony, wymagany zgodny `adminPin`, inaczej 401). `buildPrompt` rozszerzony: MONTAZ_PROMPTS, LED_PROMPT, dimensions, ENCLOSURE_PROMPTS +szyby/screen/zaluzje/panele.
+- Potwierdzone end-to-end: HTTP 200, mode:admin, ~54 s, obraz zgodny z parametrami (szkło+szyby+przyścienna+LED).
+- **TODO bezpieczeństwo:** ustawić `ADMIN_PIN` w env Vercel (inaczej panel działa bez realnego hasła — PIN frontowy to tylko UX).
+- Fix home: usunięty duplikat opisów dachu (zdanie pod nagłówkiem skrócone — kafelki niosą opis per produkt).
+
+
 ## 2026-06-14 — pakiet treści z Materiałów (ulotki + instrukcja LINEA) — commit a7592ce
 Źródło: `Materiały/ULOTKI NA TARGI 2026/*` + `Materiały/Instrukcja System Zadaszeń Przyściennych LINEA.pdf`. Dodane dane (`data.jsx`) + sekcje (product-linea/horizon.jsx) + CSS:
 - **Anatomia budowy** (`construction`): LINEA 8 elementów (słup 150×100×4, profil wzmacniający, rynna z podwójnym dnem, krokiew std/wzmocniona, murłata, pokrywy, uszczelki, łączniki nierdzewne) + `constructionNote` (rozstaw słupów 500, wys. 230, kąt 8°, rozstaw krokwi 100/60-75). HORIZON 6 elementów (połączenia skręcane, wieniec 280, mechanizmy lameli, krokiew wzmocniona pod szkło).
