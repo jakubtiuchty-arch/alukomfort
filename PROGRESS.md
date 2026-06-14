@@ -21,6 +21,11 @@
 - **Potwierdzone end-to-end po doładowaniu OpenAI**: LINEA+szkło+ogród zimowy → HTTP 200, 50 s, wygenerował pełną szklaną zabudowę (antracyt, przesuwne drzwi, dach szklany) doklejoną do domu. ✅
 - Pozostaje przed publikacją: `WIZ_TEST_MODE=false`, przepięcie domeny alukomfort.pl na Vercel.
 
+### ⚠️ OBOWIĄZKOWE przed wydaniem /wizualizacja (kontrola kosztów gpt-image-2, ~$0,06/szt.)
+Limit 2/dobę jest na cookie → klient czyści ciasteczka / incognito i generuje w nieskończoność. Przed publicznym uruchomieniem MUSZĄ wejść:
+1. **Twardszy limit** — per IP (nie cookie), ewentualnie niższy próg (1/dobę). Rate limit w `api/wizualizacja.js` (teraz `parseCookies` + `wiz_count`).
+2. **Formularz danych** — wyłączyć `WIZ_TEST_MODE` (`src/page-wizualizacja.jsx`); wymóg e-mail+telefon = naturalne tarcie przeciw masowemu klikaniu + łapie leada.
+
 ## 2026-06-12 — strony produktowe + /realizacje (NIEZACOMMITOWANE — czeka na OK)
 - **LINEA**: galeria "Przykłady zadaszeń" (6 kafli, `uploads/linea-przyklady/`), notka Solar Control, nowe klasy `.examples/.example` w styles.css.
 - **HORIZON**: parametry per wariant L/S/L-S (`variants[].specs`), duże karty wyboru (`.vselect/.vcard/.vdetail`), modele CORE + notka statyka, wysięg >4m, normy EN; kafelki modeli i wariantów = fotorealistyczne generacje gpt_image_2 (Higgsfield) z renderów 1:1 (`uploads/horizon-modele/`); galeria przykładów = oficjalne wizki po outpaincie do 3:2 (`uploads/horizon-przyklady/`).
