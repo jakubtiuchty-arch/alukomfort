@@ -39,7 +39,7 @@ const HOME_CMP = [
   { label: 'Jak działa dach', linea: 'Stały — montowany na zawsze',       horizon: 'Ruchomy — regulujesz lamele',          roma: 'Zwijany — roleta tkaninowa' },
   { label: 'Pokrycie',        linea: 'Poliwęglan 16 mm lub szkło ESG/VSG', horizon: 'Lamele, szkło lub hybryda', roma: 'Roleta rzymska z akrylu' },
   { label: 'Konstrukcja',     linea: 'Przyścienna lub samonośna',          horizon: 'Wieniec 280 mm, do 2 800 mm wysokości', roma: 'Samonośna, modułowa (3×3 – 6×4 m)' },
-  { label: 'Ściany',          linea: 'Żaluzje, szyby, panele, screen',     horizon: 'Szyby przesuwne, shuttery, screen', roma: '7 systemów wykończenia ścian' },
+  { label: 'Ściany',          linea: 'Żaluzje, szyby, panele, screen',     horizon: 'Szyby przesuwne, shuttery, screen', roma: 'Bez zabudowy — konstrukcja otwarta' },
   { label: 'Sterowanie',      linea: 'Konstrukcja stała',                  horizon: 'SOMFY — pilot, aplikacja, automatyka', roma: 'Linka lub automatyka (opcja)' },
   { label: 'Idealna do',      linea: 'Taras, carport, składzik, balkon',   horizon: 'Taras premium, SPA, gastronomia', roma: 'Strefa relaksu, ogródek kawiarni' },
 ];

@@ -162,26 +162,6 @@ function ProductRoma({ onQuote }) {
 
       <section className="section">
         <div className="container">
-          <SectionHead title="Systemy wykończenia ścian"
-            sub="Siedem systemów do dowolnego łączenia — od ażurowych żaluzji, przez szyby przesuwne, po pełne panele aluminiowe. Każda ściana pełni inną rolę: reguluje światło i przewiew, tłumi hałas, chroni przed deszczem albo dzieli strefy w pergoli." />
-          <figure style={{margin: 0}}>
-            <div style={{background:'#fff', border:'1px solid var(--line)', padding: 24}}>
-              <img
-                src="uploads/wykonczenia-scian.png"
-                alt="Schemat siedmiu systemów wykończenia ścian ALUKOMFORT: żaluzja pionowa, fix, roleta-screen, żaluzja pozioma, system szyb przesuwnych, alux pionowy, alux poziomy"
-                loading="lazy"
-                style={{width:'100%', height:'auto', display:'block'}}
-              />
-            </div>
-            <figcaption className="small" style={{marginTop: 10, color:'var(--muted)', textAlign:'center'}}>
-              Schematyczne zobrazowanie systemów wykończenia ścian w zadaszeniach ALUKOMFORT.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section className="section section--soft">
-        <div className="container">
           <SectionHead title="Przykłady zadaszeń z użyciem systemu ROMA"
             sub="Sześć scenariuszy realizacji — od przydomowej strefy wypoczynku po wielomodułowy taras restauracji. Każdy projekt dopasowujemy do przestrzeni i sposobu użytkowania." />
           <div className="examples">
