@@ -10,8 +10,8 @@ const COLORS_BASE = [
 const COLORS_PREMIUM = [
   { name: 'Czarna wiśnia', sub: 'Drewnopodobny', img: 'uploads/colors-preview/swatch-wisnia.jpg', hex: '#3a201c', preview: 'uploads/colors-preview/wisnia.jpg' },
   { name: 'Sosna',         sub: 'Drewnopodobny', img: 'uploads/sosna.png',         hex: '#b6783a', preview: 'uploads/colors-preview/sosna.jpg' },
-  { name: 'Srebrny dąb',   sub: 'Drewnopodobny', img: 'uploads/srebrny_dąb.png',   hex: '#9b948a', preview: 'uploads/colors-preview/srebrny.jpg' },
-  { name: 'Złoty dąb',     sub: 'Drewnopodobny', img: 'uploads/złoty_dąb.png',     hex: '#a8631f', preview: 'uploads/colors-preview/zloty.jpg' },
+  { name: 'Srebrny dąb',   sub: 'Drewnopodobny', img: 'uploads/srebrny-dab.png',   hex: '#9b948a', preview: 'uploads/colors-preview/srebrny.jpg' },
+  { name: 'Złoty dąb',     sub: 'Drewnopodobny', img: 'uploads/zloty-dab.png',     hex: '#a8631f', preview: 'uploads/colors-preview/zloty.jpg' },
 ];
 
 // Linea

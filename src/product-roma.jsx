@@ -167,7 +167,7 @@ function ProductRoma({ onQuote }) {
           <figure style={{margin: 0}}>
             <div style={{background:'#fff', border:'1px solid var(--line)', padding: 24}}>
               <img
-                src="uploads/wykończenia_ścian.png"
+                src="uploads/wykonczenia-scian.png"
                 alt="Schemat siedmiu systemów wykończenia ścian ALUKOMFORT: żaluzja pionowa, fix, roleta-screen, żaluzja pozioma, system szyb przesuwnych, alux pionowy, alux poziomy"
                 loading="lazy"
                 style={{width:'100%', height:'auto', display:'block'}}
