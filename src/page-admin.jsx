@@ -173,6 +173,37 @@ function PageAdmin() {
     finally { setLoading(false); }
   };
 
+  const dataURLtoFile = (dataUrl, name) => {
+    const [head, b64] = String(dataUrl).split(',');
+    const mime = (head.match(/data:(.*?);/) || [])[1] || 'image/png';
+    const bin = atob(b64);
+    const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+    return new File([arr], name, { type: mime });
+  };
+
+  const saveImage = async () => {
+    const name = `alukomfort-${product}-wizualizacja.png`;
+    let f = null;
+    try { f = dataURLtoFile(result.image, name); } catch (e) { /* poniżej */ }
+    // Telefon: systemowy arkusz „Udostępnij/Zapisz" (m.in. zapis do Zdjęć na iPhone)
+    if (f && navigator.canShare && navigator.canShare({ files: [f] })) {
+      try { await navigator.share({ files: [f], title: 'Wizualizacja ALUKOMFORT' }); }
+      catch (e) { /* użytkownik anulował — nic nie rób */ }
+      return;
+    }
+    // Desktop: pobranie przez blob
+    try {
+      const url = URL.createObjectURL(f);
+      const a = document.createElement('a');
+      a.href = url; a.download = name; document.body.appendChild(a); a.click();
+      setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1000);
+    } catch (e) {
+      const w = window.open('', '_blank');
+      if (w) w.document.write('<img src="' + result.image + '" style="max-width:100%"><p style="font-family:sans-serif">Przytrzymaj zdjęcie, aby zapisać.</p>');
+    }
+  };
+
   const logout = () => { sessionStorage.removeItem('ak_admin_pin'); setPin(''); };
 
   // Ekran logowania
@@ -290,10 +321,11 @@ function PageAdmin() {
           <div className="adm-result">
             <img src={result.image} alt="Wizualizacja" />
             <div className="adm-result__actions">
-              <a href={result.image} download={`alukomfort-${product}-wizualizacja.png`}><button className="adm-btn adm-btn--primary">⬇ Pobierz</button></a>
+              <button className="adm-btn adm-btn--primary" onClick={saveImage}>⬇ Zapisz / Udostępnij</button>
               <button className="adm-btn" onClick={() => setResult(null)}>← Zmień opcje</button>
               <button className="adm-btn" onClick={() => { setResult(null); setFile(null); }}>📷 Nowe zdjęcie</button>
             </div>
+            <p className="adm-hint">Na telefonie możesz też przytrzymać zdjęcie palcem, aby zapisać je do galerii.</p>
           </div>
         </div>
       )}
