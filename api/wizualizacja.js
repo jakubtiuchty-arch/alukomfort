@@ -35,7 +35,7 @@ const ENCLOSURE_PROMPTS = {
   szyby: 'Close the open sides with large sliding glass panels (clear glazed sliding doors in slim aluminum frames), set strictly within the pergola footprint between the posts. The front stays accessible.',
   screen: 'Lower a vertical fabric screen roller blind on ONE side opening of the pergola (textile screen in a slim top cassette, frame color), strictly within the footprint between the posts. The front and other sides stay open.',
   zaluzje: 'Close ONE side opening of the pergola with adjustable aluminum louvre blades (evenly spaced horizontal slats with small gaps, in the frame color), fitted strictly within the side opening between the posts. The front and other sides stay open.',
-  panele: 'Close ONE side opening of the pergola with a SOLID, OPAQUE, FLAT full-height aluminum wall panel in the same color as the frame — a smooth continuous surface with NO horizontal slats, NO gaps, NOT louvers, NOT glass, NOT fabric. The panel sits flush within the side opening between the two corner posts and does NOT extend beyond the pergola footprint. The front and remaining sides stay open.',
+  panele: 'Add a clearly visible SOLID, OPAQUE, FLAT aluminum wall panel that fully closes ONE side of the pergola, from floor to roof, in the same color as the frame — a smooth continuous cladding surface with NO slats, NO gaps, NOT louvers, NOT glass, NOT fabric. The panel is the same width as that side of the pergola and does not extend past the structure. The front and the other side stay open. This side wall must be present and visible in the image.',
 };
 
 // Dodatkowe fragmenty (panel handlowca)
