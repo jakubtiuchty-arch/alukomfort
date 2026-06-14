@@ -99,20 +99,31 @@ function PageAdmin() {
 
   const downscale = (f) => new Promise((resolve, reject) => {
     const reader = new FileReader();
-    reader.onerror = () => reject(new Error('Nie udało się odczytać pliku.'));
+    reader.onerror = () => reject(new Error('Nie udało się odczytać pliku zdjęcia.'));
     reader.onload = (ev) => {
-      const img = new Image();
-      img.onerror = () => reject(new Error('Nie udało się wczytać obrazu.'));
-      img.onload = () => {
-        const MAX = 1536;
-        let { width, height } = img;
-        if (width > MAX || height > MAX) { const r = Math.min(MAX / width, MAX / height); width = Math.round(width * r); height = Math.round(height * r); }
-        const c = document.createElement('canvas'); c.width = width; c.height = height;
-        c.getContext('2d').drawImage(img, 0, 0, width, height);
-        const d = c.toDataURL('image/jpeg', 0.85);
-        resolve({ mime: 'image/jpeg', base64: d.split(',')[1], previewUrl: d });
+      const dataUrl = ev.target.result;
+      const rawFallback = () => {
+        try { resolve({ mime: f.type || 'image/jpeg', base64: String(dataUrl).split(',')[1], previewUrl: dataUrl }); }
+        catch (e2) { reject(new Error('Nie udało się przetworzyć zdjęcia. Spróbuj inne zdjęcie.')); }
       };
-      img.src = ev.target.result;
+      const img = new Image();
+      img.onerror = () => reject(new Error('Nie udało się wczytać zdjęcia. Jeśli robisz zdjęcie iPhonem, ustaw w Aparacie format „Najbardziej zgodny" (JPEG) lub wybierz zdjęcie z galerii.'));
+      img.onload = () => {
+        try {
+          const MAX = 1536;
+          let w = img.naturalWidth || img.width, h = img.naturalHeight || img.height;
+          if (!w || !h) { rawFallback(); return; }
+          if (w > MAX || h > MAX) { const r = Math.min(MAX / w, MAX / h); w = Math.round(w * r); h = Math.round(h * r); }
+          const c = document.createElement('canvas'); c.width = w; c.height = h;
+          c.getContext('2d').drawImage(img, 0, 0, w, h);
+          const d = c.toDataURL('image/jpeg', 0.85);
+          if (!d || d.length < 100) { rawFallback(); return; }
+          resolve({ mime: 'image/jpeg', base64: d.split(',')[1], previewUrl: d });
+        } catch (e) {
+          rawFallback();
+        }
+      };
+      img.src = dataUrl;
     };
     reader.readAsDataURL(f);
   });
@@ -121,7 +132,7 @@ function PageAdmin() {
     if (!f) return;
     setErr('');
     try { const out = await downscale(f); setFile({ name: f.name, ...out }); }
-    catch (e) { setErr(e.message); }
+    catch (e) { console.error('[admin handleFile]', e); setErr(e.message || 'Błąd przetwarzania zdjęcia.'); }
   };
 
   const generate = async () => {
@@ -153,10 +164,12 @@ function PageAdmin() {
           mimeType: file.mime,
         }),
       });
-      const j = await r.json();
+      let j;
+      try { j = await r.json(); }
+      catch (pe) { throw new Error(r.ok ? 'Nieprawidłowa odpowiedź serwera.' : `Błąd serwera (${r.status}).`); }
       if (!r.ok) throw new Error(j.error || 'Błąd generatora.');
       setResult(j);
-    } catch (e) { setErr(e.message); }
+    } catch (e) { console.error('[admin generate]', e); setErr(e.message || 'Błąd generatora.'); }
     finally { setLoading(false); }
   };
 
