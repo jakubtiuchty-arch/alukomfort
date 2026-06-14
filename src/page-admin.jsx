@@ -311,7 +311,7 @@ function PageAdmin() {
           {err && <div className="adm-err">⚠ {err}</div>}
 
           <button className="adm-btn adm-btn--primary adm-btn--block" disabled={loading} onClick={generate}>
-            {loading ? 'Generuję wizualizację (~30–50 s)…' : '✨ Wygeneruj wizualizację'}
+            {loading ? 'Generuję wizualizację (~30–90 s)…' : '✨ Wygeneruj wizualizację'}
           </button>
         </div>
       )}

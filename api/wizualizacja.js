@@ -131,7 +131,7 @@ async function sendLeadEmail(payload, imageUrl) {
 
 export const config = {
   api: { bodyParser: { sizeLimit: '12mb' } },
-  maxDuration: 60, // generacja gpt-image-2 trwa 20-50 s — bez tego Vercel ubija funkcję po 10 s
+  maxDuration: 180, // Vercel Pro — zapas na generację gpt-image-2 (medium ~30-50s, high ~60-90s), bez 504
 };
 
 export default async function handler(req, res) {
@@ -198,7 +198,7 @@ export default async function handler(req, res) {
     fd.append('model', 'gpt-image-2');
     fd.append('prompt', prompt);
     fd.append('size', 'auto');            // dopasuj proporcje wyjścia do zdjęcia klienta (poziome/pionowe)
-    fd.append('quality', 'medium');       // 'high' przekracza 60s limit Vercela (504) — medium = ~25-45s
+    fd.append('quality', isAdmin ? 'high' : 'medium'); // panel handlowca = high (lepszy realizm); publiczny = medium
     fd.append('n', '1');
     const ext = /jpe?g/i.test(mimeType) ? 'jpg' : /webp/i.test(mimeType) ? 'webp' : 'png';
     fd.append('image', new Blob([buffer], { type: mimeType }), `photo.${ext}`);
