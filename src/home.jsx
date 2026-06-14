@@ -36,9 +36,10 @@ const HOME_STEPS = [
 ];
 
 const HOME_CMP = [
-  { label: 'Dach',            linea: 'Poliwęglan 16 mm lub szkło ESG/VSG', horizon: 'Lamele, szkło lub hybryda', roma: 'Roleta rzymska z akrylu' },
+  { label: 'Jak działa dach', linea: 'Stały — montowany na zawsze',       horizon: 'Ruchomy — regulujesz lamele',          roma: 'Zwijany — roleta tkaninowa' },
+  { label: 'Pokrycie',        linea: 'Poliwęglan 16 mm lub szkło ESG/VSG', horizon: 'Lamele, szkło lub hybryda', roma: 'Roleta rzymska z akrylu' },
   { label: 'Konstrukcja',     linea: 'Przyścienna lub samonośna',          horizon: 'Wieniec 280 mm, do 2 800 mm wysokości', roma: 'Samonośna, modułowa (3×3 – 6×4 m)' },
-  { label: 'Ściany',          linea: 'Żaluzje, szyby, panele, screen',     horizon: 'Szyby przesuwne, shuttersy, screen', roma: '7 systemów wykończenia ścian' },
+  { label: 'Ściany',          linea: 'Żaluzje, szyby, panele, screen',     horizon: 'Szyby przesuwne, shuttery, screen', roma: '7 systemów wykończenia ścian' },
   { label: 'Sterowanie',      linea: 'Konstrukcja stała',                  horizon: 'SOMFY — pilot, aplikacja, automatyka', roma: 'Linka lub automatyka (opcja)' },
   { label: 'Idealna do',      linea: 'Taras, carport, składzik, balkon',   horizon: 'Taras premium, SPA, gastronomia', roma: 'Strefa relaksu, ogródek kawiarni' },
 ];
@@ -145,24 +146,24 @@ function Home({ onNavigate, onQuote }) {
 
       <section className="section">
         <div className="container">
-          <SectionHead title="Trzy systemy ALUKOMFORT — jeden charakter"
-            sub="Jako PLAST-MET Systemy Ogrodzeniowe, twórcy marki ALUKOMFORT, oferujemy innowacyjne aluminiowe systemy zadaszeń dla właścicieli domów oraz przestrzeni komercyjnych — restauracji, kawiarni i hoteli." />
+          <SectionHead title="Trzy systemy ALUKOMFORT — różni je dach"
+            sub="Najprościej różnią się jednym: <strong>LINEA ma dach stały</strong> (poliwęglan lub szkło), <strong>HORIZON — ruchomy</strong> (regulujesz lamele jednym ruchem), a <strong>ROMA — tkaninowy</strong> (zwijana roleta rzymska). Resztę — aluminium 6063 i jakość spod znaku TÜV NORD — mają wspólną." />
           <div className="home-tiles">
             <a href="#/produkty/linea" className="home-tile" onClick={(e)=>go(e,'/produkty/linea')}>
-              <div className="home-tile__img" style={{backgroundImage:'url(uploads/linea_kafelek_3.png)'}} />
+              <div className="home-tile__img" style={{backgroundImage:'url(uploads/linea_kafelek_4.jpg)'}} />
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">LINEA</div>
-                <p className="home-tile__desc">Samonośne zadaszenia aluminiowe do tarasu, wejścia i carportu.</p>
+                <p className="home-tile__desc"><strong>Dach stały</strong> z poliwęglanu lub szkła. Najbardziej uniwersalna i ekonomiczna — taras, wejście, carport, z opcją zabudowy ścian.</p>
                 <span className="home-tile__link">Poznaj LINEA</span>
               </div>
             </a>
             <a href="#/produkty/horizon" className="home-tile" onClick={(e)=>go(e,'/produkty/horizon')}>
-              <div className="home-tile__img" style={{backgroundImage:'url(uploads/kafelek_horizon.png)'}} />
+              <div className="home-tile__img" style={{backgroundImage:'url(uploads/kafelek_horizon_2.jpg)'}} />
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">HORIZON</div>
-                <p className="home-tile__desc">Pergole o płaskich dachach — w wersji lamelowej, szklanej lub hybrydowej.</p>
+                <p className="home-tile__desc"><strong>Dach ruchomy</strong> — lamele otwierasz i zamykasz, regulując słońce i przewiew. Wersja premium, sterowana pilotem lub aplikacją.</p>
                 <span className="home-tile__link">Poznaj HORIZON</span>
               </div>
             </a>
@@ -171,7 +172,7 @@ function Home({ onNavigate, onQuote }) {
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">ROMA</div>
-                <p className="home-tile__desc">Lekka pergola tkaninowa z roletą rzymską dla strefy relaksu.</p>
+                <p className="home-tile__desc"><strong>Dach z tkaniny</strong> — zwijana roleta rzymska z akrylu. Lekka, śródziemnomorska forma do strefy relaksu i ogródka.</p>
                 <span className="home-tile__link">Poznaj ROMA</span>
               </div>
             </a>
