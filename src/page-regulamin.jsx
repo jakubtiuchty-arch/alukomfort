@@ -42,8 +42,8 @@ function PageRegulamin() {
               (dalej: „Usługodawca"). ALUKOMFORT jest marką handlową Usługodawcy.
             </li>
             <li>
-              Kontakt z Usługodawcą jest możliwy pod adresem e-mail <a href="mailto:trzebnica@plast-met.pl">trzebnica@plast-met.pl</a>{' '}
-              oraz telefonicznie pod numerem <a href="tel:+48512622666">+48 512 622 666</a>.
+              Kontakt z Usługodawcą jest możliwy pod adresem e-mail <a href="mailto:biuro@plast-met.pl">biuro@plast-met.pl</a>{' '}
+              oraz telefonicznie pod numerem <a href="tel:+48713120793">+48 (71) 312 07 93</a>.
             </li>
             <li>
               Użytkownikiem jest każda osoba korzystająca z Serwisu. Korzystanie z Serwisu oznacza akceptację
@@ -139,7 +139,7 @@ function PageRegulamin() {
           <ol className="legal__ol">
             <li>
               Reklamacje dotyczące usług świadczonych drogą elektroniczną można składać na adres e-mail
-              <a href="mailto:trzebnica@plast-met.pl"> trzebnica@plast-met.pl</a> lub pisemnie na adres siedziby
+              <a href="mailto:biuro@plast-met.pl"> biuro@plast-met.pl</a> lub pisemnie na adres siedziby
               Usługodawcy.
             </li>
             <li>

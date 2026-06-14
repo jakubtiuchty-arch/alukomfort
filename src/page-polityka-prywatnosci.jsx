@@ -39,8 +39,8 @@ function PagePrivacy() {
             ALUKOMFORT jest marką handlową Administratora.
           </p>
           <ul className="legal__list">
-            <li>E-mail: <a href="mailto:trzebnica@plast-met.pl">trzebnica@plast-met.pl</a></li>
-            <li>Telefon: <a href="tel:+48512622666">+48 512 622 666</a></li>
+            <li>E-mail: <a href="mailto:biuro@plast-met.pl">biuro@plast-met.pl</a></li>
+            <li>Telefon: <a href="tel:+48713120793">+48 (71) 312 07 93</a></li>
             <li>Adres korespondencyjny: ul. Milicka 34, 55-100 Trzebnica</li>
           </ul>
           <p>
@@ -147,7 +147,7 @@ function PagePrivacy() {
             <li>cofnięcia zgody w dowolnym momencie — bez wpływu na zgodność z prawem przetwarzania dokonanego przed jej cofnięciem;</li>
             <li>wniesienia skargi do organu nadzorczego — Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa).</li>
           </ul>
-          <p>Aby skorzystać z powyższych praw, skontaktuj się z nami pod adresem <a href="mailto:trzebnica@plast-met.pl">trzebnica@plast-met.pl</a>.</p>
+          <p>Aby skorzystać z powyższych praw, skontaktuj się z nami pod adresem <a href="mailto:biuro@plast-met.pl">biuro@plast-met.pl</a>.</p>
 
           <h2>8. Dobrowolność podania danych</h2>
           <p>
