@@ -45,7 +45,11 @@ function App() {
     page = <PageWizualizacja onQuote={openQuote} />;
   } else if (route.startsWith('/realizacje')) {
     page = <PageRealizacje onQuote={openQuote} />;
-  } else if (route === '/' || route === '' || route.startsWith('/inspiracje') || route.startsWith('/o-nas') || route.startsWith('/dlaczego')) {
+  } else if (route.startsWith('/inspiracje')) {
+    page = <PageInspiracje onQuote={openQuote} />;
+  } else if (route.startsWith('/o-nas')) {
+    page = <PageOnas onQuote={openQuote} />;
+  } else if (route === '/' || route === '' || route.startsWith('/dlaczego')) {
     page = <Home onNavigate={navigate} onQuote={openQuote} />;
   } else if (route.startsWith('/produkty/linea')) {
     page = <ProductLinea onQuote={openQuote} />;

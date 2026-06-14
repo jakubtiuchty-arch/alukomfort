@@ -7,7 +7,7 @@ function Header({ route, onNavigate }) {
       { label: 'ROMA',    hash: '/produkty/roma' },
     ]},
     { id: 'inspiracje', label: 'Inspiracje' },
-    { id: 'dlaczego', label: 'Dlaczego aluminium?' },
+    { id: 'wizualizacja', label: 'Wizualizacja' },
     { id: 'realizacje', label: 'Realizacje' },
     { id: 'o-nas', label: 'O nas' },
     { id: 'kontakt', label: 'Kontakt' },
