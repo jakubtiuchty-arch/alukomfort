@@ -55,12 +55,15 @@ function PageWizualizacja({ onQuote }) {
   const [roof, setRoof] = React.useState('lamele');
   const [enclosure, setEnclosure] = React.useState('open');
   const roofList = WIZ_ROOFS[product] || WIZ_ROOFS.linea;
+  // ROMA (pergola tkaninowa) nie ma zabudowy ścian — tylko otwarta konstrukcja
+  const enclosureList = product === 'roma' ? WIZ_ENCLOSURES.filter(e => e.id === 'open') : WIZ_ENCLOSURES;
 
-  // Zmiana produktu resetuje rodzaj dachu do pierwszego dostępnego dla danej serii
+  // Zmiana produktu resetuje rodzaj dachu i (dla ROMA) wymusza zabudowę otwartą
   const selectProduct = (id) => {
     setProduct(id);
     const list = WIZ_ROOFS[id] || WIZ_ROOFS.linea;
     setRoof(list[0].id);
+    if (id === 'roma') setEnclosure('open');
   };
   const [file, setFile] = React.useState(null); // {name, mime, base64, previewUrl}
   const [form, setForm] = React.useState({ email: '', phone: '', address: '', notes: '', rodo: false });
@@ -272,10 +275,12 @@ function PageWizualizacja({ onQuote }) {
               <div className="wiz-step__body">
                 <h2 className="wiz-step__title">Rodzaj zabudowy</h2>
                 <p className="wiz-help" style={{margin: '0 0 14px'}}>
-                  Wybierz, czy chcesz otwartą pergolę, czy zamkniętą przestrzeń (np. ogród zimowy).
+                  {product === 'roma'
+                    ? 'Pergola tkaninowa ROMA występuje wyłącznie jako lekka, otwarta konstrukcja.'
+                    : 'Wybierz, czy chcesz otwartą pergolę, czy zamkniętą przestrzeń (np. ogród zimowy).'}
                 </p>
                 <div className="wiz-colors">
-                  {WIZ_ENCLOSURES.map(en => (
+                  {enclosureList.map(en => (
                     <button
                       type="button"
                       key={en.id}
