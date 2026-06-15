@@ -184,8 +184,8 @@ function PageWizualizacja({ onQuote }) {
       ]} />
 
       <section className="hero" style={{height: 320}}>
-        <div className="hero__img" style={{background:'linear-gradient(135deg,#0e0e10 0%,#1c1c1f 60%,#262629 100%)'}} />
-        <div className="hero__scrim" style={{background: 'linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%)'}} />
+        <div className="hero__img" style={{backgroundImage:"url('uploads/wiz-hero-blueprint.jpg')", backgroundSize:'cover', backgroundPosition:'center right', backgroundColor:'#0c0c0e'}} />
+        <div className="hero__scrim" style={{background: 'linear-gradient(90deg, rgba(8,8,10,0.94) 0%, rgba(8,8,10,0.7) 36%, rgba(8,8,10,0.18) 100%)'}} />
         <div className="container hero__inner">
           <div className="hero__content" style={{maxWidth: 720}}>
             <div className="hero__eyebrow">NOWOŚĆ · GENERATOR AI</div>
