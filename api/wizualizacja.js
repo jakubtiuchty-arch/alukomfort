@@ -7,7 +7,7 @@
 const PRODUCT_PROMPTS = {
   linea: 'ALUKOMFORT LINEA — an aluminum terrace canopy (wall-mounted or freestanding, whichever suits the scene) with slim aluminum posts (150×100mm) and a single-pitch LEAN-TO / SHED roof (one continuous flat plane that is clearly TILTED, never horizontal). The roof is visibly higher where it meets the house wall and slopes down to a noticeably lower front edge at a constant ~8° pitch, so rainwater always runs AWAY from the building; the back (house-side) beam is clearly higher than the front beam and this height difference must be obvious in the image. The roof MUST NOT be a flat horizontal slab and MUST NOT slope toward the house. This tilted shed roof is the LINEA standard',
   horizon: 'ALUKOMFORT HORIZON — a modern aluminum bioclimatic pergola with a slim flat roof crown and clean architectural lines',
-  roma: 'ALUKOMFORT ROMA — a lightweight aluminum fabric pergola with slim supports, Mediterranean style',
+  roma: 'ALUKOMFORT ROMA — a modern, minimalist freestanding aluminum fabric pergola with slim SQUARE aluminum posts and a clean FLAT rectangular top frame (straight horizontal lines, architectural, NOT a tent, gazebo or rustic structure)',
 };
 
 // Pokrycie dachu zależne od produktu i wyboru klienta
@@ -23,7 +23,7 @@ const ROOF_PROMPTS = {
     hybryda: 'with a flat roof combining aluminum louver slats over one part and a clear glass section over the other',
   },
   roma: {
-    tkanina: 'with a flat retractable Roman-blind roof made of beige acrylic fabric in soft folds',
+    tkanina: 'with a retractable Roman-blind fabric roof of light beige acrylic canvas, gathered into regular, even, shallow horizontal waves that sit FLAT and taut just under the flat rectangular top frame, within the frame footprint — like a sliding shade panel, NOT deep hanging swags, NOT a sagging or draping tent canopy',
   },
 };
 
