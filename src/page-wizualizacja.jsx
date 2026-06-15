@@ -1,4 +1,4 @@
-// Strona /wizualizacja — konfigurator AI: zdjęcie tarasu + produkt → wygenerowana wizualizacja
+// Strona /wizualizacja — konfigurator wizualizacji: zdjęcie tarasu + produkt → wygenerowana wizualizacja
 
 // TRYB TESTOWY — pomija formularz "Twoje dane", walidację kontaktu i limit dzienny.
 // Ustaw na false, aby przywrócić pełny formularz leadowy. (Backend reaguje na flagę testMode.)
@@ -47,8 +47,8 @@ const WIZ_ENCLOSURES = [
 
 function PageWizualizacja({ onQuote }) {
   usePageMeta({
-    title: 'Wizualizacja AI — zobacz pergolę u siebie | ALUKOMFORT',
-    description: 'Wgraj zdjęcie swojego tarasu i zobacz w 30 sekund, jak będzie wyglądać z pergolą ALUKOMFORT (LINEA / HORIZON / ROMA). Generator oparty na AI gpt-image-2.',
+    title: 'Wizualizacja pergoli — zobacz ją u siebie | ALUKOMFORT',
+    description: 'Wgraj zdjęcie swojego tarasu i zobacz w 30 sekund, jak będzie wyglądać z pergolą ALUKOMFORT (LINEA / HORIZON / ROMA). Bezpłatny konfigurator wizualizacji.',
     canonical: 'https://alukomfort.pl/#/wizualizacja',
   });
 
@@ -180,7 +180,7 @@ function PageWizualizacja({ onQuote }) {
     <>
       <Breadcrumbs items={[
         { label: 'Strona główna', href: '#/' },
-        { label: 'Wizualizacja AI' },
+        { label: 'Wizualizacja' },
       ]} />
 
       <section className="hero" style={{height: 320}}>
@@ -188,10 +188,10 @@ function PageWizualizacja({ onQuote }) {
         <div className="hero__scrim" style={{background: 'linear-gradient(90deg, rgba(8,8,10,0.94) 0%, rgba(8,8,10,0.7) 36%, rgba(8,8,10,0.18) 100%)'}} />
         <div className="container hero__inner">
           <div className="hero__content" style={{maxWidth: 720}}>
-            <div className="hero__eyebrow">NOWOŚĆ · GENERATOR AI</div>
+            <div className="hero__eyebrow">NOWOŚĆ · KONFIGURATOR WIZUALIZACJI</div>
             <h1 className="hero__title" style={{fontSize: 42}}>Zobacz pergolę u siebie</h1>
             <p className="hero__sub">
-              Wgraj zdjęcie swojego tarasu — w 30 sekund AI dorysuje wybraną pergolę ALUKOMFORT
+              Wgraj zdjęcie swojego tarasu — w 30 sekund dorysujemy wybraną pergolę ALUKOMFORT
               w realistycznej skali, zachowując oryginalne światło i perspektywę.
             </p>
           </div>
@@ -379,7 +379,7 @@ function PageWizualizacja({ onQuote }) {
 
                   <div className="wiz-cta">
                     <Button type="submit" variant="primary" size="lg" disabled={loading}>
-                      {loading ? 'Generuję wizualizację (~30 s)...' : '✨ Wygeneruj wizualizację AI'}
+                      {loading ? 'Generuję wizualizację (~30 s)...' : '✨ Wygeneruj wizualizację'}
                     </Button>
                     <p className="wiz-help" style={{margin: '10px 0 0', fontSize: 12}}>
                       Limit: 2 wizualizacje na dobę. Czas generowania: 20-40 sekund.
@@ -400,7 +400,7 @@ function PageWizualizacja({ onQuote }) {
                 {serverError && (<div className="wiz-server-err">⚠ {serverError}</div>)}
                 <div className="wiz-cta">
                   <Button type="button" variant="primary" size="lg" disabled={loading} onClick={() => submit()}>
-                    {loading ? 'Generuję wizualizację (~30 s)...' : '✨ Wygeneruj wizualizację AI'}
+                    {loading ? 'Generuję wizualizację (~30 s)...' : '✨ Wygeneruj wizualizację'}
                   </Button>
                 </div>
               </div>

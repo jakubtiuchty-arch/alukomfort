@@ -235,14 +235,14 @@ function Home({ onNavigate, onQuote }) {
       <section className="section--ink section section--ai">
         <div className="container">
           <SectionHead title="Zobacz pergolę u siebie — zanim ją zamówisz"
-            sub="Nasz konfigurator AI w 30 sekund dorysuje wybraną pergolę ALUKOMFORT na zdjęciu Twojego tarasu — w realistycznej skali, z zachowaniem światła i perspektywy." />
+            sub="Nasz konfigurator w 30 sekund dorysuje wybraną pergolę ALUKOMFORT na zdjęciu Twojego tarasu — w realistycznej skali, z zachowaniem światła i perspektywy." />
           <div className="wiz-steps-row">
             <div className="wiz-step-mini"><span className="wiz-step-mini__num">1</span><div><strong>Wgraj zdjęcie</strong><p>Sfotografuj taras lub ogród telefonem i wgraj zdjęcie do konfiguratora.</p></div></div>
             <div className="wiz-step-mini"><span className="wiz-step-mini__num">2</span><div><strong>Wybierz system i kolor</strong><p>LINEA, HORIZON lub ROMA — w kolorze z palety RAL lub teksturze drewnopodobnej.</p></div></div>
-            <div className="wiz-step-mini"><span className="wiz-step-mini__num">3</span><div><strong>Odbierz wizualizację</strong><p>AI wygeneruje realistyczny podgląd pergoli w Twojej przestrzeni.</p></div></div>
+            <div className="wiz-step-mini"><span className="wiz-step-mini__num">3</span><div><strong>Odbierz wizualizację</strong><p>Otrzymasz realistyczny podgląd pergoli w Twojej przestrzeni.</p></div></div>
           </div>
           <div style={{textAlign:'center', marginTop: 32}}>
-            <Button variant="primary" size="lg" onClick={(e)=>go(e,'/wizualizacja')}>Wypróbuj konfigurator AI</Button>
+            <Button variant="primary" size="lg" onClick={(e)=>go(e,'/wizualizacja')}>Wypróbuj konfigurator</Button>
           </div>
         </div>
       </section>

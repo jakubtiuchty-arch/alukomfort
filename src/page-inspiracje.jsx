@@ -68,9 +68,9 @@ function PageInspiracje({ onQuote }) {
       <section className="section--ink section" style={{padding:'48px 0'}}>
         <div className="container" style={{textAlign:'center'}}>
           <h2 className="section__title" style={{color:'#fff', marginBottom: 10}}>Chcesz zobaczyć pergolę na zdjęciu swojego tarasu?</h2>
-          <p style={{margin:'0 0 22px', color:'rgba(255,255,255,0.75)'}}>Skorzystaj z konfiguratora AI albo zamów bezpłatną wycenę.</p>
+          <p style={{margin:'0 0 22px', color:'rgba(255,255,255,0.75)'}}>Skorzystaj z konfiguratora wizualizacji albo zamów bezpłatną wycenę.</p>
           <div style={{display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap'}}>
-            <Button variant="primary" size="lg" onClick={() => onNavigateTo('/wizualizacja')}>Wypróbuj konfigurator AI</Button>
+            <Button variant="primary" size="lg" onClick={() => onNavigateTo('/wizualizacja')}>Wypróbuj konfigurator</Button>
             <Button variant="ghost-light" size="lg" onClick={onQuote}>Zamów wycenę</Button>
           </div>
         </div>

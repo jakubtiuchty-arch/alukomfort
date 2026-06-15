@@ -4,7 +4,7 @@
 function PageRegulamin() {
   usePageMeta({
     title: 'Regulamin serwisu | ALUKOMFORT — Plast-Met',
-    description: 'Regulamin świadczenia usług drogą elektroniczną w serwisie ALUKOMFORT (alukomfort.pl) — zasady korzystania, formularz kontaktowy, konfigurator wizualizacji AI, reklamacje.',
+    description: 'Regulamin świadczenia usług drogą elektroniczną w serwisie ALUKOMFORT (alukomfort.pl) — zasady korzystania, formularz kontaktowy, konfigurator wizualizacji, reklamacje.',
     canonical: 'https://alukomfort.pl/#/regulamin',
   });
 
@@ -57,7 +57,7 @@ function PageRegulamin() {
               <ul className="legal__list">
                 <li>udostępnianie treści informacyjnych o produktach i działalności (przeglądanie Serwisu);</li>
                 <li>formularz kontaktowy oraz formularz zapytania o bezpłatną wycenę;</li>
-                <li>konfigurator wizualizacji wykorzystujący sztuczną inteligencję (dalej: „Konfigurator AI").</li>
+                <li>konfigurator wizualizacji generujący poglądowy podgląd zadaszenia na zdjęciu (dalej: „Konfigurator").</li>
               </ul>
             </li>
             <li>
@@ -86,10 +86,10 @@ function PageRegulamin() {
             </li>
           </ol>
 
-          <h2>§4. Konfigurator wizualizacji AI</h2>
+          <h2>§4. Konfigurator wizualizacji</h2>
           <ol className="legal__ol">
             <li>
-              Konfigurator AI umożliwia wygenerowanie poglądowej grafiki przedstawiającej wybrany system zadaszenia
+              Konfigurator umożliwia wygenerowanie poglądowej grafiki przedstawiającej wybrany system zadaszenia
               na podstawie zdjęcia przesłanego przez Użytkownika oraz wybranych parametrów.
             </li>
             <li>
@@ -104,8 +104,8 @@ function PageRegulamin() {
               w indywidualnej wycenie i umowie.
             </li>
             <li>
-              Szczegóły przetwarzania zdjęć i danych w ramach Konfiguratora AI, w tym powierzenia ich dostawcy modelu
-              AI, opisuje <a href="#/polityka-prywatnosci">Polityka prywatności</a>.
+              Szczegóły przetwarzania zdjęć i danych w ramach Konfiguratora, w tym powierzenia ich zewnętrznemu
+              dostawcy usługi generowania grafiki, opisuje <a href="#/polityka-prywatnosci">Polityka prywatności</a>.
             </li>
           </ol>
 
@@ -113,7 +113,7 @@ function PageRegulamin() {
           <ol className="legal__ol">
             <li>
               Użytkownika obowiązuje zakaz dostarczania treści o charakterze bezprawnym, w tym przesyłania
-              za pośrednictwem formularzy lub Konfiguratora AI treści naruszających prawo, dobra osobiste lub prawa
+              za pośrednictwem formularzy lub Konfiguratora treści naruszających prawo, dobra osobiste lub prawa
               osób trzecich (art. 8 ust. 3 pkt 2 lit. b ustawy o świadczeniu usług drogą elektroniczną).
             </li>
             <li>

@@ -73,7 +73,7 @@ function PagePrivacy() {
                   <td>art. 6 ust. 1 lit. b (działania na żądanie osoby przed zawarciem umowy)</td>
                 </tr>
                 <tr>
-                  <td>Wygenerowanie poglądowej wizualizacji pergoli na przesłanym zdjęciu (konfigurator AI) oraz kontakt handlowy w sprawie wyceny</td>
+                  <td>Wygenerowanie poglądowej wizualizacji pergoli na przesłanym zdjęciu (konfigurator wizualizacji) oraz kontakt handlowy w sprawie wyceny</td>
                   <td>adres e-mail, telefon, adres/lokalizacja inwestycji (opcjonalnie), uwagi, <strong>zdjęcie nieruchomości</strong> przesłane przez użytkownika</td>
                   <td>art. 6 ust. 1 lit. a (zgoda) oraz art. 6 ust. 1 lit. b (działania przed zawarciem umowy)</td>
                 </tr>
@@ -91,10 +91,10 @@ function PagePrivacy() {
             </table>
           </div>
 
-          <h2>3. Konfigurator wizualizacji AI — zdjęcia</h2>
+          <h2>3. Konfigurator wizualizacji — zdjęcia</h2>
           <p>
-            Jeżeli korzystasz z konfiguratora wizualizacji, przesłane przez Ciebie zdjęcie przekazujemy do dostawcy
-            modelu sztucznej inteligencji (OpenAI, L.L.C.) <strong>wyłącznie w celu jednorazowego wygenerowania
+            Jeżeli korzystasz z konfiguratora wizualizacji, przesłane przez Ciebie zdjęcie przekazujemy do zewnętrznego
+            dostawcy usługi generowania grafiki (OpenAI, L.L.C.) <strong>wyłącznie w celu jednorazowego wygenerowania
             wizualizacji</strong>. Zgodnie z polityką OpenAI dotyczącą interfejsu API, dane przesyłane przez API
             <strong> nie są wykorzystywane do trenowania modeli</strong>; mogą być przez OpenAI przechowywane przez
             okres do 30 dni wyłącznie w celu wykrywania nadużyć, a następnie są usuwane. Prosimy o nieprzesyłanie
@@ -109,7 +109,7 @@ function PagePrivacy() {
           </p>
           <ul className="legal__list">
             <li><strong>Vercel Inc.</strong> — hosting serwisu i obsługa funkcji serwerowych;</li>
-            <li><strong>OpenAI, L.L.C.</strong> — wygenerowanie wizualizacji w konfiguratorze AI;</li>
+            <li><strong>OpenAI, L.L.C.</strong> — wygenerowanie wizualizacji w konfiguratorze;</li>
             <li><strong>Resend (Plus Five Five, Inc.)</strong> — dostarczanie wiadomości e-mail (powiadomienia o zapytaniach);</li>
             <li><strong>Google Ireland Ltd.</strong> — udostępnianie czcionek internetowych (Google Fonts) ładowanych podczas wyświetlania strony.</li>
           </ul>
@@ -160,7 +160,7 @@ function PagePrivacy() {
           <p>
             Nie podejmujemy wobec Ciebie decyzji opierających się wyłącznie na zautomatyzowanym przetwarzaniu,
             w tym profilowaniu, które wywoływałyby skutki prawne lub w podobny sposób istotnie na Ciebie wpływały.
-            Konfigurator AI generuje wyłącznie poglądową grafikę i nie podejmuje decyzji dotyczących Twojej osoby.
+            Konfigurator wizualizacji generuje wyłącznie poglądową grafikę i nie podejmuje decyzji dotyczących Twojej osoby.
           </p>
 
           <h2>10. Pliki cookies i pamięć lokalna</h2>

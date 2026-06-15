@@ -29,7 +29,7 @@ function Footer({ onNavigate }) {
               <li><a href="#/produkty/linea" onClick={(e)=>go(e,'/produkty/linea')}>ALUKOMFORT LINEA</a></li>
               <li><a href="#/produkty/horizon" onClick={(e)=>go(e,'/produkty/horizon')}>ALUKOMFORT HORIZON</a></li>
               <li><a href="#/produkty/roma" onClick={(e)=>go(e,'/produkty/roma')}>ALUKOMFORT ROMA</a></li>
-              <li><a href="#/wizualizacja" onClick={(e)=>go(e,'/wizualizacja')}>Konfigurator AI</a></li>
+              <li><a href="#/wizualizacja" onClick={(e)=>go(e,'/wizualizacja')}>Konfigurator wizualizacji</a></li>
             </ul>
           </div>
 
