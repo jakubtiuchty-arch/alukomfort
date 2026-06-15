@@ -45,7 +45,7 @@ function PageOnas({ onQuote }) {
         { label: 'O nas' },
       ]} />
 
-      <section className="onas-hero onas-hero--photo" style={{backgroundImage: "url('uploads/onas-hero-siedziba.jpg')"}}>
+      <section className="onas-hero onas-hero--photo" style={{backgroundImage: "url('uploads/onas-hero-siedziba.webp')"}}>
         <div className="container" style={{position:'relative', zIndex: 1}}>
           <div className="onas-hero__eyebrow">PLAST-MET · Systemy Ogrodzeniowe</div>
           <h1 className="onas-hero__title">Polski producent z 37-letnią historią</h1>
@@ -95,13 +95,13 @@ function PageOnas({ onQuote }) {
           <div className="onas-photos">
             <div className="onas-photo">
               <figure>
-                <img className="onas-photo__img" src="uploads/realizacje-web/real_2.jpg" alt="Stoisko targowe ALUKOMFORT — przeszklony pawilon ogrodowy" loading="lazy" />
+                <img className="onas-photo__img" src="uploads/realizacje-web/real_2.webp" alt="Stoisko targowe ALUKOMFORT — przeszklony pawilon ogrodowy" loading="lazy" />
                 <figcaption>Pawilon ogrodowy ALUKOMFORT na targach branżowych.</figcaption>
               </figure>
             </div>
             <div className="onas-photo">
               <figure>
-                <img className="onas-photo__img" src="uploads/realizacje-web/real_3.jpg" alt="Ściana z lameli aluminiowych ALUKOMFORT w wykończeniu drewnopodobnym" loading="lazy" />
+                <img className="onas-photo__img" src="uploads/realizacje-web/real_3.webp" alt="Ściana z lameli aluminiowych ALUKOMFORT w wykończeniu drewnopodobnym" loading="lazy" />
                 <figcaption>Ściana lamelowa w wykończeniu drewnopodobnym — detal ekspozycji.</figcaption>
               </figure>
             </div>

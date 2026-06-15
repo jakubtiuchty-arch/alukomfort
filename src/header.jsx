@@ -23,7 +23,7 @@ function Header({ route, onNavigate }) {
     <header className="ak-header">
       <div className="container ak-header__inner">
         <a href="#/" className="ak-logo" onClick={(e)=>go(e,'/')} aria-label="ALUKOMFORT — strona główna">
-          <img src="uploads/logo_alukomfort_2.png" alt="PLAST-MET ALUKOMFORT" className="ak-logo__img" />
+          <img src="uploads/logo_alukomfort_2.webp" alt="PLAST-MET ALUKOMFORT" className="ak-logo__img" />
         </a>
         <nav className="ak-nav">
           {links.map(l => l.children ? (

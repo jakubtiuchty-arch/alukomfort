@@ -6,7 +6,7 @@ const REALIZACJE_CASES = [
     eyebrow: 'REALIZACJA · DOM JEDNORODZINNY',
     title: 'Zadaszenie tarasu z zabudową lamelową',
     desc: 'Przyścienne zadaszenie ALUKOMFORT LINEA na całej długości elewacji. Dach z poliwęglanu komorowego przepuszcza światło do wnętrza domu, a ściana z pionowych żaluzji aluminiowych osłania taras od wiatru i sąsiadów — bez odcinania przewiewu.',
-    image: 'uploads/realizacje-web/taras-poster.jpg',
+    image: 'uploads/realizacje-web/taras-poster.webp',
     meta: [
       { label: 'System',     value: 'LINEA przyścienna' },
       { label: 'Dach',       value: 'Poliwęglan komorowy 16 mm' },
@@ -14,10 +14,10 @@ const REALIZACJE_CASES = [
       { label: 'Kolor',      value: 'Antracyt' },
     ],
     photos: [
-      { src: 'uploads/realizacje-web/real_1_3.jpg', alt: 'Dom jednorodzinny z zadaszeniem tarasu LINEA na całej długości elewacji' },
-      { src: 'uploads/realizacje-web/real_1_2.jpg', alt: 'Zadaszenie tarasu LINEA z zabudową z pionowych żaluzji aluminiowych w świetle zachodzącego słońca' },
-      { src: 'uploads/realizacje-web/real_1_4.jpg', alt: 'Dach z poliwęglanu komorowego — widok z zewnątrz o zachodzie słońca' },
-      { src: 'uploads/realizacje-web/real_1_1.jpg', alt: 'Dach z poliwęglanu komorowego od spodu — przepuszczalność światła' },
+      { src: 'uploads/realizacje-web/real_1_3.webp', alt: 'Dom jednorodzinny z zadaszeniem tarasu LINEA na całej długości elewacji' },
+      { src: 'uploads/realizacje-web/real_1_2.webp', alt: 'Zadaszenie tarasu LINEA z zabudową z pionowych żaluzji aluminiowych w świetle zachodzącego słońca' },
+      { src: 'uploads/realizacje-web/real_1_4.webp', alt: 'Dach z poliwęglanu komorowego — widok z zewnątrz o zachodzie słońca' },
+      { src: 'uploads/realizacje-web/real_1_1.webp', alt: 'Dach z poliwęglanu komorowego od spodu — przepuszczalność światła' },
     ],
   },
   {
@@ -25,7 +25,7 @@ const REALIZACJE_CASES = [
     eyebrow: 'REALIZACJA · OGRÓD',
     title: 'Całoroczny pawilon ogrodowy',
     desc: 'Wolnostojący pawilon na bazie systemu LINEA — szyby przesuwne na trzech ścianach, panele drewnopodobne od strony zachodniej i podłoga z naturalnej deski. Zamknięta przestrzeń z widokiem na pola, użytkowana niezależnie od pogody.',
-    image: 'uploads/realizacje-web/pawilon-glowne.jpg',
+    image: 'uploads/realizacje-web/pawilon-glowne.webp',
     meta: [
       { label: 'System',     value: 'LINEA samonośna — pawilon' },
       { label: 'Ściany',     value: 'Szyby przesuwne + panele drewnopodobne' },
@@ -33,19 +33,19 @@ const REALIZACJE_CASES = [
       { label: 'Podłoga',    value: 'Deska naturalna' },
     ],
     photos: [
-      { src: 'uploads/realizacje-web/real_2_4.jpg', alt: 'Przeszklony pawilon ogrodowy LINEA — bryła z zewnątrz' },
-      { src: 'uploads/realizacje-web/real_2_3.jpg', alt: 'Wnętrze pawilonu — drewniana podłoga i widok na pola' },
-      { src: 'uploads/realizacje-web/real_2_5.jpg', alt: 'Pawilon z panelami drewnopodobnymi — perspektywa narożna' },
-      { src: 'uploads/realizacje-web/real_2_1.jpg', alt: 'Szklane ściany przesuwne pawilonu — detal' },
+      { src: 'uploads/realizacje-web/real_2_4.webp', alt: 'Przeszklony pawilon ogrodowy LINEA — bryła z zewnątrz' },
+      { src: 'uploads/realizacje-web/real_2_3.webp', alt: 'Wnętrze pawilonu — drewniana podłoga i widok na pola' },
+      { src: 'uploads/realizacje-web/real_2_5.webp', alt: 'Pawilon z panelami drewnopodobnymi — perspektywa narożna' },
+      { src: 'uploads/realizacje-web/real_2_1.webp', alt: 'Szklane ściany przesuwne pawilonu — detal' },
     ],
   },
 ];
 
 const REALIZACJE_TARGI = [
-  { src: 'uploads/realizacje-web/real_2.jpg',  alt: 'Stoisko targowe PLAST-MET — pawilon ogrodowy w kolorze antracyt' },
-  { src: 'uploads/realizacje-web/real_1.jpg',  alt: 'Moduł szklany LINEA w jasnym wykończeniu na stoisku targowym' },
-  { src: 'uploads/realizacje-web/real_3.jpg',  alt: 'Zabudowa z żaluzji pionowych alux z wstawkami drewnopodobnymi — targi' },
-  { src: 'uploads/realizacje-web/real_4.jpg',  alt: 'Pawilon z żaluzjami pionowymi przed salonem ekspozycyjnym' },
+  { src: 'uploads/realizacje-web/real_2.webp',  alt: 'Stoisko targowe PLAST-MET — pawilon ogrodowy w kolorze antracyt' },
+  { src: 'uploads/realizacje-web/real_1.webp',  alt: 'Moduł szklany LINEA w jasnym wykończeniu na stoisku targowym' },
+  { src: 'uploads/realizacje-web/real_3.webp',  alt: 'Zabudowa z żaluzji pionowych alux z wstawkami drewnopodobnymi — targi' },
+  { src: 'uploads/realizacje-web/real_4.webp',  alt: 'Pawilon z żaluzjami pionowymi przed salonem ekspozycyjnym' },
 ];
 
 function RealLightbox({ photos, index, onClose, onNav }) {
@@ -99,7 +99,7 @@ function PageRealizacje({ onQuote }) {
       <section className="hero" style={{height: 'clamp(420px, 42vw, 800px)'}}>
         <div
           className="hero__img"
-          style={{ backgroundImage: 'url(uploads/realizacje-web/hero-realizacje.jpg)', backgroundSize: 'cover', backgroundPosition: 'center bottom' }}
+          style={{ backgroundImage: 'url(uploads/realizacje-web/hero-realizacje.webp)', backgroundSize: 'cover', backgroundPosition: 'center bottom' }}
         />
         <div className="hero__scrim" />
         <div className="container hero__inner">

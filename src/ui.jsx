@@ -65,14 +65,14 @@ function CertBar({ guarantee }) {
   return (
     <div className="cert-bar container">
       <div className="cert">
-        <img className="cert__logo" src="uploads/icons/tuv-nord-logo.png" alt="TÜV NORD" width="120" height="37" />
+        <img className="cert__logo" src="uploads/icons/tuv-nord-logo.webp" alt="TÜV NORD" width="120" height="37" />
         <div className="cert__body">
           <h4>Certyfikat TÜV NORD · 2274-CPR-0046-2025</h4>
           <p>Profile systemu ALUKOMFORT posiadają certyfikat Zakładowej Kontroli Produkcji TÜV NORD wg <strong>PN-EN 1090-1</strong> w klasie wykonania <strong>EXC 2</strong>. Proces spawalniczy potwierdzony normą <strong>PN-EN ISO 3834</strong>.</p>
         </div>
       </div>
       <div className="guarantee">
-        <div className="guarantee__ic"><img src="uploads/icons/bar-gwarancja.png" alt="" width="40" height="40" loading="lazy" /></div>
+        <div className="guarantee__ic"><img src="uploads/icons/bar-gwarancja.webp" alt="" width="40" height="40" loading="lazy" /></div>
         <div className="guarantee__body">
           <h4>Gwarancja</h4>
           {rows.map((r, i) => (

@@ -5,9 +5,9 @@
 const WIZ_TEST_MODE = true;
 
 const WIZ_PRODUCTS = [
-  { id: 'linea',   name: 'LINEA',   sub: 'Aluminiowe zadaszenie samonośne',   img: 'uploads/wiz-linea.jpg' },
-  { id: 'horizon', name: 'HORIZON', sub: 'Pergola bioklimatyczna lamelowa',   img: 'uploads/wiz-horizon.jpg' },
-  { id: 'roma',    name: 'ROMA',    sub: 'Pergola tkaninowa',                 img: 'uploads/wiz-roma.jpg' },
+  { id: 'linea',   name: 'LINEA',   sub: 'Aluminiowe zadaszenie samonośne',   img: 'uploads/wiz-linea.webp' },
+  { id: 'horizon', name: 'HORIZON', sub: 'Pergola bioklimatyczna lamelowa',   img: 'uploads/wiz-horizon.webp' },
+  { id: 'roma',    name: 'ROMA',    sub: 'Pergola tkaninowa',                 img: 'uploads/wiz-roma.webp' },
 ];
 
 const COLORS = [
@@ -184,7 +184,7 @@ function PageWizualizacja({ onQuote }) {
       ]} />
 
       <section className="hero" style={{height: 320}}>
-        <div className="hero__img" style={{backgroundImage:"url('uploads/wiz-hero-blueprint.jpg')", backgroundSize:'cover', backgroundPosition:'center right', backgroundColor:'#0c0c0e'}} />
+        <div className="hero__img" style={{backgroundImage:"url('uploads/wiz-hero-blueprint.webp')", backgroundSize:'cover', backgroundPosition:'center right', backgroundColor:'#0c0c0e'}} />
         <div className="hero__scrim" style={{background: 'linear-gradient(90deg, rgba(8,8,10,0.94) 0%, rgba(8,8,10,0.7) 36%, rgba(8,8,10,0.18) 100%)'}} />
         <div className="container hero__inner">
           <div className="hero__content" style={{maxWidth: 720}}>
@@ -442,17 +442,17 @@ function PageWizualizacja({ onQuote }) {
         <div className="container">
           <div className="wiz-info">
             <div className="wiz-info__col">
-              <img className="wiz-info__icon" src="uploads/icons/wiz-proporcje.png" alt="" width="56" height="56" loading="lazy" />
+              <img className="wiz-info__icon" src="uploads/icons/wiz-proporcje.webp" alt="" width="56" height="56" loading="lazy" />
               <h3>Realistyczne proporcje</h3>
               <p>Konstrukcja zachowuje właściwe proporcje względem tarasu oraz perspektywę i światło z oryginalnego zdjęcia.</p>
             </div>
             <div className="wiz-info__col">
-              <img className="wiz-info__icon" src="uploads/icons/wiz-czas.png" alt="" width="56" height="56" loading="lazy" />
+              <img className="wiz-info__icon" src="uploads/icons/wiz-czas.webp" alt="" width="56" height="56" loading="lazy" />
               <h3>Wizualizacja w 30 sekund</h3>
               <p>Fotorealistyczny podgląd wybranej pergoli otrzymujesz w około pół minuty od wgrania zdjęcia.</p>
             </div>
             <div className="wiz-info__col">
-              <img className="wiz-info__icon" src="uploads/icons/wiz-bezpieczenstwo.png" alt="" width="56" height="56" loading="lazy" />
+              <img className="wiz-info__icon" src="uploads/icons/wiz-bezpieczenstwo.webp" alt="" width="56" height="56" loading="lazy" />
               <h3>Bezpieczeństwo danych</h3>
               <p>Zdjęcie wykorzystujemy wyłącznie do wygenerowania tej wizualizacji i nie używamy go do trenowania modeli. Przetwarzanie zgodne z RODO, na podstawie jednorazowej zgody.</p>
             </div>

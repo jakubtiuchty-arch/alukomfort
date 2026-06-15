@@ -113,28 +113,28 @@ function Home({ onNavigate, onQuote }) {
         <div className="container">
           <div className="usp-bar__grid">
             <div className="usp-bar__item">
-              <img className="usp-bar__ico" src="uploads/icons/bar-tradycja.png" alt="" width="34" height="34" />
+              <img className="usp-bar__ico" src="uploads/icons/bar-tradycja.webp" alt="" width="34" height="34" />
               <div>
                 <div className="usp-bar__num">30+ lat</div>
                 <div className="usp-bar__lab">tradycji PLAST-MET</div>
               </div>
             </div>
             <div className="usp-bar__item">
-              <img className="usp-bar__ico" src="uploads/icons/bar-certyfikat.png" alt="" width="34" height="34" />
+              <img className="usp-bar__ico" src="uploads/icons/bar-certyfikat.webp" alt="" width="34" height="34" />
               <div>
                 <div className="usp-bar__num">TÜV NORD</div>
                 <div className="usp-bar__lab">2274-CPR-0046-2025 · EN 1090-1</div>
               </div>
             </div>
             <div className="usp-bar__item">
-              <img className="usp-bar__ico" src="uploads/icons/bar-gwarancja.png" alt="" width="34" height="34" />
+              <img className="usp-bar__ico" src="uploads/icons/bar-gwarancja.webp" alt="" width="34" height="34" />
               <div>
                 <div className="usp-bar__num">60 mies.</div>
                 <div className="usp-bar__lab">gwarancji na konstrukcję</div>
               </div>
             </div>
             <div className="usp-bar__item">
-              <img className="usp-bar__ico" src="uploads/icons/bar-wycena.png" alt="" width="34" height="34" />
+              <img className="usp-bar__ico" src="uploads/icons/bar-wycena.webp" alt="" width="34" height="34" />
               <div>
                 <div className="usp-bar__num">24 h</div>
                 <div className="usp-bar__lab">bezpłatna wycena</div>
@@ -149,7 +149,7 @@ function Home({ onNavigate, onQuote }) {
           <SectionHead title="Trzy systemy ALUKOMFORT" />
           <div className="home-tiles">
             <a href="#/produkty/linea" className="home-tile" onClick={(e)=>go(e,'/produkty/linea')}>
-              <div className="home-tile__img" style={{backgroundImage:'url(uploads/linea_kafelek_4.jpg)'}} />
+              <div className="home-tile__img" style={{backgroundImage:'url(uploads/linea_kafelek_4.webp)'}} />
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">LINEA</div>
@@ -158,7 +158,7 @@ function Home({ onNavigate, onQuote }) {
               </div>
             </a>
             <a href="#/produkty/horizon" className="home-tile" onClick={(e)=>go(e,'/produkty/horizon')}>
-              <div className="home-tile__img" style={{backgroundImage:'url(uploads/kafelek_horizon_2.jpg)'}} />
+              <div className="home-tile__img" style={{backgroundImage:'url(uploads/kafelek_horizon_2.webp)'}} />
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">HORIZON</div>
@@ -167,7 +167,7 @@ function Home({ onNavigate, onQuote }) {
               </div>
             </a>
             <a href="#/produkty/roma" className="home-tile" onClick={(e)=>go(e,'/produkty/roma')}>
-              <div className="home-tile__img" style={{backgroundImage:'url(uploads/roma_hp.png)'}} />
+              <div className="home-tile__img" style={{backgroundImage:'url(uploads/roma_hp.webp)'}} />
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">ROMA</div>
@@ -213,7 +213,7 @@ function Home({ onNavigate, onQuote }) {
         <div className="container">
           <div className="case">
             <div className="case__media">
-              <img src="uploads/realizacje-web/teaser-realizacje.jpg" alt="Zadaszenie tarasu ALUKOMFORT LINEA z oświetleniem LED o zmierzchu — realizacja przy domu jednorodzinnym" loading="lazy" />
+              <img src="uploads/realizacje-web/teaser-realizacje.webp" alt="Zadaszenie tarasu ALUKOMFORT LINEA z oświetleniem LED o zmierzchu — realizacja przy domu jednorodzinnym" loading="lazy" />
             </div>
             <div className="case__info">
               <div className="example__eyebrow">PRAWDZIWE MONTAŻE</div>
@@ -253,22 +253,22 @@ function Home({ onNavigate, onQuote }) {
             sub="Cztery filary, które odróżniają nasze pergole od tanich zadaszeń dostępnych na rynku." />
           <div className="features" style={{gridTemplateColumns:'repeat(4, 1fr)'}}>
             <div className="feature" style={{textAlign:'left', padding:'26px 22px'}}>
-              <img className="usp-ico" src="uploads/icons/usp-jakosc.png" alt="" width="44" height="44" loading="lazy" />
+              <img className="usp-ico" src="uploads/icons/usp-jakosc.webp" alt="" width="44" height="44" loading="lazy" />
               <div style={{fontSize: 14, fontWeight: 700, color:'var(--ink)', marginBottom: 8}}>Najwyższa jakość i bezpieczeństwo</div>
               <div className="feature__label" style={{fontSize: 12.5, textAlign:'left'}}>Prestiżowy certyfikat TÜV NORD 2274-CPR-0046-2025. Zgodność z normami PN-EN 1090-1 i klasą wykonania EXC 2.</div>
             </div>
             <div className="feature" style={{textAlign:'left', padding:'26px 22px'}}>
-              <img className="usp-ico" src="uploads/icons/usp-material.png" alt="" width="44" height="44" loading="lazy" />
+              <img className="usp-ico" src="uploads/icons/usp-material.webp" alt="" width="44" height="44" loading="lazy" />
               <div style={{fontSize: 14, fontWeight: 700, color:'var(--ink)', marginBottom: 8}}>Trwałe materiały</div>
               <div className="feature__label" style={{fontSize: 12.5, textAlign:'left'}}>Ekstrudowany stop aluminium 6063 odporny na korozję. Malowanie proszkowe chroni przed UV i blaknięciem przez lata.</div>
             </div>
             <div className="feature" style={{textAlign:'left', padding:'26px 22px'}}>
-              <img className="usp-ico" src="uploads/icons/usp-estetyka.png" alt="" width="44" height="44" loading="lazy" />
+              <img className="usp-ico" src="uploads/icons/usp-estetyka.webp" alt="" width="44" height="44" loading="lazy" />
               <div style={{fontSize: 14, fontWeight: 700, color:'var(--ink)', marginBottom: 8}}>Elegancja i estetyka</div>
               <div className="feature__label" style={{fontSize: 12.5, textAlign:'left'}}>Kolory podstawowe RAL 7016, 9005, 9010 oraz odcienie z najwyższej półki w teksturach drewnopodobnych. Ukryte odprowadzanie wody w profilu.</div>
             </div>
             <div className="feature" style={{textAlign:'left', padding:'26px 22px'}}>
-              <img className="usp-ico" src="uploads/icons/usp-sezon.png" alt="" width="44" height="44" loading="lazy" />
+              <img className="usp-ico" src="uploads/icons/usp-sezon.webp" alt="" width="44" height="44" loading="lazy" />
               <div style={{fontSize: 14, fontWeight: 700, color:'var(--ink)', marginBottom: 8}}>Przedłużenie sezonu</div>
               <div className="feature__label" style={{fontSize: 12.5, textAlign:'left'}}>Ochrona przed słońcem, deszczem i wiatrem — od porannej kawy na tarasie po tętniący życiem bar plażowy.</div>
             </div>
@@ -304,7 +304,7 @@ function Home({ onNavigate, onQuote }) {
             sub="Te same systemy, dwa różne światy — prywatna strefa wypoczynku przy domu albo ogródek, który zarabia przez cały sezon." />
           <div className="home-tiles home-tiles--2">
             <a href="#/produkty/linea" className="home-tile" onClick={(e)=>go(e,'/produkty/linea')}>
-              <div className="home-tile__img" style={{backgroundImage:'url(uploads/horizon-przyklady/przyscienna-lounge.jpg)'}} />
+              <div className="home-tile__img" style={{backgroundImage:'url(uploads/horizon-przyklady/przyscienna-lounge.webp)'}} />
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">Dla domu</div>
@@ -313,7 +313,7 @@ function Home({ onNavigate, onQuote }) {
               </div>
             </a>
             <a href="#/produkty/horizon" className="home-tile" onClick={(e)=>go(e,'/produkty/horizon')}>
-              <div className="home-tile__img" style={{backgroundImage:'url(uploads/roma-przyklady/taras-restauracji.jpg)'}} />
+              <div className="home-tile__img" style={{backgroundImage:'url(uploads/roma-przyklady/taras-restauracji.webp)'}} />
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">Dla biznesu</div>
@@ -342,14 +342,14 @@ function Home({ onNavigate, onQuote }) {
                 na dekady, nie na sezon.
               </p>
               <ul className="iconlist iconlist--img" style={{marginTop: 18}}>
-                <li><img className="ic-img" src="uploads/icons/prod-fabryka.png" alt="" width="30" height="30" loading="lazy" />Własna fabryka i biuro konstrukcyjne w Trzebnicy</li>
-                <li><img className="ic-img" src="uploads/icons/prod-certyfikat.png" alt="" width="30" height="30" loading="lazy" />Certyfikat TÜV NORD 2274-CPR-0046-2025</li>
-                <li><img className="ic-img" src="uploads/icons/prod-recykling.png" alt="" width="30" height="30" loading="lazy" />Aluminium 6063 — odporne na korozję, w 100% do recyklingu</li>
+                <li><img className="ic-img" src="uploads/icons/prod-fabryka.webp" alt="" width="30" height="30" loading="lazy" />Własna fabryka i biuro konstrukcyjne w Trzebnicy</li>
+                <li><img className="ic-img" src="uploads/icons/prod-certyfikat.webp" alt="" width="30" height="30" loading="lazy" />Certyfikat TÜV NORD 2274-CPR-0046-2025</li>
+                <li><img className="ic-img" src="uploads/icons/prod-recykling.webp" alt="" width="30" height="30" loading="lazy" />Aluminium 6063 — odporne na korozję, w 100% do recyklingu</li>
               </ul>
             </div>
             <div className="prod-photos">
-              <div className="prod-photos__item" style={{backgroundImage:'url(uploads/realizacje-web/real_2.jpg)'}} role="img" aria-label="Stoisko targowe ALUKOMFORT — pawilon ogrodowy" />
-              <div className="prod-photos__item" style={{backgroundImage:'url(uploads/realizacje-web/real_3.jpg)'}} role="img" aria-label="Zabudowa lamelowa ALUKOMFORT na targach branżowych" />
+              <div className="prod-photos__item" style={{backgroundImage:'url(uploads/realizacje-web/real_2.webp)'}} role="img" aria-label="Stoisko targowe ALUKOMFORT — pawilon ogrodowy" />
+              <div className="prod-photos__item" style={{backgroundImage:'url(uploads/realizacje-web/real_3.webp)'}} role="img" aria-label="Zabudowa lamelowa ALUKOMFORT na targach branżowych" />
             </div>
           </div>
         </div>

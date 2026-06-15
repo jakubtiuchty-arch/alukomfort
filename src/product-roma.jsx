@@ -1,14 +1,14 @@
 // Podstrona produktu ROMA
 
 const ROMA_COLOR_PREVIEWS = {
-  'RAL 7016':      'uploads/colors-preview/roma/ral-7016.jpg',
-  'RAL 9005':      'uploads/colors-preview/roma/ral-9005.jpg',
-  'RAL 9010':      'uploads/colors-preview/roma/ral-9010.jpg',
-  'RAL 7039':      'uploads/colors-preview/roma/ral-7039.jpg',
-  'Czarna wiśnia': 'uploads/colors-preview/roma/wisnia.jpg',
-  'Sosna':         'uploads/colors-preview/roma/sosna.jpg',
-  'Srebrny dąb':   'uploads/colors-preview/roma/srebrny.jpg',
-  'Złoty dąb':     'uploads/colors-preview/roma/zloty.jpg',
+  'RAL 7016':      'uploads/colors-preview/roma/ral-7016.webp',
+  'RAL 9005':      'uploads/colors-preview/roma/ral-9005.webp',
+  'RAL 9010':      'uploads/colors-preview/roma/ral-9010.webp',
+  'RAL 7039':      'uploads/colors-preview/roma/ral-7039.webp',
+  'Czarna wiśnia': 'uploads/colors-preview/roma/wisnia.webp',
+  'Sosna':         'uploads/colors-preview/roma/sosna.webp',
+  'Srebrny dąb':   'uploads/colors-preview/roma/srebrny.webp',
+  'Złoty dąb':     'uploads/colors-preview/roma/zloty.webp',
 };
 
 function ProductRoma({ onQuote }) {
@@ -67,9 +67,9 @@ function ProductRoma({ onQuote }) {
           <SectionHead title="Nowoczesna pergola tkaninowa do tarasu i ogrodu" sub={p.intro} />
           <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap: 20}}>
             {[
-              { src: 'uploads/Roma_3.jpg', alt: 'Pergola ROMA — widok od frontu, roleta zwinięta', caption: 'Widok od frontu — roleta zwinięta' },
-              { src: 'uploads/Roma_4.jpg', alt: 'Pergola ROMA — widok z boku', caption: 'Widok z boku — smukła rama aluminiowa' },
-              { src: 'uploads/Roma_2.jpg', alt: 'Pergola ROMA — roleta rzymska w pełni rozłożona', caption: 'Roleta rozłożona — strefa cienia' },
+              { src: 'uploads/Roma_3.webp', alt: 'Pergola ROMA — widok od frontu, roleta zwinięta', caption: 'Widok od frontu — roleta zwinięta' },
+              { src: 'uploads/Roma_4.webp', alt: 'Pergola ROMA — widok z boku', caption: 'Widok z boku — smukła rama aluminiowa' },
+              { src: 'uploads/Roma_2.webp', alt: 'Pergola ROMA — roleta rzymska w pełni rozłożona', caption: 'Roleta rozłożona — strefa cienia' },
             ].map((it, i) => (
               <figure key={i} style={{margin: 0}}>
                 <div style={{aspectRatio: '3/2', background:'#fff', border:'1px solid var(--line)', overflow:'hidden'}}>
