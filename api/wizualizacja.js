@@ -5,7 +5,7 @@
 
 // Bryła konstrukcji — bez opisu pokrycia dachu (to dokłada ROOF_PROMPTS)
 const PRODUCT_PROMPTS = {
-  linea: 'ALUKOMFORT LINEA — an aluminum terrace canopy (wall-mounted or freestanding, whichever suits the scene) with slim aluminum posts (150×100mm) and a clean mono-pitch (single-slope) roof with a FIXED, constant 8-degree (8°) downward slope. The roof MUST ALWAYS slope DOWNWARD AWAY FROM THE BUILDING: the side attached to the house wall is the HIGHEST point and the outer/far edge (away from the house) is the LOWEST point, so rainwater always runs away from the building. This visible downward tilt away from the house must always be present — never a flat horizontal roof and never sloping toward the house. This 8° pitch is the LINEA standard',
+  linea: 'ALUKOMFORT LINEA — an aluminum terrace canopy (wall-mounted or freestanding, whichever suits the scene) with slim aluminum posts (150×100mm) and a single-pitch LEAN-TO / SHED roof (one continuous flat plane that is clearly TILTED, never horizontal). The roof is visibly higher where it meets the house wall and slopes down to a noticeably lower front edge at a constant ~8° pitch, so rainwater always runs AWAY from the building; the back (house-side) beam is clearly higher than the front beam and this height difference must be obvious in the image. The roof MUST NOT be a flat horizontal slab and MUST NOT slope toward the house. This tilted shed roof is the LINEA standard',
   horizon: 'ALUKOMFORT HORIZON — a modern aluminum bioclimatic pergola with a slim flat roof crown and clean architectural lines',
   roma: 'ALUKOMFORT ROMA — a lightweight aluminum fabric pergola with slim supports, Mediterranean style',
 };
@@ -73,6 +73,7 @@ function buildPrompt(product, color, roof, enclosure, notes, extra) {
   const multiSide = (e.markerPoints || 0) >= 3;
   const markerLead = e.marker
     ? ` A bright magenta line with numbered points has been drawn on the photo along the wall to mark EXACTLY the run, length and extent of the canopy — follow this line precisely and keep the structure along this marked line.` +
+      ` Build ONE single, continuous, coherent pergola that follows this line — never several separate, stacked or overlapping structures, and keep one consistent roof height and style along the whole run.` +
       ` The canopy must span the FULL length of the line, end to end: its starting edge/post must align exactly with the FIRST point and its far edge/post exactly with the LAST point. Do NOT make the structure shorter than the line and do NOT leave any gap between the ends of the canopy and the marked endpoints — reach the very ends of the building as drawn.` +
       ` The canopy is a rectangular structure parallel to the house wall: its back edge (running ALONG the house wall) and its front edge (running along the marked line) have the SAME length and BOTH reach the first and last points. Each end of the canopy must be square and perpendicular to the wall — the wall-side post and the front post at each end line up at the same position along the wall, so the structure does NOT taper, slant or stop short at the wall. In particular the wall-side (back) post must reach just as far as the front post at the line's endpoint, not end earlier near a window or door.` +
       (multiSide
