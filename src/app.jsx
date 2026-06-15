@@ -29,6 +29,23 @@ function App() {
 
   const openQuote = React.useCallback(() => setQuoteOpen(true), []);
 
+  // Animacja „wjeżdżania" sekcji przy scrollu — globalnie dla .section.
+  // Po każdej zmianie trasy obserwujemy nowo wyrenderowane sekcje.
+  React.useLayoutEffect(() => {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    const targets = Array.from(document.querySelectorAll('.section'));
+    if (!targets.length) return;
+    targets.forEach(el => el.classList.add('reveal-on-scroll'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
+    targets.forEach(el => io.observe(el));
+    return () => io.disconnect();
+  }, [route]);
+
   // Panel handlowca — samodzielny layout, bez nagłówka/stopki publicznej.
   // Działa zarówno przez hash (#/admin) jak i czystą ścieżkę (/admin — rewrite na Vercel).
   const isAdminPath = /^\/admin\/?$/.test(window.location.pathname);

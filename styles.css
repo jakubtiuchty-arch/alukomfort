@@ -1808,6 +1808,13 @@ img { display: block; max-width: 100%; }
   .onas-values { grid-template-columns: 1fr; gap: 22px; }
 }
 
+/* === Reveal sekcji przy scrollu === */
+.reveal-on-scroll { opacity: 0; transform: translateY(32px); transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.20,1); will-change: opacity, transform; }
+.reveal-on-scroll.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
 /* === Strony prawne (polityka prywatności, regulamin) === */
 .legal { max-width: 820px; }
 .legal__meta { font-size: 13px; color: var(--muted); margin: 0 0 28px; }
