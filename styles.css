@@ -1603,7 +1603,7 @@ img { display: block; max-width: 100%; }
 /* Info kolumny */
 .wiz-info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; color: #fff; }
 .wiz-info__col { text-align: center; }
-.wiz-info__icon { font-size: 36px; margin-bottom: 10px; }
+.wiz-info__icon { width: 56px; height: 56px; object-fit: contain; margin: 0 auto 14px; display: block; }
 .wiz-info__col h3 { margin: 0 0 8px; font-size: 18px; font-weight: 700; }
 .wiz-info__col p { margin: 0; color: rgba(255,255,255,0.72); font-size: 14px; line-height: 1.55; }
 

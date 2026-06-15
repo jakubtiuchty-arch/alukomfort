@@ -442,19 +442,19 @@ function PageWizualizacja({ onQuote }) {
         <div className="container">
           <div className="wiz-info">
             <div className="wiz-info__col">
-              <div className="wiz-info__icon">🎯</div>
-              <h3>Realistyczne wymiary</h3>
-              <p>Generator dba o proporcje pergoli względem Twojego tarasu — żadnych „zabawkowych" rozmiarów.</p>
+              <img className="wiz-info__icon" src="uploads/icons/wiz-proporcje.png" alt="" width="56" height="56" loading="lazy" />
+              <h3>Realistyczne proporcje</h3>
+              <p>Konstrukcja zachowuje właściwe proporcje względem tarasu oraz perspektywę i światło z oryginalnego zdjęcia.</p>
             </div>
             <div className="wiz-info__col">
-              <div className="wiz-info__icon">⚡</div>
-              <h3>30 sekund</h3>
-              <p>Najnowszy model gpt-image-2 generuje fotorealistyczną wizualizację w czasie krótszym niż kawa.</p>
+              <img className="wiz-info__icon" src="uploads/icons/wiz-czas.png" alt="" width="56" height="56" loading="lazy" />
+              <h3>Wizualizacja w 30 sekund</h3>
+              <p>Fotorealistyczny podgląd wybranej pergoli otrzymujesz w około pół minuty od wgrania zdjęcia.</p>
             </div>
             <div className="wiz-info__col">
-              <div className="wiz-info__icon">🛡</div>
-              <h3>Twoje dane są bezpieczne</h3>
-              <p>Zdjęcie używamy tylko do tej generacji, nie zapisujemy w bazach treningowych. RODO + zgoda jednorazowa.</p>
+              <img className="wiz-info__icon" src="uploads/icons/wiz-bezpieczenstwo.png" alt="" width="56" height="56" loading="lazy" />
+              <h3>Bezpieczeństwo danych</h3>
+              <p>Zdjęcie wykorzystujemy wyłącznie do wygenerowania tej wizualizacji i nie używamy go do trenowania modeli. Przetwarzanie zgodne z RODO, na podstawie jednorazowej zgody.</p>
             </div>
           </div>
         </div>
