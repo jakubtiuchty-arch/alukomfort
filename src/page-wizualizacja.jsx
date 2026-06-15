@@ -77,6 +77,45 @@ function PageWizualizacja({ onQuote }) {
 
   const set = (k, v) => setForm(p => ({ ...p, [k]: v }));
 
+  // Zaznaczanie linii zadaszenia na zdjęciu (jak w panelu handlowca) — opcjonalne.
+  const [points, setPoints] = React.useState([]);
+  const markRef = React.useRef(null);
+  const addPoint = (e) => {
+    const r = markRef.current.getBoundingClientRect();
+    let x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    x = Math.min(1, Math.max(0, x)); y = Math.min(1, Math.max(0, y));
+    setPoints(p => [...p, { x, y }]);
+  };
+  const undoPoint = () => setPoints(p => p.slice(0, -1));
+  const clearLine = () => setPoints([]);
+  const hasLine = points.length >= 2;
+
+  const buildMarkedImage = () => new Promise((resolve) => {
+    if (points.length < 2 || !file) { resolve({ base64: file?.base64, mime: file?.mime, marked: false }); return; }
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const c = document.createElement('canvas');
+        c.width = img.naturalWidth || img.width; c.height = img.naturalHeight || img.height;
+        const ctx = c.getContext('2d');
+        ctx.drawImage(img, 0, 0, c.width, c.height);
+        const pts = points.map(p => ({ x: p.x * c.width, y: p.y * c.height }));
+        const lw = Math.max(5, Math.round(c.width * 0.008));
+        ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+        ctx.strokeStyle = '#ff00c8'; ctx.lineWidth = lw;
+        ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+        for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+        ctx.stroke();
+        ctx.fillStyle = '#ff00c8';
+        pts.forEach(p => { ctx.beginPath(); ctx.arc(p.x, p.y, lw * 1.15, 0, Math.PI * 2); ctx.fill(); });
+        const d = c.toDataURL('image/jpeg', 0.9);
+        resolve({ base64: d.split(',')[1], mime: 'image/jpeg', marked: true });
+      } catch (e2) { resolve({ base64: file.base64, mime: file.mime, marked: false }); }
+    };
+    img.onerror = () => resolve({ base64: file.base64, mime: file.mime, marked: false });
+    img.src = file.previewUrl;
+  });
+
   // Skaluje zdjęcie do max 1536 px i kompresuje do JPEG — payload < limitu Vercela (4.5 MB)
   // oraz szybsza generacja. Zwraca { mime, base64, previewUrl }.
   const downscaleImage = (f) => new Promise((resolve, reject) => {
@@ -116,6 +155,7 @@ function PageWizualizacja({ onQuote }) {
     }
     try {
       const out = await downscaleImage(f);
+      clearLine();
       setFile({ name: f.name, mime: out.mime, base64: out.base64, previewUrl: out.previewUrl });
       setErrors(e => { const { file, ...rest } = e; return rest; });
     } catch (err) {
@@ -146,6 +186,7 @@ function PageWizualizacja({ onQuote }) {
     setServerError('');
     setResult(null);
     try {
+      const img = await buildMarkedImage();
       const r = await fetch('/api/wizualizacja', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -154,8 +195,10 @@ function PageWizualizacja({ onQuote }) {
           color,
           roof,
           enclosure,
-          imageBase64: file.base64,
-          mimeType: file.mime,
+          imageBase64: img.base64,
+          mimeType: img.mime,
+          marker: img.marked,
+          markerPoints: img.marked ? points.length : 0,
           email: form.email.trim(),
           phone: form.phone.trim(),
           address: form.address.trim(),
@@ -174,7 +217,7 @@ function PageWizualizacja({ onQuote }) {
     }
   };
 
-  const reset = () => { setResult(null); setFile(null); setServerError(''); };
+  const reset = () => { setResult(null); setFile(null); clearLine(); setServerError(''); };
 
   return (
     <>
@@ -326,10 +369,30 @@ function PageWizualizacja({ onQuote }) {
                   </div>
                 ) : (
                   <div className="wiz-preview">
-                    <img src={file.previewUrl} alt="Twoje zdjęcie" />
-                    <div className="wiz-preview__actions">
-                      <span>{file.name}</span>
-                      <button type="button" className="wiz-link" onClick={() => setFile(null)}>Zmień zdjęcie</button>
+                    <div className="adm-mark" ref={markRef} onClick={addPoint}>
+                      <img src={file.previewUrl} alt="Twoje zdjęcie" draggable={false} />
+                      {points.length >= 2 && (
+                        <svg className="adm-mark__svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                          <polyline points={points.map(p => `${p.x*100},${p.y*100}`).join(' ')} vectorEffect="non-scaling-stroke" />
+                        </svg>
+                      )}
+                      {points.map((p, i) => (
+                        <span key={i} className="adm-mark__pt" style={{ left: `${p.x*100}%`, top: `${p.y*100}%` }}>{i + 1}</span>
+                      ))}
+                      {points.length > 0 && (
+                        <span className="adm-mark__tag" style={{ left: `${points[0].x*100}%`, top: `${points[0].y*100}%` }}>Linia zadaszenia</span>
+                      )}
+                      {points.length === 0 && <div className="adm-mark__hint">Opcjonalnie: stukaj / klikaj punkty wzdłuż ściany — narożnik na 2 strony = min. 3 punkty</div>}
+                    </div>
+                    <div className="adm-mark__bar">
+                      {hasLine
+                        ? <span className="adm-mark__ok">✓ Linia zaznaczona ({points.length} pkt)</span>
+                        : points.length === 1
+                          ? <span className="wiz-help" style={{margin:0}}>Dodaj kolejny punkt (min. 2; narożnik = 3)</span>
+                          : <span className="wiz-help" style={{margin:0}}>Opcjonalnie zaznacz, skąd dokąd ma sięgać zadaszenie</span>}
+                      {points.length > 0 && <button type="button" className="wiz-link" onClick={undoPoint}>Cofnij punkt</button>}
+                      {points.length > 0 && <button type="button" className="wiz-link" onClick={clearLine}>Wyczyść</button>}
+                      <button type="button" className="wiz-link" onClick={() => { setFile(null); clearLine(); }}>Zmień zdjęcie</button>
                     </div>
                   </div>
                 )}

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<style>
+  @page { size: A4; margin: 15mm 14mm; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; color: #1c1c1f; font-size: 10.5px; line-height: 1.5; margin: 0; }
+  h1,h2,h3,h4 { margin: 0; }
+  .accent { color: #b8851a; }
+  .muted { color: #6a6a6a; }
+  .header { background: #16171a; color: #fff; padding: 22px 26px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .header .brand { font-size: 22px; font-weight: 800; letter-spacing: .12em; }
+  .header .brand small { display:block; font-size: 10px; font-weight: 600; letter-spacing: .26em; color: #b8b8b8; margin-top: 4px; }
+  .header .doc { text-align: right; }
+  .header .doc .t { font-size: 16px; font-weight: 700; letter-spacing: .18em; }
+  .header .doc .s { font-size: 10px; color: #b8b8b8; margin-top: 4px; }
+  .wrap { padding: 22px 26px; }
+  .meta { display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 18px; }
+  .party { flex: 1; min-width: 230px; border: 1px solid #e4e1d8; border-radius: 10px; padding: 14px 16px; }
+  .party .lbl { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: #9a9a9a; margin-bottom: 6px; }
+  .party .name { font-weight: 700; font-size: 12px; }
+  .party .line { color: #5a5a5a; }
+  .lead { border: 1px solid #e4e1d8; border-radius: 10px; padding: 14px 16px; background: #f6f4ef; margin-bottom: 6px; }
+  .lead b { color:#16171a; }
+  .section-title { font-size: 13px; font-weight: 800; letter-spacing: .02em; margin: 22px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #16171a; }
+  .item { border: 1px solid #e9e6dd; border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; page-break-inside: avoid; }
+  .item .top { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; }
+  .item .nm { font-weight: 800; font-size: 12px; }
+  .item .nm .ix { color:#b8851a; margin-right: 8px; }
+  .item ul { margin: 8px 0 0; padding-left: 16px; columns: 1; }
+  .item li { margin-bottom: 3px; color: #4a4a4a; }
+  .box { border: 1px solid #e4e1d8; border-radius: 10px; padding: 14px 16px; margin-top: 8px; }
+  .box.soft { background: #f6f4ef; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .facts .f { text-align: center; }
+  .facts .f .v { font-size: 18px; font-weight: 800; }
+  .facts .f .k { font-size: 9px; color: #8a8a8a; letter-spacing: .04em; }
+  .benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 22px; }
+  .benefits div { padding-left: 16px; position: relative; color:#3a3a3a; }
+  .benefits div:before { content: "✓"; position: absolute; left: 0; color: #b8851a; font-weight: 800; }
+  ul.plain { margin: 6px 0 0; padding-left: 16px; }
+  ul.plain li { margin-bottom: 3px; }
+  .footer { margin-top: 24px; padding-top: 12px; border-top: 1px solid #e4e1d8; font-size: 9.5px; color: #8a8a8a; display:flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand">ALUKOMFORT<small>PLAST-MET · SYSTEMY ZADASZEŃ</small></div>
+    <div class="doc">
+      <div class="t">OFERTA NR 3</div>
+      <div class="s">Nr OF/2026/06/03 · 15 czerwca 2026 · ważna 30 dni</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="meta">
+      <div class="party">
+        <div class="lbl">Wykonawca</div>
+        <div class="name">[ Imię i nazwisko / nazwa firmy ]</div>
+        <div class="line">[ adres ]</div>
+        <div class="line">[ NIP ] · [ e-mail ] · [ tel. ]</div>
+      </div>
+      <div class="party">
+        <div class="lbl">Zleceniodawca</div>
+        <div class="name">PLAST-MET Sp. z o.o. Sp. k.</div>
+        <div class="line">ul. Milicka 34, 55-100 Trzebnica</div>
+        <div class="line">marka ALUKOMFORT · trzebnica@plast-met.pl</div>
+      </div>
+    </div>
+
+    <div class="lead">
+      <b>Przedmiot oferty:</b> projekt, wykonanie i wdrożenie serwisu internetowego marki ALUKOMFORT —
+      nowoczesnej strony sprzedażowej (lead-generation) dla producenta aluminiowych zadaszeń i pergol
+      (systemy LINEA, HORIZON, ROMA), wraz z autorskim <b>konfiguratorem wizualizacji</b>, który pokazuje
+      klientowi wybraną pergolę na zdjęciu jego tarasu. Całość zbudowana w technologii React i wdrożona
+      na platformie Vercel (statyczny, szybki frontend + funkcja serverless), docelowa domena: alukomfort.pl.
+    </div>
+
+    <div class="section-title">Szczegółowy zakres prac</div>
+
+    <div class="item">
+      <div class="top"><div class="nm"><span class="ix">01</span>Projekt UI/UX i system projektowy</div></div>
+      <ul>
+        <li>Autorski projekt graficzny serwisu (elegancka identyfikacja: antracyt + złoto), spójny dla wszystkich podstron.</li>
+        <li>System powtarzalnych komponentów: przyciski, nagłówki sekcji, karty, tabele, oznaczenia, formularze.</li>
+        <li>Pełna responsywność (komputer / tablet / telefon) wraz z menu mobilnym.</li>
+        <li>Sekcje hero z materiałem wideo na stronie głównej i podstronach produktowych.</li>
+        <li>Dopracowana typografia, siatka, animacje wejścia i stany interaktywne (hover).</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="top"><div class="nm"><span class="ix">02</span>Wdrożenie frontendu — 8 podstron</div></div>
+      <ul>
+        <li><b>Strona główna:</b> hero wideo, pasek atutów (USP), prezentacja 3 systemów, interaktywna tabela porównawcza, teaser realizacji, sekcja konfiguratora, „dlaczego ALUKOMFORT", proces realizacji w 5 krokach, strefa „dla domu / dla biznesu", blok „producent, nie pośrednik", FAQ (akordeon), sekcje CTA.</li>
+        <li><b>3 rozbudowane karty produktów</b> (LINEA, HORIZON, ROMA): hero, zastosowania, najważniejsze cechy, parametry techniczne, budowa systemu, pokrycia dachowe z interaktywnym wyborem wariantu, warianty/moduły, personalizacja i dodatki, przykłady realizacji, konfigurator kolorów, certyfikaty i dokumenty do pobrania.</li>
+        <li><b>/realizacje:</b> opisy wdrożeń, galeria w trybie lightbox, materiały wideo (timelapse).</li>
+        <li><b>/kontakt:</b> formularz zapytania ofertowego, dane kontaktowe i lokalizacja.</li>
+        <li>Nawigacja z rozwijanym menu „Produkty", okruszki (breadcrumbs), routing, leniwe ładowanie obrazów (wydajność).</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="top"><div class="nm"><span class="ix">03</span>Konfigurator „Wizualizacja"</div></div>
+      <ul>
+        <li>Kreator krok po kroku: wybór produktu → koloru (8 wykończeń: RAL oraz drewnopodobne) → rodzaju dachu (zależnie od produktu) → rodzaju zabudowy (otwarta / ze ścianami / ogród zimowy) → wgranie zdjęcia.</li>
+        <li>Generowanie fotorealistycznego podglądu wybranej pergoli na zdjęciu tarasu klienta — z zachowaniem oryginalnego światła, perspektywy i otoczenia.</li>
+        <li>Część serwerowa (funkcja serverless), automatyczne skalowanie i optymalizacja przesyłanego zdjęcia, walidacja danych, limity zapytań.</li>
+        <li>Przechwytywanie zapytań ofertowych (lead: e-mail + telefon) wraz z powiadomieniem.</li>
+        <li>Logika reguł produktowych (np. ROMA dostępna wyłącznie jako konstrukcja otwarta).</li>
+        <li>Panel handlowca z zaznaczaniem na zdjęciu miejsca i przebiegu zadaszenia (linia wielopunktowa, także za narożnik).</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="top"><div class="nm"><span class="ix">04</span>Treści i copywriting ekspercki</div></div>
+      <ul>
+        <li>Opisy 3 systemów produktowych, treści strony głównej oraz sekcja FAQ.</li>
+        <li>Sekcje techniczne opracowane na bazie dokumentacji producenta: budowa/anatomia konstrukcji, pokrycia (poliwęglan, szkło ESG/VSG, normy), parametry, montaż, pielęgnacja.</li>
+        <li>Redakcja pod kątem SEO, poprawności językowej i spójności w całym serwisie.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="top"><div class="nm"><span class="ix">05</span>Kreacja wizualna — grafika i wideo</div></div>
+      <ul>
+        <li>166 grafik: kafelki produktów, 24 podglądy kolorów (3 produkty × 8 wykończeń), ~30 ikon, wizualizacje produktów, przykłady realizacji, grafiki sekcji.</li>
+        <li>6 materiałów wideo (hero oraz timelapse realizacji).</li>
+        <li>Obróbka, kadrowanie i optymalizacja materiałów; przygotowanie elementów graficznych (m.in. logo certyfikatu).</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="top"><div class="nm"><span class="ix">06</span>SEO / AEO / GEO</div></div>
+      <ul>
+        <li>Dane strukturalne JSON-LD: LocalBusiness, Product, FAQPage (lepsza widoczność w Google i wyszukiwarkach AI).</li>
+        <li>Meta-tytuły i opisy dla każdej podstrony, znaczniki Open Graph (udostępnienia w social media).</li>
+        <li>Canonical, sitemap.xml, robots.txt, llms.txt, optymalizacja fraz kluczowych (pergole, zadaszenia, frazy produktowe).</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="top"><div class="nm"><span class="ix">07</span>Wdrożenie i konfiguracja (DevOps)</div></div>
+      <ul>
+        <li>Publikacja serwisu na platformie Vercel z automatycznym wdrażaniem zmian z repozytorium.</li>
+        <li>Konfiguracja zmiennych środowiskowych oraz funkcji serwerowej konfiguratora.</li>
+        <li>Przygotowanie pod podłączenie domeny docelowej.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="top"><div class="nm"><span class="ix">08</span>Zarządzanie projektem, iteracje i QA</div></div>
+      <ul>
+        <li>Prowadzenie projektu i rundy poprawek zgodnie z uwagami Zleceniodawcy.</li>
+        <li>Testy end-to-end konfiguratora oraz kontrola jakości treści, spójności i poprawnego wyświetlania.</li>
+      </ul>
+    </div>
+
+    <div class="section-title">Co zyskuje Zleceniodawca</div>
+    <div class="box soft benefits">
+      <div>Strona, która realnie sprzedaje — nastawiona na pozyskiwanie zapytań (lead-generation).</div>
+      <div>Wyróżnik rynkowy: konfigurator wizualizacji, którego konkurencja nie posiada.</div>
+      <div>Wizerunek producenta-eksperta (treści techniczne, certyfikaty, realizacje).</div>
+      <div>Pełne prawa autorskie do strony i materiałów po opłaceniu całości.</div>
+      <div>Szybki, bezobsługowy hosting i niskie koszty utrzymania.</div>
+      <div>Architektura gotowa do rozbudowy o kolejne produkty i podstrony.</div>
+    </div>
+
+    <div class="section-title">Zakres ilościowy projektu</div>
+    <div class="box soft facts">
+      <div class="f"><div class="v">8</div><div class="k">podstron</div></div>
+      <div class="f"><div class="v">~5 170</div><div class="k">linii kodu (frontend + style)</div></div>
+      <div class="f"><div class="v">166</div><div class="k">grafik</div></div>
+      <div class="f"><div class="v">6</div><div class="k">materiałów wideo</div></div>
+    </div>
+
+    <div class="section-title">Warunki</div>
+    <div class="box">
+      <ul class="plain">
+        <li>Oferta ważna 30 dni od daty wystawienia.</li>
+        <li>Oferta obejmuje przeniesienie majątkowych praw autorskich do dostarczonych materiałów po opłaceniu całości.</li>
+        <li>Sugerowany model płatności: zaliczka przy starcie oraz pozostała część po odbiorze i wdrożeniu.</li>
+        <li>Wsparcie powdrożeniowe i rozwój serwisu — ustalane odrębnie.</li>
+        <li>Dokument ma charakter informacyjny i nie stanowi oferty handlowej w rozumieniu Kodeksu Cywilnego.</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <div>ALUKOMFORT · PLAST-MET Sp. z o.o. Sp. k. · ul. Milicka 34, 55-100 Trzebnica</div>
+      <div>Oferta nr 3 · wygenerowano 15.06.2026</div>
+    </div>
+  </div>
+</body>
+</html>
