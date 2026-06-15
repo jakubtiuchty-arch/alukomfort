@@ -5,7 +5,7 @@
 
 // Bryła konstrukcji — bez opisu pokrycia dachu (to dokłada ROOF_PROMPTS)
 const PRODUCT_PROMPTS = {
-  linea: 'ALUKOMFORT LINEA — an aluminum terrace canopy (wall-mounted or freestanding, whichever suits the scene) with slim aluminum posts (150×100mm) and a clean mono-pitch roof with a FIXED, constant 8-degree (8°) slope — gently inclined, higher at the wall/back side and lower at the front edge for water runoff (this 8° pitch is the standard for LINEA and must always be kept)',
+  linea: 'ALUKOMFORT LINEA — an aluminum terrace canopy (wall-mounted or freestanding, whichever suits the scene) with slim aluminum posts (150×100mm) and a clean mono-pitch (single-slope) roof with a FIXED, constant 8-degree (8°) downward slope. The roof MUST ALWAYS slope DOWNWARD AWAY FROM THE BUILDING: the side attached to the house wall is the HIGHEST point and the outer/far edge (away from the house) is the LOWEST point, so rainwater always runs away from the building. This visible downward tilt away from the house must always be present — never a flat horizontal roof and never sloping toward the house. This 8° pitch is the LINEA standard',
   horizon: 'ALUKOMFORT HORIZON — a modern aluminum bioclimatic pergola with a slim flat roof crown and clean architectural lines',
   roma: 'ALUKOMFORT ROMA — a lightweight aluminum fabric pergola with slim supports, Mediterranean style',
 };
@@ -34,7 +34,7 @@ const ENCLOSURE_PROMPTS = {
   winter: 'Fully enclose it as a winter garden / conservatory with floor-to-ceiling glass walls and sliding glass doors on all open sides, forming a closed all-year room.',
   szyby: 'Close the open sides with large sliding glass panels (clear glazed sliding doors in slim aluminum frames), set strictly within the pergola footprint between the posts. The front stays accessible.',
   screen: 'Lower vertical fabric screen roller blinds on the TWO open outer sides of the pergola (the two sides that are NOT against the house wall), each a textile screen in a slim top cassette in the frame color, each strictly within the footprint between the posts. BOTH open sides must clearly show a screen blind — not just one. The sides adjacent to the building stay closed by the house wall.',
-  zaluzje: 'Close ONE side opening of the pergola with adjustable aluminum louvre blades (evenly spaced horizontal slats with small gaps, in the frame color), fitted strictly within the side opening between the posts. The front and other sides stay open.',
+  zaluzje: 'Close the TWO open outer sides of the pergola (the two sides that are NOT against the house wall) with adjustable aluminum louvre blades (evenly spaced slats with small gaps, in the frame color), each fitted strictly within the footprint between the posts. BOTH open sides must clearly show louvre blinds — not just one. The sides adjacent to the building stay closed by the house wall.',
   panele: 'Add a clearly visible SOLID, OPAQUE, FLAT aluminum wall panel that fully closes ONE side of the pergola, from floor to roof, in the same color as the frame — a smooth continuous cladding surface with NO slats, NO gaps, NOT louvers, NOT glass, NOT fabric. The panel is the same width as that side of the pergola and does not extend past the structure. The front and the other side stay open. This side wall must be present and visible in the image.',
 };
 
