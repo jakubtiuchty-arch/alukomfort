@@ -36,10 +36,12 @@ function App() {
     if (reduce || !('IntersectionObserver' in window)) return;
     const targets = Array.from(document.querySelectorAll('.section'));
     if (!targets.length) return;
-    targets.forEach(el => el.classList.add('reveal-on-scroll'));
+    // Używamy atrybutu data-reveal (nie klasy) — React nie nadpisuje nieznanych
+    // atrybutów DOM przy re-renderze, więc animacja przetrwa zmiany stanu strony.
+    targets.forEach(el => { if (!el.getAttribute('data-reveal')) el.setAttribute('data-reveal', 'out'); });
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        if (e.isIntersecting) { e.target.setAttribute('data-reveal', 'in'); io.unobserve(e.target); }
       });
     }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
     targets.forEach(el => io.observe(el));
