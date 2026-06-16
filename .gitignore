@@ -11,3 +11,8 @@ Thumbs.db
 *.log
 Materiały/
 .vercel
+
+# Surowe cenniki producenta (dane wewnętrzne — nie publikować)
+Cennik*.xlsx
+Cennik_*.xlsx
+*.xlsx

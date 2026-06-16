@@ -1808,6 +1808,44 @@ img { display: block; max-width: 100%; }
   .onas-values { grid-template-columns: 1fr; gap: 22px; }
 }
 
+/* === Cennik produktowy (LINEA kalkulator, HORIZON tabele) === */
+.pricing { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: stretch; }
+.pricing__controls { display: flex; flex-direction: column; gap: 14px; }
+.pricing__field { display: flex; flex-direction: column; gap: 6px; }
+.pricing__field > span { font-size: 12px; font-weight: 700; letter-spacing: .04em; color: var(--muted); text-transform: uppercase; }
+.pricing__field select { width: 100%; border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 13px; font-size: 15px; background: #fff; }
+.pricing__field select:focus { outline: none; border-color: var(--ink); }
+.pricing__result { background: #16171a; color: #fff; border-radius: 16px; padding: 28px 26px; display: flex; flex-direction: column; justify-content: center; }
+.pricing__net { font-size: 34px; font-weight: 800; line-height: 1.1; }
+.pricing__net span { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.6); }
+.pricing__net--ask { font-size: 24px; }
+.pricing__gross { font-size: 15px; color: rgba(255,255,255,0.72); margin-top: 6px; }
+.pricing__dims { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 16px; border-top: 1px solid rgba(255,255,255,0.14); padding-top: 14px; }
+.pricing__note { font-size: 12.5px; color: var(--muted); line-height: 1.6; margin: 14px 0 0; max-width: 760px; }
+.pricing__addons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 22px; margin-top: 12px; }
+.pricing__addon { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.pricing__addon-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.pricing__addon-name { font-size: 14px; font-weight: 700; color: var(--ink); }
+.pricing__addon-price { font-size: 14px; font-weight: 800; white-space: nowrap; }
+.pricing__addon-price em { font-size: 11px; font-weight: 600; color: var(--muted); font-style: normal; }
+.pricing__addon-note { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.pricing-h__block { margin-bottom: 18px; }
+.pricing-h__head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+.pricing-h__head strong { font-size: 15px; color: var(--ink); }
+.pricing-h__head span { font-size: 12.5px; color: var(--muted); }
+.pricing-h__wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.pricing-h__table { width: 100%; border-collapse: collapse; min-width: 420px; font-size: 14px; }
+.pricing-h__table th, .pricing-h__table td { text-align: left; padding: 11px 14px; border: 1px solid var(--line); }
+.pricing-h__table thead th { background: var(--bg-soft, #f5f3ee); font-weight: 700; font-size: 12.5px; }
+.pricing-h__table td { font-weight: 700; color: var(--ink); }
+.pricing-h__table td small { font-weight: 600; color: var(--muted); font-size: 11px; margin-left: 2px; }
+.pricing-h__size { background: var(--bg-soft, #f5f3ee); }
+@media (max-width: 760px) {
+  .pricing { grid-template-columns: 1fr; }
+  .pricing__addons { grid-template-columns: 1fr; }
+  .pricing__net { font-size: 28px; }
+}
+
 /* === Reveal sekcji przy scrollu (data-reveal: out/in — odporne na re-render React) === */
 [data-reveal] { transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.20,1); will-change: opacity, transform; }
 [data-reveal="out"] { opacity: 0; transform: translateY(32px); }

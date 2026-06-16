@@ -173,6 +173,8 @@ function ProductLinea({ onQuote }) {
 
       <ColorsSection previews={LINEA_COLOR_PREVIEWS} roofs={p.roofs} />
 
+      <PricingLinea />
+
       <section className="section">
         <div className="container">
           <CertBar />
