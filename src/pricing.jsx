@@ -537,7 +537,7 @@ function PricingLinea({ onQuote }) {
           </div>
         </div>
 
-        <h4 className="block-title" style={{ marginTop: 26 }}>Zabudowa ścian i dodatki</h4>
+        <h4 className="block-title pricing__subhead">Zabudowa ścian i dodatki</h4>
         <div className="pricing__addons">
           {LINEA_ADDONS.map((a, i) => (
             <div key={i} className="pricing__addon">
@@ -616,7 +616,7 @@ function PricingHorizon({ onQuote }) {
           </div>
         </div>
 
-        <h4 className="block-title" style={{ marginTop: 26 }}>Systemy ścienne (HORIZON DELUX)</h4>
+        <h4 className="block-title pricing__subhead">Systemy ścienne (HORIZON DELUX)</h4>
         <div className="pricing__addons">
           {H.walls.map((w, i) => (
             <div key={i} className="pricing__addon">
