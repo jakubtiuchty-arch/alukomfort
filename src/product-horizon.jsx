@@ -1,14 +1,13 @@
 // Podstrona produktu HORIZON
 
 const HORIZON_COLOR_PREVIEWS = {
-  'RAL 7016':      'uploads/colors-preview/horizon/ral-7016.webp',
-  'RAL 9005':      'uploads/colors-preview/horizon/ral-9005.webp',
-  'RAL 9010':      'uploads/colors-preview/horizon/ral-9010.webp',
-  'RAL 7039':      'uploads/colors-preview/horizon/ral-7039.webp',
-  'Czarna wiśnia': 'uploads/colors-preview/horizon/wisnia.webp',
-  'Sosna':         'uploads/colors-preview/horizon/sosna.webp',
-  'Srebrny dąb':   'uploads/colors-preview/horizon/srebrny.webp',
-  'Złoty dąb':     'uploads/colors-preview/horizon/zloty.webp',
+  'RAL 7016':   'uploads/colors-preview/horizon/ral-7016.webp',
+  'RAL 9005':   'uploads/colors-preview/horizon/ral-9005.webp',
+  'RAL 9010':   'uploads/colors-preview/horizon/ral-9010.webp',
+  'Terra':      'uploads/colors-preview/horizon/terra.webp',
+  'Grey Brown': 'uploads/colors-preview/horizon/grey-brown.webp',
+  'Mica':       'uploads/colors-preview/horizon/mica.webp',
+  'Azzurro':    'uploads/colors-preview/horizon/azzurro.webp',
 };
 
 function ProductHorizon({ onQuote }) {

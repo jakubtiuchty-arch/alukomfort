@@ -1,14 +1,13 @@
 // Podstrona produktu LINEA
 
 const LINEA_COLOR_PREVIEWS = {
-  'RAL 7016':      'uploads/colors-preview/linea/ral-7016.webp',
-  'RAL 9005':      'uploads/colors-preview/linea/ral-9005.webp',
-  'RAL 9010':      'uploads/colors-preview/linea/ral-9010.webp',
-  'RAL 7039':      'uploads/colors-preview/linea/ral-7039.webp',
-  'Czarna wiśnia': 'uploads/colors-preview/linea/wisnia.webp',
-  'Sosna':         'uploads/colors-preview/linea/sosna.webp',
-  'Srebrny dąb':   'uploads/colors-preview/linea/srebrny.webp',
-  'Złoty dąb':     'uploads/colors-preview/linea/zloty.webp',
+  'RAL 7016':   'uploads/colors-preview/linea/ral-7016.webp',
+  'RAL 9005':   'uploads/colors-preview/linea/ral-9005.webp',
+  'RAL 9010':   'uploads/colors-preview/linea/ral-9010.webp',
+  'Terra':      'uploads/colors-preview/linea/terra.webp',
+  'Grey Brown': 'uploads/colors-preview/linea/grey-brown.webp',
+  'Mica':       'uploads/colors-preview/linea/mica.webp',
+  'Azzurro':    'uploads/colors-preview/linea/azzurro.webp',
 };
 
 function ProductLinea({ onQuote }) {

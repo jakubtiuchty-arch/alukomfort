@@ -1,14 +1,13 @@
 // Podstrona produktu ROMA
 
 const ROMA_COLOR_PREVIEWS = {
-  'RAL 7016':      'uploads/colors-preview/roma/ral-7016.webp',
-  'RAL 9005':      'uploads/colors-preview/roma/ral-9005.webp',
-  'RAL 9010':      'uploads/colors-preview/roma/ral-9010.webp',
-  'RAL 7039':      'uploads/colors-preview/roma/ral-7039.webp',
-  'Czarna wiśnia': 'uploads/colors-preview/roma/wisnia.webp',
-  'Sosna':         'uploads/colors-preview/roma/sosna.webp',
-  'Srebrny dąb':   'uploads/colors-preview/roma/srebrny.webp',
-  'Złoty dąb':     'uploads/colors-preview/roma/zloty.webp',
+  'RAL 7016':   'uploads/colors-preview/roma/ral-7016.webp',
+  'RAL 9005':   'uploads/colors-preview/roma/ral-9005.webp',
+  'RAL 9010':   'uploads/colors-preview/roma/ral-9010.webp',
+  'Terra':      'uploads/colors-preview/roma/terra.webp',
+  'Grey Brown': 'uploads/colors-preview/roma/grey-brown.webp',
+  'Mica':       'uploads/colors-preview/roma/mica.webp',
+  'Azzurro':    'uploads/colors-preview/roma/azzurro.webp',
 };
 
 function ProductRoma({ onQuote }) {

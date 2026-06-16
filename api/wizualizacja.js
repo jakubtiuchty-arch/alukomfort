@@ -46,14 +46,13 @@ const MONTAZ_PROMPTS = {
 };
 
 const COLOR_OVERRIDES = {
-  'ral-7016': 'anthracite RAL 7016 structured finish on the aluminum frame',
-  'ral-9005': 'deep black RAL 9005 structured finish on the aluminum frame',
+  'ral-7016': 'anthracite grey RAL 7016 fine-structure powder-coat finish on the aluminum frame',
+  'ral-9005': 'deep black RAL 9005 fine-structure powder-coat finish on the aluminum frame',
   'ral-9010': 'pure white RAL 9010 matte finish on the aluminum frame',
-  'ral-7039': 'quartz grey RAL 7039 matte finish on the aluminum frame',
-  'czarna-wisnia': 'wood-textured "Black Cherry" finish on the aluminum frame',
-  'sosna': 'wood-textured "Pine" finish on the aluminum frame',
-  'srebrny-dab': 'wood-textured "Silver Oak" finish on the aluminum frame',
-  'zloty-dab': 'wood-textured "Golden Oak" finish on the aluminum frame',
+  'terra': 'warm sandy-beige "Terra" textured powder-coat finish on the aluminum frame',
+  'grey-brown': 'dark grey-brown metallic "Grey Brown" textured powder-coat finish on the aluminum frame',
+  'mica': 'dark graphite "Mica" metallic powder-coat finish with subtle sparkle on the aluminum frame',
+  'azzurro': 'dark blue-grey "Azzurro" metallic powder-coat finish on the aluminum frame',
 };
 
 function buildPrompt(product, color, roof, enclosure, notes, extra) {

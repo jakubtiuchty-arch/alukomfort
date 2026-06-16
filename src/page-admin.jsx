@@ -1,14 +1,13 @@
 // Panel handlowca /admin — generator wizualizacji u klienta (aparat + pełne opcje serii)
 
 const ADMIN_COLORS = [
-  { id: 'ral-7016',     name: 'Antracyt RAL 7016',  swatch: '#2c3033' },
-  { id: 'ral-9005',     name: 'Czarny RAL 9005',    swatch: '#0c0c0c' },
-  { id: 'ral-9010',     name: 'Biały RAL 9010',     swatch: '#f2f0ea' },
-  { id: 'ral-7039',     name: 'Szary RAL 7039',     swatch: '#6d6a63' },
-  { id: 'czarna-wisnia',name: 'Czarna wiśnia',      swatch: '#3a201c' },
-  { id: 'sosna',        name: 'Sosna',              swatch: '#b6783a' },
-  { id: 'srebrny-dab',  name: 'Srebrny dąb',        swatch: '#9b948a' },
-  { id: 'zloty-dab',    name: 'Złoty dąb',          swatch: '#a8631f' },
+  { id: 'ral-7016',  name: 'Antracyt RAL 7016', swatch: '#2c3033' },
+  { id: 'ral-9005',  name: 'Czarny RAL 9005',   swatch: '#0c0c0c' },
+  { id: 'ral-9010',  name: 'Biały RAL 9010',    swatch: '#f2f0ea' },
+  { id: 'terra',     name: 'Terra',             swatch: '#bea991' },
+  { id: 'grey-brown',name: 'Grey Brown',        swatch: '#646363' },
+  { id: 'mica',      name: 'Mica',              swatch: '#53565c' },
+  { id: 'azzurro',   name: 'Azzurro',           swatch: '#464b55' },
 ];
 
 const ADMIN_PRODUCTS = [

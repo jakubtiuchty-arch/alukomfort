@@ -1,17 +1,16 @@
 // Dane produktów — dokładnie wg referencji (polski tekst, tabelki, kolory RAL, warianty)
 
 const COLORS_BASE = [
-  { name: 'RAL 7016', sub: 'Struktura', hex: '#2c3033', preview: 'uploads/colors-preview/ral-7016.webp' },
-  { name: 'RAL 9005', sub: 'Struktura', hex: '#0c0c0c', preview: 'uploads/colors-preview/ral-9005.webp' },
-  { name: 'RAL 9010', sub: 'Mat',       hex: '#f2f0ea', preview: 'uploads/colors-preview/ral-9010.webp' },
-  { name: 'RAL 7039', sub: 'Mat',       hex: '#6d6a63', preview: 'uploads/colors-preview/ral-7039.webp' },
+  { name: 'RAL 7016', sub: 'Struktura', hex: '#2c3033', preview: 'uploads/colors-preview/linea/ral-7016.webp' },
+  { name: 'RAL 9005', sub: 'Struktura', hex: '#0c0c0c', preview: 'uploads/colors-preview/linea/ral-9005.webp' },
+  { name: 'RAL 9010', sub: 'Mat',       hex: '#f2f0ea', preview: 'uploads/colors-preview/linea/ral-9010.webp' },
 ];
 
 const COLORS_PREMIUM = [
-  { name: 'Czarna wiśnia', sub: 'Drewnopodobny', img: 'uploads/colors-preview/swatch-wisnia.webp', hex: '#3a201c', preview: 'uploads/colors-preview/wisnia.webp' },
-  { name: 'Sosna',         sub: 'Drewnopodobny', img: 'uploads/sosna.webp',         hex: '#b6783a', preview: 'uploads/colors-preview/sosna.webp' },
-  { name: 'Srebrny dąb',   sub: 'Drewnopodobny', img: 'uploads/srebrny-dab.webp',   hex: '#9b948a', preview: 'uploads/colors-preview/srebrny.webp' },
-  { name: 'Złoty dąb',     sub: 'Drewnopodobny', img: 'uploads/zloty-dab.webp',     hex: '#a8631f', preview: 'uploads/colors-preview/zloty.webp' },
+  { name: 'Terra',      sub: 'Premium', img: 'uploads/colors-preview/swatch-terra.webp',      hex: '#bea991', preview: 'uploads/colors-preview/linea/terra.webp' },
+  { name: 'Grey Brown', sub: 'Premium', img: 'uploads/colors-preview/swatch-grey-brown.webp', hex: '#646363', preview: 'uploads/colors-preview/linea/grey-brown.webp' },
+  { name: 'Mica',       sub: 'Premium', img: 'uploads/colors-preview/swatch-mica.webp',       hex: '#53565c', preview: 'uploads/colors-preview/linea/mica.webp' },
+  { name: 'Azzurro',    sub: 'Premium', img: 'uploads/colors-preview/swatch-azzurro.webp',    hex: '#464b55', preview: 'uploads/colors-preview/linea/azzurro.webp' },
 ];
 
 // Linea
