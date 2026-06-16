@@ -542,47 +542,65 @@ function PricingLinea() {
 // --- HORIZON: tabele wariantów (rozmiary CORE × pokrycie) ---
 function PricingHorizon() {
   const H = HORIZON_PRICING;
-  const Block = ({ title, note, items }) => (
-    <div className="pricing-h__block">
-      <div className="pricing-h__head"><strong>{title}</strong>{note ? <span>{note}</span> : null}</div>
-      <div className="pricing-h__wrap">
-        <table className="pricing-h__table">
-          <thead><tr><th>Rozmiar</th><th>Szkło ESG+EVG 55.2</th><th>Aluminiowe lamele 200</th></tr></thead>
-          <tbody>
-            {items.map((it, i) => (
-              <tr key={i}>
-                <td className="pricing-h__size">CORE {it.size.replace("x","×")}</td>
-                <td>{fmtPLN(it.glass)} <small>netto</small></td>
-                <td>{fmtPLN(it.lamele)} <small>netto</small></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
+  const COVER = { glass: 'Szkło ESG+EVG 55.2', lamele: 'Aluminiowe lamele 200', opal: 'Poliwęglan OPAL UV' };
+  const LINES = [
+    { id: 'standard', name: 'HORIZON Standard', items: H.std,     coverings: ['glass', 'lamele'] },
+    { id: 'lux',      name: 'HORIZON LUX',      items: H.lux,     coverings: ['glass', 'lamele'] },
+    { id: 'delux',    name: 'HORIZON DELUX',    items: H.delux,   coverings: ['glass', 'lamele'] },
+    { id: 'carport',  name: 'HORIZON Carport',  items: H.carport, coverings: ['opal'] },
+  ];
+  const [line, setLine] = React.useState('standard');
+  const [sizeIdx, setSizeIdx] = React.useState(0);
+  const [cover, setCover] = React.useState('glass');
+  const lineObj = LINES.find(l => l.id === line) || LINES[0];
+  const effSizeIdx = Math.min(sizeIdx, lineObj.items.length - 1);
+  const item = lineObj.items[effSizeIdx];
+  const effCover = lineObj.coverings.includes(cover) ? cover : lineObj.coverings[0];
+  const net = item ? item[effCover] : null;
+  const sizeLabel = item ? ('CORE ' + item.size.replace('x', '×')) : '';
+
   return (
     <section className="section section--soft">
       <div className="container">
         <SectionHead title="Orientacyjny cennik HORIZON"
-          sub="Ceny sugerowane netto dla gotowych modułów CORE. Do cen netto należy doliczyć VAT 23%." />
-        <Block title="HORIZON Standard" note="Słupy konstrukcyjne 140×140×4, narożne" items={H.std} />
-        <Block title="HORIZON LUX" note="Powiększony wysięg 2000 mm" items={H.lux} />
-        <Block title="HORIZON DELUX" note="Wersja topowa, CORE 6×4" items={H.delux} />
-
-        <div className="pricing-h__block">
-          <div className="pricing-h__head"><strong>HORIZON Carport</strong><span>Poliwęglan OPAL UV</span></div>
-          <div className="pricing-h__wrap">
-            <table className="pricing-h__table">
-              <thead><tr><th>Rozmiar</th><th>Poliwęglan OPAL UV</th></tr></thead>
-              <tbody>
-                {H.carport.map((c, i) => (
-                  <tr key={i}><td className="pricing-h__size">CORE {c.size.replace("x","×")}</td><td>{fmtPLN(c.opal)} <small>netto</small></td></tr>
-                ))}
-              </tbody>
-            </table>
+          sub="Wybierz wariant, rozmiar i pokrycie — pokażemy sugerowaną cenę gotowego modułu CORE. Projekty indywidualne wyceniamy osobno." />
+        <div className="pricing">
+          <div className="pricing__controls">
+            <label className="pricing__field">
+              <span>Wariant</span>
+              <select value={line} onChange={e => { setLine(e.target.value); setSizeIdx(0); }}>
+                {LINES.map(l => <option key={l.id} value={l.id}>{l.name}</option>)}
+              </select>
+            </label>
+            <label className="pricing__field">
+              <span>Rozmiar (CORE)</span>
+              <select value={effSizeIdx} onChange={e => setSizeIdx(Number(e.target.value))}>
+                {lineObj.items.map((it, i) => <option key={i} value={i}>CORE {it.size.replace('x', '×')}</option>)}
+              </select>
+            </label>
+            <label className="pricing__field">
+              <span>Pokrycie</span>
+              <select value={effCover} onChange={e => setCover(e.target.value)} disabled={lineObj.coverings.length < 2}>
+                {lineObj.coverings.map(c => <option key={c} value={c}>{COVER[c]}</option>)}
+              </select>
+            </label>
+          </div>
+          <div className="pricing__result">
+            {net ? (
+              <React.Fragment>
+                <div className="pricing__net">{fmtPLN(net)} <span>netto</span></div>
+                <div className="pricing__gross">{fmtPLN(net * PRICING_VAT)} brutto (z VAT 23%)</div>
+              </React.Fragment>
+            ) : (
+              <div className="pricing__net pricing__net--ask">Wycena indywidualna</div>
+            )}
+            <div className="pricing__dims">{lineObj.name} · {sizeLabel} · {COVER[effCover]}</div>
           </div>
         </div>
+        <p className="pricing__note">
+          Cena orientacyjna (sugerowana), netto — gotowy moduł CORE z wybranym pokryciem.
+          Nie stanowi oferty w rozumieniu art. 71 Kodeksu cywilnego; dokładną wycenę przygotujemy indywidualnie.
+        </p>
 
         <h4 className="block-title" style={{ marginTop: 26 }}>Systemy ścienne (HORIZON DELUX)</h4>
         <div className="pricing__addons">
