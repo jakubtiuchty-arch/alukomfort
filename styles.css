@@ -1836,7 +1836,7 @@ img { display: block; max-width: 100%; }
 .pricing-section { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .pricing__subhead { margin-top: 52px; padding-top: 38px; border-top: 1px solid var(--line); margin-bottom: 20px; }
 .pricing__addons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 22px; margin-top: 4px; }
-.pricing__addon { border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+.pricing__addon { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
 .pricing__addon-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 .pricing__addon-name { font-size: 14px; font-weight: 700; color: var(--ink); }
 .pricing__addon-price { font-size: 14px; font-weight: 800; white-space: nowrap; }
