@@ -1809,7 +1809,7 @@ img { display: block; max-width: 100%; }
 }
 
 /* === Cennik produktowy (LINEA kalkulator, HORIZON tabele) === */
-.pricing { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: stretch; }
+.pricing { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: start; }
 .pricing__controls { display: flex; flex-direction: column; gap: 14px; }
 .pricing__field { display: flex; flex-direction: column; gap: 6px; }
 .pricing__field > span { font-size: 12px; font-weight: 700; letter-spacing: .04em; color: var(--muted); text-transform: uppercase; }
