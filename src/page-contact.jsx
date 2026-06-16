@@ -52,14 +52,14 @@ function PageContact({ onQuote }) {
               </p>
 
               <div style={{display: 'flex', flexDirection: 'column', gap: 0, borderTop: '1px solid var(--line)'}}>
-                <ContactRow icon={<Icon.Entrance size={22} />} label="Adres" lines={['ul. Milicka 34', '55-100 Trzebnica']} />
-                <ContactRow icon={<Icon.Auto size={22} />} label="Telefon" lines={[
+                <ContactRow icon={<Icon.Pin size={22} />} label="Adres" lines={['ul. Milicka 34', '55-100 Trzebnica']} />
+                <ContactRow icon={<Icon.Phone size={22} />} label="Telefon" lines={[
                   <a key="p1" href="tel:+48512622666" style={{fontWeight:600}}>512 622 666</a>,
                 ]} />
-                <ContactRow icon={<Icon.Arrow size={22} />} label="E-mail" lines={[
+                <ContactRow icon={<Icon.Mail size={22} />} label="E-mail" lines={[
                   <a key="e" href="mailto:trzebnica@plast-met.pl" style={{fontWeight:600}}>trzebnica@plast-met.pl</a>
                 ]} />
-                <ContactRow icon={<Icon.Led size={22} />} label="Godziny otwarcia" lines={['pn–pt: 7:30 – 15:30']} />
+                <ContactRow icon={<Icon.Auto size={22} />} label="Godziny otwarcia" lines={['pn–pt: 7:30 – 15:30']} />
               </div>
 
               <div style={{marginTop: 28, display: 'flex', gap: 12}}>
