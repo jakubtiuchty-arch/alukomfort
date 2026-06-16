@@ -544,10 +544,10 @@ function PricingHorizon() {
   const H = HORIZON_PRICING;
   const COVER = { glass: 'Szkło ESG+EVG 55.2', lamele: 'Aluminiowe lamele 200', opal: 'Poliwęglan OPAL UV' };
   const LINES = [
-    { id: 'standard', name: 'HORIZON Standard', items: H.std,     coverings: ['glass', 'lamele'] },
-    { id: 'lux',      name: 'HORIZON LUX',      items: H.lux,     coverings: ['glass', 'lamele'] },
-    { id: 'delux',    name: 'HORIZON DELUX',    items: H.delux,   coverings: ['glass', 'lamele'] },
-    { id: 'carport',  name: 'HORIZON Carport',  items: H.carport, coverings: ['opal'] },
+    { id: 'standard', name: 'HORIZON Standard', opt: 'Standard',                          desc: 'Wersja podstawowa — moduły 4–6 m szerokości.', items: H.std,     coverings: ['glass', 'lamele'] },
+    { id: 'lux',      name: 'HORIZON LUX',      opt: 'LUX — głębszy (do 8 m szerokości)',  desc: 'Powiększone moduły, głębokość zadaszenia do 2 m.', items: H.lux,     coverings: ['glass', 'lamele'] },
+    { id: 'delux',    name: 'HORIZON DELUX',    opt: 'DELUX — z możliwością zabudowy ścian', desc: 'Najbogatsza wersja, przystosowana do zabudowy ścian.', items: H.delux,   coverings: ['glass', 'lamele'] },
+    { id: 'carport',  name: 'HORIZON Carport',  opt: 'Carport — wiata na samochód',        desc: 'Zadaszenie na samochód z lekkim poliwęglanem.', items: H.carport, coverings: ['opal'] },
   ];
   const [line, setLine] = React.useState('standard');
   const [sizeIdx, setSizeIdx] = React.useState(0);
@@ -557,29 +557,30 @@ function PricingHorizon() {
   const item = lineObj.items[effSizeIdx];
   const effCover = lineObj.coverings.includes(cover) ? cover : lineObj.coverings[0];
   const net = item ? item[effCover] : null;
-  const sizeLabel = item ? ('CORE ' + item.size.replace('x', '×')) : '';
+  const sizeLabel = item ? (item.size.replace('x', ' × ') + ' m') : '';
 
   return (
     <section className="section section--soft">
       <div className="container">
         <SectionHead title="Orientacyjny cennik HORIZON"
-          sub="Wybierz wariant, rozmiar i pokrycie — pokażemy sugerowaną cenę gotowego modułu CORE. Projekty indywidualne wyceniamy osobno." />
+          sub="Wybierz wariant, wymiary i pokrycie dachu — pokażemy sugerowaną cenę gotowego zadaszenia. Wymiary niestandardowe i projekty indywidualne wyceniamy osobno." />
         <div className="pricing">
           <div className="pricing__controls">
             <label className="pricing__field">
               <span>Wariant</span>
               <select value={line} onChange={e => { setLine(e.target.value); setSizeIdx(0); }}>
-                {LINES.map(l => <option key={l.id} value={l.id}>{l.name}</option>)}
+                {LINES.map(l => <option key={l.id} value={l.id}>{l.opt}</option>)}
               </select>
+              <small className="pricing__hint">{lineObj.desc}</small>
             </label>
             <label className="pricing__field">
-              <span>Rozmiar (CORE)</span>
+              <span>Wymiary (szerokość × głębokość)</span>
               <select value={effSizeIdx} onChange={e => setSizeIdx(Number(e.target.value))}>
-                {lineObj.items.map((it, i) => <option key={i} value={i}>CORE {it.size.replace('x', '×')}</option>)}
+                {lineObj.items.map((it, i) => <option key={i} value={i}>{it.size.replace('x', ' × ')} m</option>)}
               </select>
             </label>
             <label className="pricing__field">
-              <span>Pokrycie</span>
+              <span>Pokrycie dachu</span>
               <select value={effCover} onChange={e => setCover(e.target.value)} disabled={lineObj.coverings.length < 2}>
                 {lineObj.coverings.map(c => <option key={c} value={c}>{COVER[c]}</option>)}
               </select>
@@ -598,7 +599,7 @@ function PricingHorizon() {
           </div>
         </div>
         <p className="pricing__note">
-          Cena orientacyjna (sugerowana), netto — gotowy moduł CORE z wybranym pokryciem.
+          Cena orientacyjna (sugerowana), netto — gotowe zadaszenie z wybranym pokryciem dachu.
           Nie stanowi oferty w rozumieniu art. 71 Kodeksu cywilnego; dokładną wycenę przygotujemy indywidualnie.
         </p>
 
