@@ -1823,6 +1823,16 @@ img { display: block; max-width: 100%; }
 .pricing__gross { font-size: 15px; color: rgba(255,255,255,0.72); margin-top: 6px; }
 .pricing__dims { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 16px; border-top: 1px solid rgba(255,255,255,0.14); padding-top: 14px; }
 .pricing__note { font-size: 12.5px; color: var(--muted); line-height: 1.6; margin: 14px 0 0; max-width: 760px; }
+.pricing__callout-wrap { margin-top: 22px; }
+.pricing__callout { display: flex; align-items: center; justify-content: space-between; gap: 24px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px; }
+.pricing__callout-txt strong { display: block; font-size: 17px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+.pricing__callout-txt p { margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--muted); max-width: 62ch; }
+.pricing__callout .btn { white-space: nowrap; flex: 0 0 auto; }
+.pricing__legal { font-size: 12px; color: var(--muted); line-height: 1.55; margin: 12px 2px 0; }
+@media (max-width: 760px) {
+  .pricing__callout { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .pricing__callout .btn { width: 100%; }
+}
 .pricing__addons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 22px; margin-top: 12px; }
 .pricing__addon { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
 .pricing__addon-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }

@@ -216,7 +216,7 @@ function ProductHorizon({ onQuote }) {
 
       <ColorsSection previews={HORIZON_COLOR_PREVIEWS} />
 
-      <PricingHorizon />
+      <PricingHorizon onQuote={onQuote} />
 
       <section className="section">
         <div className="container">

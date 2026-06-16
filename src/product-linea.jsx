@@ -173,7 +173,7 @@ function ProductLinea({ onQuote }) {
 
       <ColorsSection previews={LINEA_COLOR_PREVIEWS} roofs={p.roofs} />
 
-      <PricingLinea />
+      <PricingLinea onQuote={onQuote} />
 
       <section className="section">
         <div className="container">

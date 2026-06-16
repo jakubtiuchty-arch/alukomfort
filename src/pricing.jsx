@@ -468,8 +468,27 @@ function fmtPLN(n) {
 }
 const meters = (cm) => String(cm / 100).replace('.', ',');
 
+// Wyróżniony box: wymiary na miarę + zastrzeżenie prawne (wspólny dla LINEA i HORIZON)
+function PricingCallout({ onQuote }) {
+  return (
+    <div className="pricing__callout-wrap">
+      <div className="pricing__callout">
+        <div className="pricing__callout-txt">
+          <strong>Potrzebujesz innych wymiarów?</strong>
+          <p>Realizujemy zadaszenia także w wymiarach niestandardowych — dopasowanych do Twojego tarasu i architektury domu. W takim przypadku wycenę przygotowujemy indywidualnie, bezpłatnie i bez zobowiązań.</p>
+        </div>
+        <Button variant="primary" size="lg" onClick={onQuote}>Zamów bezpłatną wycenę</Button>
+      </div>
+      <p className="pricing__legal">
+        Podane ceny są orientacyjne (sugerowane), netto. Nie stanowią oferty w rozumieniu art. 71 Kodeksu cywilnego —
+        dokładną wycenę przygotujemy indywidualnie.
+      </p>
+    </div>
+  );
+}
+
 // --- LINEA: interaktywny kalkulator (pokrycie × szerokość × wysięg) ---
-function PricingLinea() {
+function PricingLinea({ onQuote }) {
   const P = LINEA_PRICING;
   const [roof, setRoof] = React.useState('opal');
   const [width, setWidth] = React.useState(606);
@@ -517,10 +536,6 @@ function PricingLinea() {
             <div className="pricing__dims">LINEA {meters(width)} × {meters(effProj)} m · {roofObj.name}</div>
           </div>
         </div>
-        <p className="pricing__note">
-          Cena orientacyjna (sugerowana), netto — obejmuje konstrukcję aluminiową z wybranym pokryciem dachu.
-          Nie stanowi oferty w rozumieniu art. 71 Kodeksu cywilnego; dokładną wycenę przygotujemy indywidualnie.
-        </p>
 
         <h4 className="block-title" style={{ marginTop: 26 }}>Zabudowa ścian i dodatki</h4>
         <div className="pricing__addons">
@@ -534,13 +549,15 @@ function PricingLinea() {
             </div>
           ))}
         </div>
+
+        <PricingCallout onQuote={onQuote} />
       </div>
     </section>
   );
 }
 
-// --- HORIZON: tabele wariantów (rozmiary CORE × pokrycie) ---
-function PricingHorizon() {
+// --- HORIZON: interaktywny kalkulator (wariant × wymiary × pokrycie) ---
+function PricingHorizon({ onQuote }) {
   const H = HORIZON_PRICING;
   const COVER = { glass: 'Szkło ESG+EVG 55.2', lamele: 'Aluminiowe lamele 200', opal: 'Poliwęglan OPAL UV' };
   const LINES = [
@@ -598,10 +615,6 @@ function PricingHorizon() {
             <div className="pricing__dims">{lineObj.name} · {sizeLabel} · {COVER[effCover]}</div>
           </div>
         </div>
-        <p className="pricing__note">
-          Cena orientacyjna (sugerowana), netto — gotowe zadaszenie z wybranym pokryciem dachu.
-          Nie stanowi oferty w rozumieniu art. 71 Kodeksu cywilnego; dokładną wycenę przygotujemy indywidualnie.
-        </p>
 
         <h4 className="block-title" style={{ marginTop: 26 }}>Systemy ścienne (HORIZON DELUX)</h4>
         <div className="pricing__addons">
@@ -615,10 +628,7 @@ function PricingHorizon() {
           ))}
         </div>
 
-        <p className="pricing__note">
-          Ceny orientacyjne (sugerowane), netto. Nie stanowią oferty w rozumieniu art. 71 Kodeksu cywilnego;
-          dokładną wycenę przygotujemy indywidualnie.
-        </p>
+        <PricingCallout onQuote={onQuote} />
       </div>
     </section>
   );
