@@ -444,7 +444,8 @@ function PageWizualizacja({ onQuote }) {
                       {loading ? 'Generuję wizualizację (~30 s)...' : '✨ Wygeneruj wizualizację'}
                     </Button>
                     <p className="wiz-help" style={{margin: '10px 0 0', fontSize: 12}}>
-                      Limit: 2 wizualizacje na dobę. Czas generowania: 20-40 sekund.
+                      Wynik ma charakter poglądowy i może zawierać błędy — to podgląd, nie projekt finalny.
+                      Limit: 2 wizualizacje na dobę. Czas generowania: 20–40 sekund.
                     </p>
                   </div>
                 </form>
@@ -458,7 +459,7 @@ function PageWizualizacja({ onQuote }) {
               <div className="wiz-step__num">6</div>
               <div className="wiz-step__body">
                 <h2 className="wiz-step__title">Wygeneruj wizualizację</h2>
-                <p className="wiz-help">Tryb testowy — formularz danych kontaktowych jest tymczasowo wyłączony.</p>
+                <p className="wiz-help">Wynik ma charakter poglądowy i może zawierać błędy — to podgląd, nie projekt finalny. Tryb testowy — formularz danych kontaktowych jest tymczasowo wyłączony.</p>
                 {serverError && (<div className="wiz-server-err">⚠ {serverError}</div>)}
                 <div className="wiz-cta">
                   <Button type="button" variant="primary" size="lg" disabled={loading} onClick={() => submit()}>
@@ -484,6 +485,11 @@ function PageWizualizacja({ onQuote }) {
               </p>
               <div className="wiz-result__img-wrap">
                 <img src={result.image} alt="Wygenerowana wizualizacja" />
+              </div>
+              <div className="wiz-disclaimer">
+                <strong>Wizualizacja ma charakter wyłącznie poglądowy.</strong> Obraz pokazuje, jak pergola lub zadaszenie ALUKOMFORT
+                może wyglądać w Twojej przestrzeni — nie jest projektem ani wizualizacją finalną i może zawierać
+                błędy (proporcje, detale konstrukcji, kolory, cienie). Wiążący wygląd i wymiary ustalamy w indywidualnej wycenie.
               </div>
               <div className="wiz-result__actions">
                 <a href={result.image} download={`alukomfort-${product}-wizualizacja.png`}>

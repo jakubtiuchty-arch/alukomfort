@@ -1598,6 +1598,8 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 6px 22px rgba(0,0,0,0.08);
 }
 .wiz-result__img-wrap img { display: block; width: 100%; height: auto; }
+.wiz-disclaimer { margin: 18px auto 0; max-width: 720px; border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 14px 18px; font-size: 13px; line-height: 1.6; color: var(--muted); text-align: center; }
+.wiz-disclaimer strong { color: var(--ink); }
 .wiz-result__actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
 
 /* Info kolumny */
