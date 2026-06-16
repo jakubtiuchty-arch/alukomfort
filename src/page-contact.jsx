@@ -61,11 +61,6 @@ function PageContact({ onQuote }) {
                 ]} />
                 <ContactRow icon={<Icon.Auto size={22} />} label="Godziny otwarcia" lines={['pn–pt: 7:30 – 15:30']} />
               </div>
-
-              <div style={{marginTop: 28, display: 'flex', gap: 12}}>
-                <Button variant="primary" size="lg" onClick={onQuote}>Zamów bezpłatną wycenę</Button>
-                <a href="tel:+48512622666" className="btn btn--ghost-dark btn--lg">Zadzwoń teraz</a>
-              </div>
             </div>
 
             {/* Prawa kolumna — formularz */}
