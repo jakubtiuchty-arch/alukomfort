@@ -1813,7 +1813,15 @@ img { display: block; max-width: 100%; }
 .pricing__controls { display: flex; flex-direction: column; gap: 22px; }
 .pricing__field { display: flex; flex-direction: column; gap: 6px; }
 .pricing__field > span { font-size: 12px; font-weight: 700; letter-spacing: .04em; color: var(--muted); text-transform: uppercase; }
-.pricing__field select { width: 100%; border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 13px; font-size: 15px; background: #fff; }
+.pricing__field select {
+  width: 100%; border: 1.5px solid var(--line); border-radius: 10px;
+  padding: 13px 52px 13px 14px; font-size: 15px; cursor: pointer;
+  -webkit-appearance: none; -moz-appearance: none; appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%2316171a' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat: no-repeat; background-position: right 12px center; background-size: 20px 20px;
+}
+.pricing__field select:hover { border-color: var(--ink); }
 .pricing__field select:focus { outline: none; border-color: var(--ink); }
 .pricing__hint { font-size: 12px; color: var(--muted); line-height: 1.45; }
 .pricing__result { background: #16171a; color: #fff; border-radius: 16px; padding: 28px 26px; display: flex; flex-direction: column; justify-content: center; align-self: center; }
