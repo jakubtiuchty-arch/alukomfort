@@ -502,7 +502,7 @@ function PricingLinea({ onQuote }) {
     <section className="section section--warm pricing-section">
       <div className="container">
         <SectionHead title="Orientacyjny cennik LINEA"
-          sub="Wybierz pokrycie dachu, szerokość i wysięg — pokażemy sugerowaną cenę konstrukcji. Wymiary niestandardowe wyceniamy indywidualnie." />
+          sub="Po wybraniu pokrycia dachu, szerokości i wysięgu zobaczysz sugerowaną cenę konstrukcji. Wymiary niestandardowe wyceniamy indywidualnie." />
         <div className="pricing">
           <div className="pricing__controls">
             <label className="pricing__field">
@@ -580,7 +580,7 @@ function PricingHorizon({ onQuote }) {
     <section className="section section--warm pricing-section">
       <div className="container">
         <SectionHead title="Orientacyjny cennik HORIZON"
-          sub="Wybierz wariant, wymiary i pokrycie dachu — pokażemy sugerowaną cenę gotowego zadaszenia. Wymiary niestandardowe i projekty indywidualne wyceniamy osobno." />
+          sub="Po wybraniu wariantu, wymiarów i pokrycia dachu zobaczysz sugerowaną cenę gotowego zadaszenia. Wymiary niestandardowe i projekty indywidualne wyceniamy osobno." />
         <div className="pricing">
           <div className="pricing__controls">
             <label className="pricing__field">
