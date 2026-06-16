@@ -475,7 +475,7 @@ function PricingCallout({ onQuote }) {
       <div className="pricing__callout">
         <div className="pricing__callout-txt">
           <strong>Potrzebujesz innych wymiarów?</strong>
-          <p>Realizujemy zadaszenia także w wymiarach niestandardowych — dopasowanych do Twojego tarasu i architektury domu. W takim przypadku wycenę przygotowujemy indywidualnie, bezpłatnie i bez zobowiązań.</p>
+          <p>Realizujemy zadaszenia także w wymiarach niestandardowych — dopasowanych do Twojego tarasu i architektury domu. W takim przypadku wycenę przygotowujemy indywidualnie.</p>
         </div>
         <Button variant="primary" size="lg" onClick={onQuote}>Zamów bezpłatną wycenę</Button>
       </div>
