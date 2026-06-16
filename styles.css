@@ -1833,6 +1833,7 @@ img { display: block; max-width: 100%; }
   .pricing__callout { flex-direction: column; align-items: flex-start; gap: 16px; }
   .pricing__callout .btn { width: 100%; }
 }
+.pricing-section { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .pricing__subhead { margin-top: 52px; padding-top: 38px; border-top: 1px solid var(--line); margin-bottom: 20px; }
 .pricing__addons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 22px; margin-top: 4px; }
 .pricing__addon { border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }

@@ -499,7 +499,7 @@ function PricingLinea({ onQuote }) {
   const net = roofObj.prices[String(effProj)] ? roofObj.prices[String(effProj)][String(width)] : null;
 
   return (
-    <section className="section section--soft">
+    <section className="section section--warm pricing-section">
       <div className="container">
         <SectionHead title="Orientacyjny cennik LINEA"
           sub="Wybierz pokrycie dachu, szerokość i wysięg — pokażemy sugerowaną cenę konstrukcji. Wymiary niestandardowe wyceniamy indywidualnie." />
@@ -577,7 +577,7 @@ function PricingHorizon({ onQuote }) {
   const sizeLabel = item ? (item.size.replace('x', ' × ') + ' m') : '';
 
   return (
-    <section className="section section--soft">
+    <section className="section section--warm pricing-section">
       <div className="container">
         <SectionHead title="Orientacyjny cennik HORIZON"
           sub="Wybierz wariant, wymiary i pokrycie dachu — pokażemy sugerowaną cenę gotowego zadaszenia. Wymiary niestandardowe i projekty indywidualne wyceniamy osobno." />
