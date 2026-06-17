@@ -37,7 +37,7 @@ function ProductLinea({ onQuote }) {
       <section className="hero">
         <video
           className="hero__img"
-          src="uploads/linea_hero_3.mp4"
+          src="uploads/linea_hero_summer.mp4"
           autoPlay
           muted
           loop
