@@ -41,7 +41,7 @@ const WIZ_ROOFS = {
 const WIZ_ENCLOSURES = [
   { id: 'open',   name: 'Otwarta pergola',      sub: 'Sama konstrukcja z dachem, bez ścian' },
   { id: 'sides',  name: 'Ze ścianami bocznymi', sub: 'Częściowa zabudowa: szkło, żaluzje lub screen' },
-  { id: 'winter', name: 'Ogród zimowy',         sub: 'Pełna zabudowa szklana — całoroczny pokój' },
+  { id: 'winter', name: 'Ogród letni',          sub: 'Pełna zabudowa szklana — sezonowa strefa wypoczynku' },
 ];
 
 function PageWizualizacja({ onQuote }) {
@@ -321,7 +321,7 @@ function PageWizualizacja({ onQuote }) {
                 <p className="wiz-help" style={{margin: '0 0 14px'}}>
                   {product === 'roma'
                     ? 'Pergola tkaninowa ROMA występuje wyłącznie jako lekka, otwarta konstrukcja.'
-                    : 'Wybierz, czy chcesz otwartą pergolę, czy zamkniętą przestrzeń (np. ogród zimowy).'}
+                    : 'Wybierz, czy chcesz otwartą pergolę, czy zamkniętą przestrzeń (np. ogród letni).'}
                 </p>
                 <div className="wiz-colors">
                   {enclosureList.map(en => (

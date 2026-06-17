@@ -145,7 +145,7 @@ function ProductLinea({ onQuote }) {
       <section className="section section--soft">
         <div className="container">
           <SectionHead title="Przykłady zadaszeń z użyciem systemu LINEA"
-            sub="Sześć scenariuszy realizacji — od carportu po zamknięty ogród zimowy. Każdy w pełni dopasowany do wymiarów działki i sposobu użytkowania." />
+            sub="Sześć scenariuszy realizacji — od wiaty samochodowej po zamknięty ogród letni. Każdy w pełni dopasowany do wymiarów działki i sposobu użytkowania." />
           <div className="examples">
             {p.examples.map((ex, i) => (
               <figure key={i} className="example">

@@ -338,31 +338,31 @@ const LINEA_ADDONS = [
   {
     "name": "Klin boczny (wypełnienie szczytu)",
     "price": 399,
-    "unit": "od / szt.",
+    "unit": "/ szt.",
     "note": "poliwęglan; szkło od 933 zł"
   },
   {
     "name": "System szyb przesuwnych",
     "price": 2884,
-    "unit": "od / kpl.",
+    "unit": "/ kpl.",
     "note": "bez szkła; ze szkłem ESG od 4 179 zł"
   },
   {
     "name": "System żaluzji pionowych",
     "price": 990,
-    "unit": "od / szt.",
+    "unit": "/ szt.",
     "note": "regulacja światła i prywatności"
   },
   {
     "name": "Ściana pełna ALUX",
     "price": 600,
-    "unit": "zł / m²",
+    "unit": "/ m²",
     "note": "sublimacja +160 zł/m²"
   },
   {
     "name": "Szkło ESG do zabudowy",
     "price": 216,
-    "unit": "od / m²",
+    "unit": "/ m²",
     "note": "ESG 8 transparentne"
   }
 ];
@@ -527,8 +527,8 @@ function PricingLinea({ onQuote }) {
           <div className="pricing__result">
             {net ? (
               <React.Fragment>
-                <div className="pricing__net">{fmtPLN(net)} <span>netto</span></div>
-                <div className="pricing__gross">{fmtPLN(net * PRICING_VAT)} brutto (z VAT 23%)</div>
+                <div className="pricing__net">od {fmtPLN(net)} <span>netto</span></div>
+                <div className="pricing__gross">od {fmtPLN(net * PRICING_VAT)} brutto (z VAT 23%)</div>
               </React.Fragment>
             ) : (
               <div className="pricing__net pricing__net--ask">Wycena indywidualna</div>
@@ -543,7 +543,7 @@ function PricingLinea({ onQuote }) {
             <div key={i} className="pricing__addon">
               <div className="pricing__addon-top">
                 <span className="pricing__addon-name">{a.name}</span>
-                <span className="pricing__addon-price">{fmtPLN(a.price)} <em>{a.unit}</em></span>
+                <span className="pricing__addon-price">od {fmtPLN(a.price)} <em>{a.unit}</em></span>
               </div>
               {a.note && <div className="pricing__addon-note">{a.note}</div>}
             </div>
@@ -606,8 +606,8 @@ function PricingHorizon({ onQuote }) {
           <div className="pricing__result">
             {net ? (
               <React.Fragment>
-                <div className="pricing__net">{fmtPLN(net)} <span>netto</span></div>
-                <div className="pricing__gross">{fmtPLN(net * PRICING_VAT)} brutto (z VAT 23%)</div>
+                <div className="pricing__net">od {fmtPLN(net)} <span>netto</span></div>
+                <div className="pricing__gross">od {fmtPLN(net * PRICING_VAT)} brutto (z VAT 23%)</div>
               </React.Fragment>
             ) : (
               <div className="pricing__net pricing__net--ask">Wycena indywidualna</div>
@@ -622,7 +622,7 @@ function PricingHorizon({ onQuote }) {
             <div key={i} className="pricing__addon">
               <div className="pricing__addon-top">
                 <span className="pricing__addon-name">{w.name}</span>
-                <span className="pricing__addon-price">{fmtPLN(w.price)} <em>netto</em></span>
+                <span className="pricing__addon-price">od {fmtPLN(w.price)} <em>netto</em></span>
               </div>
             </div>
           ))}

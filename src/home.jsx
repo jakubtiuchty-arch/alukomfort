@@ -219,7 +219,7 @@ function Home({ onNavigate, onQuote }) {
               <div className="example__eyebrow">PRAWDZIWE MONTAŻE</div>
               <h2 className="case__title">Zobacz nasze realizacje</h2>
               <p className="small" style={{color:'var(--muted)', lineHeight: 1.65}}>
-                Zadaszenia tarasów z zabudową lamelową, całoroczne pawilony ogrodowe, zabudowy balkonów —
+                Zadaszenia tarasów z zabudową lamelową, przeszklone pawilony ogrodowe, zabudowy balkonów —
                 wszystkie wykonane w naszej fabryce i zamontowane u klientów. Bez zdjęć katalogowych,
                 bez zdjęć z banków zdjęć: tak wyglądają systemy ALUKOMFORT na prawdziwych posesjach.
               </p>
@@ -308,7 +308,7 @@ function Home({ onNavigate, onQuote }) {
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">Dla domu</div>
-                <p className="home-tile__desc">Zadaszenie tarasu, ogród zimowy, wiata samochodowa, domowa siłownia czy składzik — przestrzeń, która pracuje przez cały rok.</p>
+                <p className="home-tile__desc">Zadaszenie tarasu, ogród letni, wiata samochodowa, domowa siłownia czy składzik — przestrzeń, która pracuje przez cały sezon.</p>
                 <span className="home-tile__link">Rozwiązania dla domu</span>
               </div>
             </a>

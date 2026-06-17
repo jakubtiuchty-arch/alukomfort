@@ -23,8 +23,8 @@ const REALIZACJE_CASES = [
   {
     key: 'pawilon',
     eyebrow: 'REALIZACJA · OGRÓD',
-    title: 'Całoroczny pawilon ogrodowy',
-    desc: 'Wolnostojący pawilon na bazie systemu LINEA — szyby przesuwne na trzech ścianach, panele drewnopodobne od strony zachodniej i podłoga z naturalnej deski. Zamknięta przestrzeń z widokiem na pola, użytkowana niezależnie od pogody.',
+    title: 'Przeszklony pawilon ogrodowy',
+    desc: 'Wolnostojący pawilon na bazie systemu LINEA — szyby przesuwne na trzech ścianach, panele drewnopodobne od strony zachodniej i podłoga z naturalnej deski. Zamknięta przestrzeń z widokiem na pola, osłonięta od wiatru i deszczu.',
     image: 'uploads/realizacje-web/pawilon-glowne.webp',
     meta: [
       { label: 'System',     value: 'LINEA samonośna — pawilon' },
@@ -85,7 +85,7 @@ function PageRealizacje({ onQuote }) {
   }, []);
   usePageMeta({
     title: 'Realizacje — zadaszenia i pergole ALUKOMFORT | PLAST-MET',
-    description: 'Zobacz zrealizowane zadaszenia ALUKOMFORT: tarasy z zabudową lamelową, całoroczne pawilony ogrodowe, zadaszenia balkonów. Zdjęcia i wideo z montaży u klientów.',
+    description: 'Zobacz zrealizowane zadaszenia ALUKOMFORT: tarasy z zabudową lamelową, przeszklone pawilony ogrodowe, zadaszenia balkonów. Zdjęcia i wideo z montaży u klientów.',
     canonical: 'https://alukomfort.pl/#/realizacje',
   });
 

@@ -31,7 +31,7 @@ const ROOF_PROMPTS = {
 const ENCLOSURE_PROMPTS = {
   open: 'Keep it as an open pergola — only the supporting posts and the roof, with no side walls.',
   sides: 'Add a partial side enclosure: sliding glass panels or vertical screen blinds on one or two sides, leaving the front open.',
-  winter: 'Fully enclose it as a winter garden / conservatory with floor-to-ceiling glass walls and sliding glass doors on all open sides, forming a closed all-year room.',
+  winter: 'Fully enclose it as a glazed SUMMER GARDEN with floor-to-ceiling glass walls and sliding glass doors on the open sides, forming an enclosed seasonal garden room for the warm part of the year (a summer garden, NOT a heated all-year winter garden).',
   szyby: 'Close the open sides with large sliding glass panels (clear glazed sliding doors in slim aluminum frames), set strictly within the pergola footprint between the posts. The front stays accessible.',
   screen: 'Lower vertical fabric screen roller blinds on the TWO open outer sides of the pergola (the two sides that are NOT against the house wall), each a textile screen in a slim top cassette in the frame color, each strictly within the footprint between the posts. BOTH open sides must clearly show a screen blind — not just one. The sides adjacent to the building stay closed by the house wall.',
   zaluzje: 'Close the TWO open outer sides of the pergola (the two sides that are NOT against the house wall) with adjustable aluminum louvre blades (evenly spaced slats with small gaps, in the frame color), each fitted strictly within the footprint between the posts. BOTH open sides must clearly show louvre blinds — not just one. The sides adjacent to the building stay closed by the house wall.',

@@ -38,7 +38,7 @@ const ADMIN_CONFIG = {
         { name: 'Rolety screen',     v: 'screen' },
         { name: 'Żaluzje',           v: 'zaluzje' },
         { name: 'Panele aluminiowe', v: 'panele' },
-        { name: 'Ogród zimowy',      v: 'winter' },
+        { name: 'Ogród letni',       v: 'winter' },
       ]},
     ],
   },

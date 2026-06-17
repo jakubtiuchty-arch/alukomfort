@@ -157,8 +157,8 @@ const LINEA = {
     },
     {
       img: 'uploads/linea-przyklady/ogrod-zimowy.webp',
-      title: 'Ogród zimowy przy domu',
-      desc: 'Zadaszenie przyścienne z pełną zabudową szkłem ESG/VSG — taras dostępny przez cały rok, niezależnie od pogody.',
+      title: 'Ogród letni przy domu',
+      desc: 'Zadaszenie przyścienne z pełną zabudową szkłem ESG/VSG — osłonięty taras do wykorzystania przez cały ciepły sezon, niezależnie od pogody.',
     },
     {
       img: 'uploads/linea-przyklady/zaluzje-screen.webp',
@@ -308,8 +308,8 @@ const HORIZON = {
     },
     {
       img: 'uploads/horizon-przyklady/ogrod-zimowy-szklo.webp',
-      title: 'Ogród zimowy przy domu',
-      desc: 'HORIZON S z dachem ze szkła bezpiecznego — narożna zabudowa tarasu dostępna przez cały rok, z nieprzesłoniętym niebem.',
+      title: 'Ogród letni przy domu',
+      desc: 'HORIZON S z dachem ze szkła bezpiecznego — narożna zabudowa tarasu na ciepły sezon, z nieprzesłoniętym niebem.',
     },
     {
       img: 'uploads/horizon-przyklady/letnia-kuchnia-basen.webp',
