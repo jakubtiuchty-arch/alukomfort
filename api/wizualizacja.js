@@ -5,7 +5,7 @@
 
 // Bryła konstrukcji — bez opisu pokrycia dachu (to dokłada ROOF_PROMPTS)
 const PRODUCT_PROMPTS = {
-  linea: 'ALUKOMFORT LINEA — an aluminum terrace canopy (wall-mounted or freestanding, whichever suits the scene) with slim aluminum posts (150×100mm) and a single-pitch LEAN-TO / SHED roof (one continuous flat plane that is clearly TILTED, never horizontal). The roof is visibly higher where it meets the house wall and slopes down to a noticeably lower front edge at a constant ~8° pitch, so rainwater always runs AWAY from the building; the back (house-side) beam is clearly higher than the front beam and this height difference must be obvious in the image. The roof MUST NOT be a flat horizontal slab and MUST NOT slope toward the house. This tilted shed roof is the LINEA standard',
+  linea: 'ALUKOMFORT LINEA — an aluminum terrace canopy that by default is WALL-MOUNTED against the house as a lean-to (attached to the building wall), with slim aluminum posts (150×100mm) and a single-pitch LEAN-TO / SHED roof: one continuous flat plane tilted ONLY in the direction perpendicular to the house wall (front-to-back). The back edge runs ALONG the house wall and is the HIGH side; the front edge is parallel to it, further out over the terrace, and is the LOW side. BOTH the back beam (against the wall) and the front beam are perfectly HORIZONTAL and LEVEL — each stays at one single constant height along its entire length. The plane descends at a constant ~8° pitch ONLY as it goes from the house wall outward toward the front, so rainwater runs straight AWAY from the building to the front edge. CRITICAL slope direction: the roof drops from the house toward the terrace (back-to-front). It must NOT tilt sideways, must NOT drop from left to right or right to left, must NOT slope toward the house, and must NOT be a flat horizontal slab. The two SIDE edges (perpendicular to the wall) are the sloping edges — high at the wall, low at the front — while the front and back edges both stay perfectly level. This tilted shed roof is the LINEA standard',
   horizon: 'ALUKOMFORT HORIZON — a modern aluminum bioclimatic pergola with a slim flat roof crown and clean architectural lines',
   roma: 'ALUKOMFORT ROMA — a modern, minimalist freestanding aluminum pergola with a SLIM rectangular top frame and slim square aluminum posts. Distinctive ROMA features that MUST be present: (1) vertical METAL WIRE-MESH / grid trellis panels set between the posts on the side(s), and (2) long rectangular metal PLANTER BOXES at the base/feet of the posts (the posts rise out of slim planter troughs), both in the same color as the frame. Clean and architectural — NOT a tent, gazebo, awning or rustic wooden structure',
 };
@@ -82,9 +82,14 @@ function buildPrompt(product, color, roof, enclosure, notes, extra) {
   const markerCleanup = e.marker
     ? ` The magenta line and its points are only a placement guide: do NOT render or keep the line, its dots or color in the final image — replace it entirely with the realistic structure and the normal scene behind it.`
     : '';
+  const wantsFreestanding = e.montaz === 'samonosna';
+  const placementRule = wantsFreestanding
+    ? ` Build it as a freestanding self-supporting canopy standing on its own posts on the terrace, detached from the house.`
+    : ` The pergola is ATTACHED TO THE HOUSE as a wall-mounted lean-to: its back (higher) side is fixed flush against the house wall with NO gap between the structure and the wall, and the whole canopy extends OUTWARD from that wall over the terrace, with its front (lower) side resting on posts that stand on the paving. It must read as physically connected to the building and growing out of the house wall — NOT as a separate, freestanding canopy parked out in the middle of the terrace or standing in front of the house with a gap to the wall.`;
   const footprintRule = e.marker
     ? ''
-    : ` Position the structure flush against the house wall and keep the ENTIRE pergola strictly within the footprint of the paved terrace and within the outline of the building —` +
+    : placementRule +
+      ` Keep the ENTIRE pergola strictly within the footprint of the paved terrace and within the outline of the building —` +
       ` it must NOT extend, overhang, cantilever or stick out past the corner or the edge of the house onto the open lawn.` +
       ` If the paved area is small, make the pergola smaller rather than letting any part hang beyond the terrace.`;
   return `Photorealistically integrate ${base}${roofPart}${colorPart}, placed into the existing terrace/garden space shown in the uploaded photo.${markerLead}${montazPart}${enclosurePart}${ledPart}${dimPart} ` +
