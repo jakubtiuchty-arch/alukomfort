@@ -53,6 +53,18 @@ function Footer({ onNavigate }) {
                 </a>
               </li>
               <li>
+                <a href="tel:+48501963896">
+                  <FIco d={<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" />} />
+                  501 963 896
+                </a>
+              </li>
+              <li>
+                <a href="tel:+48713084234">
+                  <FIco d={<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" />} />
+                  71 308 42 34
+                </a>
+              </li>
+              <li>
                 <a href="mailto:trzebnica@plast-met.pl">
                   <FIco d={<><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></>} />
                   trzebnica@plast-met.pl
@@ -61,13 +73,13 @@ function Footer({ onNavigate }) {
               <li>
                 <span>
                   <FIco d={<><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>} />
-                  pn–pt, 7:30–15:30
+                  pn–śr, pt: 7–15 · czw: 7–16
                 </span>
               </li>
               <li>
                 <span>
                   <FIco d={<><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></>} />
-                  ul. Milicka 34, 55-100 Trzebnica
+                  ul. Milicka 34A, 55-100 Trzebnica
                 </span>
               </li>
             </ul>

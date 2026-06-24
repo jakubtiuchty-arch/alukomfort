@@ -29,7 +29,7 @@
   "email": "trzebnica@plast-met.pl",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "ul. Milicka 34",
+    "streetAddress": "ul. Milicka 34A",
     "postalCode": "55-100",
     "addressLocality": "Trzebnica",
     "addressRegion": "Dolnośląskie",
@@ -44,12 +44,20 @@
     { "@type": "AdministrativeArea", "name": "Dolnośląskie" },
     { "@type": "Country", "name": "Polska" }
   ],
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-    "opens": "07:30",
-    "closes": "15:30"
-  }],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Friday"],
+      "opens": "07:00",
+      "closes": "15:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Thursday",
+      "opens": "07:00",
+      "closes": "16:00"
+    }
+  ],
   "hasCredential": [{
     "@type": "EducationalOccupationalCredential",
     "credentialCategory": "certificate",
@@ -65,7 +73,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=20260618b" />
 </head>
 <body>
 <div id="root"></div>
@@ -87,8 +95,8 @@
 <script type="text/babel" src="src/product-roma.jsx"></script>
 <script type="text/babel" src="src/page-contact.jsx"></script>
 <script type="text/babel" src="src/page-client-data.jsx"></script>
-<script type="text/babel" src="src/page-wizualizacja.jsx"></script>
-<script type="text/babel" src="src/page-admin.jsx"></script>
+<script type="text/babel" src="src/page-wizualizacja.jsx?v=20260618b"></script>
+<script type="text/babel" src="src/page-admin.jsx?v=20260618b"></script>
 <script type="text/babel" src="src/page-inspiracje.jsx"></script>
 <script type="text/babel" src="src/page-onas.jsx"></script>
 <script type="text/babel" src="src/page-polityka-prywatnosci.jsx"></script>

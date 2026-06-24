@@ -6,7 +6,7 @@
 // Bryła konstrukcji — bez opisu pokrycia dachu (to dokłada ROOF_PROMPTS)
 const PRODUCT_PROMPTS = {
   linea: 'ALUKOMFORT LINEA — an aluminum terrace canopy that by default is WALL-MOUNTED against the house as a lean-to (attached to the building wall), with slim aluminum posts (150×100mm) and a single-pitch LEAN-TO / SHED roof: one continuous flat plane tilted ONLY in the direction perpendicular to the house wall (front-to-back). The back edge runs ALONG the house wall and is the HIGH side; the front edge is parallel to it, further out over the terrace, and is the LOW side. BOTH the back beam (against the wall) and the front beam are perfectly HORIZONTAL and LEVEL — each stays at one single constant height along its entire length. The plane descends at a constant ~8° pitch ONLY as it goes from the house wall outward toward the front, so rainwater runs straight AWAY from the building to the front edge. CRITICAL slope direction: the roof drops from the house toward the terrace (back-to-front). It must NOT tilt sideways, must NOT drop from left to right or right to left, must NOT slope toward the house, and must NOT be a flat horizontal slab. The two SIDE edges (perpendicular to the wall) are the sloping edges — high at the wall, low at the front — while the front and back edges both stay perfectly level. This tilted shed roof is the LINEA standard',
-  horizon: 'ALUKOMFORT HORIZON — a modern aluminum bioclimatic pergola with a slim flat roof crown and clean architectural lines',
+  horizon: 'ALUKOMFORT HORIZON — a modern aluminum bioclimatic pergola with clean architectural lines and a slim flat roof crown. Its roof is a PERFECTLY FLAT, HORIZONTAL, LEVEL plane: all four perimeter beams sit at exactly the same height, with NO slope, NO pitch and NO tilt in any direction. This flat, level roof is the KEY difference from LINEA (which is pitched at 8°) — the HORIZON roof must read as strictly horizontal, never sloped',
   roma: 'ALUKOMFORT ROMA — a modern, minimalist freestanding aluminum pergola with a SLIM rectangular top frame and slim square aluminum posts. Distinctive ROMA features that MUST be present: (1) vertical METAL WIRE-MESH / grid trellis panels set between the posts on the side(s), and (2) long rectangular metal PLANTER BOXES at the base/feet of the posts (the posts rise out of slim planter troughs), both in the same color as the frame. Clean and architectural — NOT a tent, gazebo, awning or rustic wooden structure',
 };
 
@@ -71,28 +71,36 @@ function buildPrompt(product, color, roof, enclosure, notes, extra) {
   // z wyniku. Owijanie za narożnik TYLKO przy 3+ punktach (realne załamanie linii).
   const multiSide = (e.markerPoints || 0) >= 3;
   const markerLead = e.marker
-    ? ` A bright magenta line with numbered points has been drawn on the photo along the wall to mark EXACTLY the run, length and extent of the canopy — follow this line precisely and keep the structure along this marked line.` +
-      ` Build ONE single, continuous, coherent pergola that follows this line — never several separate, stacked or overlapping structures, and keep one consistent roof height and style along the whole run.` +
-      ` The canopy must span the FULL length of the line, end to end: its starting edge/post must align exactly with the FIRST point and its far edge/post exactly with the LAST point. Do NOT make the structure shorter than the line and do NOT leave any gap between the ends of the canopy and the marked endpoints — reach the very ends of the building as drawn.` +
-      ` The canopy is a rectangular structure parallel to the house wall: its back edge (running ALONG the house wall) and its front edge (running along the marked line) have the SAME length and BOTH reach the first and last points. Each end of the canopy must be square and perpendicular to the wall — the wall-side post and the front post at each end line up at the same position along the wall, so the structure does NOT taper, slant or stop short at the wall. In particular the wall-side (back) post must reach just as far as the front post at the line's endpoint, not end earlier near a window or door.` +
+    ? ` A bright magenta line with two numbered points has been drawn along the house wall. This line marks the BACK edge of the canopy — the side that runs along the house — together with its exact length and position. The two numbered points are the LEFT and RIGHT ends of that back edge.` +
+      ` At the FIRST and LAST points the line also has a short VERTICAL stroke rising upward: these two vertical marks show EXACTLY where the two BACK corner posts stand against the wall. Place the BACK corner posts precisely on these two marks — the back edge must begin exactly at one mark and end exactly at the other, neither short of them nor past them. IMPORTANT: the marked points indicate the BACK (wall-side) posts, NOT the front posts.` +
+      ` Build ONE single, continuous, coherent pergola along this back edge — never several separate, stacked or overlapping structures, with one consistent roof height and style along the whole run.` +
+      ` From this back edge the canopy extends FORWARD, out over the terrace toward the viewer, by its depth: the FRONT edge is parallel to the back edge, the SAME length, offset forward, with the two FRONT posts standing on the paving directly in line in front of the two back posts. The structure is a clean rectangle — each end is square and perpendicular to the wall, a front post sitting directly out from each back post, so the canopy does NOT taper or slant.` +
+      ` The back edge must span EXACTLY the length of the line: do NOT make it shorter, do NOT leave a gap, and do NOT overshoot past either endpoint — the back posts sit precisely ON the first and last points.` +
       (multiSide
         ? ` The line deliberately bends around the building corner: the canopy must wrap around that corner and continue along BOTH walls, exactly following the drawn points.`
         : ` This is a single straight run along ONE wall only — do NOT wrap the canopy around the building corner and do NOT extend it onto any other side or wall of the house; keep it strictly on this one side, between the two marked points.`)
     : '';
   const markerCleanup = e.marker
-    ? ` The magenta line and its points are only a placement guide: do NOT render or keep the line, its dots or color in the final image — replace it entirely with the realistic structure and the normal scene behind it.`
+    ? ` The magenta line, its dots and the vertical end marks are only a placement guide: do NOT render or keep the line, dots, vertical marks or their color in the final image — replace it entirely with the realistic structure and the normal scene behind it.`
     : '';
   const wantsFreestanding = e.montaz === 'samonosna';
+  // HORIZON i ROMA = pełna rama na 4 słupach (też tylne, przy ścianie). LINEA przyścienna = 2 przednie.
+  const fourPosts = product === 'horizon' || product === 'roma' || wantsFreestanding;
   const placementRule = wantsFreestanding
-    ? ` Build it as a freestanding self-supporting canopy standing on its own posts on the terrace, detached from the house.`
-    : ` The pergola is ATTACHED TO THE HOUSE as a wall-mounted lean-to: its back (higher) side is fixed flush against the house wall with NO gap between the structure and the wall, and the whole canopy extends OUTWARD from that wall over the terrace, with its front (lower) side resting on posts that stand on the paving. It must read as physically connected to the building and growing out of the house wall — NOT as a separate, freestanding canopy parked out in the middle of the terrace or standing in front of the house with a gap to the wall.`;
+    ? ` Build it as a freestanding self-supporting canopy on its own four corner posts on the terrace, detached from the house.`
+    : fourPosts
+      ? ` Place it against the house: its back edge sits right next to the house wall and its two BACK posts stand on the ground close to that wall, while the canopy extends OUTWARD over the terrace. It is a complete, self-framed pergola positioned at the house — NOT bolted to the wall without back posts — and it must stay within the terrace, visually connected to the building (not floating far out in the middle).`
+      : ` The pergola is ATTACHED TO THE HOUSE as a wall-mounted lean-to: its back side is fixed flush against the house wall with NO gap, and the whole canopy extends OUTWARD from that wall over the terrace, physically connected to the building — NOT a separate canopy parked in the middle of the terrace.`;
+  const postsRule = fourPosts
+    ? ` CRITICAL — POSTS: this pergola ALWAYS stands on its OWN FOUR vertical corner posts — two front posts AND two back posts. Even when placed against the house, the two BACK posts are present, standing on the ground right next to the wall; the roof is NEVER bolted directly to the wall and NEVER cantilevered without back posts. All FOUR posts must be clearly visible, each firmly on the ground.`
+    : ` Because the back beam is fixed to the house wall, there are NO posts along the house wall — only the FRONT row of posts (two front corner posts) rests on the terrace. Do NOT add a back row of posts.`;
   const footprintRule = e.marker
     ? ''
     : placementRule +
       ` Keep the ENTIRE pergola strictly within the footprint of the paved terrace and within the outline of the building —` +
       ` it must NOT extend, overhang, cantilever or stick out past the corner or the edge of the house onto the open lawn.` +
       ` If the paved area is small, make the pergola smaller rather than letting any part hang beyond the terrace.`;
-  return `Photorealistically integrate ${base}${roofPart}${colorPart}, placed into the existing terrace/garden space shown in the uploaded photo.${markerLead}${montazPart}${enclosurePart}${ledPart}${dimPart} ` +
+  return `Photorealistically integrate ${base}${roofPart}${colorPart}, placed into the existing terrace/garden space shown in the uploaded photo.${markerLead}${montazPart}${postsRule}${enclosurePart}${ledPart}${dimPart} ` +
     `CRITICAL: keep the original photo completely unchanged — the same house, walls, windows, paving, plants, sky, ` +
     `furniture, camera angle, perspective, daylight direction and shadows must stay identical. Only add the pergola ` +
     `as if it were physically installed at the scene, casting correct shadows consistent with the existing light.${markerCleanup} ` +

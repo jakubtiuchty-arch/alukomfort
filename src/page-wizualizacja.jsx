@@ -107,6 +107,13 @@ function PageWizualizacja({ onQuote }) {
         ctx.stroke();
         ctx.fillStyle = '#ff00c8';
         pts.forEach(p => { ctx.beginPath(); ctx.arc(p.x, p.y, lw * 1.15, 0, Math.PI * 2); ctx.fill(); });
+        // Pionowe znaczniki na pierwszym i ostatnim punkcie — wskazują DOKŁADNIE,
+        // gdzie mają stanąć skrajne słupy/krawędzie zadaszenia (pion jest dla modelu
+        // znacznie mocniejszą kotwicą niż sama kropka na prawie poziomej linii).
+        const endH = Math.round(c.height * 0.30);
+        [pts[0], pts[pts.length - 1]].forEach(p => {
+          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, Math.max(0, p.y - endH)); ctx.stroke();
+        });
         const d = c.toDataURL('image/jpeg', 0.9);
         resolve({ base64: d.split(',')[1], mime: 'image/jpeg', marked: true });
       } catch (e2) { resolve({ base64: file.base64, mime: file.mime, marked: false }); }
@@ -373,6 +380,9 @@ function PageWizualizacja({ onQuote }) {
                       {points.length >= 2 && (
                         <svg className="adm-mark__svg" viewBox="0 0 100 100" preserveAspectRatio="none">
                           <polyline points={points.map(p => `${p.x*100},${p.y*100}`).join(' ')} vectorEffect="non-scaling-stroke" />
+                          {[points[0], points[points.length - 1]].map((p, i) => (
+                            <line key={i} x1={p.x*100} y1={p.y*100} x2={p.x*100} y2={Math.max(0, p.y*100 - 30)} vectorEffect="non-scaling-stroke" />
+                          ))}
                         </svg>
                       )}
                       {points.map((p, i) => (

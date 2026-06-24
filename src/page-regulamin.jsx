@@ -38,7 +38,7 @@ function PageRegulamin() {
             </li>
             <li>
               Usługodawcą i właścicielem Serwisu jest <strong>Plast-Met Systemy Ogrodzeniowe Sp. z o.o. Sp.k.</strong>{' '}
-              z siedzibą w Trzebnicy (55-100), ul. Milicka 34, KRS 0000532739, NIP 9151793747, REGON 360251140
+              z siedzibą w Trzebnicy (55-100), ul. Milicka 34A, KRS 0000532739, NIP 9151793747, REGON 360251140
               (dalej: „Usługodawca"). ALUKOMFORT jest marką handlową Usługodawcy.
             </li>
             <li>

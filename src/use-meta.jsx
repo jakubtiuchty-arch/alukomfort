@@ -67,7 +67,7 @@ function useProductSchema({ id, name, description, image, url, category }) {
         name: 'PLAST-MET Sp. z o.o. Sp. k.',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'ul. Milicka 34',
+          streetAddress: 'ul. Milicka 34A',
           postalCode: '55-100',
           addressLocality: 'Trzebnica',
           addressCountry: 'PL',

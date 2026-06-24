@@ -33,7 +33,7 @@ function PagePrivacy() {
           <h2>1. Administrator danych osobowych</h2>
           <p>
             Administratorem Twoich danych osobowych jest <strong>Plast-Met Systemy Ogrodzeniowe Sp. z o.o.
-            Sp.k.</strong> z siedzibą w Trzebnicy (55-100), przy ul. Milickiej 34, wpisana do rejestru
+            Sp.k.</strong> z siedzibą w Trzebnicy (55-100), przy ul. Milickiej 34A, wpisana do rejestru
             przedsiębiorców Krajowego Rejestru Sądowego pod numerem <strong>KRS 0000532739</strong>,
             NIP <strong>9151793747</strong>, REGON <strong>360251140</strong> (dalej: „Administrator" lub „my").
             ALUKOMFORT jest marką handlową Administratora.
@@ -41,7 +41,7 @@ function PagePrivacy() {
           <ul className="legal__list">
             <li>E-mail: <a href="mailto:biuro@plast-met.pl">biuro@plast-met.pl</a></li>
             <li>Telefon: <a href="tel:+48713120793">+48 (71) 312 07 93</a></li>
-            <li>Adres korespondencyjny: ul. Milicka 34, 55-100 Trzebnica</li>
+            <li>Adres korespondencyjny: ul. Milicka 34A, 55-100 Trzebnica</li>
           </ul>
           <p>
             We wszystkich sprawach dotyczących przetwarzania danych osobowych oraz korzystania z przysługujących

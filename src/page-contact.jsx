@@ -52,14 +52,16 @@ function PageContact({ onQuote }) {
               </p>
 
               <div style={{display: 'flex', flexDirection: 'column', gap: 0, borderTop: '1px solid var(--line)'}}>
-                <ContactRow icon={<Icon.Pin size={22} />} label="Adres" lines={['ul. Milicka 34', '55-100 Trzebnica']} />
+                <ContactRow icon={<Icon.Pin size={22} />} label="Adres" lines={['ul. Milicka 34A', '55-100 Trzebnica']} />
                 <ContactRow icon={<Icon.Phone size={22} />} label="Telefon" lines={[
                   <a key="p1" href="tel:+48512622666" style={{fontWeight:600}}>512 622 666</a>,
+                  <a key="p2" href="tel:+48501963896" style={{fontWeight:600}}>501 963 896</a>,
+                  <a key="p3" href="tel:+48713084234" style={{fontWeight:600}}>71 308 42 34</a>,
                 ]} />
                 <ContactRow icon={<Icon.Mail size={22} />} label="E-mail" lines={[
                   <a key="e" href="mailto:trzebnica@plast-met.pl" style={{fontWeight:600}}>trzebnica@plast-met.pl</a>
                 ]} />
-                <ContactRow icon={<Icon.Auto size={22} />} label="Godziny otwarcia" lines={['pn–pt: 7:30 – 15:30']} />
+                <ContactRow icon={<Icon.Auto size={22} />} label="Godziny otwarcia" lines={['pn–śr, pt: 7:00 – 15:00', 'czw: 7:00 – 16:00']} />
               </div>
             </div>
 
@@ -118,7 +120,7 @@ function PageContact({ onQuote }) {
       {/* Mapa — stylizowana w tonacji strony */}
       <section className="section section--soft">
         <div className="container">
-          <SectionHead title="Jak do nas trafić" sub="ul. Milicka 34, 55-100 Trzebnica — przy wjeździe do miasta od strony DK15." />
+          <SectionHead title="Jak do nas trafić" sub="ul. Milicka 34A, 55-100 Trzebnica — przy wjeździe do miasta od strony DK15." />
         </div>
         <StylizedMap />
         <div className="container" style={{marginTop: 24, display: 'flex', justifyContent:'space-between', gap: 24, flexWrap: 'wrap'}}>
@@ -130,7 +132,7 @@ function PageContact({ onQuote }) {
           </div>
           <a
             className="btn btn--ghost-dark"
-            href="https://www.google.com/maps/search/?api=1&query=Plast-Met+Milicka+34+Trzebnica"
+            href="https://www.google.com/maps/search/?api=1&query=Plast-Met+Milicka+34A+Trzebnica"
             target="_blank" rel="noopener">
             Otwórz w Google Maps
             <Icon.Arrow size={14} sw={2} />
@@ -326,7 +328,7 @@ function StylizedMap() {
             <rect x="0" y="0" width="236" height="74" fill="#0d0d0d" />
             <rect x="0" y="0" width="3" height="74" fill="#d4a017" />
             <text x="16" y="22" fill="#d4a017" fontFamily="Manrope, sans-serif" fontSize="9" fontWeight="600" letterSpacing="2.5">PLAST-MET · ALUKOMFORT</text>
-            <text x="16" y="44" fill="#fff" fontFamily="Manrope, sans-serif" fontSize="14" fontWeight="700">ul. Milicka 34</text>
+            <text x="16" y="44" fill="#fff" fontFamily="Manrope, sans-serif" fontSize="14" fontWeight="700">ul. Milicka 34A</text>
             <text x="16" y="62" fill="rgba(255,255,255,0.72)" fontFamily="Manrope, sans-serif" fontSize="11">55-100 Trzebnica</text>
           </g>
         </g>
@@ -364,7 +366,7 @@ function StylizedMap() {
       }}>
         <div style={{fontSize: 10, letterSpacing: '0.24em', color: 'var(--muted)', fontWeight: 600}}>LOKALIZACJA</div>
         <div style={{fontSize: 20, fontWeight: 800, marginTop: 4, letterSpacing: '-0.01em'}}>Trzebnica</div>
-        <div style={{fontSize: 12, color: 'var(--muted)', marginTop: 2}}>ul. Milicka 34 · przy DK15</div>
+        <div style={{fontSize: 12, color: 'var(--muted)', marginTop: 2}}>ul. Milicka 34A · przy DK15</div>
       </div>
     </div>
   );
