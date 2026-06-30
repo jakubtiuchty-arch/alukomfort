@@ -89,7 +89,7 @@ function App() {
 
   return (
     <>
-      <Header route={route} onNavigate={navigate} />
+      <Header route={route} onNavigate={navigate} onQuote={openQuote} />
       {page}
       <Footer onNavigate={navigate} />
       <QuoteModal product={currentProduct} open={quoteOpen} onClose={() => setQuoteOpen(false)} />

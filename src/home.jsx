@@ -96,10 +96,11 @@ function Home({ onNavigate, onQuote }) {
         <div className="container hero__inner">
           <div className="hero__content hero__content--wide">
             <div className="hero__eyebrow">ALUKOMFORT · ZADASZENIA ALUMINIOWE</div>
-            <h1 className="hero__title hero__title--xl">Komfort niezależnie<br/>od pogody.</h1>
+            <h1 className="hero__title hero__title--xl">Komfort użytkowania<br/>niezależnie od pogody</h1>
             <p className="hero__sub">
               Zmień swój taras, ogród lub przestrzeń komercyjną w strefę luksusowego wypoczynku.
-              Trzy systemy ALUKOMFORT — LINEA, HORIZON i ROMA — dla domu, restauracji, kawiarni i hoteli.
+              Oferta ALUKOMFORT stanowi idealne rozwiązanie zarówno dla inwestorów prywatnych,
+              jak i obiektów użyteczności publicznej.
             </p>
             <div className="hero__cta">
               <Button variant="primary" size="lg" onClick={onQuote}>Zamów bezpłatną wycenę</Button>
@@ -146,14 +147,14 @@ function Home({ onNavigate, onQuote }) {
 
       <section className="section">
         <div className="container">
-          <SectionHead title="Trzy systemy ALUKOMFORT" />
+          <SectionHead title="Oferta zadaszeń aluminiowych ALUKOMFORT" />
           <div className="home-tiles">
             <a href="#/produkty/linea" className="home-tile" onClick={(e)=>go(e,'/produkty/linea')}>
               <div className="home-tile__img" style={{backgroundImage:'url(uploads/linea_kafelek_4.webp)'}} />
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">LINEA</div>
-                <p className="home-tile__desc"><strong>Dach stały</strong> z poliwęglanu lub szkła. Najbardziej uniwersalna i ekonomiczna — taras, wejście, wiata samochodowa, z opcją zabudowy ścian.</p>
+                <p className="home-tile__desc">Zadaszenia przyścienne ze skośnym dachem to eleganckie i funkcjonalne rozwiązanie, które skutecznie chroni taras przed deszczem i słońcem, zapewniając trwałość konstrukcji oraz harmonijne dopasowanie do architektury budynku.</p>
                 <span className="home-tile__link">Poznaj LINEA</span>
               </div>
             </a>
@@ -162,7 +163,7 @@ function Home({ onNavigate, onQuote }) {
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">HORIZON</div>
-                <p className="home-tile__desc"><strong>Dach ruchomy</strong> — lamele otwierasz i zamykasz, regulując słońce i przewiew. Wersja prestiżowa, sterowana pilotem lub aplikacją.</p>
+                <p className="home-tile__desc">Zadaszenia z wizualnie prostym dachem łączą nowoczesny, minimalistyczny design z funkcjonalnością, tworząc elegancką i ponadczasową przestrzeń przy domu lub w ogrodzie.</p>
                 <span className="home-tile__link">Poznaj HORIZON</span>
               </div>
             </a>
@@ -171,7 +172,7 @@ function Home({ onNavigate, onQuote }) {
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
                 <div className="home-tile__name">ROMA</div>
-                <p className="home-tile__desc"><strong>Dach z tkaniny</strong> — zwijana roleta rzymska z akrylu. Lekka, śródziemnomorska forma do strefy relaksu i ogródka.</p>
+                <p className="home-tile__desc">Zadaszenia z wizualnie prostym dachem i wykończeniem w postaci eleganckiej rolety rzymskiej łączą nowoczesną, minimalistyczną estetykę z możliwością regulacji zacienienia, tworząc komfortową i stylową przestrzeń do wypoczynku przez cały sezon.</p>
                 <span className="home-tile__link">Poznaj ROMA</span>
               </div>
             </a>

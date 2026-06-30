@@ -1372,9 +1372,26 @@ img { display: block; max-width: 100%; }
 }
 .ak-mobile-nav a.is-active { color: var(--accent); }
 
+/* CTA w nagłówku — desktop obok nawigacji, mobile w menu */
+.ak-nav { margin-left: auto; }
+.ak-header__cta {
+  padding: 11px 20px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.ak-mobile-nav__cta {
+  margin: 16px 24px 22px;
+  padding: 13px 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
 /* === Tablet (≤ 900px) === */
 @media (max-width: 900px) {
   .ak-nav { display: none; }
+  .ak-header__cta { display: none; }
   .ak-burger { display: flex; }
 
   .section { padding: 56px 0; }

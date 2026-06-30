@@ -1,13 +1,13 @@
-function Header({ route, onNavigate }) {
+function Header({ route, onNavigate, onQuote }) {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const links = [
-    { id: 'produkty', label: 'Produkty', children: [
+    { id: 'produkty', label: 'Oferta', children: [
       { label: 'LINEA',   hash: '/produkty/linea' },
       { label: 'HORIZON', hash: '/produkty/horizon' },
       { label: 'ROMA',    hash: '/produkty/roma' },
     ]},
     // { id: 'inspiracje', label: 'Inspiracje' }, // ukryte do czasu większej liczby realizacji — przebudujemy galerię
-    { id: 'wizualizacja', label: 'Wizualizacja' },
+    { id: 'wizualizacja', label: 'Konfigurator' },
     { id: 'realizacje', label: 'Realizacje' },
     { id: 'o-nas', label: 'O nas' },
     { id: 'kontakt', label: 'Kontakt' },
@@ -51,6 +51,9 @@ function Header({ route, onNavigate }) {
             </a>
           ))}
         </nav>
+        <button type="button" className="btn btn--primary ak-header__cta" onClick={onQuote}>
+          Zamów wycenę
+        </button>
         <button
           className={`ak-burger ${menuOpen ? 'is-open' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -81,6 +84,10 @@ function Header({ route, onNavigate }) {
             )}
           </React.Fragment>
         ))}
+        <button type="button" className="btn btn--primary ak-mobile-nav__cta"
+          onClick={() => { setMenuOpen(false); onQuote && onQuote(); }}>
+          Zamów wycenę
+        </button>
       </nav>
     </header>
   );
