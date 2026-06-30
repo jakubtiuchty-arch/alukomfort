@@ -233,21 +233,6 @@ function Home({ onNavigate, onQuote }) {
         </div>
       </section>
 
-      <section className="section--ink section section--ai">
-        <div className="container">
-          <SectionHead title="Zobacz pergolę u siebie — zanim ją zamówisz"
-            sub="Nasz konfigurator w 30 sekund dorysuje wybraną pergolę ALUKOMFORT na zdjęciu Twojego tarasu — w realistycznej skali, z zachowaniem światła i perspektywy." />
-          <div className="wiz-steps-row">
-            <div className="wiz-step-mini"><span className="wiz-step-mini__num">1</span><div><strong>Wgraj zdjęcie</strong><p>Sfotografuj taras lub ogród telefonem i wgraj zdjęcie do konfiguratora.</p></div></div>
-            <div className="wiz-step-mini"><span className="wiz-step-mini__num">2</span><div><strong>Wybierz system i kolor</strong><p>LINEA, HORIZON lub ROMA — w kolorze z palety RAL lub teksturze drewnopodobnej.</p></div></div>
-            <div className="wiz-step-mini"><span className="wiz-step-mini__num">3</span><div><strong>Odbierz wizualizację</strong><p>Otrzymasz realistyczny podgląd pergoli w Twojej przestrzeni.</p></div></div>
-          </div>
-          <div style={{textAlign:'center', marginTop: 32}}>
-            <Button variant="primary" size="lg" onClick={(e)=>go(e,'/wizualizacja')}>Wypróbuj konfigurator</Button>
-          </div>
-        </div>
-      </section>
-
       <section className="section section--soft">
         <div className="container">
           <SectionHead title="Dlaczego warto wybrać systemy ALUKOMFORT?"
@@ -295,33 +280,6 @@ function Home({ onNavigate, onQuote }) {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--soft">
-        <div className="container">
-          <SectionHead title="Dla domu i dla biznesu"
-            sub="Te same systemy, dwa różne światy — prywatna strefa wypoczynku przy domu albo ogródek, który zarabia przez cały sezon." />
-          <div className="home-tiles home-tiles--2">
-            <a href="#/produkty/linea" className="home-tile" onClick={(e)=>go(e,'/produkty/linea')}>
-              <div className="home-tile__img" style={{backgroundImage:'url(uploads/horizon-przyklady/przyscienna-lounge.webp)'}} />
-              <div className="home-tile__scrim" />
-              <div className="home-tile__body">
-                <div className="home-tile__name">Dla domu</div>
-                <p className="home-tile__desc">Zadaszenie tarasu, ogród letni, wiata samochodowa, domowa siłownia czy składzik — przestrzeń, która pracuje przez cały sezon.</p>
-                <span className="home-tile__link">Rozwiązania dla domu</span>
-              </div>
-            </a>
-            <a href="#/produkty/horizon" className="home-tile" onClick={(e)=>go(e,'/produkty/horizon')}>
-              <div className="home-tile__img" style={{backgroundImage:'url(uploads/roma-przyklady/taras-restauracji.webp)'}} />
-              <div className="home-tile__scrim" />
-              <div className="home-tile__body">
-                <div className="home-tile__name">Dla biznesu</div>
-                <p className="home-tile__desc">Ogródki restauracji i kawiarni, strefy hotelowe, bary plażowe — więcej miejsc dla gości niezależnie od pogody.</p>
-                <span className="home-tile__link">Rozwiązania dla biznesu</span>
-              </div>
-            </a>
           </div>
         </div>
       </section>

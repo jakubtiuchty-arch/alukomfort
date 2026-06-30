@@ -247,6 +247,18 @@ function PageWizualizacja({ onQuote }) {
         </div>
       </section>
 
+      <section className="section--ink section section--ai">
+        <div className="container">
+          <SectionHead title="Jak to działa — w 3 krokach"
+            sub="Wgraj zdjęcie, wybierz system i kolor, a w 30 sekund otrzymasz realistyczny podgląd pergoli w Twojej przestrzeni." />
+          <div className="wiz-steps-row">
+            <div className="wiz-step-mini"><span className="wiz-step-mini__num">1</span><div><strong>Wgraj zdjęcie</strong><p>Sfotografuj taras lub ogród telefonem i wgraj zdjęcie do konfiguratora.</p></div></div>
+            <div className="wiz-step-mini"><span className="wiz-step-mini__num">2</span><div><strong>Wybierz system i kolor</strong><p>LINEA, HORIZON lub ROMA — w kolorze z palety RAL lub teksturze drewnopodobnej.</p></div></div>
+            <div className="wiz-step-mini"><span className="wiz-step-mini__num">3</span><div><strong>Odbierz wizualizację</strong><p>Otrzymasz realistyczny podgląd pergoli w Twojej przestrzeni.</p></div></div>
+          </div>
+        </div>
+      </section>
+
       {!result && (
         <section className="section section--soft">
           <div className="container wiz-container">
