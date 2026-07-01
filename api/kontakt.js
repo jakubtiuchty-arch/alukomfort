@@ -1,6 +1,7 @@
 // Endpoint formularzy: modal wyceny (type:'wycena') + formularz kontaktowy (type:'kontakt').
-// Wysyła maila do firmy przez Resend (patrz api/_mailer.js).
-import { sendMail, esc } from './_mailer.js';
+// Wysyła DWA maile przez Resend: powiadomienie do firmy + potwierdzenie do klienta.
+import { sendMail } from './_mailer.js';
+import { employeeEmail, clientEmail } from './_emails.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -21,33 +22,21 @@ export default async function handler(req, res) {
     if (!message || !message.trim()) return res.status(400).json({ error: 'Wpisz treść wiadomości.' });
   }
 
-  const title = isQuote ? 'Nowe zapytanie o wycenę' : 'Nowa wiadomość z formularza kontaktowego';
-  const mailSubject = isQuote
-    ? `[Wycena] ${product || '—'} — ${name}`
-    : `[Kontakt] ${subject || 'Wiadomość'} — ${name}`;
-
-  const rows = [
-    ['Imię i nazwisko', name],
-    ['E-mail', email],
-    ['Telefon', phone],
-    isQuote ? ['Produkt', product] : ['Temat', subject],
-    isQuote ? ['Miejscowość', city] : null,
-    isQuote ? ['Wymiary', size] : null,
-  ].filter(Boolean);
-
-  const body = isQuote ? notes : message;
-  const html = `
-    <h2>${title} — ALUKOMFORT</h2>
-    <p>${rows.map(([k, v]) => `<b>${esc(k)}:</b> ${esc(v) || '—'}`).join('<br/>')}</p>
-    ${body ? `<p><b>${isQuote ? 'Notatki klienta' : 'Wiadomość'}:</b><br/>${esc(body).replace(/\n/g, '<br/>')}</p>` : ''}
-    <hr/>
-    <p style="font-size:12px;color:#666">Wysłane z formularza na pergoletrzebnica.pl</p>`;
+  const data = { type, name, email, phone, product, city, size, subject, message, notes };
+  const emp = employeeEmail(data);
+  const cli = clientEmail(data);
+  const office = process.env.MAIL_OFFICE || 'trzebnica@plast-met.pl';
 
   try {
-    const r = await sendMail({ subject: mailSubject, html, replyTo: email });
+    // 1) Powiadomienie do firmy — musi się udać (to jest właściwy lead). Reply-To = klient.
+    const r = await sendMail({ subject: emp.subject, html: emp.html, replyTo: email });
     if (r.skipped) {
       return res.status(503).json({ error: 'Wysyłka e-mail jest chwilowo niedostępna. Zadzwoń: 512 622 666.' });
     }
+    // 2) Potwierdzenie do klienta — best-effort, nie blokuje odpowiedzi. Reply-To = biuro.
+    sendMail({ subject: cli.subject, html: cli.html, to: email, replyTo: office })
+      .catch((e) => console.error('[KONTAKT] mail do klienta:', e?.message || e));
+
     return res.status(200).json({ ok: true });
   } catch (e) {
     console.error('[KONTAKT] błąd wysyłki:', e);

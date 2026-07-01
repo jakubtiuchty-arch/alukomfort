@@ -11,7 +11,7 @@ export function esc(s) {
 export async function sendMail({ subject, html, replyTo, to }) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.MAIL_FROM || 'Pergole Trzebnica <kontakt@pergoletrzebnica.pl>';
-  const dest = to || process.env.MAIL_TO || process.env.LEAD_EMAIL || 'kontakt@pergoletrzebnica.pl';
+  const dest = to || process.env.MAIL_TO || process.env.LEAD_EMAIL || 'm.tiuchty@plast-met.pl';
   if (!apiKey) {
     console.log('[MAIL] brak RESEND_API_KEY — pomijam wysyłkę:', subject);
     return { skipped: true };
