@@ -10,7 +10,7 @@ function PageInspiracje({ onQuote }) {
   usePageMeta({
     title: 'Inspiracje — wizualizacje pergol i zadaszeń ALUKOMFORT | LINEA, HORIZON, ROMA',
     description: 'Galeria inspiracji ALUKOMFORT — przykładowe aranżacje pergol aluminiowych i zadaszeń tarasów w systemach LINEA, HORIZON i ROMA. Zobacz, jak mogą wyglądać u Ciebie.',
-    canonical: 'https://www.zadaszeniatrzebnica.pl/#/inspiracje',
+    canonical: 'https://www.zadaszeniatrzebnica.pl/inspiracje',
   });
 
   const [lb, setLb] = React.useState(null); // { list:[{src,alt}], idx }
@@ -28,7 +28,7 @@ function PageInspiracje({ onQuote }) {
   return (
     <>
       <Breadcrumbs items={[
-        { label: 'Strona główna', href: '#/' },
+        { label: 'Strona główna', href: '/' },
         { label: 'Inspiracje' },
       ]} />
 
@@ -88,7 +88,11 @@ function PageInspiracje({ onQuote }) {
   );
 }
 
-// pomocnik nawigacji (App przekazuje przez window — prosto, bez prop drillingu)
-function onNavigateTo(hash) { window.location.hash = hash; window.scrollTo({ top: 0, behavior: 'instant' }); }
+// pomocnik nawigacji — History API (spójnie z usePathRoute w app.jsx)
+function onNavigateTo(path) {
+  window.history.pushState(null, '', path);
+  window.dispatchEvent(new PopStateEvent('popstate'));
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
 
 window.PageInspiracje = PageInspiracje;

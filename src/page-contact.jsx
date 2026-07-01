@@ -41,7 +41,7 @@ function PageContact({ onQuote }) {
   return (
     <>
       <Breadcrumbs items={[
-        { label: 'Strona główna', href: '#/' },
+        { label: 'Strona główna', href: '/' },
         { label: 'Kontakt' },
       ]} />
 

@@ -1,24 +1,44 @@
-// Główny komponent aplikacji — routing przez hash
+// Główny komponent aplikacji — routing przez History API (czyste adresy).
+// Stare adresy hashowe (/#/produkty/linea) są przekierowywane na czyste ścieżki.
 
-function useHashRoute() {
+function usePathRoute() {
+  const normalize = (p) => (String(p || '').replace(/\/+$/, '') || '/');
   const [route, setRoute] = React.useState(() => {
-    const h = window.location.hash.replace(/^#/, '') || '/';
-    return h;
+    const h = window.location.hash;
+    if (h.startsWith('#/')) {
+      const clean = h.slice(1) + window.location.search;
+      window.history.replaceState(null, '', clean);
+      return normalize(h.slice(1));
+    }
+    return normalize(window.location.pathname);
   });
   React.useEffect(() => {
-    const onHash = () => setRoute(window.location.hash.replace(/^#/, '') || '/');
+    const onPop = () => setRoute(normalize(window.location.pathname));
+    // Gdyby ktoś kliknął stary link #/... będąc już na stronie — też przekieruj.
+    const onHash = () => {
+      const h = window.location.hash;
+      if (h.startsWith('#/')) {
+        window.history.replaceState(null, '', h.slice(1));
+        setRoute(normalize(h.slice(1)));
+      }
+    };
+    window.addEventListener('popstate', onPop);
     window.addEventListener('hashchange', onHash);
-    return () => window.removeEventListener('hashchange', onHash);
+    return () => {
+      window.removeEventListener('popstate', onPop);
+      window.removeEventListener('hashchange', onHash);
+    };
   }, []);
-  const navigate = React.useCallback((hash) => {
-    window.location.hash = hash;
+  const navigate = React.useCallback((path) => {
+    window.history.pushState(null, '', path);
+    setRoute(normalize(path));
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
   return [route, navigate];
 }
 
 function App() {
-  const [route, navigate] = useHashRoute();
+  const [route, navigate] = usePathRoute();
   const [quoteOpen, setQuoteOpen] = React.useState(false);
 
   // Szukaj w URL, żeby ustalić produkt dla modala
@@ -28,6 +48,23 @@ function App() {
   else if (route.startsWith('/produkty/linea')) currentProduct = 'LINEA';
 
   const openQuote = React.useCallback(() => setQuoteOpen(true), []);
+
+  // Globalny interceptor wewnętrznych linków (/...) — nawigacja SPA bez przeładowania.
+  // Linki z własnym onClick (preventDefault) oraz target=_blank / modyfikatory są pomijane.
+  React.useEffect(() => {
+    const onClick = (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = e.target.closest ? e.target.closest('a') : null;
+      if (!a) return;
+      const href = a.getAttribute('href') || '';
+      if (!href.startsWith('/') || href.startsWith('//')) return;
+      if (a.target && a.target !== '_self') return;
+      e.preventDefault();
+      navigate(href);
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, [navigate]);
 
   // Animacja „wjeżdżania" sekcji przy scrollu — globalnie dla .section.
   // Po każdej zmianie trasy obserwujemy nowo wyrenderowane sekcje.

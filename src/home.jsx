@@ -149,7 +149,7 @@ function Home({ onNavigate, onQuote }) {
         <div className="container">
           <SectionHead title="Oferta zadaszeń aluminiowych ALUKOMFORT" />
           <div className="home-tiles">
-            <a href="#/produkty/linea" className="home-tile" onClick={(e)=>go(e,'/produkty/linea')}>
+            <a href="/produkty/linea" className="home-tile" onClick={(e)=>go(e,'/produkty/linea')}>
               <div className="home-tile__img" style={{backgroundImage:'url(uploads/linea_kafelek_4.webp)'}} />
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
@@ -158,7 +158,7 @@ function Home({ onNavigate, onQuote }) {
                 <span className="home-tile__link">Poznaj LINEA</span>
               </div>
             </a>
-            <a href="#/produkty/horizon" className="home-tile" onClick={(e)=>go(e,'/produkty/horizon')}>
+            <a href="/produkty/horizon" className="home-tile" onClick={(e)=>go(e,'/produkty/horizon')}>
               <div className="home-tile__img" style={{backgroundImage:'url(uploads/kafelek_horizon_2.webp)'}} />
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
@@ -167,7 +167,7 @@ function Home({ onNavigate, onQuote }) {
                 <span className="home-tile__link">Poznaj HORIZON</span>
               </div>
             </a>
-            <a href="#/produkty/roma" className="home-tile" onClick={(e)=>go(e,'/produkty/roma')}>
+            <a href="/produkty/roma" className="home-tile" onClick={(e)=>go(e,'/produkty/roma')}>
               <div className="home-tile__img" style={{backgroundImage:'url(uploads/roma_hp.webp)'}} />
               <div className="home-tile__scrim" />
               <div className="home-tile__body">
@@ -189,9 +189,9 @@ function Home({ onNavigate, onQuote }) {
               <thead>
                 <tr>
                   <th></th>
-                  <th><a href="#/produkty/linea" onClick={(e)=>go(e,'/produkty/linea')}>LINEA</a></th>
-                  <th><a href="#/produkty/horizon" onClick={(e)=>go(e,'/produkty/horizon')}>HORIZON</a></th>
-                  <th><a href="#/produkty/roma" onClick={(e)=>go(e,'/produkty/roma')}>ROMA</a></th>
+                  <th><a href="/produkty/linea" onClick={(e)=>go(e,'/produkty/linea')}>LINEA</a></th>
+                  <th><a href="/produkty/horizon" onClick={(e)=>go(e,'/produkty/horizon')}>HORIZON</a></th>
+                  <th><a href="/produkty/roma" onClick={(e)=>go(e,'/produkty/roma')}>ROMA</a></th>
                 </tr>
               </thead>
               <tbody>

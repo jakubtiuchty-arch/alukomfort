@@ -26,20 +26,20 @@ function Footer({ onNavigate }) {
           <div className="ft-col">
             <h5>Produkty</h5>
             <ul>
-              <li><a href="#/produkty/linea" onClick={(e)=>go(e,'/produkty/linea')}>ALUKOMFORT LINEA</a></li>
-              <li><a href="#/produkty/horizon" onClick={(e)=>go(e,'/produkty/horizon')}>ALUKOMFORT HORIZON</a></li>
-              <li><a href="#/produkty/roma" onClick={(e)=>go(e,'/produkty/roma')}>ALUKOMFORT ROMA</a></li>
-              <li><a href="#/wizualizacja" onClick={(e)=>go(e,'/wizualizacja')}>Konfigurator wizualizacji</a></li>
+              <li><a href="/produkty/linea" onClick={(e)=>go(e,'/produkty/linea')}>ALUKOMFORT LINEA</a></li>
+              <li><a href="/produkty/horizon" onClick={(e)=>go(e,'/produkty/horizon')}>ALUKOMFORT HORIZON</a></li>
+              <li><a href="/produkty/roma" onClick={(e)=>go(e,'/produkty/roma')}>ALUKOMFORT ROMA</a></li>
+              <li><a href="/wizualizacja" onClick={(e)=>go(e,'/wizualizacja')}>Konfigurator wizualizacji</a></li>
             </ul>
           </div>
 
           <div className="ft-col">
             <h5>Firma</h5>
             <ul>
-              <li><a href="#/o-nas" onClick={(e)=>go(e,'/o-nas')}>O nas</a></li>
-              <li><a href="#/realizacje" onClick={(e)=>go(e,'/realizacje')}>Realizacje</a></li>
-              <li><a href="#/inspiracje" onClick={(e)=>go(e,'/inspiracje')}>Inspiracje</a></li>
-              <li><a href="#/kontakt" onClick={(e)=>go(e,'/kontakt')}>Kontakt</a></li>
+              <li><a href="/o-nas" onClick={(e)=>go(e,'/o-nas')}>O nas</a></li>
+              <li><a href="/realizacje" onClick={(e)=>go(e,'/realizacje')}>Realizacje</a></li>
+              <li><a href="/inspiracje" onClick={(e)=>go(e,'/inspiracje')}>Inspiracje</a></li>
+              <li><a href="/kontakt" onClick={(e)=>go(e,'/kontakt')}>Kontakt</a></li>
             </ul>
           </div>
 
@@ -89,8 +89,8 @@ function Footer({ onNavigate }) {
         <div className="ak-footer__bottom">
           <span>© 2026 ALUKOMFORT · Plast-Met Systemy Ogrodzeniowe Sp. z o.o. Sp.k.</span>
           <span className="ft-legal">
-            <a href="#/polityka-prywatnosci" onClick={(e)=>go(e,'/polityka-prywatnosci')}>Polityka prywatności</a>
-            <a href="#/regulamin" onClick={(e)=>go(e,'/regulamin')}>Regulamin</a>
+            <a href="/polityka-prywatnosci" onClick={(e)=>go(e,'/polityka-prywatnosci')}>Polityka prywatności</a>
+            <a href="/regulamin" onClick={(e)=>go(e,'/regulamin')}>Regulamin</a>
           </span>
         </div>
       </div>

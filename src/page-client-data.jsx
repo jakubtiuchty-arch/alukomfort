@@ -24,7 +24,7 @@ function ClientDataPage({ onNavigate }) {
   usePageMeta({
     title: 'Dane od klienta — formularz | ALUKOMFORT',
     description: 'Formularz do uzupełnienia przez PLAST-MET — dane potrzebne do rozbudowy strony ALUKOMFORT.',
-    canonical: 'https://www.zadaszeniatrzebnica.pl/#/dane-od-klienta',
+    canonical: 'https://www.zadaszeniatrzebnica.pl/dane-od-klienta',
   });
 
   const [data, setData] = React.useState(() => {
@@ -147,7 +147,7 @@ function ClientDataPage({ onNavigate }) {
   return (
     <>
       <Breadcrumbs items={[
-        { label: 'Strona główna', href: '#/' },
+        { label: 'Strona główna', href: '/' },
         { label: 'Dane od klienta' },
       ]} />
 

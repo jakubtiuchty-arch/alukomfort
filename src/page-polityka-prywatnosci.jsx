@@ -5,13 +5,13 @@ function PagePrivacy() {
   usePageMeta({
     title: 'Polityka prywatności | ALUKOMFORT — Plast-Met',
     description: 'Polityka prywatności serwisu ALUKOMFORT (www.zadaszeniatrzebnica.pl). Zasady przetwarzania danych osobowych zgodnie z RODO, informacja o plikach cookies i prawach użytkowników.',
-    canonical: 'https://www.zadaszeniatrzebnica.pl/#/polityka-prywatnosci',
+    canonical: 'https://www.zadaszeniatrzebnica.pl/polityka-prywatnosci',
   });
 
   return (
     <>
       <Breadcrumbs items={[
-        { label: 'Strona główna', href: '#/' },
+        { label: 'Strona główna', href: '/' },
         { label: 'Polityka prywatności' },
       ]} />
 

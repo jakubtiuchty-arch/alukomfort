@@ -48,7 +48,7 @@ function PageWizualizacja({ onQuote }) {
   usePageMeta({
     title: 'Wizualizacja pergoli — zobacz ją u siebie | ALUKOMFORT',
     description: 'Wgraj zdjęcie swojego tarasu i zobacz w 30 sekund, jak będzie wyglądać z pergolą ALUKOMFORT (LINEA / HORIZON / ROMA). Bezpłatny konfigurator wizualizacji.',
-    canonical: 'https://www.zadaszeniatrzebnica.pl/#/wizualizacja',
+    canonical: 'https://www.zadaszeniatrzebnica.pl/wizualizacja',
   });
 
   const [product, setProduct] = React.useState('horizon');
@@ -233,7 +233,7 @@ function PageWizualizacja({ onQuote }) {
   return (
     <>
       <Breadcrumbs items={[
-        { label: 'Strona główna', href: '#/' },
+        { label: 'Strona główna', href: '/' },
         { label: 'Wizualizacja' },
       ]} />
 

@@ -5,13 +5,13 @@ function PageRegulamin() {
   usePageMeta({
     title: 'Regulamin serwisu | ALUKOMFORT — Plast-Met',
     description: 'Regulamin świadczenia usług drogą elektroniczną w serwisie ALUKOMFORT (www.zadaszeniatrzebnica.pl) — zasady korzystania, formularz kontaktowy, konfigurator wizualizacji, reklamacje.',
-    canonical: 'https://www.zadaszeniatrzebnica.pl/#/regulamin',
+    canonical: 'https://www.zadaszeniatrzebnica.pl/regulamin',
   });
 
   return (
     <>
       <Breadcrumbs items={[
-        { label: 'Strona główna', href: '#/' },
+        { label: 'Strona główna', href: '/' },
         { label: 'Regulamin' },
       ]} />
 
@@ -105,7 +105,7 @@ function PageRegulamin() {
             </li>
             <li>
               Szczegóły przetwarzania zdjęć i danych w ramach Konfiguratora, w tym powierzenia ich zewnętrznemu
-              dostawcy usługi generowania grafiki, opisuje <a href="#/polityka-prywatnosci">Polityka prywatności</a>.
+              dostawcy usługi generowania grafiki, opisuje <a href="/polityka-prywatnosci">Polityka prywatności</a>.
             </li>
           </ol>
 
@@ -166,7 +166,7 @@ function PageRegulamin() {
           <h2>§9. Dane osobowe</h2>
           <p>
             Zasady przetwarzania danych osobowych Użytkowników, informacje o podstawach prawnych, odbiorcach danych
-            oraz prawach przysługujących osobom, których dane dotyczą, określa <a href="#/polityka-prywatnosci">Polityka
+            oraz prawach przysługujących osobom, których dane dotyczą, określa <a href="/polityka-prywatnosci">Polityka
             prywatności</a>, stanowiąca integralną część niniejszego Regulaminu.
           </p>
 
