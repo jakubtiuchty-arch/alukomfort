@@ -145,7 +145,7 @@ function PageContact({ onQuote }) {
       <section>
         <iframe
           title="Mapa dojazdu — PLAST-MET, ul. Milicka 34A, Trzebnica"
-          src="https://www.google.com/maps?q=Plast-Met+Milicka+34A+55-100+Trzebnica&hl=pl&z=16&t=h&output=embed"
+          src="https://www.google.com/maps?q=Plast-Met+Milicka+34A+55-100+Trzebnica&hl=pl&z=16&output=embed"
           width="100%"
           height="620"
           style={{border: 0, display: 'block', width: '100%'}}
