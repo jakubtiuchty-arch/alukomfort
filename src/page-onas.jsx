@@ -35,7 +35,7 @@ function PageOnas({ onQuote }) {
   usePageMeta({
     title: 'O nas — PLAST-MET, producent zadaszeń ALUKOMFORT | Trzebnica',
     description: 'ALUKOMFORT to marka PLAST-MET Systemy Ogrodzeniowe — polskiego producenta z Trzebnicy działającego od 1988 roku. Własny dział konstrukcyjno-projektowy, nowoczesne technologie, certyfikat TÜV NORD.',
-    canonical: 'https://alukomfort.pl/#/o-nas',
+    canonical: 'https://www.zadaszeniatrzebnica.pl/#/o-nas',
   });
 
   return (

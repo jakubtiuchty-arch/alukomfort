@@ -24,7 +24,7 @@ function ClientDataPage({ onNavigate }) {
   usePageMeta({
     title: 'Dane od klienta — formularz | ALUKOMFORT',
     description: 'Formularz do uzupełnienia przez PLAST-MET — dane potrzebne do rozbudowy strony ALUKOMFORT.',
-    canonical: 'https://alukomfort.pl/#/dane-od-klienta',
+    canonical: 'https://www.zadaszeniatrzebnica.pl/#/dane-od-klienta',
   });
 
   const [data, setData] = React.useState(() => {

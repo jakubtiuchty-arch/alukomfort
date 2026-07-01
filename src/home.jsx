@@ -76,7 +76,7 @@ function Home({ onNavigate, onQuote }) {
   usePageMeta({
     title: 'ALUKOMFORT — pergole aluminiowe i zadaszenia tarasów | producent PLAST-MET, Trzebnica',
     description: 'Producent aluminiowych pergol bioklimatycznych i zadaszeń tarasów. Systemy LINEA, HORIZON, ROMA. Certyfikat TÜV NORD, gwarancja 60 mies., bezpłatna wycena w 24h.',
-    canonical: 'https://alukomfort.pl/',
+    canonical: 'https://www.zadaszeniatrzebnica.pl/',
   });
 
   return (

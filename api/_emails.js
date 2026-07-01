@@ -5,7 +5,9 @@ import { esc } from './_mailer.js';
 const GOLD = '#c8961e';
 const DARK = '#111111';
 // Grafika nagłówka — blueprint pergoli (linie na przezroczystym tle, hostowany w repo)
-const HEADER_IMG = 'https://alukomfort.vercel.app/uploads/email/header-blueprint.png';
+const HEADER_IMG = 'https://www.zadaszeniatrzebnica.pl/uploads/email/header-blueprint.png';
+// Logo PLAST-MET (białe, na przezroczystym tle) do ciemnego nagłówka
+const LOGO_IMG = 'https://www.zadaszeniatrzebnica.pl/uploads/email/logo-plastmet-white.png';
 
 function shell(inner, preheader = '') {
   return `<!doctype html><html lang="pl"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/></head>
@@ -17,8 +19,7 @@ ${preheader ? `<div style="display:none;max-height:0;overflow:hidden;opacity:0;c
       <tr><td style="background:${DARK};padding:18px 28px;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
           <td valign="middle" style="vertical-align:middle;">
-            <div style="color:#ffffff;font-size:20px;font-weight:800;letter-spacing:3px;">PLAST-<span style="color:${GOLD};">MET</span></div>
-            <div style="color:rgba(255,255,255,0.6);font-size:11px;letter-spacing:1.5px;margin-top:5px;">ALUMINIOWE ZADASZENIA I PERGOLE</div>
+            <img src="${LOGO_IMG}" width="160" alt="PLAST-MET" style="display:block;width:160px;max-width:160px;height:auto;border:0;" />
           </td>
           <td valign="middle" align="right" width="170" style="vertical-align:middle;width:170px;">
             <img src="${HEADER_IMG}" width="160" alt="" style="display:block;width:160px;max-width:160px;height:auto;border:0;margin-left:auto;" />

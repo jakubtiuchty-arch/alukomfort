@@ -58,7 +58,7 @@ function useProductSchema({ id, name, description, image, url, category }) {
       '@id': url + '#product',
       name: `ALUKOMFORT ${name}`,
       description,
-      image: image ? `https://alukomfort.pl/${image}` : undefined,
+      image: image ? `https://www.zadaszeniatrzebnica.pl/${image}` : undefined,
       url,
       category: category || 'Pergola aluminiowa',
       brand: { '@type': 'Brand', name: 'ALUKOMFORT' },

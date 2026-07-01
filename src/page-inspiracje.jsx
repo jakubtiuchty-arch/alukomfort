@@ -10,7 +10,7 @@ function PageInspiracje({ onQuote }) {
   usePageMeta({
     title: 'Inspiracje — wizualizacje pergol i zadaszeń ALUKOMFORT | LINEA, HORIZON, ROMA',
     description: 'Galeria inspiracji ALUKOMFORT — przykładowe aranżacje pergol aluminiowych i zadaszeń tarasów w systemach LINEA, HORIZON i ROMA. Zobacz, jak mogą wyglądać u Ciebie.',
-    canonical: 'https://alukomfort.pl/#/inspiracje',
+    canonical: 'https://www.zadaszeniatrzebnica.pl/#/inspiracje',
   });
 
   const [lb, setLb] = React.useState(null); // { list:[{src,alt}], idx }

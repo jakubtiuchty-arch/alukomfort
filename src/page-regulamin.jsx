@@ -4,8 +4,8 @@
 function PageRegulamin() {
   usePageMeta({
     title: 'Regulamin serwisu | ALUKOMFORT — Plast-Met',
-    description: 'Regulamin świadczenia usług drogą elektroniczną w serwisie ALUKOMFORT (alukomfort.pl) — zasady korzystania, formularz kontaktowy, konfigurator wizualizacji, reklamacje.',
-    canonical: 'https://alukomfort.pl/#/regulamin',
+    description: 'Regulamin świadczenia usług drogą elektroniczną w serwisie ALUKOMFORT (www.zadaszeniatrzebnica.pl) — zasady korzystania, formularz kontaktowy, konfigurator wizualizacji, reklamacje.',
+    canonical: 'https://www.zadaszeniatrzebnica.pl/#/regulamin',
   });
 
   return (
@@ -20,7 +20,7 @@ function PageRegulamin() {
           <div className="onas-hero__eyebrow">ALUKOMFORT · PLAST-MET</div>
           <h1 className="onas-hero__title">Regulamin serwisu</h1>
           <p className="onas-hero__lead">
-            Regulamin określa zasady korzystania z serwisu alukomfort.pl oraz świadczenia usług drogą elektroniczną
+            Regulamin określa zasady korzystania z serwisu www.zadaszeniatrzebnica.pl oraz świadczenia usług drogą elektroniczną
             zgodnie z ustawą z dnia 18 lipca 2002 r. o świadczeniu usług drogą elektroniczną.
           </p>
         </div>
@@ -34,7 +34,7 @@ function PageRegulamin() {
           <ol className="legal__ol">
             <li>
               Niniejszy Regulamin określa zasady świadczenia usług drogą elektroniczną za pośrednictwem serwisu
-              internetowego dostępnego pod adresem <strong>alukomfort.pl</strong> (dalej: „Serwis").
+              internetowego dostępnego pod adresem <strong>www.zadaszeniatrzebnica.pl</strong> (dalej: „Serwis").
             </li>
             <li>
               Usługodawcą i właścicielem Serwisu jest <strong>Plast-Met Systemy Ogrodzeniowe Sp. z o.o. Sp.k.</strong>{' '}

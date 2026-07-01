@@ -17,14 +17,14 @@ function ProductHorizon({ onQuote }) {
   usePageMeta({
     title: 'HORIZON — pergola bioklimatyczna lamelowa, szklana i hybrydowa | ALUKOMFORT',
     description: 'ALUKOMFORT HORIZON — pergola bioklimatyczna z wieńcem 280 mm. Warianty L (lamele), S (szkło), L-S (hybryda). Sterowanie SOMFY, ściany i LED ukryte w konstrukcji.',
-    canonical: 'https://alukomfort.pl/#/produkty/horizon',
+    canonical: 'https://www.zadaszeniatrzebnica.pl/#/produkty/horizon',
   });
   useProductSchema({
     id: 'horizon',
     name: 'HORIZON',
     description: p.intro,
     image: p.heroImg,
-    url: 'https://alukomfort.pl/#/produkty/horizon',
+    url: 'https://www.zadaszeniatrzebnica.pl/#/produkty/horizon',
     category: 'Pergola bioklimatyczna',
   });
 

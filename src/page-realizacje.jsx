@@ -86,7 +86,7 @@ function PageRealizacje({ onQuote }) {
   usePageMeta({
     title: 'Realizacje — zadaszenia i pergole ALUKOMFORT | PLAST-MET',
     description: 'Zobacz zrealizowane zadaszenia ALUKOMFORT: tarasy z zabudową lamelową, przeszklone pawilony ogrodowe, zadaszenia balkonów. Zdjęcia i wideo z montaży u klientów.',
-    canonical: 'https://alukomfort.pl/#/realizacje',
+    canonical: 'https://www.zadaszeniatrzebnica.pl/#/realizacje',
   });
 
   return (
