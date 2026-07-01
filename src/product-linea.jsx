@@ -53,7 +53,6 @@ function ProductLinea({ onQuote }) {
             <p className="hero__sub">{p.tagline} {p.description}</p>
             <div className="hero__cta">
               <Button variant="primary" size="lg" onClick={onQuote}>Poproś o bezpłatną wycenę</Button>
-              <Button variant="ghost-light" size="lg">Zobacz dostępne konfiguracje</Button>
             </div>
           </div>
         </div>

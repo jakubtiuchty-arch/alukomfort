@@ -17,8 +17,8 @@ const COLORS_PREMIUM = [
 const LINEA = {
   id: 'linea',
   name: 'LINEA',
-  tagline: 'Praktyczna wszechstronność i niezawodność — aluminiowy system zadaszeń przyściennych i samonośnych.',
-  description: 'Solidne i ekonomiczne zadaszenie o uniwersalnej formie — pergola tarasowa sprawdzi się przy domu, jako carport oraz w restauracji czy kawiarni.',
+  tagline: 'Konstrukcja aluminiowego zadaszenia przyściennego została zaprojektowana tak, aby umożliwiać realizację zadaszeń o różnorodnych funkcjach, formach i wymiarach.',
+  description: 'System LINEA daje możliwość zbudowania konstrukcji dopasowanej do architektury budynku oraz indywidualnych potrzeb użytkowników.',
   heroImg: 'assets/wiz-13.webp',
   intro: 'System ALUKOMFORT LINEA to wszechstronna pergola tarasowa, która daje pełną elastyczność montażu — jako konstrukcja przyścienna zintegrowana z budynkiem lub wolnostojąca samonośna. Sprawdza się zarówno jako zadaszenie przydomowego tarasu i carportu, jak i w ogródkach letnich restauracji i kawiarni — gdzie chroni meble i gości przed kaprysami pogody.',
   usecases: [

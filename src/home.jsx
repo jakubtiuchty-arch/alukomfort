@@ -114,28 +114,28 @@ function Home({ onNavigate, onQuote }) {
         <div className="container">
           <div className="usp-bar__grid">
             <div className="usp-bar__item">
-              <img className="usp-bar__ico" src="uploads/icons/bar-tradycja.webp" alt="" width="34" height="34" />
+              <img className="usp-bar__ico" src="uploads/icons/bar-tradycja.webp?v=2" alt="" width="34" height="34" />
               <div>
                 <div className="usp-bar__num">30+ lat</div>
                 <div className="usp-bar__lab">tradycji PLAST-MET</div>
               </div>
             </div>
             <div className="usp-bar__item">
-              <img className="usp-bar__ico" src="uploads/icons/bar-certyfikat.webp" alt="" width="34" height="34" />
+              <img className="usp-bar__ico" src="uploads/icons/bar-certyfikat.webp?v=2" alt="" width="34" height="34" />
               <div>
                 <div className="usp-bar__num">TÜV NORD</div>
                 <div className="usp-bar__lab">2274-CPR-0046-2025 · EN 1090-1</div>
               </div>
             </div>
             <div className="usp-bar__item">
-              <img className="usp-bar__ico" src="uploads/icons/bar-gwarancja.webp" alt="" width="34" height="34" />
+              <img className="usp-bar__ico" src="uploads/icons/bar-gwarancja.webp?v=2" alt="" width="34" height="34" />
               <div>
                 <div className="usp-bar__num">60 mies.</div>
                 <div className="usp-bar__lab">gwarancji na konstrukcję</div>
               </div>
             </div>
             <div className="usp-bar__item">
-              <img className="usp-bar__ico" src="uploads/icons/bar-wycena.webp" alt="" width="34" height="34" />
+              <img className="usp-bar__ico" src="uploads/icons/bar-wycena.webp?v=2" alt="" width="34" height="34" />
               <div>
                 <div className="usp-bar__num">24 h</div>
                 <div className="usp-bar__lab">bezpłatna wycena</div>
@@ -279,36 +279,6 @@ function Home({ onNavigate, onQuote }) {
                   <p className="step__desc">{s.desc}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="split-2">
-            <div>
-              <h2 className="section__title" style={{textAlign:'left', marginBottom: 16}}>Producent, nie pośrednik</h2>
-              <p className="small" style={{color:'var(--muted)', lineHeight: 1.7}}>
-                ALUKOMFORT to marka PLAST-MET Systemy Ogrodzeniowe — firmy z ponad 30-letnią tradycją
-                w obróbce metalu. Każdą konstrukcję projektujemy i produkujemy we własnej fabryce
-                w Trzebnicy na Dolnym Śląsku, z ekstrudowanego aluminium 6063, zgodnie z normą
-                PN-EN 1090-1 i klasą wykonania EXC 2 — co potwierdza certyfikat TÜV NORD.
-              </p>
-              <p className="small" style={{color:'var(--muted)', lineHeight: 1.7}}>
-                Kupujesz bezpośrednio od producenta: bez marży pośredników, z pełną kontrolą jakości
-                od profilu po montaż. Aluminium jest bezobsługowe i w 100% przetwarzalne — to inwestycja
-                na dekady, nie na sezon.
-              </p>
-              <ul className="iconlist iconlist--img" style={{marginTop: 18}}>
-                <li><img className="ic-img" src="uploads/icons/prod-fabryka.webp" alt="" width="30" height="30" loading="lazy" />Własna fabryka i biuro konstrukcyjne w Trzebnicy</li>
-                <li><img className="ic-img" src="uploads/icons/prod-certyfikat.webp" alt="" width="30" height="30" loading="lazy" />Certyfikat TÜV NORD 2274-CPR-0046-2025</li>
-                <li><img className="ic-img" src="uploads/icons/prod-recykling.webp" alt="" width="30" height="30" loading="lazy" />Aluminium 6063 — odporne na korozję, w 100% do recyklingu</li>
-              </ul>
-            </div>
-            <div className="prod-photos">
-              <div className="prod-photos__item" style={{backgroundImage:'url(uploads/realizacje-web/real_2.webp)'}} role="img" aria-label="Stoisko targowe ALUKOMFORT — pawilon ogrodowy" />
-              <div className="prod-photos__item" style={{backgroundImage:'url(uploads/realizacje-web/real_3.webp)'}} role="img" aria-label="Zabudowa lamelowa ALUKOMFORT na targach branżowych" />
             </div>
           </div>
         </div>
