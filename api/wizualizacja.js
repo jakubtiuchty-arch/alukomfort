@@ -1,7 +1,8 @@
 // Vercel serverless function: proxy do OpenAI gpt-image-2 + lead capture
 // POST application/json: { product, color, imageBase64, mimeType, email, phone, address, notes, rodo }
 // Wymagane env: OPENAI_API_KEY
-// Opcjonalne env: RESEND_API_KEY, LEAD_EMAIL (gdzie iść lead, default: biuro@plast-met.pl)
+// Mail leada przez Resend — patrz api/_mailer.js (RESEND_API_KEY, MAIL_TO)
+import { sendMail } from './_mailer.js';
 
 // Bryła konstrukcji — bez opisu pokrycia dachu (to dokłada ROOF_PROMPTS)
 const PRODUCT_PROMPTS = {
@@ -124,15 +125,10 @@ function parseCookies(header) {
 }
 
 async function sendLeadEmail(payload, imageUrl) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.LEAD_EMAIL || 'biuro@plast-met.pl';
-  if (!apiKey) {
-    console.log('[LEAD] (no Resend key — skipping email):', JSON.stringify({ ...payload, imageUrl }));
-    return { skipped: true };
-  }
   const html = `
     <h2>Nowy lead z konfiguratora wizualizacji ALUKOMFORT</h2>
-    <p><b>Produkt:</b> ${payload.product?.toUpperCase() || '—'}<br/>
+    <p><b>Imię i nazwisko:</b> ${[payload.name, payload.surname].filter(Boolean).join(' ') || '—'}<br/>
+       <b>Produkt:</b> ${payload.product?.toUpperCase() || '—'}<br/>
        <b>Kolor:</b> ${payload.color || '—'}<br/>
        <b>Dach:</b> ${payload.roof || '—'}<br/>
        <b>Zabudowa:</b> ${payload.enclosure || '—'}<br/>
@@ -146,20 +142,13 @@ async function sendLeadEmail(payload, imageUrl) {
     <p style="font-size:12px;color:#666">IP: ${payload.ip} · User-Agent: ${payload.ua}</p>
   `;
   try {
-    const r = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from: 'ALUKOMFORT <noreply@alukomfort.pl>',
-        to: [to],
-        subject: `[Wizualizacja] ${payload.product?.toUpperCase()} — ${payload.email}`,
-        html,
-      }),
+    return await sendMail({
+      subject: `[Wizualizacja] ${payload.product?.toUpperCase() || '—'} — ${payload.email}`,
+      html,
+      replyTo: payload.email,
     });
-    if (!r.ok) console.error('[LEAD] Resend error:', r.status, await r.text());
-    return { sent: r.ok };
   } catch (e) {
-    console.error('[LEAD] Resend exception:', e.message);
+    console.error('[LEAD] błąd wysyłki:', e.message);
     return { error: e.message };
   }
 }
@@ -189,7 +178,7 @@ export default async function handler(req, res) {
     });
   }
 
-  const { product, color, roof, enclosure, imageBase64, mimeType, email, phone, address, notes, rodo, testMode,
+  const { product, color, roof, enclosure, imageBase64, mimeType, name, surname, email, phone, address, notes, rodo, testMode,
           admin, adminPin, led, montaz, dimensions, marker, markerPoints } = req.body || {};
 
   // TEST MODE — pomija walidację danych kontaktowych, limit dzienny i wysyłkę leada (front: WIZ_TEST_MODE).
@@ -260,7 +249,7 @@ export default async function handler(req, res) {
     }
 
     // Lead email (best-effort)
-    sendLeadEmail({ product, color, roof, enclosure, email, phone, address, notes, ip, ua }, dataUrl.startsWith('data:') ? '(załącznik base64 w odpowiedzi)' : dataUrl).catch(() => {});
+    sendLeadEmail({ product, color, roof, enclosure, name, surname, email, phone, address, notes, ip, ua }, dataUrl.startsWith('data:') ? '(załącznik base64 w odpowiedzi)' : dataUrl).catch(() => {});
 
     // Aktualizacja cookie limitu
     res.setHeader('Set-Cookie', [

@@ -4,9 +4,11 @@ function PageContact({ onQuote }) {
   const [form, setForm] = React.useState({ name: '', email: '', phone: '', subject: 'Wycena', msg: '' });
   const [errors, setErrors] = React.useState({});
   const [sent, setSent] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [serverError, setServerError] = React.useState('');
 
   const set = (k, v) => setForm(p => ({ ...p, [k]: v }));
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     const err = {};
     if (!form.name.trim()) err.name = 'Podaj imię i nazwisko';
@@ -14,7 +16,26 @@ function PageContact({ onQuote }) {
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) err.email = 'Niepoprawny adres e-mail';
     if (!form.msg.trim()) err.msg = 'Wpisz treść wiadomości';
     setErrors(err);
-    if (Object.keys(err).length === 0) setSent(true);
+    if (Object.keys(err).length > 0) return;
+    setLoading(true); setServerError('');
+    try {
+      const r = await fetch('/api/kontakt', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'kontakt',
+          name: form.name.trim(), email: form.email.trim(), phone: form.phone.trim(),
+          subject: form.subject, message: form.msg.trim(),
+        }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.error || 'Nie udało się wysłać wiadomości.');
+      setSent(true);
+    } catch (e2) {
+      setServerError(e2.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -109,7 +130,10 @@ function PageContact({ onQuote }) {
                     <textarea rows="4" value={form.msg} onChange={e => set('msg', e.target.value)} />
                     {errors.msg && <span className="field__err">{errors.msg}</span>}
                   </div>
-                  <Button type="submit" variant="primary" size="lg" icon={<Icon.Arrow size={16} sw={2} />}>Wyślij wiadomość</Button>
+                  {serverError && <div className="wiz-server-err" style={{margin: '4px 0 14px'}}>⚠ {serverError}</div>}
+                  <Button type="submit" variant="primary" size="lg" disabled={loading} icon={<Icon.Arrow size={16} sw={2} />}>
+                    {loading ? 'Wysyłam...' : 'Wyślij wiadomość'}
+                  </Button>
                 </form>
               )}
             </div>

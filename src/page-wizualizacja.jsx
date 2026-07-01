@@ -2,7 +2,7 @@
 
 // TRYB TESTOWY — pomija formularz "Twoje dane", walidację kontaktu i limit dzienny.
 // Ustaw na false, aby przywrócić pełny formularz leadowy. (Backend reaguje na flagę testMode.)
-const WIZ_TEST_MODE = true;
+const WIZ_TEST_MODE = false;
 
 const WIZ_PRODUCTS = [
   { id: 'linea',   name: 'LINEA',   sub: 'Aluminiowe zadaszenie samonośne',   img: 'uploads/wiz-linea.webp' },
@@ -67,7 +67,7 @@ function PageWizualizacja({ onQuote }) {
     if (id === 'roma') setEnclosure('open');
   };
   const [file, setFile] = React.useState(null); // {name, mime, base64, previewUrl}
-  const [form, setForm] = React.useState({ email: '', phone: '', address: '', notes: '', rodo: false });
+  const [form, setForm] = React.useState({ name: '', surname: '', email: '', phone: '', address: '', notes: '', rodo: false });
   const [errors, setErrors] = React.useState({});
   const [loading, setLoading] = React.useState(false);
   const [result, setResult] = React.useState(null); // {image, remaining}
@@ -180,9 +180,12 @@ function PageWizualizacja({ onQuote }) {
     const err = {};
     if (!file) err.file = 'Wgraj zdjęcie tarasu / domu.';
     if (!WIZ_TEST_MODE) {
+      if (!form.name.trim()) err.name = 'Podaj imię.';
+      if (!form.surname.trim()) err.surname = 'Podaj nazwisko.';
       if (!form.email.trim()) err.email = 'Podaj e-mail.';
       else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) err.email = 'Niepoprawny e-mail.';
       if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 9) err.phone = 'Podaj telefon (min. 9 cyfr).';
+      if (!form.address.trim()) err.address = 'Podaj miejsce instalacji pergoli.';
       if (!form.rodo) err.rodo = 'Wymagana zgoda na przetwarzanie danych.';
     }
     setErrors(err);
@@ -205,6 +208,8 @@ function PageWizualizacja({ onQuote }) {
           mimeType: img.mime,
           marker: img.marked,
           markerPoints: img.marked ? points.length : 0,
+          name: form.name.trim(),
+          surname: form.surname.trim(),
           email: form.email.trim(),
           phone: form.phone.trim(),
           address: form.address.trim(),
@@ -247,7 +252,7 @@ function PageWizualizacja({ onQuote }) {
         </div>
       </section>
 
-      <section className="section--ink section section--ai">
+      <section className="section wiz-how">
         <div className="container">
           <SectionHead title="Jak to działa — w 3 krokach"
             sub="Wgraj zdjęcie, wybierz system i kolor, a w 30 sekund otrzymasz realistyczny podgląd pergoli w Twojej przestrzeni." />
@@ -433,6 +438,18 @@ function PageWizualizacja({ onQuote }) {
                 <form className="wiz-form" onSubmit={submit}>
                   <div className="wiz-row-2">
                     <div className="wiz-field">
+                      <label>Imię *</label>
+                      <input type="text" value={form.name} onChange={e => set('name', e.target.value)} placeholder="Jan" />
+                      {errors.name && <div className="wiz-err">{errors.name}</div>}
+                    </div>
+                    <div className="wiz-field">
+                      <label>Nazwisko *</label>
+                      <input type="text" value={form.surname} onChange={e => set('surname', e.target.value)} placeholder="Kowalski" />
+                      {errors.surname && <div className="wiz-err">{errors.surname}</div>}
+                    </div>
+                  </div>
+                  <div className="wiz-row-2">
+                    <div className="wiz-field">
                       <label>E-mail *</label>
                       <input type="email" value={form.email} onChange={e => set('email', e.target.value)} placeholder="jan.kowalski@example.com" />
                       {errors.email && <div className="wiz-err">{errors.email}</div>}
@@ -444,8 +461,9 @@ function PageWizualizacja({ onQuote }) {
                     </div>
                   </div>
                   <div className="wiz-field">
-                    <label>Lokalizacja (miasto / kod pocztowy) — opcjonalnie</label>
-                    <input type="text" value={form.address} onChange={e => set('address', e.target.value)} placeholder="Wrocław, 50-001" />
+                    <label>Miejsce instalacji pergoli *</label>
+                    <input type="text" value={form.address} onChange={e => set('address', e.target.value)} placeholder="Miasto, kod pocztowy — np. Wrocław, 50-001" />
+                    {errors.address && <div className="wiz-err">{errors.address}</div>}
                   </div>
                   <div className="wiz-field">
                     <label>Uwagi do wizualizacji — opcjonalnie</label>

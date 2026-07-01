@@ -4,16 +4,18 @@ function QuoteModal({ product, open, onClose }) {
   const [form, setForm] = React.useState({ name: '', email: '', phone: '', city: '', size: '', notes: '', product: product || 'LINEA' });
   const [errors, setErrors] = React.useState({});
   const [sent, setSent] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [serverError, setServerError] = React.useState('');
 
   React.useEffect(() => {
-    if (open) { setSent(false); setErrors({}); setForm(f => ({...f, product: product || 'LINEA'})); }
+    if (open) { setSent(false); setErrors({}); setServerError(''); setLoading(false); setForm(f => ({...f, product: product || 'LINEA'})); }
   }, [open, product]);
 
   if (!open) return null;
 
   const set = (k, v) => setForm(prev => ({ ...prev, [k]: v }));
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     const err = {};
     if (!form.name.trim()) err.name = 'Podaj imię i nazwisko';
@@ -22,7 +24,26 @@ function QuoteModal({ product, open, onClose }) {
     if (!form.phone.trim()) err.phone = 'Podaj telefon';
     else if (form.phone.replace(/\D/g,'').length < 9) err.phone = 'Numer telefonu jest za krótki';
     setErrors(err);
-    if (Object.keys(err).length === 0) setSent(true);
+    if (Object.keys(err).length > 0) return;
+    setLoading(true); setServerError('');
+    try {
+      const r = await fetch('/api/kontakt', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'wycena',
+          name: form.name.trim(), email: form.email.trim(), phone: form.phone.trim(),
+          product: form.product, city: form.city.trim(), size: form.size.trim(), notes: form.notes.trim(),
+        }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.error || 'Nie udało się wysłać zapytania.');
+      setSent(true);
+    } catch (e2) {
+      setServerError(e2.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -79,7 +100,10 @@ function QuoteModal({ product, open, onClose }) {
               <label>Notatki (opcjonalnie)</label>
               <textarea rows="3" value={form.notes} onChange={e => set('notes', e.target.value)} />
             </div>
-            <Button type="submit" variant="primary" size="lg" icon={<Icon.Arrow size={16} sw={2} />}>Wyślij zapytanie</Button>
+            {serverError && <div className="wiz-server-err" style={{margin: '4px 0 14px'}}>⚠ {serverError}</div>}
+            <Button type="submit" variant="primary" size="lg" disabled={loading} icon={<Icon.Arrow size={16} sw={2} />}>
+              {loading ? 'Wysyłam...' : 'Wyślij zapytanie'}
+            </Button>
           </form>
         )}
       </div>
