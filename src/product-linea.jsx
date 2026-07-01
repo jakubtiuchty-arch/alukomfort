@@ -60,7 +60,7 @@ function ProductLinea({ onQuote }) {
 
       <section className="section">
         <div className="container">
-          <SectionHead title="Jedna konstrukcja, wiele zastosowań" sub={p.intro} />
+          <SectionHead title="Jeden system, wiele możliwości" sub={p.intro} />
           <div className="usecases">
             {p.usecases.map((u, i) => {
               const Ic = u.icon ? Icon[u.icon] : null;
