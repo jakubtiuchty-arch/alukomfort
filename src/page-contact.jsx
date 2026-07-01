@@ -141,27 +141,18 @@ function PageContact({ onQuote }) {
         </div>
       </section>
 
-      {/* Mapa — stylizowana w tonacji strony */}
-      <section className="section section--soft">
-        <div className="container">
-          <SectionHead title="Jak do nas trafić" sub="ul. Milicka 34A, 55-100 Trzebnica — przy wjeździe do miasta od strony DK15." />
-        </div>
-        <StylizedMap />
-        <div className="container" style={{marginTop: 24, display: 'flex', justifyContent:'space-between', gap: 24, flexWrap: 'wrap'}}>
-          <div style={{display: 'flex', gap: 24, flexWrap: 'wrap'}}>
-            <MapLegend color="var(--accent)" label="Plast-Met — biuro i produkcja" filled />
-            <MapLegend color="#b7c7d6" label="DK15 / ul. Sułowska" />
-            <MapLegend color="#7ab4d4" label="Potok" />
-            <MapLegend color="#cadcc0" label="Pola / zieleń" dashed />
-          </div>
-          <a
-            className="btn btn--ghost-dark"
-            href="https://www.google.com/maps/search/?api=1&query=Plast-Met+Milicka+34A+Trzebnica"
-            target="_blank" rel="noopener">
-            Otwórz w Google Maps
-            <Icon.Arrow size={14} sw={2} />
-          </a>
-        </div>
+      {/* Mapa Google — cała sekcja */}
+      <section>
+        <iframe
+          title="Mapa dojazdu — PLAST-MET, ul. Milicka 34A, Trzebnica"
+          src="https://www.google.com/maps?q=Plast-Met+Milicka+34A+55-100+Trzebnica&hl=pl&z=16&t=h&output=embed"
+          width="100%"
+          height="620"
+          style={{border: 0, display: 'block', width: '100%'}}
+          loading="lazy"
+          allowFullScreen
+          referrerPolicy="no-referrer-when-downgrade"
+        />
       </section>
 
       {/* CTA strip */}

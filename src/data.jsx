@@ -372,7 +372,6 @@ const ROMA = {
     { label: 'Elementy aluminiowe',          value: '60 miesięcy' },
     { label: 'Elektryka i automatyka',       value: '24 miesiące' },
     { label: 'Pokrycie tkaninowe (akryl)',   value: '60 miesięcy' },
-    { label: 'Ściany systemu ESG',           value: '8 / 10 / 12 mm' },
   ],
   examples: [
     {

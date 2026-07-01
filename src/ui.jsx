@@ -60,7 +60,6 @@ function CertBar({ guarantee }) {
     { label: 'Elementy aluminiowe', value: '60 miesięcy' },
     { label: 'Elektryka', value: '24 miesięcy' },
     { label: 'Pokrycie poliwęglanowe', value: '60 miesięcy' },
-    { label: 'Ściany systemu ESG', value: '8/10/12 mm' },
   ];
   return (
     <div className="cert-bar container">

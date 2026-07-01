@@ -104,24 +104,6 @@ function ProductLinea({ onQuote }) {
 
       <section className="section section--soft">
         <div className="container">
-          <SectionHead title="Z czego zbudowany jest system LINEA"
-            sub="Kompletny zestaw profili aluminiowych z ekstruzji, połączonych w sztywną i szczelną konstrukcję. Poznaj elementy, z których składamy każde zadaszenie." />
-          <div className="buildgrid">
-            {p.construction.map((c, i) => (
-              <div key={i} className="buildgrid__item">
-                <div className="buildgrid__name">{c.name}</div>
-                <p className="buildgrid__desc">{c.desc}</p>
-              </div>
-            ))}
-          </div>
-          {p.constructionNote && (
-            <p className="small" style={{marginTop: 20, color:'var(--muted)', maxWidth: 820}}>{p.constructionNote}</p>
-          )}
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
           <SectionHead title="Zadaszenia bez kompromisów"
             sub="Sześć opcjonalnych modułów, które pozwalają zamknąć przestrzeń pergoli, kontrolować światło i podnieść komfort użytkowania." />
           <div className="features" style={{gridTemplateColumns:'repeat(3, 1fr)'}}>
@@ -141,7 +123,7 @@ function ProductLinea({ onQuote }) {
         </div>
       </section>
 
-      <section className="section section--soft">
+      <section className="section">
         <div className="container">
           <SectionHead title="Przykłady zadaszeń z użyciem systemu LINEA"
             sub="Sześć scenariuszy realizacji — od wiaty samochodowej po zamknięty ogród letni. Każdy w pełni dopasowany do wymiarów działki i sposobu użytkowania." />
