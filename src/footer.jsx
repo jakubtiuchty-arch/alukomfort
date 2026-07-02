@@ -11,7 +11,7 @@ function Footer({ onNavigate }) {
       <div className="container">
         <div className="ak-footer__grid">
           <div className="ft-brand">
-            <img src="uploads/LOGO_ALUKOMFORT_A.jpg.png" alt="PLAST-MET ALUKOMFORT" className="ak-footer__logo" width="567" height="157" />
+            <img src="uploads/logo-zadaszenia-alukomfort.png" alt="PLAST-MET ALUKOMFORT" className="ak-footer__logo" width="1200" height="360" />
             <p className="ft-brand__desc">
               Projektujemy i produkujemy aluminiowe zadaszenia, pergole i carporty
               dopasowane do architektury domu. Marka PLAST-MET — własna fabryka w Trzebnicy.

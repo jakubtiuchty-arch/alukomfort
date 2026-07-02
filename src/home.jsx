@@ -19,7 +19,7 @@ const HOME_FAQ = [
   },
   {
     q: 'Czy mogę sterować pergolą z telefonu?',
-    a: 'Tak. Dach lamelowy HORIZON napędzają silniki SOMFY — sterowanie ręczne, pilotem lub aplikacją, z opcjonalną automatyką pogodową (czujniki deszczu, wiatru i nasłonecznienia). W systemie ROMA automatyka jest dostępna opcjonalnie.',
+    a: 'Tak. Dach lamelowy HORIZON napędzają silniki SOMFY — sterowanie pilotem lub aplikacją, z opcjonalną automatyką pogodową (czujniki deszczu, wiatru i nasłonecznienia). W systemie ROMA automatyka jest dostępna opcjonalnie.',
   },
   {
     q: 'Jak dbać o pergolę aluminiową?',

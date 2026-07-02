@@ -2,6 +2,44 @@
 
 const REALIZACJE_CASES = [
   {
+    key: 'horizon-ogrod',
+    eyebrow: 'REALIZACJA · DOM JEDNORODZINNY',
+    title: 'Przeszklony ogród zimowy przy domu',
+    desc: 'Przyścienny moduł HORIZON w pełnej zabudowie szklanej — elegancki ogród zimowy zintegrowany z bryłą nowoczesnego domu. Smukły antracytowy wieniec kryje całą technologię, a ściany ze szkła przesuwnego otwierają wnętrze na taras i ogród. Całość osadzona na betonowym murku z donicami.',
+    image: 'uploads/realizacje-web/horizon-ogrod-glowne.webp?v=2',
+    meta: [
+      { label: 'System',     value: 'HORIZON przyścienny' },
+      { label: 'Zabudowa',   value: 'Ściany szklane przesuwne' },
+      { label: 'Forma',      value: 'Zamknięty ogród zimowy' },
+      { label: 'Kolor',      value: 'Antracyt' },
+    ],
+    photos: [
+      { src: 'uploads/realizacje-web/real_4_1.webp', alt: 'Przeszklony moduł HORIZON przy domu — narożnik z antracytowym wieńcem' },
+      { src: 'uploads/realizacje-web/real_4_2.webp', alt: 'Szklane ściany przesuwne na betonowym murku z donicami — detal' },
+      { src: 'uploads/realizacje-web/real_4_3.webp', alt: 'Ogród zimowy HORIZON zintegrowany z bryłą domu — widok frontalny' },
+      { src: 'uploads/realizacje-web/real_4_4.webp', alt: 'Moduł HORIZON przy nowoczesnym domu jednorodzinnym — widok z tarasu' },
+    ],
+  },
+  {
+    key: 'taras-panele',
+    eyebrow: 'REALIZACJA · DOM JEDNORODZINNY',
+    title: 'Zadaszenie tarasu z zabudową żaluzjową i przeszkleniem',
+    desc: 'Przyścienne zadaszenie ALUKOMFORT LINEA nad tarasem nowego domu jednorodzinnego. Mleczny dach z poliwęglanu opal rozprasza światło i nie nagrzewa tarasu, a ściany z poziomych paneli żaluzjowych w antracycie osłaniają strefę wypoczynku od wiatru i sąsiadów. Boczne przeszklenie w zabudowie zachowuje widok na ogród.',
+    image: 'uploads/realizacje-web/linea-panele-glowne.webp?v=3',
+    meta: [
+      { label: 'System',     value: 'LINEA przyścienna' },
+      { label: 'Dach',       value: 'Poliwęglan Strong Opal' },
+      { label: 'Zabudowa',   value: 'Panele żaluzjowe + przeszklenie' },
+      { label: 'Kolor',      value: 'Antracyt' },
+    ],
+    photos: [
+      { src: 'uploads/realizacje-web/real_3_1.webp', alt: 'Dom jednorodzinny z przyściennym zadaszeniem tarasu LINEA — widok z ogrodu' },
+      { src: 'uploads/realizacje-web/real_3_2.webp', alt: 'Zabudowa tarasu z poziomych paneli żaluzjowych w antracycie — widok z boku' },
+      { src: 'uploads/realizacje-web/real_3_3.webp', alt: 'Mleczny dach z poliwęglanu opal i boczne przeszklenie — detal od wewnątrz' },
+      { src: 'uploads/realizacje-web/real_3_4.webp', alt: 'Zadaszenie LINEA z otwartą strefą wypoczynku — widok frontalny' },
+    ],
+  },
+  {
     key: 'taras-lamele',
     eyebrow: 'REALIZACJA · DOM JEDNORODZINNY',
     title: 'Zadaszenie tarasu z zabudową lamelową',
@@ -118,7 +156,7 @@ function PageRealizacje({ onQuote }) {
         <section key={c.key} className={`section ${ci % 2 === 1 ? 'section--soft' : ''}`}>
           <div className="container">
             <div className="case">
-              <div className="case__media">
+              <div className={`case__media ${c.portrait ? 'case__media--portrait' : ''}`}>
                 {c.video ? (
                   <video
                     src={c.video}
