@@ -260,8 +260,13 @@ export default async function handler(req, res) {
       return res.status(200).json({ image: dataUrl, remaining: 99, mode: isAdmin ? 'admin' : 'test' });
     }
 
-    // Lead email (best-effort)
-    sendLeadEmail({ product, color, roof, enclosure, name, surname, email, phone, address, notes, ip, ua }, dataUrl).catch(() => {});
+    // Lead email — MUSI być awaited: serverless zamraża proces zaraz po zwróceniu
+    // odpowiedzi, więc fire-and-forget bywa ucinane (zwłaszcza z załącznikiem PNG).
+    try {
+      await sendLeadEmail({ product, color, roof, enclosure, name, surname, email, phone, address, notes, ip, ua }, dataUrl);
+    } catch (e) {
+      console.error('[LEAD] wysyłka nieudana:', e?.message || e);
+    }
 
     // Aktualizacja cookie limitu
     res.setHeader('Set-Cookie', [
