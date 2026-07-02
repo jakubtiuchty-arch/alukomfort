@@ -153,7 +153,7 @@ async function sendLeadEmail(payload, imageDataUrl) {
   const test = isTestContext(payload.email);
   try {
     return await sendMail({
-      subject: `${test ? '[TEST] ' : ''}[Wizualizacja] ${payload.product?.toUpperCase() || '—'} — ${payload.email}`,
+      subject: `${test ? '[TEST] ' : ''}[Wizualizacja] ${payload.product?.toUpperCase() || '—'} — ${[payload.name, payload.surname].filter(Boolean).join(' ') || payload.email} (${new Date().toLocaleTimeString('pl-PL', { timeZone: 'Europe/Warsaw', hour: '2-digit', minute: '2-digit' })})`,
       html,
       replyTo: payload.email,
       attachments,
