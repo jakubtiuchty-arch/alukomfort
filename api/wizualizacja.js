@@ -262,11 +262,16 @@ export default async function handler(req, res) {
 
     // Lead email — MUSI być awaited: serverless zamraża proces zaraz po zwróceniu
     // odpowiedzi, więc fire-and-forget bywa ucinane (zwłaszcza z załącznikiem PNG).
+    // Wynik w nagłówku X-Lead (diagnostyka) i w logach.
+    let leadStatus;
     try {
-      await sendLeadEmail({ product, color, roof, enclosure, name, surname, email, phone, address, notes, ip, ua }, dataUrl);
+      const lr = await sendLeadEmail({ product, color, roof, enclosure, name, surname, email, phone, address, notes, ip, ua }, dataUrl);
+      leadStatus = lr?.id ? `sent:${lr.id}` : lr?.skipped ? 'skipped:no-key' : lr?.error ? `error:${lr.error}` : 'unknown';
     } catch (e) {
-      console.error('[LEAD] wysyłka nieudana:', e?.message || e);
+      leadStatus = `exception:${e?.message || e}`;
     }
+    console.log('[LEAD] wynik:', leadStatus);
+    res.setHeader('X-Lead', String(leadStatus).replace(/[^\x20-\x7e]/g, '?').slice(0, 120));
 
     // Aktualizacja cookie limitu
     res.setHeader('Set-Cookie', [
