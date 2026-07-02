@@ -104,7 +104,6 @@ function Home({ onNavigate, onQuote }) {
             </p>
             <div className="hero__cta">
               <Button variant="primary" size="lg" onClick={onQuote}>Zamów bezpłatną wycenę</Button>
-              <Button variant="ghost-light" size="lg" onClick={(e)=>go(e,'/produkty/linea')}>Zobacz produkty</Button>
             </div>
           </div>
         </div>
