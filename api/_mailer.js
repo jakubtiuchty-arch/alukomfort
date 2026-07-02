@@ -8,7 +8,8 @@ export function esc(s) {
 }
 
 // subject, html — treść; replyTo — adres klienta (żeby dało się odpisać wprost); to — override odbiorcy
-export async function sendMail({ subject, html, replyTo, to }) {
+// attachments — [{ filename, content }] (content = base64 bez prefiksu data:)
+export async function sendMail({ subject, html, replyTo, to, attachments }) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.MAIL_FROM || 'Pergole Trzebnica <kontakt@pergoletrzebnica.pl>';
   const dest = to || process.env.MAIL_TO || process.env.LEAD_EMAIL || 'm.tiuchty@plast-met.pl';
@@ -25,6 +26,7 @@ export async function sendMail({ subject, html, replyTo, to }) {
       reply_to: replyTo || undefined,
       subject,
       html,
+      attachments: attachments && attachments.length ? attachments : undefined,
     }),
   });
   if (!r.ok) {

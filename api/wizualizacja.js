@@ -124,7 +124,15 @@ function parseCookies(header) {
   return out;
 }
 
-async function sendLeadEmail(payload, imageUrl) {
+async function sendLeadEmail(payload, imageDataUrl) {
+  // Obraz jest zwracany jako data URL (base64) — dołączamy go jako załącznik PNG.
+  const isDataUrl = typeof imageDataUrl === 'string' && imageDataUrl.startsWith('data:');
+  const attachments = isDataUrl
+    ? [{ filename: 'wizualizacja.png', content: imageDataUrl.split(',')[1] }]
+    : undefined;
+  const imageLine = isDataUrl
+    ? 'w załączniku — <b>wizualizacja.png</b>'
+    : `<a href="${imageDataUrl}">${imageDataUrl}</a>`;
   const html = `
     <h2>Nowy lead z konfiguratora wizualizacji ALUKOMFORT</h2>
     <p><b>Imię i nazwisko:</b> ${[payload.name, payload.surname].filter(Boolean).join(' ') || '—'}<br/>
@@ -137,7 +145,7 @@ async function sendLeadEmail(payload, imageUrl) {
        <b>Lokalizacja:</b> ${payload.address || '—'}</p>
     ${payload.notes ? `<p><b>Uwagi klienta:</b><br/>${payload.notes.replace(/</g, '&lt;')}</p>` : ''}
     <p><b>Wygenerowana wizualizacja:</b><br/>
-       <a href="${imageUrl}">${imageUrl}</a></p>
+       ${imageLine}</p>
     <hr/>
     <p style="font-size:12px;color:#666">IP: ${payload.ip} · User-Agent: ${payload.ua}</p>
   `;
@@ -146,6 +154,7 @@ async function sendLeadEmail(payload, imageUrl) {
       subject: `[Wizualizacja] ${payload.product?.toUpperCase() || '—'} — ${payload.email}`,
       html,
       replyTo: payload.email,
+      attachments,
     });
   } catch (e) {
     console.error('[LEAD] błąd wysyłki:', e.message);
@@ -249,7 +258,7 @@ export default async function handler(req, res) {
     }
 
     // Lead email (best-effort)
-    sendLeadEmail({ product, color, roof, enclosure, name, surname, email, phone, address, notes, ip, ua }, dataUrl.startsWith('data:') ? '(załącznik base64 w odpowiedzi)' : dataUrl).catch(() => {});
+    sendLeadEmail({ product, color, roof, enclosure, name, surname, email, phone, address, notes, ip, ua }, dataUrl).catch(() => {});
 
     // Aktualizacja cookie limitu
     res.setHeader('Set-Cookie', [
