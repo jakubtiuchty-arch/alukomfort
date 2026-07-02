@@ -521,7 +521,7 @@ function PageWizualizacja({ onQuote }) {
               <p className="wiz-result__sub">
                 {WIZ_TEST_MODE
                   ? 'Tryb testowy — wizualizacja wygenerowana lokalnie, bez wysyłki e-mail i bez leada.'
-                  : <>Kopia poszła też na <b>{form.email}</b>, a nasz handlowiec skontaktuje się w 24h z indywidualną wyceną.</>}
+                  : <>Pobierz obraz poniżej — a nasz handlowiec skontaktuje się w 24h z indywidualną wyceną.</>}
               </p>
               <div className="wiz-result__img-wrap">
                 <img src={result.image} alt="Wygenerowana wizualizacja" />

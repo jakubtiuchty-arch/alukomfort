@@ -3,6 +3,7 @@
 // Wymagane env: OPENAI_API_KEY
 // Mail leada przez Resend — patrz api/_mailer.js (RESEND_API_KEY, MAIL_TO)
 import { sendMail, isTestContext, TEST_RECIPIENT } from './_mailer.js';
+import { visualizationLeadEmail } from './_emails.js';
 
 // Bryła konstrukcji — bez opisu pokrycia dachu (to dokłada ROOF_PROMPTS)
 const PRODUCT_PROMPTS = {
@@ -130,25 +131,7 @@ async function sendLeadEmail(payload, imageDataUrl) {
   const attachments = isDataUrl
     ? [{ filename: 'wizualizacja.png', content: imageDataUrl.split(',')[1] }]
     : undefined;
-  const imageLine = isDataUrl
-    ? 'w załączniku — <b>wizualizacja.png</b>'
-    : `<a href="${imageDataUrl}">${imageDataUrl}</a>`;
-  const html = `
-    <h2>Nowy lead z konfiguratora wizualizacji ALUKOMFORT</h2>
-    <p><b>Imię i nazwisko:</b> ${[payload.name, payload.surname].filter(Boolean).join(' ') || '—'}<br/>
-       <b>Produkt:</b> ${payload.product?.toUpperCase() || '—'}<br/>
-       <b>Kolor:</b> ${payload.color || '—'}<br/>
-       <b>Dach:</b> ${payload.roof || '—'}<br/>
-       <b>Zabudowa:</b> ${payload.enclosure || '—'}<br/>
-       <b>E-mail:</b> ${payload.email}<br/>
-       <b>Telefon:</b> ${payload.phone || '—'}<br/>
-       <b>Lokalizacja:</b> ${payload.address || '—'}</p>
-    ${payload.notes ? `<p><b>Uwagi klienta:</b><br/>${payload.notes.replace(/</g, '&lt;')}</p>` : ''}
-    <p><b>Wygenerowana wizualizacja:</b><br/>
-       ${imageLine}</p>
-    <hr/>
-    <p style="font-size:12px;color:#666">IP: ${payload.ip} · User-Agent: ${payload.ua}</p>
-  `;
+  const { html } = visualizationLeadEmail(payload);
   // Tryb testowy: lead idzie wyłącznie na skrzynkę testową, z prefiksem [TEST].
   const test = isTestContext(payload.email);
   try {

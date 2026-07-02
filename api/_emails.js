@@ -85,6 +85,62 @@ export function employeeEmail(d) {
   return { subject, html: shell(inner, `${d.name} · ${d.email} · ${d.phone || ''}`) };
 }
 
+// ===== Mail do PRACOWNIKA — lead z konfiguratora wizualizacji =====
+const WIZ_LABELS = {
+  color: {
+    'ral-7016': 'Antracyt RAL 7016', 'ral-9005': 'Czarny RAL 9005', 'ral-9010': 'Biały RAL 9010',
+    terra: 'Terra', 'grey-brown': 'Grey Brown', mica: 'Mica', azzurro: 'Azzurro',
+  },
+  roof: {
+    opal: 'Poliwęglan Strong Opal', boxgrey: 'Poliwęglan BOX Grey', glass: 'Szkło bezpieczne',
+    lamele: 'Dach lamelowy', hybryda: 'Hybryda lamele + szkło', tkanina: 'Roleta tkaninowa',
+  },
+  enclosure: {
+    open: 'Otwarta pergola', sides: 'Ze ścianami bocznymi', winter: 'Ogród letni',
+  },
+};
+const wizLabel = (group, id) => (WIZ_LABELS[group] && WIZ_LABELS[group][id]) || id || '—';
+
+export function visualizationLeadEmail(d) {
+  const rows = [
+    ['Imię i nazwisko', [d.name, d.surname].filter(Boolean).join(' ')],
+    ['E-mail', d.email],
+    ['Telefon', d.phone],
+    ['Miejsce instalacji', d.address],
+    ['Produkt', (d.product || '').toUpperCase()],
+    ['Kolor', wizLabel('color', d.color)],
+    ['Dach', wizLabel('roof', d.roof)],
+    ['Zabudowa', wizLabel('enclosure', d.enclosure)],
+  ];
+  const rowsHtml = rows.map(([k, v]) => `
+    <tr>
+      <td style="padding:9px 0;border-bottom:1px solid #f0efeb;color:#888;font-size:13px;width:160px;vertical-align:top;">${esc(k)}</td>
+      <td style="padding:9px 0;border-bottom:1px solid #f0efeb;color:#111;font-size:14px;font-weight:600;">${esc(v) || '&mdash;'}</td>
+    </tr>`).join('');
+  const tel = (d.phone || '').replace(/\s/g, '');
+  const inner = `
+    <tr><td style="padding:28px 28px 6px;">
+      <span style="display:inline-block;background:#fdf3dd;color:#8a6a12;font-size:11px;font-weight:700;letter-spacing:1px;padding:5px 12px;border-radius:999px;text-transform:uppercase;">
+        Lead z konfiguratora wizualizacji
+      </span>
+      <h1 style="margin:16px 0 4px;font-size:22px;color:#111;font-weight:800;">Klient wygenerował wizualizację</h1>
+      <p style="margin:0;color:#777;font-size:13px;">Wygenerowany obraz znajdziesz w załączniku — <b>wizualizacja.png</b></p>
+    </td></tr>
+    <tr><td style="padding:14px 28px 6px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #f0efeb;">${rowsHtml}</table>
+    </td></tr>
+    ${d.notes ? `<tr><td style="padding:14px 28px 4px;">
+      <div style="color:#888;font-size:13px;margin-bottom:7px;">Uwagi klienta</div>
+      <div style="background:#f7f6f3;border:1px solid #ececec;border-radius:8px;padding:14px 16px;color:#333;font-size:14px;line-height:1.65;">${esc(d.notes).replace(/\n/g, '<br/>')}</div>
+    </td></tr>` : ''}
+    <tr><td style="padding:24px 28px 24px;">
+      <a href="mailto:${esc(d.email)}" style="display:inline-block;background:${GOLD};color:#1a1200;font-weight:700;font-size:14px;text-decoration:none;padding:13px 26px;border-radius:8px;">Odpowiedz klientowi</a>
+      ${tel ? `<a href="tel:${esc(tel)}" style="display:inline-block;margin-left:10px;color:#111;font-weight:600;font-size:14px;text-decoration:none;padding:13px 22px;border:1px solid #ddd;border-radius:8px;">Zadzwoń</a>` : ''}
+    </td></tr>
+    <tr><td style="padding:0 28px 24px;color:#aaa;font-size:11px;">IP: ${esc(d.ip)} &middot; ${esc(d.ua)}</td></tr>`;
+  return { html: shell(inner, `${[d.name, d.surname].filter(Boolean).join(' ')} · ${d.email} · ${(d.product || '').toUpperCase()}`) };
+}
+
 // ===== Mail do KLIENTA (potwierdzenie przyjęcia zgłoszenia) =====
 export function clientEmail(d) {
   const isQuote = d.type === 'wycena';
