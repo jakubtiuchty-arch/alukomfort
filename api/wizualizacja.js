@@ -2,7 +2,7 @@
 // POST application/json: { product, color, imageBase64, mimeType, email, phone, address, notes, rodo }
 // Wymagane env: OPENAI_API_KEY
 // Mail leada przez Resend — patrz api/_mailer.js (RESEND_API_KEY, MAIL_TO)
-import { sendMail } from './_mailer.js';
+import { sendMail, isTestContext, TEST_RECIPIENT } from './_mailer.js';
 
 // Bryła konstrukcji — bez opisu pokrycia dachu (to dokłada ROOF_PROMPTS)
 const PRODUCT_PROMPTS = {
@@ -149,12 +149,15 @@ async function sendLeadEmail(payload, imageDataUrl) {
     <hr/>
     <p style="font-size:12px;color:#666">IP: ${payload.ip} · User-Agent: ${payload.ua}</p>
   `;
+  // Tryb testowy: lead idzie wyłącznie na skrzynkę testową, z prefiksem [TEST].
+  const test = isTestContext(payload.email);
   try {
     return await sendMail({
-      subject: `[Wizualizacja] ${payload.product?.toUpperCase() || '—'} — ${payload.email}`,
+      subject: `${test ? '[TEST] ' : ''}[Wizualizacja] ${payload.product?.toUpperCase() || '—'} — ${payload.email}`,
       html,
       replyTo: payload.email,
       attachments,
+      to: test ? TEST_RECIPIENT : undefined,
     });
   } catch (e) {
     console.error('[LEAD] błąd wysyłki:', e.message);

@@ -7,6 +7,16 @@ export function esc(s) {
   return String(s == null ? '' : s).replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
 }
 
+// ===== Tryb testowy =====
+// Testy NIE mogą trafiać do handlowca. Maile idą wyłącznie na skrzynkę testową, gdy:
+//  1) deploy nieprodukcyjny (preview / vercel dev — VERCEL_ENV !== 'production'), albo
+//  2) w formularzu podano adres testowy (test na produkcji).
+export const TEST_RECIPIENT = 'jakub.tiuchty@gmail.com';
+export function isTestContext(clientEmail) {
+  if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production') return true;
+  return String(clientEmail || '').trim().toLowerCase() === TEST_RECIPIENT;
+}
+
 // subject, html — treść; replyTo — adres klienta (żeby dało się odpisać wprost); to — override odbiorcy
 // attachments — [{ filename, content }] (content = base64 bez prefiksu data:)
 export async function sendMail({ subject, html, replyTo, to, attachments }) {
