@@ -30,6 +30,7 @@ function PageContact({ onQuote }) {
       });
       const j = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(j.error || 'Nie udało się wysłać wiadomości.');
+      window.trackEvent && window.trackEvent('lead_kontakt', { subject: form.subject });
       setSent(true);
     } catch (e2) {
       setServerError(e2.message);

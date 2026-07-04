@@ -38,6 +38,7 @@ function QuoteModal({ product, open, onClose }) {
       });
       const j = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(j.error || 'Nie udało się wysłać zapytania.');
+      window.trackEvent && window.trackEvent('lead_wycena', { product: form.product });
       setSent(true);
     } catch (e2) {
       setServerError(e2.message);

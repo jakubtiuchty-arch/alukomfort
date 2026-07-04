@@ -57,6 +57,9 @@ function App() {
       const a = e.target.closest ? e.target.closest('a') : null;
       if (!a) return;
       const href = a.getAttribute('href') || '';
+      // Konwersje: kliknięcia w telefon / e-mail
+      if (href.startsWith('tel:')) { window.trackEvent && window.trackEvent('click_tel', { number: href.slice(4) }); return; }
+      if (href.startsWith('mailto:')) { window.trackEvent && window.trackEvent('click_email', { address: href.slice(7) }); return; }
       if (!href.startsWith('/') || href.startsWith('//')) return;
       if (a.target && a.target !== '_self') return;
       e.preventDefault();

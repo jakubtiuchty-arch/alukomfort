@@ -220,6 +220,7 @@ function PageWizualizacja({ onQuote }) {
       });
       const j = await r.json();
       if (!r.ok) throw new Error(j.error || 'Błąd generatora.');
+      window.trackEvent && window.trackEvent('lead_wizualizacja', { product, color, roof });
       setResult(j);
     } catch (e2) {
       setServerError(e2.message);
