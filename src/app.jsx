@@ -96,7 +96,9 @@ function App() {
   }
 
   let page;
-  if (route.startsWith('/kontakt')) {
+  if (route.startsWith('/pergole-wroclaw')) {
+    page = <PageWroclaw onQuote={openQuote} onNavigate={navigate} />;
+  } else if (route.startsWith('/kontakt')) {
     page = <PageContact onQuote={openQuote} />;
   } else if (route.startsWith('/dane-od-klienta')) {
     page = <ClientDataPage onNavigate={navigate} />;

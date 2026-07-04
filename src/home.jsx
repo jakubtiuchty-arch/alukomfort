@@ -288,7 +288,7 @@ function Home({ onNavigate, onQuote }) {
           <SectionHead title="Obszar działania — Wrocław, Trzebnica i okolice"
             sub="Fabryka i biuro znajdują się w Trzebnicy, 25 minut od Wrocławia. Pomiar, dostawę i montaż realizujemy własnymi ekipami w promieniu ok. 50 km." />
           <p style={{textAlign: 'center', color: 'var(--muted)', fontSize: 14.5, lineHeight: 2, maxWidth: 760, margin: '0 auto'}}>
-            Wrocław · Trzebnica · Oleśnica · Oborniki Śląskie · Żmigród · Milicz · Wołów · Brzeg Dolny · Środa Śląska · Długołęka
+            <a href="/pergole-wroclaw" style={{fontWeight: 600}}>Wrocław</a> · Trzebnica · Oleśnica · Oborniki Śląskie · Żmigród · Milicz · Wołów · Brzeg Dolny · Środa Śląska · Długołęka
           </p>
         </div>
       </section>
