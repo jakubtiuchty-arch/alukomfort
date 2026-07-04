@@ -16,7 +16,7 @@ function ProductHorizon({ onQuote }) {
   const active = p.variants.find(v => v.id === variant);
   usePageMeta({
     title: 'HORIZON — pergola bioklimatyczna lamelowa, szklana i hybrydowa | ALUKOMFORT',
-    description: 'ALUKOMFORT HORIZON — pergola bioklimatyczna z wieńcem 280 mm. Warianty L (lamele), S (szkło), L-S (hybryda). Sterowanie SOMFY, ściany i LED ukryte w konstrukcji.',
+    description: 'ALUKOMFORT HORIZON — pergola bioklimatyczna z wieńcem 280 mm. Warianty L (lamele), S (szkło), L-S (hybryda). Sterowanie SOMFY, ściany i LED ukryte w konstrukcji. Producent z Trzebnicy — montaż: Wrocław i okolice.',
     canonical: 'https://www.zadaszeniatrzebnica.pl/produkty/horizon',
   });
   useProductSchema({

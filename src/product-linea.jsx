@@ -14,7 +14,7 @@ function ProductLinea({ onQuote }) {
   const p = PRODUCTS.LINEA;
   usePageMeta({
     title: 'LINEA — aluminiowa pergola i zadaszenie tarasu | ALUKOMFORT',
-    description: 'ALUKOMFORT LINEA — aluminiowa pergola tarasowa i zadaszenie przyścienne lub samonośne. Dach z poliwęglanu lub szkła ESG/VSG, długość do 10 060 mm. Producent PLAST-MET, Trzebnica.',
+    description: 'ALUKOMFORT LINEA — aluminiowa pergola tarasowa i zadaszenie przyścienne lub samonośne. Dach z poliwęglanu lub szkła ESG/VSG, długość do 10 060 mm. Producent z Trzebnicy — montaż: Wrocław i okolice.',
     canonical: 'https://www.zadaszeniatrzebnica.pl/produkty/linea',
   });
   useProductSchema({

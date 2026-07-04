@@ -15,7 +15,7 @@ function ProductRoma({ onQuote }) {
   const [module, setModule] = React.useState(2); // 4x4
   usePageMeta({
     title: 'ROMA — pergola tkaninowa z roletą rzymską z akrylu | ALUKOMFORT',
-    description: 'ALUKOMFORT ROMA — pergola tkaninowa z poszyciem 100% akryl. Modułowość 3×3, 4×4, 6×4 m, łączliwa. Idealna dla beach barów, restauracji i tarasów domowych.',
+    description: 'ALUKOMFORT ROMA — pergola tkaninowa z poszyciem 100% akryl. Modułowość 3×3, 4×4, 6×4 m, łączliwa. Idealna dla beach barów, restauracji i tarasów domowych. Producent z Trzebnicy — montaż: Wrocław i okolice.',
     canonical: 'https://www.zadaszeniatrzebnica.pl/produkty/roma',
   });
   useProductSchema({

@@ -74,8 +74,8 @@ function Home({ onNavigate, onQuote }) {
     return () => { const s = document.getElementById('faq-schema'); if (s) s.remove(); };
   }, []);
   usePageMeta({
-    title: 'ALUKOMFORT — pergole aluminiowe i zadaszenia tarasów | producent PLAST-MET, Trzebnica',
-    description: 'Producent aluminiowych pergol bioklimatycznych i zadaszeń tarasów. Systemy LINEA, HORIZON, ROMA. Certyfikat TÜV NORD, gwarancja 60 mies., bezpłatna wycena w 24h.',
+    title: 'Pergole i zadaszenia tarasów — Trzebnica, Wrocław | PLAST-MET',
+    description: 'Producent pergoli i aluminiowych zadaszeń tarasów — fabryka w Trzebnicy, 25 minut od Wrocławia. Pomiar, produkcja i montaż. Certyfikat TÜV NORD, wycena w 24 h.',
     canonical: 'https://www.zadaszeniatrzebnica.pl/',
   });
 
@@ -284,6 +284,16 @@ function Home({ onNavigate, onQuote }) {
       </section>
 
       <section className="section section--soft">
+        <div className="container">
+          <SectionHead title="Obszar działania — Wrocław, Trzebnica i okolice"
+            sub="Fabryka i biuro znajdują się w Trzebnicy, 25 minut od Wrocławia. Pomiar, dostawę i montaż realizujemy własnymi ekipami w promieniu ok. 50 km." />
+          <p style={{textAlign: 'center', color: 'var(--muted)', fontSize: 14.5, lineHeight: 2, maxWidth: 760, margin: '0 auto'}}>
+            Wrocław · Trzebnica · Oleśnica · Oborniki Śląskie · Żmigród · Milicz · Wołów · Brzeg Dolny · Środa Śląska · Długołęka
+          </p>
+        </div>
+      </section>
+
+      <section className="section">
         <div className="container">
           <SectionHead title="Najczęstsze pytania"
             sub="Wszystko, co warto wiedzieć przed zamówieniem pergoli — od formalności po eksploatację." />
