@@ -85,7 +85,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260702" />
+<link rel="stylesheet" href="styles.css?v=20260705" />
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="ktFhlD15Sq7ODU1IxoGEBw" async></script>
 
 <!-- Google Analytics 4 -->
@@ -93,6 +93,18 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  // Consent Mode v2 — analityka wyłączona, dopóki użytkownik nie kliknie „Akceptuję"
+  // w banerze cookie (src/cookie-banner.jsx). Wybór trzymamy w localStorage.
+  var akConsent = null;
+  try { akConsent = localStorage.getItem('ak-cookie-consent'); } catch (e) {}
+  gtag('consent', 'default', {
+    analytics_storage: akConsent === 'all' ? 'granted' : 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
   gtag('js', new Date());
   gtag('config', 'G-K9WZX01XHB');
   // Zdarzenia konwersji — bezpieczne wywołanie z komponentów (działa też przy zablokowanym GA)
@@ -127,6 +139,7 @@
 <script type="text/babel" src="src/page-regulamin.jsx"></script>
 <script type="text/babel" src="src/page-realizacje.jsx"></script>
 <script type="text/babel" src="src/page-wroclaw.jsx"></script>
+<script type="text/babel" src="src/cookie-banner.jsx"></script>
 <script type="text/babel" src="src/quote-modal.jsx"></script>
 <script type="text/babel" src="src/app.jsx"></script>
 

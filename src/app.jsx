@@ -135,6 +135,7 @@ function App() {
       {page}
       <Footer onNavigate={navigate} />
       <QuoteModal product={currentProduct} open={quoteOpen} onClose={() => setQuoteOpen(false)} />
+      <CookieBanner />
     </>
   );
 }
