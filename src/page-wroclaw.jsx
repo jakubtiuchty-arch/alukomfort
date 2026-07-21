@@ -195,7 +195,7 @@ function PageWroclaw({ onQuote, onNavigate }) {
           <SectionHead title="Nasze realizacje"
             sub="Montaże u klientów z Dolnego Śląska — zobacz, jak nasze zadaszenia wyglądają na miejscu." />
           <div className="case__thumbs">
-            <a href="/realizacje" onClick={(e)=>go(e,'/realizacje')} className="case__thumb" style={{backgroundImage:'url(uploads/realizacje-web/real_4_1.webp)'}} aria-label="Przeszklony ogród zimowy HORIZON" />
+            <a href="/realizacje" onClick={(e)=>go(e,'/realizacje')} className="case__thumb" style={{backgroundImage:'url(uploads/realizacje-web/real_4_1.webp)'}} aria-label="Przeszklony ogród letni HORIZON" />
             <a href="/realizacje" onClick={(e)=>go(e,'/realizacje')} className="case__thumb" style={{backgroundImage:'url(uploads/realizacje-web/real_3_1.webp)'}} aria-label="Zadaszenie tarasu LINEA z zabudową żaluzjową" />
             <a href="/realizacje" onClick={(e)=>go(e,'/realizacje')} className="case__thumb" style={{backgroundImage:'url(uploads/realizacje-web/real_1_2.webp)'}} aria-label="Zadaszenie tarasu z żaluzjami pionowymi" />
             <a href="/realizacje" onClick={(e)=>go(e,'/realizacje')} className="case__thumb" style={{backgroundImage:'url(uploads/realizacje-web/real_2_4.webp)'}} aria-label="Przeszklony pawilon ogrodowy" />

@@ -4,19 +4,19 @@ const REALIZACJE_CASES = [
   {
     key: 'horizon-ogrod',
     eyebrow: 'REALIZACJA · DOM JEDNORODZINNY',
-    title: 'Przeszklony ogród zimowy przy domu',
-    desc: 'Przyścienny moduł HORIZON w pełnej zabudowie szklanej — elegancki ogród zimowy zintegrowany z bryłą nowoczesnego domu. Smukły antracytowy wieniec kryje całą technologię, a ściany ze szkła przesuwnego otwierają wnętrze na taras i ogród. Całość osadzona na betonowym murku z donicami.',
+    title: 'Przeszklony ogród letni przy domu',
+    desc: 'Przyścienny moduł HORIZON w pełnej zabudowie szklanej — elegancki ogród letni zintegrowany z bryłą nowoczesnego domu. Smukły antracytowy wieniec kryje całą technologię, a ściany ze szkła przesuwnego otwierają wnętrze na taras i ogród. Całość osadzona na betonowym murku z donicami.',
     image: 'uploads/realizacje-web/horizon-ogrod-glowne.webp?v=2',
     meta: [
       { label: 'System',     value: 'HORIZON przyścienny' },
       { label: 'Zabudowa',   value: 'Ściany szklane przesuwne' },
-      { label: 'Forma',      value: 'Zamknięty ogród zimowy' },
+      { label: 'Forma',      value: 'Zamknięty ogród letni' },
       { label: 'Kolor',      value: 'Antracyt' },
     ],
     photos: [
       { src: 'uploads/realizacje-web/real_4_1.webp', alt: 'Przeszklony moduł HORIZON przy domu — narożnik z antracytowym wieńcem' },
       { src: 'uploads/realizacje-web/real_4_2.webp', alt: 'Szklane ściany przesuwne na betonowym murku z donicami — detal' },
-      { src: 'uploads/realizacje-web/real_4_3.webp', alt: 'Ogród zimowy HORIZON zintegrowany z bryłą domu — widok frontalny' },
+      { src: 'uploads/realizacje-web/real_4_3.webp', alt: 'Ogród letni HORIZON zintegrowany z bryłą domu — widok frontalny' },
       { src: 'uploads/realizacje-web/real_4_4.webp', alt: 'Moduł HORIZON przy nowoczesnym domu jednorodzinnym — widok z tarasu' },
     ],
   },
